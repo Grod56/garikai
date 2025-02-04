@@ -1,19 +1,30 @@
-import SiteSection from '../components/SiteSection';
+import SiteSection from '../../components/SiteSection/SiteSection';
 import Content from './Content';
-import ComingSoonBanner from '../components/ComingSoonBanner';
-import SiteSubsection from '../components/SiteSubsection';
-import FlexibleContainer from '../components/FlexibleContainer';
-import Carousel from '../components/Carousel';
-import FocalPost from '../components/FocalPost';
-import NormalPost from '../components/NormalPost';
-import BookPreview from '../components/BookPreview';
-import GridContainer from '../components/GridContainer';
+import ComingSoonBanner from '../../components/ComingSoonBanner/ComingSoonBanner';
+import SiteSubsection from '../../components/SiteSubsection/SiteSubsection';
+import FlexibleContainer from '../../components/FlexibleContainer/FlexibleContainer';
+import Carousel from '../../components/Carousel/Carousel';
+import FocalPost from '../../components/FocalPost/FocalPost';
+import NormalPost from '../../components/NormalPost/NormalPost';
+import BookPreview from '../../components/BookPreview/BookPreview';
+import GridContainer from '../../components/GridContainer/GridContainer';
+import { SiteSectionModel } from '@/app/components/SiteSection/SiteSectionModel';
+import { ComingSoonBannerModel } from '@/app/components/ComingSoonBanner/ComingSoonBannerModel';
+import { CarouselModel } from '@/app/components/Carousel/CarouselModel';
+import { SiteSubsectionModel } from '@/app/components/SiteSubsection/SiteSubsectionModel';
+import { FocalPostModel } from '@/app/components/FocalPost/FocalPostModel';
+import { GridContainerModel } from '@/app/components/GridContainer/GridContainerModel';
+import { NormalPostModel } from '@/app/components/NormalPost/NormalPostModel';
+import { FlexibleContainerModel } from '@/app/components/FlexibleContainer/FlexibleContainerModel';
+import { BookPreviewModel } from '@/app/components/BookPreview/BookPreviewModel';
 
 export default function HomeContent() {
 
     return (
         <Content className={'home'}>
-            <SiteSection sectionTitle={'Bio'} className={'bio'} id={'bio'}>
+            <SiteSection className={'bio'} id={'bio'} siteSectionModel={new SiteSectionModel(
+                'Bio'
+            )}>
                 <p>
                     Welcome! This place is the nexus of all of my interests, hobbies, projects,
                     and professional undertakings. Feel free to check out what interests you.
@@ -36,10 +47,14 @@ export default function HomeContent() {
                 That's it from me, thank you again for stopping by and happy scrolling!
                 </p>
             </SiteSection>
-            <SiteSection sectionTitle={'Portfolio'} className={'portfolio'} id={'portfolio'}>
-                <ComingSoonBanner />
+            <SiteSection className={'portfolio'} id={'portfolio'} siteSectionModel={new SiteSectionModel(
+                'Portfolio'
+            )}>
+                <ComingSoonBanner comingSoonBannerModel={new ComingSoonBannerModel('Coming Soon')} />
             </SiteSection>
-            <SiteSection sectionTitle={'Art'} className={'art'} id={'art'}>
+            <SiteSection className={'art'} id={'art'} siteSectionModel={new SiteSectionModel(
+                'Art'
+            )}>
                 <Carousel>
                     <img className="art-image" src="/resources/images/art/20200301_121452_proc.jpg"/>
                     <img className="art-image" src="/resources/images/art/20170205_141619.jpg"/>
@@ -47,114 +62,146 @@ export default function HomeContent() {
                     <img className="art-image" src="/resources/images/art/IMG_20200108_175637_605.jpg"/>
                 </Carousel>
             </SiteSection>
-            <SiteSection sectionTitle={'Blog'} className={'blog'} id={'blog'}>
-                <SiteSubsection subsectionTitle={'Latest Post'} className={'latest-post'}>
-                    <FocalPost 
-                        imageSource={'resources/images/IMG_20200723_101807_550-EDIT.jpg'}
-                        postTitle={'On the Cosmic Mystery of Jesus Christ'}
-                        postText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?'}
-                        postAuthor={'Garikai Gumbo'}
-                        postDate={'28 December 2024'}
+            <SiteSection className={'blog'} id={'blog'} siteSectionModel={new SiteSectionModel(
+                'Blog'
+            )}>
+                <SiteSubsection siteSubsectionModel={new SiteSubsectionModel('Latest Post')}>
+                    <FocalPost
+                        focalPostModel={new FocalPostModel(
+                            'resources/images/IMG_20200723_101807_550-EDIT.jpg',
+                            'On the Cosmic Mystery of Jesus Christ',
+                            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?',
+                            'Garikai Gumbo',
+                            '28 December 2024'
+                        )}
                     />
                 </SiteSubsection>
-                <SiteSubsection subsectionTitle={'Recent Posts'} className={'recent-posts'}>
-                    <GridContainer maxXorY={3} isHorizontal={true} isOverflow={true}>
+                <SiteSubsection siteSubsectionModel={new SiteSubsectionModel('Recent Posts')}>
+                    <GridContainer gridContainerModel={new GridContainerModel(3, true, true)}>
                         <NormalPost
-                            imageSource={'resources/images/image_1.jpg'}
-                            postTitle={'On the Cosmic Mystery of Jesus Christ'}
-                            postText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?'}
-                            postAuthor={'Garikai Gumbo'}
-                            postDate={'27 December 2024'}
+                            normalPostModel={new NormalPostModel(
+                                'resources/images/image_1.jpg',
+                                'On the Cosmic Mystery of Jesus Christ',
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?',
+                                'Garikai Gumbo',
+                                '24 December 2024'
+                            )}
                         />
                         <NormalPost
-                            imageSource={'resources/images/image_1.jpg'}
-                            postTitle={'On the Cosmic Mystery of Jesus Christ'}
-                            postText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?'}
-                            postAuthor={'Garikai Gumbo'}
-                            postDate={'27 December 2024'}
+                            normalPostModel={new NormalPostModel(
+                                'resources/images/image_1.jpg',
+                                'On the Cosmic Mystery of Jesus Christ',
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?',
+                                'Garikai Gumbo',
+                                '23 December 2024'
+                            )}
                         />
                         <NormalPost
-                            imageSource={'resources/images/image_1.jpg'}
-                            postTitle={'On the Cosmic Mystery of Jesus Christ'}
-                            postText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?'}
-                            postAuthor={'Garikai Gumbo'}
-                            postDate={'27 December 2024'}
+                            normalPostModel={new NormalPostModel(
+                                'resources/images/image_1.jpg',
+                                'On the Cosmic Mystery of Jesus Christ',
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?',
+                                'Garikai Gumbo',
+                                '27 December 2024'
+                            )}
                         />
                     </GridContainer>
                 </SiteSubsection>
-                <SiteSubsection subsectionTitle={'Popular Posts'} className={'popular-posts'}>
-                    <GridContainer maxXorY={3} isHorizontal={true} isOverflow={true}>
+                <SiteSubsection siteSubsectionModel={new SiteSubsectionModel('Popular Posts')}>
+                    <GridContainer gridContainerModel={new GridContainerModel(3, true, true)}>
                         <NormalPost
-                                imageSource={'resources/images/IMG_2337.JPG'}
-                                postTitle={'On the Cosmic Mystery of Jesus Christ'}
-                                postText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?'}
-                                postAuthor={'Garikai Gumbo'}
-                                postDate={'26 December 2024'}
+                            normalPostModel={new NormalPostModel(
+                                'resources/images/IMG_2337.JPG',
+                                'On the Cosmic Mystery of Jesus Christ',
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?',
+                                'Garikai Gumbo',
+                                '26 December 2024'
+                            )}
                         />
                         <NormalPost
-                                imageSource={'resources/images/IMG_2337.JPG'}
-                                postTitle={'On the Cosmic Mystery of Jesus Christ'}
-                                postText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?'}
-                                postAuthor={'Garikai Gumbo'}
-                                postDate={'26 December 2024'}
+                            normalPostModel={new NormalPostModel(
+                                'resources/images/IMG_2337.JPG',
+                                'On the Cosmic Mystery of Jesus Christ',
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?',
+                                'Garikai Gumbo',
+                                '26 December 2024'
+                            )}
                         />
                         <NormalPost
-                                imageSource={'resources/images/IMG_2337.JPG'}
-                                postTitle={'On the Cosmic Mystery of Jesus Christ'}
-                                postText={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?'}
-                                postAuthor={'Garikai Gumbo'}
-                                postDate={'26 December 2024'}
+                            normalPostModel={new NormalPostModel(
+                                'resources/images/IMG_2337.JPG',
+                                'On the Cosmic Mystery of Jesus Christ',
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, dolor alias deleniti ea ipsa perferendis quod facere! Enim expedita unde illo deleniti error vel blanditiis quibusdam soluta a. Molestiae, fugiat! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corrupti ipsum, cumque necessitatibus corporis est odio dolor! Neque necessitatibus rem corporis modi, aspernatur voluptas obcaecati architecto nostrum corrupti voluptates molestiae?',
+                                'Garikai Gumbo',
+                                '26 December 2024'
+                            )}
                         />
                     </GridContainer>
                 </SiteSubsection>
                 <a href="webpages/blog/" className="view-more">View More</a>
             </SiteSection>
-            <SiteSection sectionTitle={'Reading List'} className={'reading-list'} id={'reading-list'}>
+            <SiteSection className={'reading-list'} id={'reading-list'} siteSectionModel={new SiteSectionModel('Reading List')}>
                 <p>A mixed bag of books that have greatly influenced the way I think and books I'm currently reading through. Will probably split these into their appropriate categories for clarity in the near future.</p>
-                <FlexibleContainer>
+                <FlexibleContainer flexibleContainerModel={new FlexibleContainerModel()}>
                     <BookPreview
-                        imageSource={'resources/images/reading-list/onthecosmicmystery.jpg'}
-                        bookTitle={'On the Cosmic Mystery of Jesus Christ'}
-                        bookAuthor={'St. Maximos the Confessor'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/onthecosmicmystery.jpg',
+                            'On the Cosmic Mystery of Jesus Christ',
+                            'St. Maximos the Confessor'
+                        )}
                     />
                     <BookPreview
-                        imageSource={'resources/images/reading-list/manssearch.jpg'}
-                        bookTitle={"Man's Search for Meaning"}
-                        bookAuthor={'Viktor Frankl'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/manssearch.jpg',
+                            "Man's Search for Meaning",
+                            'Viktor Frankl'
+                        )}
                     />
                     <BookPreview
-                        imageSource={'resources/images/reading-list/langofcreation.jpg'}
-                        bookTitle={"The Language of Creation: Cosmic Symbolism in the Book of Genesis"}
-                        bookAuthor={'Matthieu Pageau'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/langofcreation.jpg',
+                            "The Language of Creation: Cosmic Symbolism in the Book of Genesis",
+                            'Matthieu Pageau'
+                        )}
                     />
                     <BookPreview
-                        imageSource={'resources/images/reading-list/lifeofmoses.jpg'}
-                        bookTitle={"The Life of Moses"}
-                        bookAuthor={'St. Gregory of Nyssa'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/lifeofmoses.jpg',
+                            "The Life of Moses",
+                            'St. Gregory of Nyssa'
+                        )}
                     />
                     <BookPreview
-                        imageSource={'resources/images/reading-list/designpatterns.jpg'}
-                        bookTitle={"Design Patterns: Elements of Reusable Object-Oriented Software"}
-                        bookAuthor={'Erich Gamma and more'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/designpatterns.jpg',
+                            "Design Patterns: Elements of Reusable Object-Oriented Software",
+                            'Erich Gamma and more'
+                        )}
                     />
                     <BookPreview
-                        imageSource={'resources/images/reading-list/christianorientalphil.jpg'}
-                        bookTitle={"Christian and Oriental Philosophy of Art"}
-                        bookAuthor={'Ananda K. Coomaraswamy'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/christianorientalphil.jpg',
+                            "Christian and Oriental Philosophy of Art",
+                            'Ananda K. Coomaraswamy'
+                        )}
                     />
                     <BookPreview
-                        imageSource={'resources/images/reading-list/pracelectronics.jpg'}
-                        bookTitle={"Practical Electronics for Inventors"}
-                        bookAuthor={'Paul Scherz, Simon Monk'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/pracelectronics.jpg',
+                            "Practical Electronics for Inventors",
+                            'Paul Scherz, Simon Monk'
+                        )}
                     />
                     <BookPreview
-                        imageSource={'resources/images/reading-list/hymnsonparadise_proc.jpg'}
-                        bookTitle={"Hymns on Paradise"}
-                        bookAuthor={'St. Ephrem the Syrian'}
+                        bookPreviewModel={new BookPreviewModel(
+                            'resources/images/reading-list/hymnsonparadise_proc.jpg',
+                            "Hymns on Paradise",
+                            'St. Ephrem the Syrian'
+                        )}
                     />
                 </FlexibleContainer>
             </SiteSection>
-            <SiteSection sectionTitle={'Contact Details'} className={'contact-details'} id={'contact-details'}>
+            <SiteSection className={'contact-details'} id={'contact-details'} siteSectionModel={new SiteSectionModel('Contact Details')}>
                 <p>
                     For professional inquiries, shoot me an email @ <a href="mailto:providenceuniversalstudios@gmail.com">providenceuniversalstudios@gmail.com</a>. You may also reach out to me on <a href="https://wa.me/263784310140?text=Hello Garikai, I was referred to this number from your website.">Whatsapp</a>.
                     If perhaps something piqued your interest here, or maybe even annoyed you (I take it all in spades 😤 I promise), my personal email is right <a href="mailto:rodneygaryx29@gmail.com">here</a>. The rest of my socials are down in the <a href="#footer">footer</a>.

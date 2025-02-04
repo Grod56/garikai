@@ -3,7 +3,7 @@ import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { Children } from "react";
 
-export default function Caurosel({
+export default function Carousel({
     children
 } : {
     children: React.ReactNode
@@ -12,7 +12,8 @@ export default function Caurosel({
     const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
 
     return (
-        <div className="embla" ref={emblaRef}>
+        //TODO: Sloppy
+        <div className='embla' ref={emblaRef}>
             <div className="embla__container">
                 {
                     Children.map(children, (child) => {
