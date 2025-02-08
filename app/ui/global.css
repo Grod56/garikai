@@ -215,6 +215,16 @@ a {
   text-align: left;
   gap: .5em;
   padding: 1em;
+  overflow-wrap: anywhere;
+}
+
+.image-card-skeleton {
+  flex: 1;
+}
+
+.image-card-skeleton .react-loading-skeleton {
+  display:inline-flex;
+  min-width: 100%;
 }
 
 .post-preview .post-title {

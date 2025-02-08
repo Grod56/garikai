@@ -4,14 +4,16 @@ import { PostPreviewModel } from "../PostPreview/PostPreviewModel";
 
 export class NormalPostModel extends PostPreviewModel {
     constructor(
+        id: string,
         postThumbnailSource: string,
         postTitle: string,
         postText: string,
         postAuthor: string,
-        postDate: string,
+        postDate: Date,
     ) {
         // TODO: Fix the magic input
         super(
+            id,
             postThumbnailSource,
             postTitle,
             postText,

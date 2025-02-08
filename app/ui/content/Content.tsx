@@ -7,7 +7,7 @@ export default function Content({
 }) {
 
     return (
-        <main {...props} className={`content ${props.className ? props.className : ''}`}>
+        <main {...props} className={`content`}>
             {children}
         </main>
     );

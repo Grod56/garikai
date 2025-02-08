@@ -2,16 +2,12 @@ import PostPreview from "../PostPreview/PostPreview";
 import { FocalPostModel } from "./FocalPostModel";
 
 export default function FocalPost({
-    focalPostModel,
-    ...props
+    focalPostModel
 } : {
-    focalPostModel: FocalPostModel,
-    [key: string]: any
+    focalPostModel: FocalPostModel
 }) {
     return (
         <PostPreview
-            {...props}
-            className={focalPostModel.nameOfClass}
             postPreviewModel={focalPostModel}
         />
     );

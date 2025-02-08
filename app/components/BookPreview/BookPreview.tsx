@@ -11,7 +11,7 @@ export default function BookPreview({
     return (
         <ImageCard
             {...props}
-            className={`${bookPreviewModel.nameOfClass} ${props.className ? props.className : ''}`}
+            className={`${bookPreviewModel.nameOfClass}`}
             imageCardModel={bookPreviewModel}
         >
             <h5 className="book-title">{bookPreviewModel.bookTitle}</h5>

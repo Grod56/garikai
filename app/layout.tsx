@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Garikai Rodney Gumbo</title>
+        <title>Garikai Gumbo</title>
       </head>
       <body><div className="page-container">{children}</div></body>
     </html>

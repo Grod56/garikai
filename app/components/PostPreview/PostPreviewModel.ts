@@ -19,19 +19,21 @@ export class PostPreviewModel extends ImageCardModel {
     public get postAuthor(): string {
         return this._postAuthor;
     }
-    private _postDate: string;
-    public get postDate(): string {
+    private _postDate: Date;
+    public get postDate(): Date {
         return this._postDate;
     }
     constructor(
+        id: string,
         postThumbnailSource: string,
         postTitle: string,
         postText: string,
         postAuthor: string,
-        postDate: string,
+        postDate: Date,
         isFlexible: boolean
     ) {
         super(postThumbnailSource, isFlexible);
+        this.id = id;
         this._postTitle = postTitle;
         this._postText = postText;
         this._postAuthor = postAuthor;
@@ -39,4 +41,5 @@ export class PostPreviewModel extends ImageCardModel {
     }
 
     nameOfClass: string = `${this.nameOfClass} ${_NAME_OF_CLASS}`;
+    id: string;
 }

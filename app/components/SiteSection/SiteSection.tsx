@@ -2,15 +2,13 @@ import { SiteSectionModel } from "./SiteSectionModel";
 
 export default function SiteSection({
     siteSectionModel,
-    children,
-    ...props
+    children
 }: {
     siteSectionModel: SiteSectionModel,
-    children: React.ReactNode,
-    [key: string]: any 
+    children: React.ReactNode
 }) {
     return ( 
-        <section {...props} className={`${siteSectionModel.nameOfClass} ${props.className ? props.className : ''}`}>
+        <section className={siteSectionModel.nameOfClass} id={siteSectionModel.id}>
             <div className="section-container">
                 <h3 className="section-title">{siteSectionModel.sectionTitle}</h3>
                 {children}

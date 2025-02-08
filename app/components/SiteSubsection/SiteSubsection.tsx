@@ -10,7 +10,7 @@ export default function SiteSubsection({
     [key: string]: any
 }) {
     return (
-        <div {...props} className={`${siteSubsectionModel.nameOfClass} ${props.className ? props.className : ''}`}>
+        <div {...props} className={`${siteSubsectionModel.nameOfClass}`}>
             <h4 className="subsection-title">{siteSubsectionModel.subsectionTitle}</h4>
             {children}
         </div>
