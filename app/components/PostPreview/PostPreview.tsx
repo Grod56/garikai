@@ -12,7 +12,7 @@ export default function PostPreview({
         >
             <h5 className="post-title">{postPreviewModel.postTitle}</h5>
             <span className="post-text">{postPreviewModel.postText}</span>
-            <span className="post-byline">{postPreviewModel.postAuthor} | {postPreviewModel.postDate.toLocaleDateString()}</span>
+            <span className="post-byline">{postPreviewModel.postAuthor} | {postPreviewModel.postDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric' })}</span>
         </ImageCard>
     );
 }

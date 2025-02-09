@@ -23,7 +23,7 @@ import { ImageCardSkeletonModel } from '@/app/components/ImageCard/ImageCardSkel
 export default function HomeContent(
 
 ) {
-    const [focalPost, latestPosts, popularPosts] = usePostPreviewDAO(
+    const [focalPost, latestPosts] = usePostPreviewDAO(
         new URL("https://www.googleapis.com/blogger/v3/blogs/5898866324901103466/posts?key=AIzaSyAYna19D_n2GTUDrowo0s2MVpm2JTluMK8&fetchImages=true&maxResults=1"),
         new URL("https://www.googleapis.com/blogger/v3/blogs/5898866324901103466/posts?key=AIzaSyAYna19D_n2GTUDrowo0s2MVpm2JTluMK8&fetchImages=true&maxResults=3"),
         new URL("https://www.googleapis.com/blogger/v3/blogs/5898866324901103466/posts?key=AIzaSyAYna19D_n2GTUDrowo0s2MVpm2JTluMK8&fetchImages=true&maxResults=3")
@@ -85,26 +85,14 @@ export default function HomeContent(
                         ? latestPosts.map(
                             (latestPost) => <NormalPost key={latestPost.id} normalPostModel={latestPost} />
                         )
-                        : new Array(1,2,3).map(() =>
+                        : Array(3).fill(1).map(() => // TODO: gridContainer model columns here 
                             <ImageCardSkeleton key={Math.random()} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
                         )
                     }
                     </GridContainer>
                 </SiteSubsection>
-                <SiteSubsection siteSubsectionModel={new SiteSubsectionModel('Popular Posts')}>
-                    <GridContainer gridContainerModel={new GridContainerModel(3, true, true)}>
-                        {
-                            popularPosts
-                            ? popularPosts.map(
-                                (popularPost) => <NormalPost key={popularPost.id} normalPostModel={popularPost} />
-                            )
-                            : new Array(1,2,3).map(() =>
-                                <ImageCardSkeleton key={Math.random()} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
-                            )
-                        }
-                    </GridContainer>
-                </SiteSubsection>
-                <a href="webpages/blog/" className="view-more">View More</a>
+                {/* // TODO: Work to do here again */}
+                <a href="https://garikairodney.blogspot.com" className="view-more">View More</a>
             </SiteSection>
             <SiteSection siteSectionModel={new SiteSectionModel('reading-list','reading-list','Reading List')}>
                 <p>A mixed bag of books that have greatly influenced the way I think and books I'm currently reading through. Will probably split these into their appropriate categories for clarity in the near future.</p>
