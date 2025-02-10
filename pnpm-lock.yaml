@@ -63,8 +63,8 @@ importers:
         specifier: 5.0.0-beta.25
         version: 5.0.0-beta.25(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       node:
-        specifier: 18.17.0
-        version: 18.17.0
+        specifier: 22.13.1
+        version: 22.13.1
       postcss:
         specifier: 8.5.1
         version: 8.5.1
