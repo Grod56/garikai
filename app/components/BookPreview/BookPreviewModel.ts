@@ -4,30 +4,38 @@ const _NAME_OF_CLASS: string = 'book-preview';
 
 export class BookPreviewModel extends ImageCardModel {
     
-    private _bookTitle: string;
-    private _bookAuthor: string;
+    private _title: string;
+    private _author: string;
 
     constructor(
-        bookThumbnailSource: string,
-        bookTitle: string,
-        bookAuthor: string
+        { 
+            thumbnailSource,
+            title,
+            author,
+            id
+        }: { 
+            thumbnailSource: string;
+            title: string;
+            author: string;
+            id: number
+        }
     ) {
         // TODO: clarify this
-        super(bookThumbnailSource, true);
-        this._bookTitle = bookTitle;
-        this._bookAuthor = bookAuthor;
+        super(thumbnailSource, true, id);
+        this._title = title;
+        this._author = author;
     }
 
-    public get bookThumbnailSource(): string {
+    public get thumbnailSource(): string {
         return this.imageSource;
     }
 
-    public get bookTitle(): string {
-        return this._bookTitle;
+    public get title(): string {
+        return this._title;
     }
 
-    public get bookAuthor(): string {
-        return this._bookAuthor;
+    public get author(): string {
+        return this._author;
     }
 
     nameOfClass: string = `${this.nameOfClass} ${_NAME_OF_CLASS}`;

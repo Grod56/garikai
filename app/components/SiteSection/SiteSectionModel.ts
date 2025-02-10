@@ -2,11 +2,12 @@ const _NAME_OF_CLASS: string = 'site-section';
 
 export class SiteSectionModel implements Model {
     private _sectionTitle: string;
-    private _id: string;
 
     public get sectionTitle(): string {
         return this._sectionTitle;
     }
+
+    private _id: string;
 
     public get id(): string {
         return this._id;

@@ -5,7 +5,7 @@ import { NormalPostModel } from "../NormalPost/NormalPostModel";
 import { PostPreviewModel } from "./PostPreviewModel";
 import { removeMarkup } from "@/app/utilities/RemoveMarkup";
 
-export function usePostPreviewDAO(
+export function usePostPreviewRepository(
     focalPostEndPoint: URL,
     latestPostsEndpoint: URL,
     popularPostsEndpoint: URL

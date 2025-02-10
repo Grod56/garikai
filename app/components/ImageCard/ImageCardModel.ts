@@ -2,6 +2,12 @@ const _NAME_OF_CLASS: string = 'image-card';
 
 export class ImageCardModel implements Model {
 
+    private _id: any;
+
+    public get id(): any {
+        return this._id;
+    }
+
     private _imageSource: string;
 
     public get imageSource(): string {
@@ -16,8 +22,10 @@ export class ImageCardModel implements Model {
 
     constructor(
         imageSource: string,
-        isFlexible: boolean 
+        isFlexible: boolean,
+        id: any
     ) {
+        this._id = id;
         this._imageSource = imageSource;
         this._isFlexible = isFlexible;
     }

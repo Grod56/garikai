@@ -221,6 +221,7 @@ a {
 
 .image-card-skeleton {
   flex: 1;
+  min-width: 10em;
 }
 
 .image-card-skeleton .react-loading-skeleton {

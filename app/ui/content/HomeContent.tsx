@@ -16,18 +16,26 @@ import { SiteSubsectionModel } from '@/app/components/SiteSubsection/SiteSubsect
 import { GridContainerModel } from '@/app/components/GridContainer/GridContainerModel';
 import { FlexibleContainerModel } from '@/app/components/FlexibleContainer/FlexibleContainerModel';
 import { BookPreviewModel } from '@/app/components/BookPreview/BookPreviewModel';
-import { usePostPreviewDAO } from '@/app/components/PostPreview/usePostPreviewDAO';
+import { usePostPreviewRepository } from '@/app/components/PostPreview/usePostPreviewRepository';
 import ImageCardSkeleton from '@/app/components/ImageCard/ImageCardSkeleton';
 import { ImageCardSkeletonModel } from '@/app/components/ImageCard/ImageCardSkeletonModel';
+import { useBookPreviewRepository } from '@/app/components/BookPreview/useBookPreviewRepository';
+import { useArtImageRepository } from '@/app/components/ArtImage/useArtImageRepository';
+import { CarouselModel } from '@/app/components/Carousel/CarouselModel';
 
 export default function HomeContent(
 
 ) {
-    const [focalPost, latestPosts] = usePostPreviewDAO(
+    const [focalPost, latestPosts] = usePostPreviewRepository(
         new URL("https://www.googleapis.com/blogger/v3/blogs/5898866324901103466/posts?key=AIzaSyAYna19D_n2GTUDrowo0s2MVpm2JTluMK8&fetchImages=true&maxResults=1"),
         new URL("https://www.googleapis.com/blogger/v3/blogs/5898866324901103466/posts?key=AIzaSyAYna19D_n2GTUDrowo0s2MVpm2JTluMK8&fetchImages=true&maxResults=3"),
         new URL("https://www.googleapis.com/blogger/v3/blogs/5898866324901103466/posts?key=AIzaSyAYna19D_n2GTUDrowo0s2MVpm2JTluMK8&fetchImages=true&maxResults=3")
     )
+
+    const bookPreviews = useBookPreviewRepository();
+    const artImages = useArtImageRepository();
+
+
 
     return (
         <Content className={'home'}>
@@ -62,7 +70,7 @@ export default function HomeContent(
                 'art',
                 'Art'
             )}>
-                <Carousel>
+                <Carousel carouselModel={new CarouselModel()}>
                     <img className="art-image" src="/resources/images/art/20200301_121452_proc.jpg"/>
                     <img className="art-image" src="/resources/images/art/20170205_141619.jpg"/>
                     <img className="art-image" src="/resources/images/art/20180421_175359~2.jpg"/>
@@ -97,62 +105,13 @@ export default function HomeContent(
             <SiteSection siteSectionModel={new SiteSectionModel('reading-list','reading-list','Reading List')}>
                 <p>A mixed bag of books that have greatly influenced the way I think and books I'm currently reading through. Will probably split these into their appropriate categories for clarity in the near future.</p>
                 <FlexibleContainer flexibleContainerModel={new FlexibleContainerModel()}>
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/onthecosmicmystery.jpg',
-                            'On the Cosmic Mystery of Jesus Christ',
-                            'St. Maximos the Confessor'
-                        )}
-                    />
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/manssearch.jpg',
-                            "Man's Search for Meaning",
-                            'Viktor Frankl'
-                        )}
-                    />
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/langofcreation.jpg',
-                            "The Language of Creation: Cosmic Symbolism in the Book of Genesis",
-                            'Matthieu Pageau'
-                        )}
-                    />
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/lifeofmoses.jpg',
-                            "The Life of Moses",
-                            'St. Gregory of Nyssa'
-                        )}
-                    />
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/designpatterns.jpg',
-                            "Design Patterns: Elements of Reusable Object-Oriented Software",
-                            'Erich Gamma and more'
-                        )}
-                    />
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/christianorientalphil.jpg',
-                            "Christian and Oriental Philosophy of Art",
-                            'Ananda K. Coomaraswamy'
-                        )}
-                    />
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/pracelectronics.jpg',
-                            "Practical Electronics for Inventors",
-                            'Paul Scherz, Simon Monk'
-                        )}
-                    />
-                    <BookPreview
-                        bookPreviewModel={new BookPreviewModel(
-                            '/resources/images/reading-list/hymnsonparadise_proc.jpg',
-                            "Hymns on Paradise",
-                            'St. Ephrem the Syrian'
-                        )}
-                    />
+                    {
+                        bookPreviews
+                        ? bookPreviews.map((bookPreview) => <BookPreview key={bookPreview.id} bookPreviewModel={bookPreview} />)
+                        : Array(6).fill(1).map(() => // TODO: gridContainer model columns here 
+                            <ImageCardSkeleton key={Math.random()} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
+                        )
+                    }
                 </FlexibleContainer>
             </SiteSection>
             <SiteSection siteSectionModel={new SiteSectionModel(

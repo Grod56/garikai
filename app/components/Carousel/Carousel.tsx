@@ -1,11 +1,13 @@
-'use client'
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { Children } from "react";
+import { CarouselModel } from "./CarouselModel";
 
 export default function Carousel({
+    carouselModel,
     children
 } : {
+    carouselModel: CarouselModel,
     children: React.ReactNode
 }) {
 
@@ -13,7 +15,7 @@ export default function Carousel({
 
     return (
         //TODO: Sloppy
-        <div className='embla' ref={emblaRef}>
+        <div className={carouselModel.nameOfClass} ref={emblaRef} id={carouselModel.id}>
             <div className="embla__container">
                 {
                     Children.map(children, (child) => {

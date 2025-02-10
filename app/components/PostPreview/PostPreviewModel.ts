@@ -4,9 +4,11 @@ import { ImageCardModel } from "../ImageCard/ImageCardModel";
 
 export class PostPreviewModel extends ImageCardModel {
 
+    
     public get postThumbnailSource(): string {
         return this.imageSource;
     }
+
     private _postTitle: string;
     public get postTitle(): string {
         return this._postTitle;
@@ -32,8 +34,7 @@ export class PostPreviewModel extends ImageCardModel {
         postDate: Date,
         isFlexible: boolean
     ) {
-        super(postThumbnailSource, isFlexible);
-        this.id = id;
+        super(postThumbnailSource, isFlexible, id);
         this._postTitle = postTitle;
         this._postText = postText;
         this._postAuthor = postAuthor;
@@ -41,5 +42,4 @@ export class PostPreviewModel extends ImageCardModel {
     }
 
     nameOfClass: string = `${this.nameOfClass} ${_NAME_OF_CLASS}`;
-    id: string;
 }

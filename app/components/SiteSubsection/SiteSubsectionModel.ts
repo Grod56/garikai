@@ -6,6 +6,12 @@ export class SiteSubsectionModel implements Model {
         return this._subsectionTitle;
     }
 
+    private _id: any;
+
+    public get id(): any {
+        return this._id;
+    }
+
     constructor(subsectionTitle: string) {
         this._subsectionTitle = subsectionTitle;
     }

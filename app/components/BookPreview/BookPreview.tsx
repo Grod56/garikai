@@ -2,20 +2,17 @@ import ImageCard from "../ImageCard/ImageCard";
 import { BookPreviewModel } from "./BookPreviewModel";
 
 export default function BookPreview({
-    bookPreviewModel,
-    ...props
+    bookPreviewModel
 } : {
-    bookPreviewModel: BookPreviewModel,
-    [key: string]: any
+    bookPreviewModel: BookPreviewModel
 }) {
     return (
         <ImageCard
-            {...props}
             className={`${bookPreviewModel.nameOfClass}`}
             imageCardModel={bookPreviewModel}
         >
-            <h5 className="book-title">{bookPreviewModel.bookTitle}</h5>
-            <span className="book-author">{bookPreviewModel.bookAuthor}</span>
+            <h5 className="book-title">{bookPreviewModel.title}</h5>
+            <span className="book-author">{bookPreviewModel.author}</span>
         </ImageCard>
 
     )
