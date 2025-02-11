@@ -9,24 +9,24 @@ export class BookPreviewModel extends ImageCardModel {
 
     constructor(
         { 
-            thumbnailSource,
+            thumbnailSourceURL,
             title,
             author,
             id
         }: { 
-            thumbnailSource: string;
+            thumbnailSourceURL: string;
             title: string;
             author: string;
             id: number
         }
     ) {
         // TODO: clarify this
-        super(thumbnailSource, true, id);
+        super(thumbnailSourceURL, true, id);
         this._title = title;
         this._author = author;
     }
 
-    public get thumbnailSource(): string {
+    public get thumbnailSourceURL(): string {
         return this.imageSource;
     }
 

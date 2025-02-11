@@ -8,7 +8,7 @@ export default function ArtImage({
 }) {
     return <Image 
         className={artImageModel.nameOfClass} 
-        src={artImageModel.imageSource} 
+        src={artImageModel.imageSourceURL} 
         alt={artImageModel.imageTitle}
     />
 }

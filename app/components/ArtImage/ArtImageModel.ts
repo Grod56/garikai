@@ -2,10 +2,10 @@ const _NAME_OF_CLASS: string = "art-image";
 
 export class ArtImageModel implements Model {
 
-    private _imageSource: string;
+    private _imageSourceURL: string;
 
-    public get imageSource(): string {
-        return this._imageSource;
+    public get imageSourceURL(): string {
+        return this._imageSourceURL;
     }
 
     private _imageTitle: string;
@@ -22,15 +22,15 @@ export class ArtImageModel implements Model {
 
     constructor({
         id,
-        imageSource,
+        imageSourceURL,
         imageTitle
     } : {
         id: any,
-        imageSource: string,
+        imageSourceURL: string,
         imageTitle: string
     }) {
         this._id = id;
-        this._imageSource = imageSource;
+        this._imageSourceURL = imageSourceURL;
         this._imageTitle = imageTitle;
     }
 

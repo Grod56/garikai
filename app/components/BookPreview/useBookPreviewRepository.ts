@@ -1,7 +1,6 @@
-'use client'
 import { useEffect, useState } from "react";
 import { BookPreviewModel } from "./BookPreviewModel";
-import { createPool } from "@vercel/postgres";
+import supabase from '../../utilities/supabase'
 
 export function useBookPreviewRepository() {
 
@@ -9,12 +8,17 @@ export function useBookPreviewRepository() {
 
     async function retrieveAll(): Promise<BookPreviewModel[]> {
         try {
-            console.log(process.env.NEXT_PUBLIC_POSTGRES_URL);
-            const pool = createPool({connectionString: process.env.NEXT_PUBLIC_POSTGRES_URL});
-            const data = await pool.query<BookPreviewModel>('SELECT * FROM BookPreview').then(
-                (results) => results.rows
-            );
-            return data;
+            
+            const { data } = await supabase.from('BookPreview').select('*')
+            if (data) {
+                return data.map((record) => new BookPreviewModel({
+                    id: record.id,
+                    title: record.title,
+                    author: record.author,
+                    thumbnailSourceURL: record.thumbnailSourceURL 
+                }));
+            }
+            throw new Error("Supabase query returned a null value I don't yet know wtf means")
         } catch(error) {
             throw new Error(`Failed to fetch Book Preview data. ${error}`);
         }

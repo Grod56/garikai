@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArtImageModel } from "./ArtImageModel";
-import { createPool } from "@vercel/postgres";
+import supabase from '../../utilities/supabase'
 
 export function useArtImageRepository() {
 
@@ -8,11 +8,15 @@ export function useArtImageRepository() {
 
     async function retrieveAll(): Promise<ArtImageModel[]> {
         try {
-            const pool = createPool({connectionString: process.env.NEXT_PUBLIC_POSTGRES_URL});
-            const data = await pool.query<ArtImageModel>('SELECT * FROM ArtImage').then(
-                (results) => results.rows
-            );
-            return data;
+            const { data } = await supabase.from('Art').select('*')
+            if (data) {
+                return data.map((record) => new ArtImageModel({
+                    id: record.id,
+                    imageTitle: record.title,
+                    imageSourceURL: record.sourceURL 
+                }));
+            }
+            throw new Error("Supabase query returned a null value I don't yet know wtf means")
         } catch(error) {
             throw new Error(`Failed to fetch Art Image data. ${error}`);
         }

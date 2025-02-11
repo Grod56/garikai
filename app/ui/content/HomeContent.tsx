@@ -33,7 +33,7 @@ export default function HomeContent(
     )
 
     const bookPreviews = useBookPreviewRepository();
-    const artImages = useArtImageRepository();
+    // const artImages = useArtImageRepository();
 
 
 
