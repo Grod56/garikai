@@ -15,13 +15,13 @@ import { ComingSoonBannerModel } from '@/app/components/ComingSoonBanner/ComingS
 import { SiteSubsectionModel } from '@/app/components/SiteSubsection/SiteSubsectionModel';
 import { GridContainerModel } from '@/app/components/GridContainer/GridContainerModel';
 import { FlexibleContainerModel } from '@/app/components/FlexibleContainer/FlexibleContainerModel';
-import { BookPreviewModel } from '@/app/components/BookPreview/BookPreviewModel';
 import { usePostPreviewRepository } from '@/app/components/PostPreview/usePostPreviewRepository';
 import ImageCardSkeleton from '@/app/components/ImageCard/ImageCardSkeleton';
 import { ImageCardSkeletonModel } from '@/app/components/ImageCard/ImageCardSkeletonModel';
 import { useBookPreviewRepository } from '@/app/components/BookPreview/useBookPreviewRepository';
 import { useArtImageRepository } from '@/app/components/ArtImage/useArtImageRepository';
 import { CarouselModel } from '@/app/components/Carousel/CarouselModel';
+import ArtImage from '@/app/components/ArtImage/ArtImage';
 
 export default function HomeContent(
 
@@ -33,9 +33,7 @@ export default function HomeContent(
     )
 
     const bookPreviews = useBookPreviewRepository();
-    // const artImages = useArtImageRepository();
-
-
+    const artImages = useArtImageRepository();
 
     return (
         <Content className={'home'}>
@@ -71,10 +69,13 @@ export default function HomeContent(
                 'Art'
             )}>
                 <Carousel carouselModel={new CarouselModel()}>
-                    <img className="art-image" src="/resources/images/art/20200301_121452_proc.jpg"/>
-                    <img className="art-image" src="/resources/images/art/20170205_141619.jpg"/>
-                    <img className="art-image" src="/resources/images/art/20180421_175359~2.jpg"/>
-                    <img className="art-image" src="/resources/images/art/IMG_20200108_175637_605.jpg"/>
+                    {
+                        artImages
+                        ? artImages.map((artImage) => <ArtImage key={artImage.id} artImageModel={artImage} />)
+                        : Array(6).fill(1).map((_, index) => // TODO: gridContainer model columns here 
+                            <ImageCardSkeleton key={index} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
+                        )
+                    }
                 </Carousel>
             </SiteSection>
             <SiteSection siteSectionModel={new SiteSectionModel('blog','blog','Blog')}>
@@ -93,8 +94,8 @@ export default function HomeContent(
                         ? latestPosts.map(
                             (latestPost) => <NormalPost key={latestPost.id} normalPostModel={latestPost} />
                         )
-                        : Array(3).fill(1).map(() => // TODO: gridContainer model columns here 
-                            <ImageCardSkeleton key={Math.random()} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
+                        : Array(3).fill(1).map((_, index) => // TODO: gridContainer model columns here 
+                            <ImageCardSkeleton key={index} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
                         )
                     }
                     </GridContainer>
@@ -108,8 +109,8 @@ export default function HomeContent(
                     {
                         bookPreviews
                         ? bookPreviews.map((bookPreview) => <BookPreview key={bookPreview.id} bookPreviewModel={bookPreview} />)
-                        : Array(6).fill(1).map(() => // TODO: gridContainer model columns here 
-                            <ImageCardSkeleton key={Math.random()} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
+                        : Array(6).fill(1).map((_, index) => // TODO: gridContainer model columns here 
+                            <ImageCardSkeleton key={index} imageCardSkeletonModel={new ImageCardSkeletonModel()} />
                         )
                     }
                 </FlexibleContainer>

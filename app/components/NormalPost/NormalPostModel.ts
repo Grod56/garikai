@@ -4,23 +4,27 @@ import { PostPreviewModel } from "../PostPreview/PostPreviewModel";
 
 export class NormalPostModel extends PostPreviewModel {
     constructor(
-        id: string,
-        postThumbnailSource: string,
-        postTitle: string,
-        postText: string,
-        postAuthor: string,
-        postDate: Date,
-    ) {
-        // TODO: Fix the magic input
-        super(
+        { 
             id,
+            postURL,
             postThumbnailSource,
             postTitle,
             postText,
             postAuthor,
-            postDate,
-            false
-        );
+            postDate 
+        }: { 
+            id: string;
+            postURL: URL;
+            postThumbnailSource: string;
+            postTitle: string;
+            postText: string;
+            postAuthor: string;
+            postDate: Date;
+        }
+    ) {
+        // TODO: Fix the magic input
+        super(
+            { id, postURL, postThumbnailSource, postTitle, postText, postAuthor, postDate, isFlexible: false }        );
     }
 
     nameOfClass: string = `${this.nameOfClass} ${_NAME_OF_CLASS}`;

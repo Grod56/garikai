@@ -25,20 +25,39 @@ export class PostPreviewModel extends ImageCardModel {
     public get postDate(): Date {
         return this._postDate;
     }
+
+    private _postURL: URL;
+    public get postURL(): URL {
+        return this._postURL;
+    }
+    
     constructor(
-        id: string,
-        postThumbnailSource: string,
-        postTitle: string,
-        postText: string,
-        postAuthor: string,
-        postDate: Date,
-        isFlexible: boolean
-    ) {
+        { 
+            id,
+            postURL,
+            postThumbnailSource,
+            postTitle,
+            postText, 
+            postAuthor,
+            postDate,
+            isFlexible
+        }: {
+            id: string;
+            postURL: URL;
+            postThumbnailSource: string;
+            postTitle: string;
+            postText: string;
+            postAuthor: string;
+            postDate: Date;
+            isFlexible: boolean;
+
+        }    ) {
         super(postThumbnailSource, isFlexible, id);
         this._postTitle = postTitle;
         this._postText = postText;
         this._postAuthor = postAuthor;
         this._postDate = postDate;
+        this._postURL = postURL;
     }
 
     nameOfClass: string = `${this.nameOfClass} ${_NAME_OF_CLASS}`;

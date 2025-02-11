@@ -219,6 +219,10 @@ a {
   overflow-wrap: anywhere;
 }
 
+.image-card .card-details {
+  flex: 1;
+}
+
 .image-card-skeleton {
   flex: 1;
   min-width: 10em;
@@ -236,6 +240,10 @@ a {
 
 .post-preview .post-byline {
   color: var(--color-2);
+}
+
+.post-preview:hover {
+  transition: .2s;
 }
 
 .image-card.focal-post .card-thumbnail {
@@ -262,7 +270,12 @@ a {
   font-size: 1.3rem;
 }
 
+.post-preview.focal-post:hover {
+  transform: scale(1.02);
+}
+
 .normal-post {
+  min-height: 100%;
   max-height: inherit;
   min-width: 50vw;
 }
@@ -283,6 +296,10 @@ a {
 
 .post-preview.normal-post .post-byline {
   font-size: 1.3rem;
+}
+
+.post-preview.normal-post:hover {
+  transform: scale(1.04);
 }
 
 .grid-container {

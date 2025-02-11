@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ArtImageModel } from "./ArtImageModel";
 
 export default function ArtImage({
@@ -6,7 +5,7 @@ export default function ArtImage({
 } : {
     artImageModel: ArtImageModel
 }) {
-    return <Image 
+    return <img
         className={artImageModel.nameOfClass} 
         src={artImageModel.imageSourceURL} 
         alt={artImageModel.imageTitle}
