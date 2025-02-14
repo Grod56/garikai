@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<svg width="435" height="482" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.0">
+
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="layer1" opacity="0.4">
+   <g id="g7542">
+    <path d="m262.5,241.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1933" stroke="#00080a"/>
+    <path d="m262.5,335.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1961" stroke="#00080a"/>
+    <path d="m262.5,147.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1967" stroke="#00080a"/>
+    <path d="m180.5,194.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1971" stroke="#00080a"/>
+    <path d="m344.5,194.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1973" stroke="#00080a"/>
+    <path d="m180.5,288.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1979" stroke="#00080a"/>
+    <path d="m344.5,288.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1981" stroke="#00080a"/>
+    <path d="m262.5,429.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1963" stroke="#00080a"/>
+    <path d="m262.5,53.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1965" stroke="#00080a"/>
+    <path d="m98.5,147.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1969" stroke="#00080a"/>
+    <path d="m426.5,147.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1975" stroke="#00080a"/>
+    <path d="m98.5,335.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1977" stroke="#00080a"/>
+    <path d="m426.5,335.5a47,47 0 1 1 -94,0a47,47 0 1 1 94,0z" fill="none" id="path1983" stroke="#00080a"/>
+   </g>
+   <g id="g7557">
+    <path d="m215.5,53.5l164,94l0,188l-164,94l-164,-94l0,-188l164,-94z" fill="none" id="path2886" stroke="#00080a"/>
+    <path d="m215.5,53.5l-164,282l328,0l-164,-282z" fill="none" id="path2888" stroke="#00080a"/>
+    <path d="m51.5,147.5l164,282l164,-282l-328,0z" fill="none" id="path2890" stroke="#00080a"/>
+    <path d="m215.5,147.5l-82,47l0,94l82,47l82,-47l0,-94l-82,-47z" fill="none" id="path2892" stroke="#00080a"/>
+    <path d="m133.5,288.5l82,-235l82,235l-164,0z" fill="none" id="path2894" stroke="#00080a"/>
+    <path d="m215.5,429.5l-82,-235l164,0l-82,235z" fill="none" id="path2896" stroke="#00080a"/>
+    <path d="m51.5,147.5l328,188" fill="none" id="path2898" stroke="#00080a"/>
+    <path d="m51.5,335.5l328,-188" fill="none" id="path2900" stroke="#00080a"/>
+    <path d="m215.5,53.5l0,376" fill="none" id="path2902" stroke="#00080a"/>
+    <path d="m51.5,335.5l164,-188l82,141l-246,47z" fill="none" id="path2904" stroke="#00080a"/>
+    <path d="m379.5,335.5l-164,-188l-82,141l246,47z" fill="none" id="path2906" stroke="#00080a"/>
+    <path d="m379.5,147.5l-246,47l82,141l164,-188z" fill="none" id="path2908" stroke="#00080a"/>
+    <path d="m51.5,147.5l164,188l82,-141l-246,-47z" fill="none" id="path2910" stroke="#00080a"/>
+   </g>
+  </g>
+ </g>
+</svg>

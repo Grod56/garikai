@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import '@/app/ui/global.css';
+import '@/app/global.css';
 import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
 
 export default function RootLayout({
