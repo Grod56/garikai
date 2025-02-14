@@ -110,35 +110,38 @@ a {
   overflow-x: hidden;
 }
 
-.site-section {
-  display: flex;
-  flex-direction: column;
-  padding-top: 3em;
-  padding-inline: 1.5em;
-}
-
-.section-container {
+.site-section .content-layer {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  padding-block: 3em;
+  padding-inline: 1.5em;
 }
 
-.site-section:first-child {
+/* TODO: Consider fixing */
+.site-section.bio .content-layer {
   padding-top: 4em;
 }
 
-.site-section:after {
+.site-section hr {
+  margin-block: 0;
+  margin-inline: auto;
+}
+
+/* .site-section:after {
+  display: block;
   width: 90%; 
   height: 1px; 
   background: var(--a-color-1);
   content: "";
   margin-top: 2.5em;
   margin-inline: auto;
-}
+} */
 
-.site-section:last-child {
+/* TODO: Needs fixing */
+/* .site-section:last-child {
   padding-bottom: 4em;
-}
+} */
 
 .site-section:last-child::after {
   content: none;
@@ -352,8 +355,8 @@ a {
 }
 
 hr {
-  width: 75%;
-  border-top: 1px solid var(--a-color-1);
+  width: 75vw;
+  border-top: 1px solid var(--color-1);
 }
 
 .copyright {
@@ -371,21 +374,21 @@ hr {
   color: var(--color-1);
 }
 
-.site-section.bio {
+.site-section.bio .background-layer {
   background: url(/resources/images/bio.png);
-  background-size: 45%;
+  background-size: 40%;
   background-repeat: no-repeat;
   background-position: top right;
 }
 
-.site-section.portfolio {
+.site-section.portfolio .background-layer {
   background: url(/resources/images/ratio.png);
   background-size: cover;
   background-position: bottom right;
   background-repeat: no-repeat;
 }
 
-.site-section.art {
+.site-section.art .background-layer{
   overflow: hidden;
   background-color: var(--color-1);
   background-image: url(/resources/images/Abstract-Flower-Like-Shape_bg_light_2.png);
@@ -398,32 +401,32 @@ hr {
   color: var(--color-3);
 }
 
-.site-section.blog {
+.site-section.blog .background-layer{
   background-image: url(/resources/images/Abstract-Flower-Like-Shape_bg_dark_2.png);
   background-position: top left;
   background-repeat: no-repeat;
 }
 
-.site-section.blog .section-container {
+.site-section.blog .content-layer {
   display: flex;
   flex-direction: column;
   gap: 2em;
 }
 
-.site-section.reading-list {
+.site-section.reading-list .background-layer {
   background: url(/resources/images/Axonometric_cubes_c_pmm.svg);
   background-position: bottom right;
   background-repeat: no-repeat;
   background-size: cover
 }
-
-.site-section.reading-list .section-container {
+/* 
+.site-section.reading-list .content-layer {
   max-width: 100%;
 }
 
 .site-section.reading-list p {
   max-width: 100%;
-}
+} */
 
 .embla {
   margin-inline: auto;
@@ -461,16 +464,19 @@ hr {
 }
 
 @media (min-width: 768px) {
-  .site-section {
-      padding-inline: 3em;
-  }
-  .site-section:after {
+  /* .site-section:after {
       width: 75%;
       margin-inline: 0;
-  }
-  .section-container {
+  } */
+  .site-section .content-layer {
       text-align: justify;
+      padding-left: 3em;
+      padding-right: 0;
       max-width: 70vw;
+  }
+  .site-section hr {
+    width: 70vw;
+    margin-left: 3em;
   }
   .image-card.flexible {
     flex-direction: row;
@@ -495,26 +501,20 @@ hr {
       max-width: 33vw;
       max-height: 11em;
   }
-  .site-section.bio {
-      background-size: 30%
+  .site-section.bio .background-layer {
+      background-size: 22%
   }
-  .site-section.portfolio {
-    background-attachment: fixed;
+  .site-section.portfolio .background-layer {
+    background-size: 33em;
   }
-  .site-section.art {
+  .site-section.art .background-layer {
       background-size: 50%;
   }
-  .site-section.blog {
+  .site-section.blog .background-layer {
       background-size: 50%;
   }
-  .site-section.reading-list {
+  .site-section.reading-list .background-layer {
       background-size: 55%;
-  }
-  .site-section.reading-list .section-container {
-      max-width: 70vw;
-  }
-  .section-container .reading-list {
-      max-width: 100%;
   }
   .flexible-container>* {
     flex: unset;

@@ -46,15 +46,12 @@ export default function Home(
                 </p>
                 <p>
                     My name is Garikai Rodney Gumbo, I'm an Electrical Engineering student by day,
-                    and a software coder by night (weird way of putting it, but okay).
-                    Besides these areas of <i>expertise</i>, I am also interested in
+                    and a software coder by night. Besides these areas of <i>expertise</i>, I am also interested in
                     pencil drawing, cursive calligraphy, classical literature, biblical symbolism,
-                    Orthodox iconography, patristics ... among other things. My musical favorites
-                    span everything from sacred choral music to random amapiano, pop and phonk beats
-                    I find on Tiktok, so that's as much detail as I'll go into with that (more the
-                    former than the latter, for better or for worse).</p>
+                    Orthodox iconography, patristics... among other things.
+                </p>
                 <p>
-                    You may check out what else I'm working on or currently studying in detail from my <a href="#reading-list">reading list</a>. If I stumble upon something particularly
+                    You may check out what else I'm thinking about or currently studying in detail from my <a href="#reading-list">reading list</a>. If I stumble upon something particularly
                     interesting, insightful, or compelling, I'll probably jot something down on it on my <a href="">blog</a>.</p>
                 <p>
                 That's it from me, thank you again for stopping by and happy scrolling!
@@ -104,7 +101,7 @@ export default function Home(
                 <a href="https://garikairodney.blogspot.com" className="view-more">View More</a>
             </SiteSection>
             <SiteSection siteSectionModel={new SiteSectionModel('reading-list','reading-list','Reading List')}>
-                <p>A mixed bag of books that have greatly influenced the way I think and books I'm currently reading through. Will probably split these into their appropriate categories for clarity in the near future.</p>
+                <p>Collection of material that has greatly influenced the way I think—together with stuff I'm currently working on. Will probably split these into their appropriate categories for clarity in the near future.</p>
                 <GridContainer gridContainerModel={new GridContainerModel(2, true, false)}>
                     {
                         bookPreviews
@@ -115,14 +112,17 @@ export default function Home(
                     }
                 </GridContainer>
             </SiteSection>
-            <SiteSection siteSectionModel={new SiteSectionModel(
-                'contact-details',
-                'contact-details',
-                'Contact Details'
-            )}>
+            <SiteSection
+                siteSectionModel={new SiteSectionModel(
+                    'contact-details',
+                    'contact-details',
+                    'Contact Details'
+                )}
+                bottomRule={false}
+            >
                 <p>
                     For professional inquiries, shoot me an email @ <a href="mailto:providenceuniversalstudios@gmail.com">providenceuniversalstudios@gmail.com</a>. You may also reach out to me on <a href="https://wa.me/263784310140?text=Hello Garikai, I was referred to this number from your website.">Whatsapp</a>.
-                    If perhaps something piqued your interest here, or maybe even annoyed you (I take it all in spades 😤 I promise), my personal email is right <a href="mailto:rodneygaryx29@gmail.com">here</a>. The rest of my socials are down in the <a href="#footer">footer</a>.
+                    If perhaps something piqued your interest here, or maybe even annoyed you (I take it all in spades I promise 😤), my personal email is right <a href="mailto:rodneygaryx29@gmail.com">here</a>. The rest of my socials are down in the <a href="#footer">footer</a>.
                 </p>
             </SiteSection>
         </Content>
