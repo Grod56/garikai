@@ -1,16 +1,12 @@
-import Footer from "./ui/page-container/footer/Footer";
-import Header from "./ui/page-container/header/Header";
-import Navbar from "./ui/page-container/navbar/Navbar";
-import Home from "./ui/page-container/page-content/view/Home";
+import Home from "./ui/sections/main/views/Home";
+import { Metadata } from "next/types";
 
+export const metadata: Metadata = {
+  title: 'Home',
+}
 
 export default function Page() {
     return (
-      <>
-        <Header headerTitle={"Hello. I am Garikai."} headerSubtitle={'And this is my Website'} />
-        <Navbar />
-        <Home />
-        <Footer />
-      </>
+      <Home />
     );
 }
