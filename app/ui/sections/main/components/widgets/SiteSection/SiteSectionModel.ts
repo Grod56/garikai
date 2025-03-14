@@ -1,28 +1,36 @@
-const _NAME_OF_CLASS: string = 'site-section';
+import { ClassName, ModelInstance, ModelInstantiator } from "@/app/ui/Model";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "@/app/ui/ModelIncarnation";
 
-export class SiteSectionModel implements Model {
-    private _sectionTitle: string;
+export const CLASS_NAME = 'site-section';
 
-    public get sectionTitle(): string {
-        return this._sectionTitle;
+export interface SiteSectionModelInstance extends ModelInstance {
+    readonly siteSectionModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    readonly name: string;
+    readonly sectionTitle: string;
+}
+
+export interface SiteSectionModelInstantiator extends ModelInstantiator {
+    instantiate(id: string, name: string, sectionTitle: string): SiteSectionModelInstance;
+}
+
+export abstract class SiteSectionModelInstanceIncarnation extends ModelInstanceIncarnation implements SiteSectionModelInstance {
+    constructor(id: string, readonly name: string, readonly sectionTitle: string) {
+        super(id);
+        this.siteSectionModelInstanceClassName = { getClassNameString: CLASS_NAME };
     }
+    readonly siteSectionModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+}
 
-    private _id: string;
+export abstract class SiteSectionModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements SiteSectionModelInstantiator {
+    abstract instantiate(id: string, name: string, sectionTitle: string): SiteSectionModelInstanceIncarnation;
+}
 
-    public get id(): string {
-        return this._id;
+class _SiteSectionModelInstanceIncarnationImplementation extends SiteSectionModelInstanceIncarnation {
+    constructor(id: string, name: string, sectionTitle: string){ super(id, name, sectionTitle) }
+}
+
+export class SiteSectionModelInstantiatorIncarnationImplementation extends SiteSectionModelInstantiatorIncarnation {
+    instantiate(id: string, name: string, sectionTitle: string): SiteSectionModelInstanceIncarnation {
+        return new _SiteSectionModelInstanceIncarnationImplementation(id, name, sectionTitle);
     }
-
-    private _nameOfClass: string;
-
-    constructor(className: string, id: string, sectionTitle: string) {
-        this._sectionTitle = sectionTitle;
-        this._nameOfClass = className;
-        this._id = id;
-    }
-
-    public get nameOfClass(): string {
-        return `${_NAME_OF_CLASS} ${this._nameOfClass}`
-    }
-    
 }

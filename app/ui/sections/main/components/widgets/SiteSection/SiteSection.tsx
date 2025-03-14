@@ -1,19 +1,23 @@
-import { SiteSectionModel } from "./SiteSectionModel";
+import { SiteSectionModelInstance } from "./SiteSectionModel";
 
 export default function SiteSection({
-    siteSectionModel,
+    siteSectionModelInstance,
     bottomRule = true,
     children
 }: {
-    siteSectionModel: SiteSectionModel,
-    bottomRule?: boolean,
+    siteSectionModelInstance: SiteSectionModelInstance,
+    bottomRule?: boolean, // TODO: To be fixed
     children: React.ReactNode
 }) {
     return ( 
-        <section className={siteSectionModel.nameOfClass} id={siteSectionModel.id}>
+        <section 
+            className={siteSectionModelInstance.compositeClassNameString}
+            id={siteSectionModelInstance.id}
+            data-name={siteSectionModelInstance.name}
+        >
             <div className="background-layer">
                 <div className="content-layer">
-                    <h3 className="section-title">{siteSectionModel.sectionTitle}</h3>
+                    <h3 className="section-title">{siteSectionModelInstance.sectionTitle}</h3>
                     {children}
                 </div>
                 {bottomRule ? <hr /> : <></>}

@@ -1,32 +1,42 @@
-import { ImageCardModel } from "../ImageCardModel";
+import { ClassName } from "@/app/ui/Model";
+import { ImageCardModelInstance, ImageCardModelInstanceIncarnation, ImageCardModelInstantiator } from "../ImageCardModel";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "@/app/ui/ModelIncarnation";
 
-const _NAME_OF_CLASS: string = 'linked-image-card'
+const CLASS_NAME = 'linked-image-card';
 
-export class LinkedImageCardModel extends ImageCardModel {
+export interface LinkedImageCardModelInstance extends ImageCardModelInstance {
+    readonly linkedImageCardModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    readonly linkURLString: string;
+}
 
-    private _linkURL: URL;
+export interface LinkedImageCardModelInstantiator extends ImageCardModelInstantiator {
+    instantiate(id: string, imageSource: string, isFlexible: boolean, linkURL: URL): LinkedImageCardModelInstance;
+}
+
+export abstract class LinkedImageCardModelInstanceIncarnation extends ImageCardModelInstanceIncarnation {
+    constructor(id: string, imageSource: string, isFlexible: boolean, readonly linkURL: URL) {
+        super(id, imageSource, isFlexible);
+        this.linkedImageCardModelInstanceClassName = { getClassNameString: CLASS_NAME }
+    }
+    linkedImageCardModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    get linkURLString(): string {
+        return this.linkURL.href;
+    }
+}
+
+export abstract class LinkedImageCardModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements LinkedImageCardModelInstantiator {
+    abstract instantiate(id: string, imageSource: string, isFlexible: boolean, linkURL: URL): LinkedImageCardModelInstanceIncarnation;
+}
+
+class _LinkedImageCardModelInstanceIncarnationImplementation extends LinkedImageCardModelInstanceIncarnation {
+    constructor(id: string, imageSource: string, isFlexible: boolean, linkURL: URL){ 
+        super(id, imageSource, isFlexible, linkURL);
+    }
+}
+
+export class LinkedImageCardModelInstantiatorImplementation extends LinkedImageCardModelInstantiatorIncarnation {
+    instantiate(id: string, imageSource: string, isFlexible: boolean, linkURL: URL): LinkedImageCardModelInstanceIncarnation {
+        return new _LinkedImageCardModelInstanceIncarnationImplementation(id, imageSource, isFlexible, linkURL);
+    }
     
-    public get linkURL() : URL {
-        return this._linkURL;
-    }
-
-    constructor({
-        id,
-        linkURL,
-        imageSource,
-        isFlexible,
-    } : {
-        id: any,
-        linkURL: URL,
-        imageSource: string,
-        isFlexible: boolean
-    }) {
-        super(imageSource, isFlexible, id);
-        this._linkURL = linkURL;
-    }
-
-    public get nameOfClass(): string {
-        return `${super.nameOfClass} ${_NAME_OF_CLASS}`;
-    }
-
 }

@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import { ArtImageModel } from "./ArtImageModel";
 import supabase from "@/app/utilities/supabase";
+import { ArtImageModelInstance, ArtImageModelInstantiator } from "./ArtImageModel";
 
 
-export function useArtImageRepository() {
+export function useArtImageRepository(
+    artImageModelInstantiator: ArtImageModelInstantiator
+) {
 
-    const [artImages, setArtImages] = useState<ArtImageModel[]>()
+    const [artImages, setArtImages] = useState<ArtImageModelInstance[]>()
 
-    async function retrieveAll(): Promise<ArtImageModel[]> {
+    async function retrieveAll(): Promise<ArtImageModelInstance[]> {
         try {
             const { data } = await supabase.from('ArtImage').select('*')
             if (data) {
-                return data.map((record) => new ArtImageModel({
-                    id: record.id,
-                    imageTitle: record.title,
-                    imageSourceURL: record.sourceURL
-                }));
+                return data.map((record) => {
+                    return artImageModelInstantiator.instantiate(
+                        record.id,
+                        record.sourceURL,
+                        record.title,
+                    )
+                });
             }
             throw new Error("Supabase query returned a null value I don't yet know wtf means")
         } catch(error) {

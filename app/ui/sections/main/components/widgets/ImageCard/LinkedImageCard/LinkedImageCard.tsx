@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { LinkedImageCardModel } from "./LinkedImageCardModel";
 import ImageCard from "../ImageCard";
+import { LinkedImageCardModelInstance } from "./LinkedImageCardModel";
 
 export default function LinkedImageCard({
-    linkedImageCardModel,
+    linkedImageCardModelInstance,
     children
 }:{
-    linkedImageCardModel: LinkedImageCardModel,
+    linkedImageCardModelInstance: LinkedImageCardModelInstance,
     children: React.ReactNode
 }) {
+    // TODO: Fix this weirdness
     return (
-        <Link href={linkedImageCardModel.linkURL.href}>
-            <ImageCard imageCardModel={linkedImageCardModel}>
+        <Link href={linkedImageCardModelInstance.linkURLString}>
+            <ImageCard imageCardModelInstance={linkedImageCardModelInstance}>
                 {children}
             </ImageCard>
         </Link>

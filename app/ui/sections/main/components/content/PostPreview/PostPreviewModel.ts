@@ -1,63 +1,115 @@
-import { LinkedImageCardModel } from "../../widgets/ImageCard/LinkedImageCard/LinkedImageCardModel";
+import { ClassName, ModelInstance, ModelInstantiator } from "@/app/ui/Model";
+import { LinkedImageCardModelInstance, LinkedImageCardModelInstanceIncarnation } from "../../widgets/ImageCard/LinkedImageCard/LinkedImageCardModel";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "@/app/ui/ModelIncarnation";
 
-const _NAME_OF_CLASS: string = 'post-preview';
+export const CLASS_NAME = 'post-preview';
 
-export class PostPreviewModel extends LinkedImageCardModel {
 
-    public get postThumbnailSource(): string {
-        return this.imageSource;
-    }
+export interface PostPreviewModelInstance extends ModelInstance, LinkedImageCardModelInstance {
+    readonly postPreviewModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    readonly postThumbnailSource: string;
+    readonly postTitle: string;
+    readonly postText: string;
+    readonly postByline: string;
+    readonly postAuthor: string;
+    readonly postDate: Date;
+    readonly postURL: URL;
+    readonly flexible: 'true' | 'false';
+}
 
-    private _postTitle: string;
-    public get postTitle(): string {
-        return this._postTitle;
-    }
-    private _postText: string;
-    public get postText(): string {
-        return this._postText;
-    }
-    private _postAuthor: string;
-    public get postAuthor(): string {
-        return this._postAuthor;
-    }
-    private _postDate: Date;
-    public get postDate(): Date {
-        return this._postDate;
-    }
+export interface PostPreviewModelInstantiator extends ModelInstantiator {
+    instantiate(
+        id: string,
+        postThumbnailSource: string,
+        postTitle: string,
+        postText: string,
+        postAuthor: string,
+        postDate: Date,
+        postURL: URL,
+        isFlexible: boolean
+    ): PostPreviewModelInstance;
+}
 
-    public get postURL(): URL {
-        return this.linkURL;
-    }
-    
+// TODO: Refine relationship definitions in the future
+export abstract class PostPreviewModelInstanceIncarnation extends LinkedImageCardModelInstanceIncarnation implements PostPreviewModelInstance {
+    readonly postPreviewModelInstanceClassName: ClassName<typeof CLASS_NAME>;
     constructor(
-        { 
+        id: string,
+        readonly postThumbnailSource: string,
+        readonly postTitle: string,
+        readonly postText: string,
+        readonly postAuthor: string,
+        readonly postDate: Date,
+        readonly postURL: URL,
+        isFlexible: boolean //TODO: Revisit
+    ) {
+        super(id, postThumbnailSource, isFlexible, postURL);
+        this.postPreviewModelInstanceClassName = { getClassNameString: CLASS_NAME };
+    }
+    get postByline(): string {
+        return `${this.postAuthor} | ${this.postDate.toLocaleDateString(
+                'en-US', {year: 'numeric', month: 'long', day: 'numeric' }
+        )}`
+    }
+}
+
+export abstract class PostPreviewModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements PostPreviewModelInstantiator {
+    abstract instantiate(
+        id: string,
+        postThumbnailSource: string,
+        postTitle: string,
+        postText: string,
+        postAuthor: string,
+        postDate: Date,
+        postURL: URL,
+        isFlexible: boolean
+    ): PostPreviewModelInstanceIncarnation;
+}
+
+class _PostPreviewModelInstanceIncarnationImplementation extends PostPreviewModelInstanceIncarnation {
+    constructor(
+        id: string,
+        postThumbnailSource: string,
+        postTitle: string,
+        postText: string,
+        postAuthor: string,
+        postDate: Date,
+        postURL: URL,
+        isFlexible: boolean
+    ){ 
+        super(
             id,
-            postURL,
             postThumbnailSource,
             postTitle,
-            postText, 
+            postText,
             postAuthor,
             postDate,
+            postURL,
             isFlexible
-        }: {
-            id: string;
-            postURL: URL;
-            postThumbnailSource: string;
-            postTitle: string;
-            postText: string;
-            postAuthor: string;
-            postDate: Date;
-            isFlexible: boolean;
-
-        }    ) {
-        super({id, linkURL: postURL, imageSource: postThumbnailSource, isFlexible});
-        this._postTitle = postTitle;
-        this._postText = postText;
-        this._postAuthor = postAuthor;
-        this._postDate = postDate;
+        );
     }
+}
 
-    public get nameOfClass(): string {
-        return `${super.nameOfClass} ${_NAME_OF_CLASS}`
+export class PostPreviewModelInstantiatorIncarnationImplementation extends PostPreviewModelInstantiatorIncarnation {
+    instantiate(
+        id: string,
+        postThumbnailSource: string,
+        postTitle: string,
+        postText: string,
+        postAuthor: string,
+        postDate: Date,
+        postURL: URL,
+        isFlexible: boolean
+    ): PostPreviewModelInstanceIncarnation {
+        return new _PostPreviewModelInstanceIncarnationImplementation(
+            id,
+            postThumbnailSource,
+            postTitle,
+            postText,
+            postAuthor,
+            postDate,
+            postURL,
+            isFlexible
+        );
     }
 }

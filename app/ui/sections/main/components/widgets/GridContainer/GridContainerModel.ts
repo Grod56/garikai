@@ -1,36 +1,66 @@
-const _NAME_OF_CLASS: string = 'grid-container';
+import { ClassName, ModelInstance, ModelInstantiator } from "@/app/ui/Model";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "@/app/ui/ModelIncarnation";
 
-export class GridContainerModel implements Model {
-    private _maxXorY: number;
-    public get maxXorY(): number {
-        return this._maxXorY;
-    }
-    private _isHorizontal: boolean;
-    public get isHorizontal(): boolean {
-        return this._isHorizontal;
-    }
-    private _isOverflow: boolean;
-    public get isOverflow(): boolean {
-        return this._isOverflow;
-    }
+export const CLASS_NAME = 'grid-container';
 
-    constructor(
+export interface GridContainerModelInstance extends ModelInstance {
+    readonly gridContainerModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    readonly maxXorY: number;
+    readonly orientation: 'horizontal' | 'vertical';
+    readonly overflow: 'true' | 'false';
+}
+
+export interface GridContainerModelInstantiator extends ModelInstantiator {
+    instantiate(
+        id: string,
         maxXorY: number,
-        isHorizontal: boolean,
+        orientation: 'horizontal' | 'vertical',
         isOverflow: boolean
-    ){
-        this._maxXorY = maxXorY;
-        this._isHorizontal = isHorizontal;
-        this._isOverflow = isOverflow;
-    }
+    ): GridContainerModelInstance;
+}
 
-    private _id: any;
-
-    public get id(): any {
-        return this._id;
+export abstract class GridContainerModelInstanceIncarnation extends ModelInstanceIncarnation implements GridContainerModelInstance {
+    constructor(
+        id: string,
+        readonly maxXorY: number,
+        readonly orientation: 'horizontal' | 'vertical',
+        private readonly isOverflow: boolean
+    ) {
+        super(id);
+        this.gridContainerModelInstanceClassName = { getClassNameString: CLASS_NAME };
     }
-    
-    public get nameOfClass(): string {
-        return `${_NAME_OF_CLASS}${this.isHorizontal ? '' : ' vertical'}${this.isOverflow ? ' overflow' : ''}`;
+    readonly gridContainerModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+
+    get overflow(): 'true' | 'false' {
+        return `${this.isOverflow}`;
+    }
+}
+
+export abstract class GridContainerModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements GridContainerModelInstantiator {
+    abstract instantiate(
+        id: string,
+        maxXorY: number,
+        orientation: 'horizontal' | 'vertical',
+        isOverflow: boolean
+    ): GridContainerModelInstanceIncarnation;
+}
+
+class _GridContainerModelInstanceIncarnationImplementation extends GridContainerModelInstanceIncarnation {
+    constructor(
+        id: string,
+        maxXorY: number,
+        orientation: 'horizontal' | 'vertical',
+        isOverflow: boolean
+    ){ super(id, maxXorY, orientation, isOverflow) }
+}
+
+export class GridContainerModelInstantiatorIncarnationImplementation extends GridContainerModelInstantiatorIncarnation {
+    instantiate(
+        id: string,
+        maxXorY: number,
+        orientation: 'horizontal' | 'vertical',
+        isOverflow: boolean
+    ): GridContainerModelInstanceIncarnation {
+        return new _GridContainerModelInstanceIncarnationImplementation(id, maxXorY, orientation, isOverflow);
     }
 }

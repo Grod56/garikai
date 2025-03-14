@@ -1,15 +1,19 @@
-import { MainModel } from "./MainModel";
+'use client'
+import { MainModelInstance } from "./MainModel";
 
 export default function Main({
-    mainModel,
+    mainModelInstance,
     children
 } : {
-    mainModel: MainModel,
+    mainModelInstance: MainModelInstance,
     children: React.ReactNode
 }) {
 
     return (
-        <main className={mainModel.nameOfClass}>
+        <main
+            className={mainModelInstance.compositeClassNameString}
+            id={mainModelInstance.id}
+        >
             {children}
         </main>
     );

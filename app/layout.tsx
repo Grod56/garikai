@@ -1,36 +1,51 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import '@/app/app.css';
-import Footer from "./ui/sections/footer/Footer";
-import { FooterModel } from "./ui/sections/footer/FooterModel";
+import FooterModelInstantiatorInstance, { FooterModelInstantiator } from "./ui/sections/footer/FooterModel";
 import Header from "./ui/sections/header/Header";
-import { HeaderModel } from "./ui/sections/header/HeaderModel";
+import { HeaderModelInstantiator, HeaderModelInstantiatorImplementation } from "./ui/sections/header/HeaderModel";
 import Navbar from "./ui/sections/navbar/Navbar";
-import { NavbarModel } from "./ui/sections/navbar/NavbarModel";
+import { NavbarModelInstantiator, NavbarModelInstantiatorImplementation } from "./ui/sections/navbar/NavbarModel";
 import { Metadata } from "next/types";
+import Footer from "./ui/sections/footer/Footer";
 
 export const metadata: Metadata = {
-  title: {
-    template: '%s | Garikai Gumbo',
-    default: 'Garikai Gumbo',
-  },
+	title: {
+    	template: '%s | Garikai Gumbo',
+    	default: 'Home | Garikai Gumbo',
+	}
 }
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body>
-        <Header headerModel={new HeaderModel({
-            headerTitle: "Hello. I am Garikai.",
-            headerSubtitle: 'And this is my Website'
-          })} />
-        <Navbar navbarModel={new NavbarModel()}/>
-        {children}
-        <Footer footerModel={new FooterModel({id: 'footer'})}/>
-      </body>
-    </html>
-  );
+
+	const headerModelInstantiator: HeaderModelInstantiator = new HeaderModelInstantiatorImplementation();
+	const footerModelInstantiator: FooterModelInstantiator = FooterModelInstantiatorInstance;
+	const navbarModelInstantiator: NavbarModelInstantiator = new NavbarModelInstantiatorImplementation();
+
+	return (
+		<html lang="en">
+			<body>
+				<Header headerModelInstance={
+					headerModelInstantiator.instantiate(
+						'header',
+						"Hello. I am Garikai.",
+						'And this is my Website'
+					)
+				}/>
+				<Navbar navbarModelInstance={
+					navbarModelInstantiator.instantiate('navbar')
+				}/>
+				{children}
+				<Footer footerModelInstance={
+					footerModelInstantiator.instantiate({
+						id: 'footer',
+						copyrightText: 'Providence Universal Studios. All rights reserved.'
+					})
+				}/>
+			</body>
+		</html>
+	);
 }

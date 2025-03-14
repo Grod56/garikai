@@ -1,16 +1,17 @@
-import { FlexibleContainerModel } from "./FlexibleContainerModel"
+import { FlexibleContainerModelInstance } from "./FlexibleContainerModel"
 
 export default function FlexibleContainer({
-    flexibleContainerModel,
-    children,
-    ...props
+    flexibleContainerModelInstance,
+    children
 } : {
-    flexibleContainerModel: FlexibleContainerModel,
-    children: React.ReactNode,
-    [key: string]: any
+    flexibleContainerModelInstance: FlexibleContainerModelInstance,
+    children: React.ReactNode
 }) {
     return (
-    <div {...props} className={flexibleContainerModel.nameOfClass}>
+    <div 
+        className={flexibleContainerModelInstance.compositeClassNameString}
+        id={flexibleContainerModelInstance.id}
+    >
         {children}
     </div>
     )

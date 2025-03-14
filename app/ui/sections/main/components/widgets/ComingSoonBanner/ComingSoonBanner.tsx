@@ -1,13 +1,16 @@
-import { ComingSoonBannerModel } from "./ComingSoonBannerModel"
+import { ComingSoonBannerModelInstance } from "./ComingSoonBannerModel"
 
 export default function ComingSoonBanner({
-    comingSoonBannerModel
+    comingSoonBannerModelInstance
 }: {
-    comingSoonBannerModel: ComingSoonBannerModel
+    comingSoonBannerModelInstance: ComingSoonBannerModelInstance
 }) {
     return (
-        <div className={comingSoonBannerModel.nameOfClass}>
-            <span className="coming-soon-text">{comingSoonBannerModel.comingSoonText}</span>
+        <div className={
+            comingSoonBannerModelInstance.compositeClassNameString}
+            id={comingSoonBannerModelInstance.id}
+        >
+            <span className="coming-soon-text">{comingSoonBannerModelInstance.bannerText}</span>
         </div>
     )
 }

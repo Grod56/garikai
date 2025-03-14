@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
-import { BookPreviewModel } from "./BookPreviewModel";
 import supabase from "@/app/utilities/supabase";
+import { BookPreviewModelInstance, BookPreviewModelInstantiator } from "./BookPreviewModel";
 
 
-export function useBookPreviewRepository() {
+export function useBookPreviewRepository(bookPreviewModelInstantiator: BookPreviewModelInstantiator) {
 
-    const [bookPreviews, setBookPreviews] = useState<BookPreviewModel[]>()
+    const [bookPreviews, setBookPreviews] = useState<BookPreviewModelInstance[]>()
 
-    async function retrieveAll(): Promise<BookPreviewModel[]> {
+    async function retrieveAll(): Promise<BookPreviewModelInstance[]> {
         try {
             
             const { data } = await supabase.from('BookPreview').select("*").order("title")
             if (data) {
-                return data.map((record) => new BookPreviewModel({
-                    id: record.id,
-                    title: record.title,
-                    author: record.author,
-                    thumbnailSourceURL: record.thumbnailSourceURL,
-                    bookSourceURL: new URL(record.bookSourceURL)
-                }));
+                return data.map((record) => bookPreviewModelInstantiator.instantiate(
+                    record.id,
+                    record.thumbnailSourceURL,
+                    record.title,
+                    record.author,
+                    new URL(record.bookSourceURL)
+                ));
             }
             throw new Error("Supabase query returned a null value I don't yet know wtf means")
         } catch(error) {

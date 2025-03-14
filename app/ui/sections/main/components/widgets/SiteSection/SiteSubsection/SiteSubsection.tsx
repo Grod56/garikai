@@ -1,17 +1,15 @@
-import { SiteSubsectionModel } from "./SiteSubsectionModel";
+import { SiteSubsectionModelInstance } from "./SiteSubsectionModel";
 
 export default function SiteSubsection({
-    siteSubsectionModel,
-    children,
-    ...props
+    siteSubsectionModelInstance,
+    children
 }: {
-    siteSubsectionModel: SiteSubsectionModel,
-    children: React.ReactNode,
-    [key: string]: any
+    siteSubsectionModelInstance: SiteSubsectionModelInstance,
+    children: React.ReactNode
 }) {
     return (
-        <div {...props} className={`${siteSubsectionModel.nameOfClass}`}>
-            <h4 className="subsection-title">{siteSubsectionModel.subsectionTitle}</h4>
+        <div className={siteSubsectionModelInstance.compositeClassNameString} id={siteSubsectionModelInstance.id}>
+            <h4 className="subsection-title">{siteSubsectionModelInstance.subsectionTitle}</h4>
             {children}
         </div>
     );

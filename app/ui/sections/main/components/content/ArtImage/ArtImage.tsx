@@ -1,13 +1,14 @@
-import { ArtImageModel } from "./ArtImageModel";
+import { ArtImageModelInstance } from "./ArtImageModel";
 
 export default function ArtImage({
-    artImageModel
+    artImageModelInstance
 } : {
-    artImageModel: ArtImageModel
+    artImageModelInstance: ArtImageModelInstance
 }) {
     return <img
-        className={artImageModel.nameOfClass} 
-        src={artImageModel.imageSourceURL} 
-        title={artImageModel.imageTitle}
+        className={artImageModelInstance.compositeClassNameString}
+        id={artImageModelInstance.id}
+        src={artImageModelInstance.imageSourceURL}
+        title={artImageModelInstance.imageTitle}
     />
 }

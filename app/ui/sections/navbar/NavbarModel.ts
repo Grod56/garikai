@@ -1,14 +1,30 @@
-const _NAME_OF_CLASS: string = 'navbar'
+import { ClassName, Model, ModelInstance, ModelInstantiator } from "../../Model";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "../../ModelIncarnation";
 
-export class NavbarModel implements Model {
+const CLASS_NAME = 'navbar'
 
-    private _id: any;
+export interface NavbarModelInstance extends ModelInstance {
+    navbarModelInstanceClassName: ClassName<typeof CLASS_NAME>
+}
 
-    public get nameOfClass(): string {
-        return _NAME_OF_CLASS;
+export interface NavbarModelInstantiator extends ModelInstantiator {
+    instantiate(id: string): NavbarModelInstance;
+}
+
+export abstract class NavbarModelInstanceIncarnation extends ModelInstanceIncarnation implements NavbarModelInstance {
+    constructor(id: string) { 
+        super(id)
+        this.navbarModelInstanceClassName = { getClassNameString: CLASS_NAME }
     }
-    public get id(): any {
-        return this._id;
-    }
+    navbarModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+}
 
+class _NavbarModelInstanceImplementation extends NavbarModelInstanceIncarnation {
+    constructor(readonly id: string){ super(id) }
+}
+
+export class NavbarModelInstantiatorImplementation extends ModelInstantiatorIncarnation implements NavbarModelInstantiator {
+    instantiate(id: string): NavbarModelInstanceIncarnation {
+        return new _NavbarModelInstanceImplementation(id);
+    }
 }

@@ -1,18 +1,20 @@
-import { GridContainerModel } from "./GridContainerModel"
+import { GridContainerModelInstance } from "./GridContainerModel"
 
 export default function GridContainer({
-    gridContainerModel,
+    gridContainerModelInstance,
     children
 } : {
-    gridContainerModel: GridContainerModel,
+    gridContainerModelInstance: GridContainerModelInstance,
     children: React.ReactNode
 }) {
 
     return (
         <div
-            className={gridContainerModel.nameOfClass}
-            data-ishorizontal={`${gridContainerModel.isHorizontal}`}
-            data-maxxory={`${gridContainerModel.maxXorY}`} // TODO: To be fixed
+            className={gridContainerModelInstance.compositeClassNameString}
+            id={gridContainerModelInstance.id}
+            data-orientation={gridContainerModelInstance.orientation}
+            data-maxxory={gridContainerModelInstance.maxXorY} // TODO: Cleaner implementation expected
+            data-overflow={gridContainerModelInstance.overflow}
         >
             {children}
         </div>

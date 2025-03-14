@@ -1,15 +1,19 @@
-import { ImageCardModel } from "./ImageCardModel"
+import { ImageCardModelInstance } from "./ImageCardModel"
 
 export default function ImageCard({
-    imageCardModel,
+    imageCardModelInstance,
     children
 } : {
-    imageCardModel: ImageCardModel,
+    imageCardModelInstance: ImageCardModelInstance,
     children: React.ReactNode
 }) {
     return (
-        <div className={imageCardModel.nameOfClass}>
-            <img src={imageCardModel.imageSource} className="card-thumbnail" />
+        <div 
+            className={imageCardModelInstance.compositeClassNameString}
+            id={imageCardModelInstance.id}
+            data-flexible={imageCardModelInstance.flexible}
+        >
+            <img src={imageCardModelInstance.imageSource} className="card-thumbnail" />
             <div className="card-details">
                 {children}
             </div>

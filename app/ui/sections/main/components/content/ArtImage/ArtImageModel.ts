@@ -1,38 +1,38 @@
-const _NAME_OF_CLASS: string = "art-image";
+import { ClassName, Model, ModelInstance, ModelInstantiator } from "@/app/ui/Model";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "@/app/ui/ModelIncarnation";
 
-export class ArtImageModel implements Model {
+export const CLASS_NAME = "art-image";
 
-    private _imageSourceURL: string;
+export interface ArtImageModelInstance extends ModelInstance {
+    readonly artImageModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    readonly imageSourceURL: string;
+    readonly imageTitle: string;
+}
 
-    public get imageSourceURL(): string {
-        return this._imageSourceURL;
+export interface ArtImageModelInstantiator extends ModelInstantiator {
+    instantiate(id: string, imageSourceURL: string, imageTitle: string): ArtImageModelInstance;
+}
+
+export abstract class ArtImageModelInstanceIncarnation extends ModelInstanceIncarnation implements ArtImageModelInstance {
+    constructor(id: string, readonly imageSourceURL: string, readonly imageTitle: string) { 
+        super(id);
+        this.artImageModelInstanceClassName = { getClassNameString: CLASS_NAME };
+
     }
 
-    private _imageTitle: string;
+    readonly artImageModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+}
 
-    public get imageTitle(): string {
-        return this._imageTitle;
+export abstract class ArtImageModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements ArtImageModelInstantiator {
+    abstract instantiate(id: string, imageSourceURL: string, imageTitle: string): ArtImageModelInstanceIncarnation;
+}
+
+class _ArtImageModelInstanceIncarnationImplementation extends ArtImageModelInstanceIncarnation {
+    constructor(id: string, imageSourceURL: string, imageTitle: string){ super(id, imageSourceURL, imageTitle) }
+}
+
+export class ArtImageModelInstantiatorIncarnationImplementation extends ArtImageModelInstantiatorIncarnation {
+    instantiate(id: string, imageSourceURL: string, imageTitle: string): ArtImageModelInstance {
+        return new _ArtImageModelInstanceIncarnationImplementation(id, imageSourceURL, imageTitle);
     }
-
-    private _id: any;
-
-    public get id(): any {
-        return this._id;
-    }
-
-    constructor({
-        id,
-        imageSourceURL,
-        imageTitle
-    } : {
-        id: any,
-        imageSourceURL: string,
-        imageTitle: string
-    }) {
-        this._id = id;
-        this._imageSourceURL = imageSourceURL;
-        this._imageTitle = imageTitle;
-    }
-
-    nameOfClass: string = _NAME_OF_CLASS;
 }

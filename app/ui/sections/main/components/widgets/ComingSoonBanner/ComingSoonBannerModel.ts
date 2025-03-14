@@ -1,21 +1,35 @@
-const _NAME_OF_CLASS: string = "coming-soon-banner";
+import { ClassName, ModelInstance, ModelInstantiator } from "@/app/ui/Model";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "@/app/ui/ModelIncarnation";
 
-export class ComingSoonBannerModel implements Model {
+export const CLASS_NAME = "coming-soon-banner";
 
-    private _comingSoonText: string;
+export interface ComingSoonBannerModelInstance extends ModelInstance {
+    readonly comingSoonBannerModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    readonly bannerText: string;
+}
 
-    public get comingSoonText(): string {
-        return this._comingSoonText;
+export interface ComingSoonBannerModelInstantiator extends ModelInstantiator {
+    instantiate(id: string, bannerText: string): ComingSoonBannerModelInstance;
+}
+
+export abstract class ComingSoonBannerModelInstanceIncarnation extends ModelInstanceIncarnation implements ComingSoonBannerModelInstance {
+    constructor(id: string, readonly bannerText: string) {
+        super(id);
+        this.comingSoonBannerModelInstanceClassName = { getClassNameString: CLASS_NAME };
     }
-    
-    constructor(comingSoonText: string) {
-        this._comingSoonText = comingSoonText;
-    }
-    
-    private _id: any;
+    readonly comingSoonBannerModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+}
 
-    public get id(): any {
-        return this._id;
+export abstract class ComingSoonBannerModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements ComingSoonBannerModelInstantiator {
+    abstract instantiate(id: string, bannerText: string): ComingSoonBannerModelInstanceIncarnation;
+}
+
+class _ComingSoonBannerModelInstanceIncarnationImplementation extends ComingSoonBannerModelInstanceIncarnation {
+    constructor(id: string, bannerText: string){ super(id, bannerText) }
+}
+
+export class ComingSoonBannerModelInstantiatorIncarnationImplementation extends ComingSoonBannerModelInstantiatorIncarnation {
+    instantiate(id: string, bannerText: string): ComingSoonBannerModelInstanceIncarnation {
+        return new _ComingSoonBannerModelInstanceIncarnationImplementation(id, bannerText);
     }
-    nameOfClass: string = _NAME_OF_CLASS;
 }

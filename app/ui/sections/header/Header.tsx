@@ -1,19 +1,19 @@
-import { HeaderModel } from "./HeaderModel";
+import { HeaderModelInstance } from "./HeaderModel";
 
 export default function Header({
-    headerModel
+    headerModelInstance
 } : {
-    headerModel: HeaderModel
+    headerModelInstance: HeaderModelInstance
 }) {
     return (
-        <header className={headerModel.nameOfClass}>
+        <header className={headerModelInstance.compositeClassNameString} id={headerModelInstance.id}>
             <div className="header-container">
                 <div className="hero">
                     <h1 className="title">
-                        {headerModel.headerTitle}
+                        {headerModelInstance.headerTitle}
                     </h1>
                     <h2 className="subtitle">
-                        {headerModel.headerSubtitle}
+                        {headerModelInstance.headerSubtitle}
                     </h2>
                 </div>
             </div>

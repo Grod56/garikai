@@ -1,12 +1,12 @@
-import { NavbarModel } from "./NavbarModel";
+import { NavbarModelInstance } from "./NavbarModel";
 
 export default function Navbar({
-    navbarModel
+    navbarModelInstance
 }: {
-    navbarModel: NavbarModel
+    navbarModelInstance: NavbarModelInstance
 }) {
     return (
-        <nav className={navbarModel.nameOfClass}>
+        <nav className={navbarModelInstance.compositeClassNameString} id={navbarModelInstance.id}>
             <li className="navlinks">
                 <a href="#top">Home</a>
                 <a href="#bio">Bio</a>

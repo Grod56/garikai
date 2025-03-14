@@ -1,17 +1,17 @@
 import LinkedImageCard from "../../widgets/ImageCard/LinkedImageCard/LinkedImageCard";
-import { BookPreviewModel } from "./BookPreviewModel";
+import { BookPreviewModelInstance } from "./BookPreviewModel";
 
 export default function BookPreview({
-    bookPreviewModel
+    bookPreviewModelInstance
 } : {
-    bookPreviewModel: BookPreviewModel
+    bookPreviewModelInstance: BookPreviewModelInstance
 }) {
     return (
         <LinkedImageCard
-            linkedImageCardModel={bookPreviewModel}
+            linkedImageCardModelInstance={bookPreviewModelInstance}
         >
-            <h5 className="book-title">{bookPreviewModel.title}</h5>
-            <span className="book-author">{bookPreviewModel.author}</span>
+            <h5 className="book-title">{bookPreviewModelInstance.title}</h5>
+            <span className="book-author">{bookPreviewModelInstance.author}</span>
         </LinkedImageCard>
 
     )

@@ -8,20 +8,26 @@ import {
     faFacebook as Facebook,
     faGithub as Github
 } from '@fortawesome/free-brands-svg-icons';
-import { FooterModel } from './FooterModel';
+import { FooterModelInstance } from './FooterModel';
+
+
 export default function Footer(
     {
-        footerModel
+        footerModelInstance
     }: {
-        footerModel: FooterModel
+        footerModelInstance: FooterModelInstance
     }
 ) {
     return (
-        <footer className={footerModel.nameOfClass} id={footerModel.id}>
+        <footer 
+            className={footerModelInstance.compositeClassNameString}
+            id={footerModelInstance.id}
+            data-testid={footerModelInstance.footerModelInstanceClassName.getClassNameString}
+        >
             <div className="footer-container">
                 <hr />
-                <span className="copyright"> 
-                    &copy; 2025 Providence Universal Studios. All rights reserved.
+                <span className="copyright" data-testid='copyright'> 
+                    {footerModelInstance.copyright}
                 </span>
                 <div className="socials">
                     <a href="mailto:rodneygaryx29@gmail.com"><FontAwesomeIcon icon={Email} /></a>

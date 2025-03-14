@@ -1,18 +1,18 @@
-import { PostPreviewModel } from "./PostPreviewModel";
+import { PostPreviewModelInstance } from "./PostPreviewModel";
 import LinkedImageCard from "../../widgets/ImageCard/LinkedImageCard/LinkedImageCard";
 
 export default function PostPreview({
-    postPreviewModel
+    postPreviewModelInstance
 } : {
-    postPreviewModel: PostPreviewModel
+    postPreviewModelInstance: PostPreviewModelInstance
 }) {
     return (
             <LinkedImageCard
-                linkedImageCardModel={postPreviewModel}
+                linkedImageCardModelInstance={postPreviewModelInstance}
             >
-                <h5 className="post-title">{postPreviewModel.postTitle}</h5>
-                <span className="post-text">{postPreviewModel.postText}</span>
-                <span className="post-byline">{postPreviewModel.postAuthor} | {postPreviewModel.postDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <h5 className="post-title">{postPreviewModelInstance.postTitle}</h5>
+                <span className="post-text">{postPreviewModelInstance.postText}</span>
+                <span className="post-byline">{postPreviewModelInstance.postByline}</span>
             </LinkedImageCard>
     );
 }

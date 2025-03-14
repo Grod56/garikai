@@ -1,20 +1,35 @@
-const _NAME_OF_CLASS: string = 'site-subsection';
+import { ClassName, ModelInstance, ModelInstantiator } from "@/app/ui/Model";
+import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "@/app/ui/ModelIncarnation";
 
-export class SiteSubsectionModel implements Model {
-    private _subsectionTitle: string;
-    public get subsectionTitle(): string {
-        return this._subsectionTitle;
+const CLASS_NAME = 'site-subsection';
+
+export interface SiteSubsectionModelInstance extends ModelInstance {
+    readonly siteSubsectionModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+    readonly subsectionTitle: string;
+}
+
+export interface SiteSubsectionModelInstantiator extends ModelInstantiator {
+    instantiate(id: string, subsectionTitle: string): SiteSubsectionModelInstance;
+}
+
+export abstract class SiteSubsectionModelInstanceIncarnation extends ModelInstanceIncarnation implements SiteSubsectionModelInstance {
+    constructor(id: string, readonly subsectionTitle: string) {
+        super(id);
+        this.siteSubsectionModelInstanceClassName = { getClassNameString: CLASS_NAME };
     }
+    readonly siteSubsectionModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+}
 
-    private _id: any;
+export abstract class SiteSubsectionModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements SiteSubsectionModelInstantiator {
+    abstract instantiate(id: string, subsectionTitle: string): SiteSubsectionModelInstanceIncarnation;
+}
 
-    public get id(): any {
-        return this._id;
+class _SiteSubsectionModelInstanceIncarnationImplementation extends SiteSubsectionModelInstanceIncarnation {
+    constructor(id: string, subsectionTitle: string){ super(id, subsectionTitle) }
+}
+
+export class SiteSubsectionModelInstantiatorIncarnationImplementation extends SiteSubsectionModelInstantiatorIncarnation {
+    instantiate(id: string, subsectionTitle: string): SiteSubsectionModelInstanceIncarnation {
+        return new _SiteSubsectionModelInstanceIncarnationImplementation(id, subsectionTitle);
     }
-
-    constructor(subsectionTitle: string) {
-        this._subsectionTitle = subsectionTitle;
-    }
-
-    nameOfClass: string = _NAME_OF_CLASS;
 }
