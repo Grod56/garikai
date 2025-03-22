@@ -4,7 +4,7 @@ import postPreviewModelInstantiator from "./ui/sections/main/components/content/
 import bookPreviewModelInstantiator from "./ui/sections/main/components/content/book-preview/BookPreviewModel";
 import artImageModelInstantiator from "./ui/sections/main/components/content/art-image/ArtImageModel";
 import siteSectionModelInstantiator from "./ui/sections/main/components/widgets/site-section/SiteSectionModel";
-import carouselModelInstantiator from "./ui/sections/main/components/widgets/carousel-widget/CarouselModel";
+import carouselModelInstantiator from "./ui/sections/main/components/widgets/carousel/CarouselModel";
 import comingSoonBannerModelInstantiator from "./ui/sections/main/components/widgets/coming-soon-banner/ComingSoonBannerModel";
 import imageCardSkeletonModelInstantiator from "./ui/sections/main/components/widgets/image-card/image-card-skeleton/ImageCardSkeletonModel";
 import siteSubsectionModelInstantiator from "./ui/sections/main/components/widgets/site-section/site-subsection/SiteSubsectionModel";

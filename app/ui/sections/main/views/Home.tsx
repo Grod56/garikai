@@ -13,7 +13,7 @@ import SiteSection from "../components/widgets/site-section/SiteSection";
 import SiteSubsection from "../components/widgets/site-section/site-subsection/SiteSubsection";
 import Main from "../Main";
 import { HomeModelInstance, parseJSONToModelInstance } from "./HomeModel";
-import Carousel from "../components/widgets/carousel-widget/Carousel";
+import Carousel from "../components/widgets/carousel/Carousel";
 
 export default function Home({
 	homeModelInstance,
