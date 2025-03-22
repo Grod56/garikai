@@ -1,34 +1,48 @@
 import { ClassName, ModelInstance, ModelInstantiator } from "../../Model";
-import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "../../ModelIncarnation";
+import {
+	ModelInstanceIncarnation,
+	ModelInstantiatorIncarnation,
+} from "../../ModelIncarnation";
 
-const CLASS_NAME = 'main'
+const CLASS_NAME = "main";
 
-export interface MainModelInstance extends ModelInstance {
-    readonly mainModelInstanceClassName: ClassName<typeof CLASS_NAME>
-}
+export interface MainModelInstance extends ModelInstance {}
 
 export interface MainModelInstantiator extends ModelInstantiator {
-    instantiate(id: any): MainModelInstance;
+	instantiate({ id }: { id: string }): MainModelInstance;
 }
 
-export abstract class MainModelInstanceIncarnation extends ModelInstanceIncarnation implements MainModelInstance {
-    constructor(id: string) {
-        super(id);
-        this.mainModelInstanceClassName = { getClassNameString: CLASS_NAME }
-    }
-    mainModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+export abstract class MainModelInstanceIncarnation
+	extends ModelInstanceIncarnation
+	implements MainModelInstance
+{
+	constructor(id: string) {
+		super(id);
+		this.mainModelInstanceClassName = { getClassNameString: CLASS_NAME };
+	}
+	mainModelInstanceClassName: ClassName<typeof CLASS_NAME>;
 }
 
-export abstract class MainModelInstantiatorIncarnation extends ModelInstantiatorIncarnation implements MainModelInstantiator {
-    abstract instantiate(id: any): MainModelInstanceIncarnation;
+export abstract class MainModelInstantiatorIncarnation
+	extends ModelInstantiatorIncarnation
+	implements MainModelInstantiator
+{
+	abstract instantiate({ id }: { id: string }): MainModelInstanceIncarnation;
 }
 
-class _MainModelInstanceImplementation extends MainModelInstanceIncarnation implements MainModelInstance {
-    constructor(readonly id: string){ super(id) }
+class _MainModelInstanceImplementation
+	extends MainModelInstanceIncarnation
+	implements MainModelInstance
+{
+	constructor(readonly id: string) {
+		super(id);
+	}
 }
 
-export class MainModelInstantiatorImplementation extends MainModelInstantiatorIncarnation {
-    instantiate(id: string): MainModelInstanceIncarnation {
-        return new _MainModelInstanceImplementation(id);
-    }
+class _MainModelInstantiatorImplementation extends MainModelInstantiatorIncarnation {
+	instantiate({ id }: { id: string }): MainModelInstanceIncarnation {
+		return new _MainModelInstanceImplementation(id);
+	}
 }
+
+export default new _MainModelInstantiatorImplementation() as MainModelInstantiator;

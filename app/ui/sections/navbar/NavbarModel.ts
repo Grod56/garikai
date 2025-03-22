@@ -1,30 +1,49 @@
-import { ClassName, Model, ModelInstance, ModelInstantiator } from "../../Model";
-import { ModelInstanceIncarnation, ModelInstantiatorIncarnation } from "../../ModelIncarnation";
+import { ClassName, ModelInstance, ModelInstantiator } from "../../Model";
+import {
+	ModelInstanceIncarnation,
+	ModelInstantiatorIncarnation,
+} from "../../ModelIncarnation";
 
-const CLASS_NAME = 'navbar'
+const CLASS_NAME = "navbar";
 
-export interface NavbarModelInstance extends ModelInstance {
-    navbarModelInstanceClassName: ClassName<typeof CLASS_NAME>
-}
+export interface NavbarModelInstance extends ModelInstance {}
 
 export interface NavbarModelInstantiator extends ModelInstantiator {
-    instantiate(id: string): NavbarModelInstance;
+	instantiate({ id }: { id: string }): NavbarModelInstance;
 }
 
-export abstract class NavbarModelInstanceIncarnation extends ModelInstanceIncarnation implements NavbarModelInstance {
-    constructor(id: string) { 
-        super(id)
-        this.navbarModelInstanceClassName = { getClassNameString: CLASS_NAME }
-    }
-    navbarModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+export abstract class NavbarModelInstanceIncarnation
+	extends ModelInstanceIncarnation
+	implements NavbarModelInstance
+{
+	constructor(id: string) {
+		super(id);
+		this.navbarModelInstanceClassName = { getClassNameString: CLASS_NAME };
+	}
+	navbarModelInstanceClassName: ClassName<typeof CLASS_NAME>;
+}
+
+export abstract class NavbarModelInstantiatorIncarnation
+	extends ModelInstantiatorIncarnation
+	implements NavbarModelInstantiator
+{
+	abstract instantiate({
+		id,
+	}: {
+		id: string;
+	}): NavbarModelInstanceIncarnation;
 }
 
 class _NavbarModelInstanceImplementation extends NavbarModelInstanceIncarnation {
-    constructor(readonly id: string){ super(id) }
+	constructor(readonly id: string) {
+		super(id);
+	}
 }
 
-export class NavbarModelInstantiatorImplementation extends ModelInstantiatorIncarnation implements NavbarModelInstantiator {
-    instantiate(id: string): NavbarModelInstanceIncarnation {
-        return new _NavbarModelInstanceImplementation(id);
-    }
+class _NavbarModelInstantiatorImplementation extends NavbarModelInstantiatorIncarnation {
+	instantiate({ id }: { id: string }): NavbarModelInstanceIncarnation {
+		return new _NavbarModelInstanceImplementation(id);
+	}
 }
+
+export default new _NavbarModelInstantiatorImplementation() as NavbarModelInstantiator;
