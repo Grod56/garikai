@@ -6,7 +6,6 @@ import BookPreview from "../components/content/book-preview/BookPreview";
 import { useBookPreviewRepository } from "../components/content/book-preview/useBookPreviewRepository";
 import PostPreview from "../components/content/post-preview/PostPreview";
 import { usePostPreviewRepository } from "../components/content/post-preview/usePostPreviewRepository";
-import Carousel from "../components/widgets/carousel/Carousel";
 import ComingSoonBanner from "../components/widgets/coming-soon-banner/ComingSoonBanner";
 import GridContainer from "../components/widgets/grid-container/GridContainer";
 import ImageCardSkeleton from "../components/widgets/image-card/image-card-skeleton/ImageCardSkeleton";
@@ -14,6 +13,7 @@ import SiteSection from "../components/widgets/site-section/SiteSection";
 import SiteSubsection from "../components/widgets/site-section/site-subsection/SiteSubsection";
 import Main from "../Main";
 import { HomeModelInstance, parseJSONToModelInstance } from "./HomeModel";
+import Carousel from "../components/widgets/carousel-widget/Carousel";
 
 export default function Home({
 	homeModelInstance,

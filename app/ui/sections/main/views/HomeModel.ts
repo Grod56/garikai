@@ -11,7 +11,7 @@ import postPreviewModelInstantiator, {
 } from "../components/content/post-preview/PostPreviewModel";
 import carouselModelInstantiator, {
 	CarouselModelInstantiator,
-} from "../components/widgets/carousel/CarouselModel";
+} from "../components/widgets/carousel-widget/CarouselModel";
 import comingSoonBannerModelInstantiator, {
 	ComingSoonBannerModelInstantiator,
 } from "../components/widgets/coming-soon-banner/ComingSoonBannerModel";
