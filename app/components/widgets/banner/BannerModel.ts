@@ -10,23 +10,23 @@ import {
 
 export const CLASS_NAME = "coming-soon-banner";
 
-export interface ComingSoonBannerModelInstance extends ModelInstance {
+export interface BannerModelInstance extends ModelInstance {
 	readonly bannerText: string;
 }
 
-export interface ComingSoonBannerModelInstantiator extends ModelInstantiator {
+export interface BannerModelInstantiator extends ModelInstantiator {
 	instantiate({
 		id,
 		bannerText,
 	}: {
 		id: string;
 		bannerText: string;
-	}): ComingSoonBannerModelInstance;
+	}): BannerModelInstance;
 }
 
-export abstract class ComingSoonBannerModelInstanceIncarnation
+export abstract class BannerModelInstanceIncarnation
 	extends ModelInstanceIncarnation
-	implements ComingSoonBannerModelInstance
+	implements BannerModelInstance
 {
 	constructor(
 		id: string,
@@ -42,9 +42,9 @@ export abstract class ComingSoonBannerModelInstanceIncarnation
 	>;
 }
 
-export abstract class ComingSoonBannerModelInstantiatorIncarnation
+export abstract class BannerModelInstantiatorIncarnation
 	extends ModelInstantiatorIncarnation
-	implements ComingSoonBannerModelInstantiator
+	implements BannerModelInstantiator
 {
 	abstract instantiate({
 		id,
@@ -52,28 +52,28 @@ export abstract class ComingSoonBannerModelInstantiatorIncarnation
 	}: {
 		id: string;
 		bannerText: string;
-	}): ComingSoonBannerModelInstanceIncarnation;
+	}): BannerModelInstanceIncarnation;
 }
 
-class _ComingSoonBannerModelInstanceIncarnationImplementation extends ComingSoonBannerModelInstanceIncarnation {
+class _BannerModelInstanceIncarnationImplementation extends BannerModelInstanceIncarnation {
 	constructor(id: string, bannerText: string) {
 		super(id, bannerText);
 	}
 }
 
-class _ComingSoonBannerModelInstantiatorIncarnationImplementation extends ComingSoonBannerModelInstantiatorIncarnation {
+class _BannerModelInstantiatorIncarnationImplementation extends BannerModelInstantiatorIncarnation {
 	instantiate({
 		id,
 		bannerText,
 	}: {
 		id: string;
 		bannerText: string;
-	}): ComingSoonBannerModelInstanceIncarnation {
-		return new _ComingSoonBannerModelInstanceIncarnationImplementation(
+	}): BannerModelInstanceIncarnation {
+		return new _BannerModelInstanceIncarnationImplementation(
 			id,
 			bannerText
 		);
 	}
 }
 
-export default new _ComingSoonBannerModelInstantiatorIncarnationImplementation() as ComingSoonBannerModelInstantiator;
+export default new _BannerModelInstantiatorIncarnationImplementation() as BannerModelInstantiator;

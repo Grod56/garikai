@@ -1,11 +1,11 @@
 import comingSoonBannerModelDefault, {
-	ComingSoonBannerModelInstance,
-	ComingSoonBannerModelInstanceIncarnation,
-	ComingSoonBannerModelInstantiator,
-	ComingSoonBannerModelInstantiatorIncarnation,
-} from "./ComingSoonBannerModel";
+	BannerModelInstance,
+	BannerModelInstanceIncarnation,
+	BannerModelInstantiator,
+	BannerModelInstantiatorIncarnation,
+} from "./BannerModel";
 import { render, screen } from "@testing-library/react";
-import ComingSoonBanner from "./ComingSoonBanner";
+import Banner from "./Banner";
 import { ModelInstantiator, ModelInstance } from "@/app/components/Model";
 import {
 	ModelInstantiatorIncarnation,
@@ -35,7 +35,7 @@ describe("ComingSoonBanner Model", () => {
 			});
 		});
 		it("is instance of ComingSoonBannerModelInstantiator", () => {
-			const mockComingSoonBannerModelInstantiator: ComingSoonBannerModelInstantiator =
+			const mockComingSoonBannerModelInstantiator: BannerModelInstantiator =
 				{
 					instantiate: jest.fn(),
 				};
@@ -55,12 +55,12 @@ describe("ComingSoonBanner Model", () => {
 		});
 		it("is instance of ComingSoonBannerModelInstantiatorIncarnation", () => {
 			expect(modelInstantiator).toBeInstanceOf(
-				ComingSoonBannerModelInstantiatorIncarnation
+				BannerModelInstantiatorIncarnation
 			);
 		});
 
 		describe("Instance generated from default export", () => {
-			const modelInstance: ComingSoonBannerModelInstance =
+			const modelInstance: BannerModelInstance =
 				modelInstantiator.instantiate({ ...instantiatorTestInput });
 			it("is instance of ModelInstance", () => {
 				const mockModelInstance: ModelInstance = {
@@ -78,15 +78,14 @@ describe("ComingSoonBanner Model", () => {
 				});
 			});
 			it("is instance of ComingSoonBannerModelInstance", () => {
-				const mockComingSoonBannerModelInstance: ComingSoonBannerModelInstance =
-					{
-						id: "id",
-						compositeClassNameString: "compositeClassNameString",
-						bannerText: "Banner text",
-					};
+				const mockComingSoonBannerModelInstance: BannerModelInstance = {
+					id: "id",
+					compositeClassNameString: "compositeClassNameString",
+					bannerText: "Banner text",
+				};
 				const mockModelInstanceProperties = Object.keys(
 					mockComingSoonBannerModelInstance
-				).map((key) => key as keyof ComingSoonBannerModelInstance);
+				).map((key) => key as keyof BannerModelInstance);
 
 				mockModelInstanceProperties.forEach((property) => {
 					expect(
@@ -99,7 +98,7 @@ describe("ComingSoonBanner Model", () => {
 			});
 			it("is instance of ComingSoonBannerModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(
-					ComingSoonBannerModelInstanceIncarnation
+					BannerModelInstanceIncarnation
 				);
 			});
 			it("corresponds with instantiator test input", () => {
@@ -110,9 +109,9 @@ describe("ComingSoonBanner Model", () => {
 });
 
 describe("ComingSoonBanner Component", () => {
-	const modelInstance: ComingSoonBannerModelInstance =
+	const modelInstance: BannerModelInstance =
 		comingSoonBannerModelDefault.instantiate({ ...instantiatorTestInput });
-	render(<ComingSoonBanner comingSoonBannerModelInstance={modelInstance} />);
+	render(<Banner bannerModelInstance={modelInstance} />);
 	const componentElement = screen.getByTestId(modelInstance.id);
 	const bannerTextElement = screen.getByTestId("bannerText");
 

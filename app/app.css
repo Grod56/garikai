@@ -124,11 +124,6 @@ a {
 	padding-inline: 1.5em;
 }
 
-/* TODO: Consider fixing */
-/* .site-section[data-sectionname="bio"] .content-layer {
-	padding-top: 4em;
-} */
-
 .site-section hr {
 	margin-block: 0;
 	margin-inline: auto;

@@ -1,0 +1,43 @@
+import siteSectionModelInstantiator from "@/app/components/widgets/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/widgets/site-section/SiteSection";
+
+export default function BioSection() {
+	return (
+		<SiteSection
+			siteSectionModelInstance={siteSectionModelInstantiator.instantiate({
+				id: "bio",
+				sectionName: "bio",
+				sectionTitle: "Bio",
+			})}
+		>
+			<p>
+				Welcome! This place is the nexus of all of my interests,
+				hobbies, projects, and professional undertakings. Feel free to
+				check out what interests you. You can get in touch with me
+				through my <a href="#contact-details">email and socials</a> for
+				professional inquiries or even just for personal questions and
+				discussions. I guess I'll just go ahead and "summarize" myself.
+			</p>
+			<p>
+				My name is Garikai Rodney Gumbo, I'm an Electrical Engineering
+				student by day, and a software coder by night. Besides these
+				areas of <i>expertise</i>, I am also interested in pencil
+				drawing, cursive calligraphy, classical literature, biblical
+				symbolism, Orthodox iconography, patristics... among other
+				things.
+			</p>
+			<p>
+				You may check out what else I'm thinking about or currently
+				studying in detail from my{" "}
+				<a href="#reading-list">reading list</a>. If I stumble upon
+				something particularly interesting, insightful, or compelling,
+				I'll probably jot something down on it on my{" "}
+				<a href="#blog">blog</a>.
+			</p>
+			<p>
+				That's it from me, thank you again for stopping by and happy
+				scrolling!
+			</p>
+		</SiteSection>
+	);
+}
