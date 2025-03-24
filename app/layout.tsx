@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/app.css";
-import footerModelDefault from "./components/page-sections/footer/FooterModel";
-import Header from "./components/page-sections/header/Header";
-import headerModelDefault from "./components/page-sections/header/HeaderModel";
-import Navbar from "./components/page-sections/navbar/Navbar";
-import navbarModelDefault from "./components/page-sections/navbar/NavbarModel";
+import footerModelDefault from "./components/sections/footer/FooterModel";
+import Header from "./components/sections/header/Header";
+import headerModelDefault from "./components/sections/header/HeaderModel";
+import Navbar from "./components/sections/navbar/Navbar";
+import navbarModelDefault from "./components/sections/navbar/NavbarModel";
 import { Metadata } from "next/types";
-import Footer from "./components/page-sections/footer/Footer";
+import Footer from "./components/sections/footer/Footer";
 
 export const metadata: Metadata = {
 	title: {

@@ -2,11 +2,9 @@ import { SiteSectionModelInstance } from "./SiteSectionModel";
 
 export default function SiteSection({
 	siteSectionModelInstance,
-	bottomRule = true,
 	children,
 }: {
 	siteSectionModelInstance: SiteSectionModelInstance;
-	bottomRule?: boolean; // TODO: To be fixed
 	children: React.ReactNode;
 }) {
 	return (
@@ -23,7 +21,6 @@ export default function SiteSection({
 					</h3>
 					{children}
 				</div>
-				{bottomRule ? <hr /> : <></>}
 			</div>
 		</section>
 	);

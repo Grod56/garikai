@@ -5,7 +5,7 @@ import comingSoonBannerModelInstantiator from "./components/widgets/coming-soon-
 import imageCardSkeletonModelInstantiator from "./components/widgets/image-card-skeleton/ImageCardSkeletonModel";
 import siteSubsectionModelInstantiator from "./components/widgets/site-section/site-subsection/SiteSubsectionModel";
 import gridContainerModelInstantiator from "./components/widgets/grid-container/GridContainerModel";
-import mainModelInstantiator from "./components/page-sections/main/MainModel";
+import mainModelInstantiator from "./components/sections/main/MainModel";
 import ArtImage from "./components/widgets/art-image/ArtImage";
 import BookPreview from "./components/widgets/book-preview/BookPreview";
 import Carousel from "./components/widgets/carousel/Carousel";
@@ -18,7 +18,7 @@ import SiteSection from "./components/widgets/site-section/SiteSection";
 import { useArtImageRepository } from "./repositories/ArtImageRepository";
 import { useBookPreviewRepository } from "./repositories/BookPreviewRepository";
 import { usePostPreviewRepository } from "./repositories/PostPreviewRepository";
-import Main from "./components/page-sections/main/Main";
+import Main from "./components/sections/main/Main";
 
 export default function Page() {
 	const [focalPost, latestPosts] = usePostPreviewRepository();
@@ -249,7 +249,6 @@ export default function Page() {
 						sectionTitle: "Contact Details",
 					}
 				)}
-				bottomRule={false}
 			>
 				<p>
 					For professional inquiries, shoot me an email @{" "}

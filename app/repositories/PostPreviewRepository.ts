@@ -59,7 +59,7 @@ export function usePostPreviewRepository(): [
 				setLatestPosts(postPreviews);
 			})
 			.catch((error: Error) => {
-				console.log(`An error occurred. ${error}`);
+				console.error(`An error occurred. ${error}`);
 			});
 	}, []);
 

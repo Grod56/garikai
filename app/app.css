@@ -109,7 +109,6 @@ a {
 .main {
 	display: flex;
 	flex-direction: column;
-	background: linear-gradient(120deg, antiquewhite, whitesmoke);
 	font-size: 2rem;
 	overflow-x: hidden;
 	min-height: max-content;
@@ -135,7 +134,16 @@ a {
 	margin-inline: auto;
 }
 
-.site-section:last-child::after {
+.site-section .background-layer::after {
+	display: block;
+	width: 75%;
+	height: 1px;
+	background: #00080a70;
+	content: "";
+	margin-inline: auto;
+}
+
+.site-section:last-child .background-layer::after {
 	content: none;
 }
 
@@ -446,10 +454,11 @@ hr {
 }
 
 @media (min-width: 768px) {
-	/* .site-section:after {
+	.site-section .background-layer::after {
 		width: 75%;
 		margin-inline: 0;
-  	} */
+		margin-left: 3em;
+	}
 	.site-section .content-layer {
 		text-align: justify;
 		padding-left: 3em;
