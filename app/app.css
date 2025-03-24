@@ -106,7 +106,6 @@ a {
 	text-decoration: none;
 	color: var(--color-2);
 }
-
 .main {
 	display: flex;
 	flex-direction: column;
@@ -115,7 +114,9 @@ a {
 	overflow-x: hidden;
 	min-height: max-content;
 }
-
+.main[data-name="home"] {
+	background: linear-gradient(120deg, antiquewhite, whitesmoke);
+}
 .site-section .content-layer {
 	display: flex;
 	flex-direction: column;
@@ -125,9 +126,9 @@ a {
 }
 
 /* TODO: Consider fixing */
-.site-section[data-name="bio"] .content-layer {
+/* .site-section[data-sectionname="bio"] .content-layer {
 	padding-top: 4em;
-}
+} */
 
 .site-section hr {
 	margin-block: 0;
@@ -408,14 +409,6 @@ hr {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-/* 
-.site-section.reading-list .content-layer {
-  max-width: 100%;
-}
-
-.site-section.reading-list p {
-  max-width: 100%;
-} */
 
 .embla {
 	margin-inline: auto;
@@ -454,9 +447,9 @@ hr {
 
 @media (min-width: 768px) {
 	/* .site-section:after {
-      width: 75%;
-      margin-inline: 0;
-  } */
+		width: 75%;
+		margin-inline: 0;
+  	} */
 	.site-section .content-layer {
 		text-align: justify;
 		padding-left: 3em;
@@ -508,7 +501,6 @@ hr {
 	.flexible-container > * {
 		flex: unset;
 	}
-	/* TODO: Sloppy stuff */
 	.grid-container {
 		max-height: unset;
 	}
