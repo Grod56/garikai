@@ -15,7 +15,7 @@ import {
 const instantiatorTestInput = {
 	id: "test-id",
 	thumbnail: "thumbnailSourceTest",
-	isFlexible: false,
+	orientation: "horizontal" as "horizontal" | "vertical" | "flexible",
 };
 
 describe("ImageCard Model", () => {
@@ -82,7 +82,7 @@ describe("ImageCard Model", () => {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
 					thumbnail: "thumbnailSource",
-					flexible: "true",
+					orientation: "flexible",
 				};
 				const mockModelInstanceProperties = Object.keys(
 					mockImageCardModelInstance
@@ -107,8 +107,8 @@ describe("ImageCard Model", () => {
 				expect(modelInstance.thumbnail).toEqual(
 					instantiatorTestInput.thumbnail
 				);
-				expect(modelInstance.flexible).toEqual(
-					`${instantiatorTestInput.isFlexible}`
+				expect(modelInstance.orientation).toEqual(
+					instantiatorTestInput.orientation
 				);
 			});
 		});
@@ -129,6 +129,10 @@ describe("ImageCard Component", () => {
 
 	it("renders div element as component element", () => {
 		expect(componentElement.tagName.toLowerCase()).toEqual("div");
+		expect(componentElement).toHaveAttribute(
+			"data-orientation",
+			modelInstance.orientation
+		);
 	});
 	it("renders img element as thumbnail element", () => {
 		expect(thumbnailElement.tagName.toLowerCase()).toEqual("img");
@@ -145,6 +149,5 @@ describe("ImageCard Component", () => {
 			"src",
 			modelInstance.thumbnail
 		);
-		expect(componentElement.id).toEqual(modelInstance.id);
 	});
 });

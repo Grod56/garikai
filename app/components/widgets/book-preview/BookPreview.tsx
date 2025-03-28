@@ -10,10 +10,18 @@ export default function BookPreview({
 		<LinkedImageCard
 			linkedImageCardModelInstance={bookPreviewModelInstance}
 		>
-			<h5 className="title" data-testid="title">
+			<h5
+				className="title"
+				data-testid="title"
+				title={bookPreviewModelInstance.title}
+			>
 				{bookPreviewModelInstance.title}
 			</h5>
-			<span className="author" data-testid="author">
+			<span
+				className="author"
+				data-testid="author"
+				title={bookPreviewModelInstance.author}
+			>
 				{bookPreviewModelInstance.author}
 			</span>
 		</LinkedImageCard>

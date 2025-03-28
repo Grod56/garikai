@@ -15,12 +15,12 @@ export interface LinkedImageCardModelInstantiator extends ModelInstantiator {
 	instantiate({
 		id,
 		thumbnail,
-		isFlexible,
+		orientation,
 		link,
 	}: {
 		id: string;
 		thumbnail: string;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 		link: URL;
 	}): LinkedImageCardModelInstance;
 }
@@ -32,10 +32,10 @@ export abstract class LinkedImageCardModelInstanceIncarnation extends ImageCardM
 	constructor(
 		id: string,
 		thumbnail: string,
-		isFlexible: boolean,
+		orientation: "horizontal" | "vertical" | "flexible",
 		readonly link: URL
 	) {
-		super(id, thumbnail, isFlexible);
+		super(id, thumbnail, orientation);
 		this.linkedImageCardModelInstanceClassName = {
 			getClassNameString: CLASS_NAME,
 		};
@@ -49,19 +49,24 @@ export abstract class LinkedImageCardModelInstantiatorIncarnation
 	abstract instantiate({
 		id,
 		thumbnail,
-		isFlexible,
+		orientation,
 		link,
 	}: {
 		id: string;
 		thumbnail: string;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 		link: URL;
 	}): LinkedImageCardModelInstanceIncarnation;
 }
 
 class _LinkedImageCardModelInstanceIncarnationImplementation extends LinkedImageCardModelInstanceIncarnation {
-	constructor(id: string, thumbnail: string, isFlexible: boolean, link: URL) {
-		super(id, thumbnail, isFlexible, link);
+	constructor(
+		id: string,
+		thumbnail: string,
+		orientation: "horizontal" | "vertical" | "flexible",
+		link: URL
+	) {
+		super(id, thumbnail, orientation, link);
 	}
 }
 
@@ -69,18 +74,18 @@ class _LinkedImageCardModelInstantiatorImplementation extends LinkedImageCardMod
 	instantiate({
 		id,
 		thumbnail,
-		isFlexible,
+		orientation,
 		link,
 	}: {
 		id: string;
 		thumbnail: string;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 		link: URL;
 	}): LinkedImageCardModelInstanceIncarnation {
 		return new _LinkedImageCardModelInstanceIncarnationImplementation(
 			id,
 			thumbnail,
-			isFlexible,
+			orientation,
 			link
 		);
 	}

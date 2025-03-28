@@ -1,17 +1,9 @@
-import {
-	ClassName,
-	Model,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+import { ClassName, ModelInstantiator } from "@/app/components/Model";
 import {
 	LinkedImageCardModelInstance,
 	LinkedImageCardModelInstanceIncarnation,
 } from "../image-card/linked-image-card/LinkedImageCardModel";
-import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+import { ModelInstantiatorIncarnation } from "@/app/components/ModelIncarnation";
 
 export const CLASS_NAME = "book-preview";
 
@@ -52,7 +44,7 @@ export abstract class BookPreviewModelInstanceIncarnation
 		super(
 			id,
 			thumbnail,
-			true, // TODO: Magic value
+			"flexible", // TODO: Magic value
 			link
 		);
 		this.bookPreviewModelInstanceClassName = {

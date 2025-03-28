@@ -49,6 +49,7 @@ export default function ReadingListSection() {
 									imageCardSkeletonModelInstance={imageCardSkeletonModelInstantiator.instantiate(
 										{
 											id: `reading-list-skeleton_${index}`,
+											orientation: "flexible",
 										}
 									)}
 								/>

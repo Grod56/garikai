@@ -21,7 +21,7 @@ const instantiatorTestInput = {
 	snippet: "sdfsiudbfiusdbniusbf",
 	byline: "mlinuihbui | t4h56",
 	publishedDate: new Date(),
-	isFlexible: true,
+	orientation: "horizontal" as "horizontal",
 };
 
 describe("PostPreview Model", () => {
@@ -91,7 +91,7 @@ describe("PostPreview Model", () => {
 					title: "Title",
 					thumbnail: "/location",
 					link: new URL("https://localhost"),
-					flexible: "true",
+					orientation: "flexible",
 					snippet:
 						"sdkndfuiiusf sdiubsdfusdihsdifb sdfsiudbfiusdbniusbf",
 					byline: "Stuff done | fdjfnakf",

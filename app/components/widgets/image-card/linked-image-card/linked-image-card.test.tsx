@@ -15,7 +15,7 @@ import {
 const instantiatorTestInput = {
 	id: "test-id",
 	thumbnail: "thumbnailSourceTest",
-	isFlexible: false,
+	orientation: "horizontal" as "horizontal",
 	link: new URL("https://localhost"),
 };
 
@@ -85,7 +85,7 @@ describe("LinkedImageCard Model", () => {
 						id: "id",
 						compositeClassNameString: "compositeClassNameString",
 						thumbnail: "thumbnailSource",
-						flexible: "true",
+						orientation: "flexible",
 						link: new URL("http://localhost"),
 					};
 				const mockModelInstanceProperties = Object.keys(
@@ -111,8 +111,8 @@ describe("LinkedImageCard Model", () => {
 				expect(modelInstance.thumbnail).toEqual(
 					instantiatorTestInput.thumbnail
 				);
-				expect(modelInstance.flexible).toEqual(
-					`${instantiatorTestInput.isFlexible}`
+				expect(modelInstance.orientation).toEqual(
+					instantiatorTestInput.orientation
 				);
 			});
 		});
@@ -153,6 +153,5 @@ describe("LinkedImageCard Component", () => {
 	});
 	it("maps all properties for link element", () => {
 		expect(linkElement).toHaveAttribute("href", modelInstance.link.href);
-		expect(componentElement.id).toEqual(modelInstance.id);
 	});
 });

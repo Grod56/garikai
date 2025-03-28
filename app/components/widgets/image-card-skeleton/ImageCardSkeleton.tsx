@@ -1,6 +1,5 @@
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "./image-card-skeleton.scss";
 import { ImageCardSkeletonModelInstance } from "./ImageCardSkeletonModel";
-import "react-loading-skeleton/dist/skeleton.css";
 
 export default function ImageCardSkeleton({
 	imageCardSkeletonModelInstance,
@@ -8,15 +7,14 @@ export default function ImageCardSkeleton({
 	imageCardSkeletonModelInstance: ImageCardSkeletonModelInstance;
 }) {
 	return (
-		// TODO: Tidy this up
-		<SkeletonTheme baseColor="#00080a90" highlightColor="#11111190">
-			<Skeleton
-				containerClassName={
-					imageCardSkeletonModelInstance.compositeClassNameString
-				}
-				containerTestId={imageCardSkeletonModelInstance.id}
-				count={5}
-			/>
-		</SkeletonTheme>
+		<div
+			id={imageCardSkeletonModelInstance.id}
+			className={imageCardSkeletonModelInstance.compositeClassNameString}
+			data-orientation={imageCardSkeletonModelInstance.orientation}
+			data-testid={imageCardSkeletonModelInstance.id}
+		>
+			<div className="card-thumbnail"></div>
+			<div className="card-details"></div>
+		</div>
 	);
 }

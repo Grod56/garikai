@@ -88,7 +88,7 @@ describe("BookPreview Model", () => {
 					author: "Firstname Lastname",
 					thumbnail: "/location",
 					link: new URL("https://localhost"),
-					flexible: "true",
+					orientation: "flexible",
 				};
 				const mockModelInstanceProperties = Object.keys(
 					mockBookPreviewModelInstance
@@ -133,9 +133,11 @@ describe("BookPreview Component", () => {
 		expect(componentElement.id).toEqual(modelInstance.id);
 	});
 	it("maps all properties for title element", () => {
+		expect(titleElement).toHaveAttribute("title", modelInstance.title);
 		expect(titleElement).toHaveTextContent(modelInstance.title);
 	});
 	it("maps all properties for author element", () => {
+		expect(authorElement).toHaveAttribute("title", modelInstance.author);
 		expect(authorElement).toHaveTextContent(modelInstance.author);
 	});
 });

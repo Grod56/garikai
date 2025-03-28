@@ -12,12 +12,13 @@ export default function ImageCard({
 			className={imageCardModelInstance.compositeClassNameString}
 			id={imageCardModelInstance.id}
 			data-testid={imageCardModelInstance.id}
-			data-flexible={imageCardModelInstance.flexible}
+			data-orientation={imageCardModelInstance.orientation}
 		>
 			<img
 				src={imageCardModelInstance.thumbnail}
 				className="card-thumbnail"
 				data-testid={"thumbnail"}
+				loading="lazy"
 			/>
 			<div className="card-details">{children}</div>
 		</div>

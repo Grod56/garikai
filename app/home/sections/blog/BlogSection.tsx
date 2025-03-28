@@ -30,7 +30,10 @@ export default function BlogSection() {
 				) : (
 					<ImageCardSkeleton
 						imageCardSkeletonModelInstance={imageCardSkeletonModelInstantiator.instantiate(
-							{ id: "focal-post-skeleton" }
+							{
+								id: "focal-post-skeleton",
+								orientation: "flexible",
+							}
 						)}
 					/>
 				)}
@@ -69,6 +72,7 @@ export default function BlogSection() {
 											imageCardSkeletonModelInstance={imageCardSkeletonModelInstantiator.instantiate(
 												{
 													id: `recent-post-skeleton_${index}`,
+													orientation: "vertical",
 												}
 											)}
 										/>

@@ -1,19 +1,21 @@
-import imageCardSkeletonDefault, {
-	ImageCardSkeletonModelInstance,
-	ImageCardSkeletonModelInstanceIncarnation,
-	ImageCardSkeletonModelInstantiator,
-	ImageCardSkeletonModelInstantiatorIncarnation,
-} from "./ImageCardSkeletonModel";
 import { render, screen } from "@testing-library/react";
-import ImageCardSkeleton from "./ImageCardSkeleton";
 import { ModelInstantiator, ModelInstance } from "@/app/components/Model";
 import {
 	ModelInstantiatorIncarnation,
 	ModelInstanceIncarnation,
 } from "@/app/components/ModelIncarnation";
 
+import imageCardSkeletonDefault, {
+	ImageCardSkeletonModelInstance,
+	ImageCardSkeletonModelInstanceIncarnation,
+	ImageCardSkeletonModelInstantiator,
+	ImageCardSkeletonModelInstantiatorIncarnation,
+} from "./ImageCardSkeletonModel";
+import ImageCardSkeleton from "./ImageCardSkeleton";
+
 const instantiatorTestInput = {
 	id: "test-id",
+	orientation: "vertical" as "horizontal" | "vertical" | "flexible",
 };
 
 describe("ImageCardSkeleton Model", () => {
@@ -81,6 +83,7 @@ describe("ImageCardSkeleton Model", () => {
 					{
 						id: "id",
 						compositeClassNameString: "compositeClassNameString",
+						orientation: "flexible",
 					};
 				const mockModelInstanceProperties = Object.keys(
 					mockImageCardSkeletonModelInstance
@@ -118,6 +121,10 @@ describe("ImageCardSkeleton Component", () => {
 		expect(componentElement).toHaveClass(
 			modelInstance.compositeClassNameString,
 			{ exact: true }
+		);
+		expect(componentElement).toHaveAttribute(
+			"data-orientation",
+			modelInstance.orientation
 		);
 	});
 });

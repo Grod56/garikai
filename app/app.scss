@@ -183,9 +183,16 @@ a {
 
 .image-card {
 	display: flex;
-	flex-direction: column;
 	background: linear-gradient(to bottom, #00080aee, #00080a);
 	color: white;
+}
+
+.image-card[data-orientation="horizontal"] {
+	flex-direction: row;
+}
+
+.image-card:is([data-orientation="flexible"], [data-orientation="vertical"]) {
+	flex-direction: column;
 	max-width: 100%;
 }
 
@@ -201,6 +208,7 @@ a {
 	gap: 0.5em;
 	padding: 1em;
 	overflow-wrap: anywhere;
+	overflow: hidden;
 }
 
 .image-card .card-details {
@@ -212,7 +220,7 @@ a {
 	transform: scale(1.02);
 }
 
-.image-card-skeleton {
+/* .image-card-skeleton {
 	flex: 1;
 	min-width: 10em;
 }
@@ -220,7 +228,7 @@ a {
 .image-card-skeleton .react-loading-skeleton {
 	display: inline-flex;
 	min-width: 100%;
-}
+} */
 
 .post-preview {
 	min-height: 100%;
@@ -240,28 +248,34 @@ a {
 	font-size: 1.7rem;
 }
 
-.post-preview .snippet {
+.post-preview[data-orientation="vertical"] .snippet {
 	display: none;
 }
 
 .post-preview .byline {
 	color: var(--color-2);
-}
-
-.post-preview .byline {
 	font-size: 1.3rem;
 }
 
-.image-card.post-preview[data-flexible="true"] .card-thumbnail {
+.image-card.post-preview:is(
+		[data-orientation="flexible"],
+		[data-orientation="horizontal"]
+	)
+	.card-thumbnail {
 	max-height: 40vh;
 	object-fit: cover;
 }
 
-.post-preview[data-flexible="true"] .title {
+.post-preview.post-preview:is(
+		[data-orientation="flexible"],
+		[data-orientation="horizontal"]
+	)
+	.title {
 	font-size: 2.3rem;
 }
 
-.post-preview[data-flexible="true"] .snippet {
+.post-preview:is([data-orientation="flexible"], [data-orientation="horizontal"])
+	.snippet {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 5;
@@ -272,7 +286,8 @@ a {
 	font-size: 1.6rem;
 }
 
-.post-preview[data-flexible="true"] .byline {
+.post-preview:is([data-orientation="flexible"], [data-orientation="horizontal"])
+	.byline {
 	font-size: 1.3rem;
 }
 
@@ -329,6 +344,7 @@ a {
 .book-preview .title {
 	font-size: 2.3rem;
 	color: white;
+	overflow: hidden;
 }
 
 .book-preview .author {
@@ -464,7 +480,7 @@ hr {
 		width: 70vw;
 		margin-left: 3em;
 	}
-	.image-card[data-flexible="true"] {
+	.image-card[data-orientation="flexible"] {
 		flex-direction: row;
 		max-height: 11em;
 		min-height: 100%;
@@ -472,12 +488,12 @@ hr {
 	.image-card .card-thumbnail {
 		max-height: 50vh;
 	}
-	.image-card[data-flexible="true"] .card-thumbnail {
+	.image-card[data-orientation="flexible"] .card-thumbnail {
 		min-height: 100%;
 		max-height: inherit;
 		max-width: 30%;
 	}
-	.image-card.linked-image-card:hover[data-flexible="true"] {
+	.image-card.linked-image-card:hover[data-orientation="flexible"] {
 		transform: scale(1.04);
 	}
 	.post-preview {

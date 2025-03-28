@@ -24,7 +24,7 @@ export interface PostPreviewModelInstantiator extends ModelInstantiator {
 		author,
 		publishedDate,
 		link,
-		isFlexible,
+		orientation,
 	}: {
 		id: string;
 		thumbnail: string;
@@ -33,7 +33,7 @@ export interface PostPreviewModelInstantiator extends ModelInstantiator {
 		author: string;
 		publishedDate: Date;
 		link: URL;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 	}): PostPreviewModelInstance;
 }
 
@@ -51,9 +51,9 @@ export abstract class PostPreviewModelInstanceIncarnation
 		readonly postAuthor: string,
 		readonly postDate: Date,
 		link: URL,
-		isFlexible: boolean //TODO: Revisit
+		orientation: "horizontal" | "vertical" | "flexible" //TODO: Revisit
 	) {
-		super(id, thumbnail, isFlexible, link);
+		super(id, thumbnail, orientation, link);
 		this.postPreviewModelInstanceClassName = {
 			getClassNameString: CLASS_NAME,
 		};
@@ -78,7 +78,7 @@ export abstract class PostPreviewModelInstantiatorIncarnation
 		author,
 		publishedDate,
 		link,
-		isFlexible,
+		orientation,
 	}: {
 		id: string;
 		thumbnail: string;
@@ -87,7 +87,7 @@ export abstract class PostPreviewModelInstantiatorIncarnation
 		author: string;
 		publishedDate: Date;
 		link: URL;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 	}): PostPreviewModelInstanceIncarnation;
 }
 
@@ -100,7 +100,7 @@ class _PostPreviewModelInstanceIncarnationImplementation extends PostPreviewMode
 		postAuthor: string,
 		postDate: Date,
 		postURL: URL,
-		isFlexible: boolean
+		orientation: "horizontal" | "vertical" | "flexible"
 	) {
 		super(
 			id,
@@ -110,7 +110,7 @@ class _PostPreviewModelInstanceIncarnationImplementation extends PostPreviewMode
 			postAuthor,
 			postDate,
 			postURL,
-			isFlexible
+			orientation
 		);
 	}
 }
@@ -124,7 +124,7 @@ class _PostPreviewModelInstantiatorIncarnationImplementation extends PostPreview
 		author,
 		publishedDate,
 		link,
-		isFlexible,
+		orientation,
 	}: {
 		id: string;
 		thumbnail: string;
@@ -133,7 +133,7 @@ class _PostPreviewModelInstantiatorIncarnationImplementation extends PostPreview
 		author: string;
 		publishedDate: Date;
 		link: URL;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 	}): PostPreviewModelInstanceIncarnation {
 		return new _PostPreviewModelInstanceIncarnationImplementation(
 			id,
@@ -143,7 +143,7 @@ class _PostPreviewModelInstantiatorIncarnationImplementation extends PostPreview
 			author,
 			publishedDate,
 			link,
-			isFlexible
+			orientation
 		);
 	}
 }

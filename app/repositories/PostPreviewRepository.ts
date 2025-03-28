@@ -40,7 +40,7 @@ export function usePostPreviewRepository(): [
 						author: focalPostJSON.author.displayName,
 						publishedDate: new Date(focalPostJSON.published),
 						link: new URL(focalPostJSON.url),
-						isFlexible: true,
+						orientation: "flexible",
 					})
 				);
 				const postPreviews: PostPreviewModelInstance[] =
@@ -53,7 +53,7 @@ export function usePostPreviewRepository(): [
 							author: item.author.displayName,
 							publishedDate: new Date(item.published),
 							link: new URL(item.url),
-							isFlexible: false,
+							orientation: "vertical",
 						});
 					});
 				setLatestPosts(postPreviews);

@@ -1,0 +1,21 @@
+@keyframes skeleton-loading {
+	0% {
+		background-color: #00080a90;
+	}
+
+	100% {
+		background-color: #88888890;
+	}
+}
+
+%skeleton-animation {
+	opacity: 0.7;
+	animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.art-image-skeleton {
+	min-height: 40vh;
+	max-height: 100%;
+	min-width: 15em;
+	@extend %skeleton-animation;
+}

@@ -13,18 +13,18 @@ export const CLASS_NAME = "image-card";
 
 export interface ImageCardModelInstance extends ModelInstance {
 	readonly thumbnail: string;
-	readonly flexible: "true" | "false";
+	readonly orientation: "horizontal" | "vertical" | "flexible";
 }
 
 export interface ImageCardModelInstantiator extends ModelInstantiator {
 	instantiate({
 		id,
 		thumbnail,
-		isFlexible,
+		orientation,
 	}: {
 		id: string;
 		thumbnail: string;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 	}): ImageCardModelInstance;
 }
 
@@ -35,7 +35,7 @@ export abstract class ImageCardModelInstanceIncarnation
 	constructor(
 		id: string,
 		readonly thumbnail: string,
-		private readonly isFlexible: boolean
+		readonly orientation: "horizontal" | "vertical" | "flexible"
 	) {
 		super(id);
 
@@ -45,9 +45,6 @@ export abstract class ImageCardModelInstanceIncarnation
 	}
 
 	readonly imageCardModelInstanceClassName: ClassName<typeof CLASS_NAME>;
-	get flexible(): "true" | "false" {
-		return `${this.isFlexible}`;
-	}
 }
 
 export abstract class ImageCardModelInstantiatorIncarnation
@@ -57,17 +54,21 @@ export abstract class ImageCardModelInstantiatorIncarnation
 	abstract instantiate({
 		id,
 		thumbnail,
-		isFlexible,
+		orientation,
 	}: {
 		id: string;
 		thumbnail: string;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 	}): ImageCardModelInstanceIncarnation;
 }
 
 class _ImageCardModelInstanceIncarnationImplementation extends ImageCardModelInstanceIncarnation {
-	constructor(id: string, cardThumbnail: string, isFlexible: boolean) {
-		super(id, cardThumbnail, isFlexible);
+	constructor(
+		id: string,
+		cardThumbnail: string,
+		orientation: "horizontal" | "vertical" | "flexible"
+	) {
+		super(id, cardThumbnail, orientation);
 	}
 }
 
@@ -75,16 +76,16 @@ class _ImageCardModelInstantiatorImplementation extends ImageCardModelInstantiat
 	instantiate({
 		id,
 		thumbnail,
-		isFlexible,
+		orientation,
 	}: {
 		id: string;
 		thumbnail: string;
-		isFlexible: boolean;
+		orientation: "horizontal" | "vertical" | "flexible";
 	}): ImageCardModelInstanceIncarnation {
 		return new _ImageCardModelInstanceIncarnationImplementation(
 			id,
 			thumbnail,
-			isFlexible
+			orientation
 		);
 	}
 }
