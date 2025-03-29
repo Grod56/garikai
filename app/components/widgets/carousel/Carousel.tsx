@@ -1,3 +1,4 @@
+import "./carousel.scss";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { Children } from "react";
@@ -10,7 +11,7 @@ export default function Carousel({
 	carouselModelInstance: CarouselModelInstance;
 	children: React.ReactNode;
 }) {
-	const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()]);
+	const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
 	return (
 		//TODO: Sloppy
