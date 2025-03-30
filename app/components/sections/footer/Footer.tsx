@@ -9,6 +9,7 @@ import {
 	faGithub as Github,
 } from "@fortawesome/free-brands-svg-icons";
 import { FooterModelInstance } from "./FooterModel";
+import Link from "next/link";
 
 export default function Footer({
 	footerModelInstance,
@@ -27,24 +28,36 @@ export default function Footer({
 					{footerModelInstance.copyright}
 				</span>
 				<div className="socials">
-					<a href="mailto:rodneygaryx29@gmail.com">
+					<Link href="mailto:rodneygaryx29@gmail.com" target="_blank">
 						<FontAwesomeIcon icon={Email} />
-					</a>
-					<a href="https://wa.me/263733343216?text=Hello Garikai, I was referred to this number from your website.">
+					</Link>
+					<Link
+						href="https://wa.me/263733343216?text=Hello Garikai, I was referred to this number from your website."
+						target="_blank"
+					>
 						<FontAwesomeIcon icon={WhatsApp} />
-					</a>
-					<a href="https://instagram.com/garikai_art">
+					</Link>
+					<Link
+						href="https://instagram.com/garikai_art"
+						target="_blank"
+					>
 						<FontAwesomeIcon icon={Instagram} />
-					</a>
-					<a href="https://youtube.com/c/GarikaiGumbo">
+					</Link>
+					<Link
+						href="https://youtube.com/c/GarikaiGumbo"
+						target="_blank"
+					>
 						<FontAwesomeIcon icon={Youtube} />
-					</a>
-					<a href="https://facebook.com/garikairodney">
+					</Link>
+					<Link
+						href="https://facebook.com/garikairodney"
+						target="_blank"
+					>
 						<FontAwesomeIcon icon={Facebook} />
-					</a>
-					<a href="https://github.com/Grod56">
+					</Link>
+					<Link href="https://github.com/Grod56" target="_blank">
 						<FontAwesomeIcon icon={Github} />
-					</a>
+					</Link>
 				</div>
 			</div>
 		</footer>

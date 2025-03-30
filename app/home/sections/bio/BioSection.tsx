@@ -15,24 +15,23 @@ export default function BioSection() {
 				hobbies, projects, and professional undertakings. Feel free to
 				check out what interests you. You can get in touch with me
 				through my <a href="#contact-details">email and socials</a> for
-				professional inquiries or even just for personal questions and
-				discussions. I guess I'll just go ahead and "summarize" myself.
+				any inquiries. I guess I'll just go ahead and "summarize"
+				myself.
 			</p>
 			<p>
 				My name is Garikai Rodney Gumbo, I'm an Electrical Engineering
-				student by day, and a software coder by night. Besides these
-				areas of <i>expertise</i>, I am also interested in pencil
-				drawing, cursive calligraphy, classical literature, biblical
-				symbolism, Orthodox iconography, patristics... among other
-				things.
+				student by day, and a software coder by night—to put it most
+				appropriately. Besides these areas of "specialization", I am
+				also interested in pencil drawing, cursive calligraphy,
+				classical literature, biblical symbolism, Orthodox iconography,
+				patristics... among other things.
 			</p>
 			<p>
-				You may check out what else I'm thinking about or currently
-				studying in detail from my{" "}
-				<a href="#reading-list">reading list</a>. If I stumble upon
-				something particularly interesting, insightful, or compelling,
-				I'll probably jot something down on it on my{" "}
-				<a href="#blog">blog</a>.
+				You may check out what I'm thinking about or currently studying
+				in detail from my <a href="#reading-list">reading list</a>. If I
+				stumble upon something particularly interesting, insightful, or
+				compelling, I'll probably jot something down on it on my{" "}
+				<a href="#blog">blog</a> (a work in progress currently).
 			</p>
 			<p>
 				That's it from me, thank you again for stopping by and happy

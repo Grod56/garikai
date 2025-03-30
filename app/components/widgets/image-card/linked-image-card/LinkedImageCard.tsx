@@ -14,6 +14,7 @@ export default function LinkedImageCard({
 		<Link
 			href={linkedImageCardModelInstance.link.href}
 			data-testid={"link"}
+			target="_blank"
 		>
 			<ImageCard imageCardModelInstance={linkedImageCardModelInstance}>
 				{children}
