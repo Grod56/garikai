@@ -9,7 +9,7 @@ export default function Navbar({
 		<nav
 			className={navbarModelInstance.compositeClassNameString}
 			id={navbarModelInstance.id}
-			data-testid={"navbarModelInstance.id"}
+			data-testid={navbarModelInstance.id}
 		>
 			<li className="navlinks">
 				<a href="/home#top">Home</a>
