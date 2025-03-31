@@ -10,8 +10,6 @@ export default function LinkedComponent({
 	return (
 		<div
 			className={"linked-component"}
-			id={linkedComponentModelInstance.id}
-			data-testid={linkedComponentModelInstance.id}
 			role="button"
 			onClick={() =>
 				window.open(linkedComponentModelInstance.link, "_blank")
