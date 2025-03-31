@@ -1,25 +1,25 @@
-import mainModelDefault, {
-	MainModelInstance,
-	MainModelInstanceIncarnation,
-	MainModelInstantiator,
-	MainModelInstantiatorIncarnation,
-} from "./MainModel";
+import footerModelDefault, {
+	FooterModelInstance,
+	FooterModelInstanceIncarnation,
+	FooterModelInstantiator,
+	FooterModelInstantiatorIncarnation,
+} from "./FooterModel";
 import {
 	ModelInstanceIncarnation,
 	ModelInstantiatorIncarnation,
-} from "../../ModelIncarnation";
+} from "../../../ModelIncarnation";
 import { render, screen } from "@testing-library/react";
-import Main from "./Main";
-import { ModelInstantiator, ModelInstance } from "../../Model";
+import Footer from "./Footer";
+import { ModelInstance, ModelInstantiator } from "../../../Model";
 
 const instantiatorTestInput = {
 	id: "test-id",
-	name: "sample-name",
+	copyrightText: "All rights reserved.",
 };
 
-describe("Main Model", () => {
-	describe("MainModel default export", () => {
-		const modelInstantiator = mainModelDefault;
+describe("Footer Model", () => {
+	describe("FooterModel default export", () => {
+		const modelInstantiator = footerModelDefault;
 
 		it("is instance of ModelInstantiator", () => {
 			const mockModelInstantiator: ModelInstantiator = {
@@ -34,15 +34,15 @@ describe("Main Model", () => {
 				);
 			});
 		});
-		it("is instance of MainModelInstantiator", () => {
-			const mockMainModelInstantiator: MainModelInstantiator = {
+		it("is instance of FooterModelInstantiator", () => {
+			const mockFooterModelInstantiator: FooterModelInstantiator = {
 				instantiate: jest.fn(),
 			};
 			const mockModelInstantiatorProperties = Object.keys(
-				mockMainModelInstantiator
+				mockFooterModelInstantiator
 			).map((key) => key as keyof ModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
-				expect(typeof mockMainModelInstantiator[property]).toEqual(
+				expect(typeof mockFooterModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
 				);
 			});
@@ -52,14 +52,14 @@ describe("Main Model", () => {
 				ModelInstantiatorIncarnation
 			);
 		});
-		it("is instance of MainModelInstantiatorIncarnation", () => {
+		it("is instance of FooterModelInstantiatorIncarnation", () => {
 			expect(modelInstantiator).toBeInstanceOf(
-				MainModelInstantiatorIncarnation
+				FooterModelInstantiatorIncarnation
 			);
 		});
 
 		describe("Instance generated from default export", () => {
-			const modelInstance: MainModelInstance =
+			const modelInstance: FooterModelInstance =
 				modelInstantiator.instantiate({ ...instantiatorTestInput });
 			it("is instance of ModelInstance", () => {
 				const mockModelInstance: ModelInstance = {
@@ -76,18 +76,18 @@ describe("Main Model", () => {
 					);
 				});
 			});
-			it("is instance of MainModelInstance", () => {
-				const mockMainModelInstance: MainModelInstance = {
+			it("is instance of FooterModelInstance", () => {
+				const mockFooterModelInstance: FooterModelInstance = {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
-					name: "name",
+					copyright: "All rights reserved",
 				};
 				const mockModelInstanceProperties = Object.keys(
-					mockMainModelInstance
-				).map((key) => key as keyof MainModelInstance);
+					mockFooterModelInstance
+				).map((key) => key as keyof FooterModelInstance);
 
 				mockModelInstanceProperties.forEach((property) => {
-					expect(typeof mockMainModelInstance[property]).toEqual(
+					expect(typeof mockFooterModelInstance[property]).toEqual(
 						typeof modelInstance[property]
 					);
 				});
@@ -95,41 +95,44 @@ describe("Main Model", () => {
 			it("is instance of ModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(ModelInstanceIncarnation);
 			});
-			it("is instance of MainModelInstanceIncarnation", () => {
+			it("is instance of FooterModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(
-					MainModelInstanceIncarnation
+					FooterModelInstanceIncarnation
 				);
 			});
 			it("corresponds with instantiator test input", () => {
 				expect(modelInstance.id).toEqual(instantiatorTestInput.id);
+				expect(modelInstance.copyright).toContain(
+					instantiatorTestInput.copyrightText
+				);
 			});
 		});
 	});
 });
 
-describe("Main Component", () => {
-	const modelInstance: MainModelInstance = mainModelDefault.instantiate({
+describe("Footer Component", () => {
+	const modelInstance: FooterModelInstance = footerModelDefault.instantiate({
 		...instantiatorTestInput,
 	});
-	render(
-		<Main mainModelInstance={modelInstance}>
-			<></>
-		</Main>
-	);
+	render(<Footer footerModelInstance={modelInstance} />);
 	const componentElement = screen.getByTestId(modelInstance.id);
+	const copyrightElement = screen.getByTestId("copyright");
 
-	it("renders main as component element", () => {
-		expect(componentElement.tagName.toLowerCase()).toEqual("main");
+	it("renders footer as component element", () => {
+		expect(componentElement.tagName.toLowerCase()).toEqual("footer");
+	});
+	//TODO: May be unnecessary. Review later
+	it("renders child elements within component element", () => {
+		expect(componentElement).toContainElement(copyrightElement);
 	});
 	it("maps all properties for component element", () => {
 		expect(componentElement).toHaveClass(
 			modelInstance.compositeClassNameString,
 			{ exact: true }
 		);
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
-		expect(componentElement).toHaveAttribute(
-			"data-name",
-			modelInstance.name
-		);
+		expect(componentElement.id).toEqual(modelInstance.id);
+	});
+	it("maps all properties for copyright element", () => {
+		expect(copyrightElement.textContent).toEqual(modelInstance.copyright);
 	});
 });

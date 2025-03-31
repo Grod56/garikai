@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { removeMarkup } from "@/app/utilities/general";
 import postPreviewModelInstantiator, {
 	PostPreviewModelInstance,
-} from "../components/widgets/post-preview/PostPreviewModel";
+} from "../components/corporeal/widgets/post-preview/PostPreviewModel";
 
 // TODO: To be fixed
 export function usePostPreviewRepository(): [

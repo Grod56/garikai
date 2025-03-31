@@ -1,8 +1,8 @@
-import { ClassName, ModelInstance, ModelInstantiator } from "../../Model";
+import { ClassName, ModelInstance, ModelInstantiator } from "../../../Model";
 import {
 	ModelInstanceIncarnation,
 	ModelInstantiatorIncarnation,
-} from "../../ModelIncarnation";
+} from "../../../ModelIncarnation";
 
 const CLASS_NAME = "navbar";
 

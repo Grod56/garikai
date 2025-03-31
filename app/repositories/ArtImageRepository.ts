@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import supabase from "@/app/utilities/supabase";
 import artImageModelInstantiator, {
 	ArtImageModelInstance,
-} from "../components/widgets/art-image/ArtImageModel";
+} from "../components/corporeal/widgets/art-image/ArtImageModel";
 
 export function useArtImageRepository() {
 	const [artImages, setArtImages] = useState<ArtImageModelInstance[]>();

@@ -1,25 +1,24 @@
-import footerModelDefault, {
-	FooterModelInstance,
-	FooterModelInstanceIncarnation,
-	FooterModelInstantiator,
-	FooterModelInstantiatorIncarnation,
-} from "./FooterModel";
+import navbarModelDefault, {
+	NavbarModelInstance,
+	NavbarModelInstanceIncarnation,
+	NavbarModelInstantiator,
+	NavbarModelInstantiatorIncarnation,
+} from "./NavbarModel";
 import {
 	ModelInstanceIncarnation,
 	ModelInstantiatorIncarnation,
-} from "../../ModelIncarnation";
+} from "../../../ModelIncarnation";
 import { render, screen } from "@testing-library/react";
-import Footer from "./Footer";
-import { ModelInstance, ModelInstantiator } from "../../Model";
+import Navbar from "./Navbar";
+import { ModelInstance, ModelInstantiator } from "../../../Model";
 
 const instantiatorTestInput = {
 	id: "test-id",
-	copyrightText: "All rights reserved.",
 };
 
-describe("Footer Model", () => {
-	describe("FooterModel default export", () => {
-		const modelInstantiator = footerModelDefault;
+describe("Navbar Model", () => {
+	describe("NavbarModel default export", () => {
+		const modelInstantiator = navbarModelDefault;
 
 		it("is instance of ModelInstantiator", () => {
 			const mockModelInstantiator: ModelInstantiator = {
@@ -34,15 +33,15 @@ describe("Footer Model", () => {
 				);
 			});
 		});
-		it("is instance of FooterModelInstantiator", () => {
-			const mockFooterModelInstantiator: FooterModelInstantiator = {
+		it("is instance of NavbarModelInstantiator", () => {
+			const mockNavbarModelInstantiator: NavbarModelInstantiator = {
 				instantiate: jest.fn(),
 			};
 			const mockModelInstantiatorProperties = Object.keys(
-				mockFooterModelInstantiator
+				mockNavbarModelInstantiator
 			).map((key) => key as keyof ModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
-				expect(typeof mockFooterModelInstantiator[property]).toEqual(
+				expect(typeof mockNavbarModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
 				);
 			});
@@ -52,14 +51,14 @@ describe("Footer Model", () => {
 				ModelInstantiatorIncarnation
 			);
 		});
-		it("is instance of FooterModelInstantiatorIncarnation", () => {
+		it("is instance of NavbarModelInstantiatorIncarnation", () => {
 			expect(modelInstantiator).toBeInstanceOf(
-				FooterModelInstantiatorIncarnation
+				NavbarModelInstantiatorIncarnation
 			);
 		});
 
 		describe("Instance generated from default export", () => {
-			const modelInstance: FooterModelInstance =
+			const modelInstance: NavbarModelInstance =
 				modelInstantiator.instantiate({ ...instantiatorTestInput });
 			it("is instance of ModelInstance", () => {
 				const mockModelInstance: ModelInstance = {
@@ -76,18 +75,17 @@ describe("Footer Model", () => {
 					);
 				});
 			});
-			it("is instance of FooterModelInstance", () => {
-				const mockFooterModelInstance: FooterModelInstance = {
+			it("is instance of NavbarModelInstance", () => {
+				const mockNavbarModelInstance: NavbarModelInstance = {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
-					copyright: "All rights reserved",
 				};
 				const mockModelInstanceProperties = Object.keys(
-					mockFooterModelInstance
-				).map((key) => key as keyof FooterModelInstance);
+					mockNavbarModelInstance
+				).map((key) => key as keyof NavbarModelInstance);
 
 				mockModelInstanceProperties.forEach((property) => {
-					expect(typeof mockFooterModelInstance[property]).toEqual(
+					expect(typeof mockNavbarModelInstance[property]).toEqual(
 						typeof modelInstance[property]
 					);
 				});
@@ -95,35 +93,27 @@ describe("Footer Model", () => {
 			it("is instance of ModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(ModelInstanceIncarnation);
 			});
-			it("is instance of FooterModelInstanceIncarnation", () => {
+			it("is instance of NavbarModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(
-					FooterModelInstanceIncarnation
+					NavbarModelInstanceIncarnation
 				);
 			});
 			it("corresponds with instantiator test input", () => {
 				expect(modelInstance.id).toEqual(instantiatorTestInput.id);
-				expect(modelInstance.copyright).toContain(
-					instantiatorTestInput.copyrightText
-				);
 			});
 		});
 	});
 });
 
-describe("Footer Component", () => {
-	const modelInstance: FooterModelInstance = footerModelDefault.instantiate({
+describe("Navbar Component", () => {
+	const modelInstance: NavbarModelInstance = navbarModelDefault.instantiate({
 		...instantiatorTestInput,
 	});
-	render(<Footer footerModelInstance={modelInstance} />);
+	render(<Navbar navbarModelInstance={modelInstance} />);
 	const componentElement = screen.getByTestId(modelInstance.id);
-	const copyrightElement = screen.getByTestId("copyright");
 
-	it("renders footer as component element", () => {
-		expect(componentElement.tagName.toLowerCase()).toEqual("footer");
-	});
-	//TODO: May be unnecessary. Review later
-	it("renders child elements within component element", () => {
-		expect(componentElement).toContainElement(copyrightElement);
+	it("renders nav as component element", () => {
+		expect(componentElement.tagName.toLowerCase()).toEqual("nav");
 	});
 	it("maps all properties for component element", () => {
 		expect(componentElement).toHaveClass(
@@ -131,8 +121,5 @@ describe("Footer Component", () => {
 			{ exact: true }
 		);
 		expect(componentElement.id).toEqual(modelInstance.id);
-	});
-	it("maps all properties for copyright element", () => {
-		expect(copyrightElement.textContent).toEqual(modelInstance.copyright);
 	});
 });

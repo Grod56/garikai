@@ -1,4 +1,4 @@
-import "../../../../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope as Email } from "@fortawesome/free-regular-svg-icons";
 import {

@@ -1,7 +1,7 @@
-import siteSectionModelInstantiator from "@/app/components/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/widgets/site-section/SiteSection";
-import Banner from "@/app/components/widgets/banner/Banner";
-import bannerModelInstantiator from "@/app/components/widgets/banner/BannerModel";
+import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
+import Banner from "@/app/components/corporeal/widgets/banner/Banner";
+import bannerModelInstantiator from "@/app/components/corporeal/widgets/banner/BannerModel";
 
 export default function PortfolioSection() {
 	return (

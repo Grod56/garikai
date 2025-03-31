@@ -6,7 +6,7 @@
 	--color-2: #c9cad1;
 	--a-color-2: #c9cad170;
 	--color-3: antiquewhite;
-	--link-hover-color: #cc7f52;
+	--link-hover-color: #e99767;
 }
 
 html,
@@ -227,9 +227,12 @@ a {
 	flex: 1;
 }
 
-.linked-image-card:hover {
+.linked-component {
 	transition: 0.2s;
-	transform: scale(1.02);
+}
+
+.linked-component:hover {
+	transform: scale(1.03);
 }
 
 .post-preview {
@@ -395,7 +398,7 @@ hr {
 }
 
 .site-section[data-sectionname="portfolio"] .background-layer {
-	background: url("/resources/images/home/portfolio.png");
+	background: url("/resources/images/home/portfolio.svg");
 	background-position: bottom right;
 	background-repeat: no-repeat;
 }
@@ -403,7 +406,7 @@ hr {
 .site-section[data-sectionname="art"] .background-layer {
 	overflow: hidden;
 	background-color: var(--color-1);
-	background-image: url(/resources/images/home/art.png);
+	background-image: url("/resources/images/home/art.svg");
 	background-position: bottom left;
 	background-repeat: no-repeat;
 }
@@ -413,7 +416,7 @@ hr {
 }
 
 .site-section[data-sectionname="blog"] .background-layer {
-	background-image: url(/resources/images/home/blog.png);
+	background-image: url("/resources/images/home/blog.svg");
 	background-position: top left;
 	background-repeat: no-repeat;
 }
@@ -425,7 +428,7 @@ hr {
 }
 
 .site-section[data-sectionname="reading-list"] .background-layer {
-	background: url(/resources/images/home/reading-list.svg);
+	background: url("/resources/images/home/reading-list.svg");
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -473,9 +476,6 @@ hr {
 		max-height: inherit;
 		max-width: 30%;
 	}
-	.image-card.linked-image-card:hover[data-orientation="flexible"] {
-		transform: scale(1.04);
-	}
 	.post-preview {
 		min-width: auto;
 	}
@@ -487,7 +487,7 @@ hr {
 		background-size: 21vw;
 	}
 	.site-section[data-sectionname="portfolio"] .background-layer {
-		background-size: 50%;
+		background-size: 41%;
 	}
 	.site-section[data-sectionname="art"] .background-layer {
 		background-size: 50%;

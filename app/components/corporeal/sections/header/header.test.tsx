@@ -7,10 +7,10 @@ import headerModelDefault, {
 import {
 	ModelInstanceIncarnation,
 	ModelInstantiatorIncarnation,
-} from "../../ModelIncarnation";
+} from "../../../ModelIncarnation";
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
-import { ModelInstance, ModelInstantiator } from "../../Model";
+import { ModelInstance, ModelInstantiator } from "../../../Model";
 
 const instantiatorTestInput = {
 	id: "test-id",

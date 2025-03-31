@@ -1,10 +1,10 @@
-import siteSectionModelInstantiator from "@/app/components/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/widgets/site-section/SiteSection";
-import imageCardSkeletonModelInstantiator from "@/app/components/widgets/image-card-skeleton/ImageCardSkeletonModel";
-import gridContainerModelInstantiator from "@/app/components/widgets/grid-container/GridContainerModel";
-import BookPreview from "@/app/components/widgets/book-preview/BookPreview";
-import GridContainer from "@/app/components/widgets/grid-container/GridContainer";
-import ImageCardSkeleton from "@/app/components/widgets/image-card-skeleton/ImageCardSkeleton";
+import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
+import imageCardSkeletonModelInstantiator from "@/app/components/corporeal/widgets/image-card-skeleton/ImageCardSkeletonModel";
+import gridContainerModelInstantiator from "@/app/components/corporeal/widgets/grid-container/GridContainerModel";
+import BookPreview from "@/app/components/corporeal/widgets/book-preview/BookPreview";
+import GridContainer from "@/app/components/corporeal/widgets/grid-container/GridContainer";
+import ImageCardSkeleton from "@/app/components/corporeal/widgets/image-card-skeleton/ImageCardSkeleton";
 import { useBookPreviewRepository } from "@/app/repositories/BookPreviewRepository";
 
 export default function ReadingListSection() {

@@ -1,13 +1,16 @@
 import { ClassName, ModelInstantiator } from "@/app/components/Model";
-import {
-	LinkedImageCardModelInstance,
-	LinkedImageCardModelInstanceIncarnation,
-} from "../image-card/linked-image-card/LinkedImageCardModel";
 import { ModelInstantiatorIncarnation } from "@/app/components/ModelIncarnation";
+import { LinkedComponentModelInstance } from "../../../ethereal/linked-component/LinkedComponentModel";
+import {
+	ImageCardModelInstance,
+	ImageCardModelInstanceIncarnation,
+} from "../image-card/ImageCardModel";
 
 export const CLASS_NAME = "book-preview";
 
-export interface BookPreviewModelInstance extends LinkedImageCardModelInstance {
+export interface BookPreviewModelInstance
+	extends ImageCardModelInstance,
+		LinkedComponentModelInstance {
 	readonly title: string;
 	readonly author: string;
 	readonly link: URL;
@@ -31,12 +34,12 @@ export interface BookPreviewModelInstantiator extends ModelInstantiator {
 }
 
 export abstract class BookPreviewModelInstanceIncarnation
-	extends LinkedImageCardModelInstanceIncarnation
+	extends ImageCardModelInstanceIncarnation
 	implements BookPreviewModelInstance
 {
 	constructor(
 		id: string,
-		readonly thumbnail: string,
+		thumbnail: string,
 		readonly title: string,
 		readonly author: string,
 		readonly link: URL
@@ -44,8 +47,7 @@ export abstract class BookPreviewModelInstanceIncarnation
 		super(
 			id,
 			thumbnail,
-			"flexible", // TODO: Magic value
-			link
+			"flexible" // TODO: Magic value
 		);
 		this.bookPreviewModelInstanceClassName = {
 			getClassNameString: CLASS_NAME,

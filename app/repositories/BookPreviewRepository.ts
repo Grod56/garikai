@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import supabase from "@/app/utilities/supabase";
 import bookPreviewModelInstantiator, {
 	BookPreviewModelInstance,
-} from "../components/widgets/book-preview/BookPreviewModel";
+} from "../components/corporeal/widgets/book-preview/BookPreviewModel";
 
 export function useBookPreviewRepository() {
 	const [bookPreviews, setBookPreviews] =

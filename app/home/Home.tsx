@@ -1,6 +1,6 @@
 "use client";
-import mainModelInstantiator from ".././components/sections/main/MainModel";
-import Main from ".././components/sections/main/Main";
+import mainModelInstantiator from "../components/corporeal/sections/main/MainModel";
+import Main from "../components/corporeal/sections/main/Main";
 import BioSection from "./sections/bio/BioSection";
 import PortfolioSection from "./sections/portfolio/PortfolioSection";
 import ArtSection from "./sections/art/ArtSection";

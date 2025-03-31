@@ -1,13 +1,16 @@
 import { ClassName, ModelInstantiator } from "@/app/components/Model";
-import {
-	LinkedImageCardModelInstance,
-	LinkedImageCardModelInstanceIncarnation,
-} from "../image-card/linked-image-card/LinkedImageCardModel";
 import { ModelInstantiatorIncarnation } from "@/app/components/ModelIncarnation";
+import {
+	ImageCardModelInstance,
+	ImageCardModelInstanceIncarnation,
+} from "../image-card/ImageCardModel";
+import { LinkedComponentModelInstance } from "@/app/components/ethereal/linked-component/LinkedComponentModel";
 
 export const CLASS_NAME = "post-preview";
 
-export interface PostPreviewModelInstance extends LinkedImageCardModelInstance {
+export interface PostPreviewModelInstance
+	extends ImageCardModelInstance,
+		LinkedComponentModelInstance {
 	readonly thumbnail: string;
 	readonly title: string;
 	readonly snippet: string;
@@ -39,7 +42,7 @@ export interface PostPreviewModelInstantiator extends ModelInstantiator {
 
 // TODO: Refine relationship definitions in the future
 export abstract class PostPreviewModelInstanceIncarnation
-	extends LinkedImageCardModelInstanceIncarnation
+	extends ImageCardModelInstanceIncarnation
 	implements PostPreviewModelInstance
 {
 	readonly postPreviewModelInstanceClassName: ClassName<typeof CLASS_NAME>;
@@ -50,10 +53,10 @@ export abstract class PostPreviewModelInstanceIncarnation
 		readonly snippet: string,
 		readonly postAuthor: string,
 		readonly postDate: Date,
-		link: URL,
+		readonly link: URL,
 		orientation: "horizontal" | "vertical" | "flexible" //TODO: Revisit
 	) {
-		super(id, thumbnail, orientation, link);
+		super(id, thumbnail, orientation);
 		this.postPreviewModelInstanceClassName = {
 			getClassNameString: CLASS_NAME,
 		};

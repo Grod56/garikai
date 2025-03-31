@@ -1,5 +1,5 @@
-import siteSectionModelInstantiator from "@/app/components/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/widgets/site-section/SiteSection";
+import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
 export default function ContactDetailsSection() {
 	return (
 		<SiteSection

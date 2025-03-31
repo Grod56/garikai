@@ -1,24 +1,25 @@
-import navbarModelDefault, {
-	NavbarModelInstance,
-	NavbarModelInstanceIncarnation,
-	NavbarModelInstantiator,
-	NavbarModelInstantiatorIncarnation,
-} from "./NavbarModel";
+import mainModelDefault, {
+	MainModelInstance,
+	MainModelInstanceIncarnation,
+	MainModelInstantiator,
+	MainModelInstantiatorIncarnation,
+} from "./MainModel";
 import {
 	ModelInstanceIncarnation,
 	ModelInstantiatorIncarnation,
-} from "../../ModelIncarnation";
+} from "../../../ModelIncarnation";
 import { render, screen } from "@testing-library/react";
-import Navbar from "./Navbar";
-import { ModelInstance, ModelInstantiator } from "../../Model";
+import Main from "./Main";
+import { ModelInstantiator, ModelInstance } from "../../../Model";
 
 const instantiatorTestInput = {
 	id: "test-id",
+	name: "sample-name",
 };
 
-describe("Navbar Model", () => {
-	describe("NavbarModel default export", () => {
-		const modelInstantiator = navbarModelDefault;
+describe("Main Model", () => {
+	describe("MainModel default export", () => {
+		const modelInstantiator = mainModelDefault;
 
 		it("is instance of ModelInstantiator", () => {
 			const mockModelInstantiator: ModelInstantiator = {
@@ -33,15 +34,15 @@ describe("Navbar Model", () => {
 				);
 			});
 		});
-		it("is instance of NavbarModelInstantiator", () => {
-			const mockNavbarModelInstantiator: NavbarModelInstantiator = {
+		it("is instance of MainModelInstantiator", () => {
+			const mockMainModelInstantiator: MainModelInstantiator = {
 				instantiate: jest.fn(),
 			};
 			const mockModelInstantiatorProperties = Object.keys(
-				mockNavbarModelInstantiator
+				mockMainModelInstantiator
 			).map((key) => key as keyof ModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
-				expect(typeof mockNavbarModelInstantiator[property]).toEqual(
+				expect(typeof mockMainModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
 				);
 			});
@@ -51,14 +52,14 @@ describe("Navbar Model", () => {
 				ModelInstantiatorIncarnation
 			);
 		});
-		it("is instance of NavbarModelInstantiatorIncarnation", () => {
+		it("is instance of MainModelInstantiatorIncarnation", () => {
 			expect(modelInstantiator).toBeInstanceOf(
-				NavbarModelInstantiatorIncarnation
+				MainModelInstantiatorIncarnation
 			);
 		});
 
 		describe("Instance generated from default export", () => {
-			const modelInstance: NavbarModelInstance =
+			const modelInstance: MainModelInstance =
 				modelInstantiator.instantiate({ ...instantiatorTestInput });
 			it("is instance of ModelInstance", () => {
 				const mockModelInstance: ModelInstance = {
@@ -75,17 +76,18 @@ describe("Navbar Model", () => {
 					);
 				});
 			});
-			it("is instance of NavbarModelInstance", () => {
-				const mockNavbarModelInstance: NavbarModelInstance = {
+			it("is instance of MainModelInstance", () => {
+				const mockMainModelInstance: MainModelInstance = {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
+					name: "name",
 				};
 				const mockModelInstanceProperties = Object.keys(
-					mockNavbarModelInstance
-				).map((key) => key as keyof NavbarModelInstance);
+					mockMainModelInstance
+				).map((key) => key as keyof MainModelInstance);
 
 				mockModelInstanceProperties.forEach((property) => {
-					expect(typeof mockNavbarModelInstance[property]).toEqual(
+					expect(typeof mockMainModelInstance[property]).toEqual(
 						typeof modelInstance[property]
 					);
 				});
@@ -93,9 +95,9 @@ describe("Navbar Model", () => {
 			it("is instance of ModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(ModelInstanceIncarnation);
 			});
-			it("is instance of NavbarModelInstanceIncarnation", () => {
+			it("is instance of MainModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(
-					NavbarModelInstanceIncarnation
+					MainModelInstanceIncarnation
 				);
 			});
 			it("corresponds with instantiator test input", () => {
@@ -105,21 +107,29 @@ describe("Navbar Model", () => {
 	});
 });
 
-describe("Navbar Component", () => {
-	const modelInstance: NavbarModelInstance = navbarModelDefault.instantiate({
+describe("Main Component", () => {
+	const modelInstance: MainModelInstance = mainModelDefault.instantiate({
 		...instantiatorTestInput,
 	});
-	render(<Navbar navbarModelInstance={modelInstance} />);
+	render(
+		<Main mainModelInstance={modelInstance}>
+			<></>
+		</Main>
+	);
 	const componentElement = screen.getByTestId(modelInstance.id);
 
-	it("renders nav as component element", () => {
-		expect(componentElement.tagName.toLowerCase()).toEqual("nav");
+	it("renders main as component element", () => {
+		expect(componentElement.tagName.toLowerCase()).toEqual("main");
 	});
 	it("maps all properties for component element", () => {
 		expect(componentElement).toHaveClass(
 			modelInstance.compositeClassNameString,
 			{ exact: true }
 		);
-		expect(componentElement.id).toEqual(modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute(
+			"data-name",
+			modelInstance.name
+		);
 	});
 });
