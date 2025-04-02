@@ -3,6 +3,7 @@ import supabase from "@/app/utilities/supabase";
 import bookPreviewModelInstantiator, {
 	BookPreviewModelInstance,
 } from "../components/corporeal/widgets/book-preview/BookPreviewModel";
+import { Image } from "../types/Image";
 
 export function useBookPreviewRepository() {
 	const [bookPreviews, setBookPreviews] =
@@ -11,14 +12,18 @@ export function useBookPreviewRepository() {
 	async function retrieveAll(): Promise<BookPreviewModelInstance[]> {
 		try {
 			const { data } = await supabase
-				.from("BookPreview")
+				.from("BookPreviewView")
 				.select("*")
 				.order("title");
 			if (data) {
 				return data.map((record) =>
 					bookPreviewModelInstantiator.instantiate({
 						id: record.id,
-						thumbnail: record.thumbnailSourceURL,
+						thumbnail: {
+							source: record.thumbnailSource,
+							alt: record.thumbnailAlt,
+							placeholder: record.thumbnailPlaceholder,
+						} as Image,
 						title: record.title,
 						author: record.author,
 						link: new URL(record.bookSourceURL),

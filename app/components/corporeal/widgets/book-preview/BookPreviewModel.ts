@@ -1,10 +1,14 @@
-import { ClassName, ModelInstantiator } from "@/app/components/Model";
-import { ModelInstantiatorIncarnation } from "@/app/components/ModelIncarnation";
+import {
+	ClassName,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
+import { CorporealComponentModelInstantiatorIncarnation } from "../../CorporealComponentModel";
 import { LinkedComponentModelInstance } from "../../../ethereal/linked-component/LinkedComponentModel";
 import {
 	ImageCardModelInstance,
 	ImageCardModelInstanceIncarnation,
 } from "../image-card/ImageCardModel";
+import { Image } from "@/app/types/Image";
 
 export const CLASS_NAME = "book-preview";
 
@@ -14,10 +18,11 @@ export interface BookPreviewModelInstance
 	readonly title: string;
 	readonly author: string;
 	readonly link: URL;
-	readonly thumbnail: string;
+	readonly thumbnail: Image;
 }
 
-export interface BookPreviewModelInstantiator extends ModelInstantiator {
+export interface BookPreviewModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		thumbnail,
@@ -26,7 +31,7 @@ export interface BookPreviewModelInstantiator extends ModelInstantiator {
 		link,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		title: string;
 		author: string;
 		link: URL;
@@ -39,7 +44,7 @@ export abstract class BookPreviewModelInstanceIncarnation
 {
 	constructor(
 		id: string,
-		thumbnail: string,
+		thumbnail: Image,
 		readonly title: string,
 		readonly author: string,
 		readonly link: URL
@@ -57,7 +62,7 @@ export abstract class BookPreviewModelInstanceIncarnation
 }
 
 export abstract class BookPreviewModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements BookPreviewModelInstantiator
 {
 	abstract instantiate({
@@ -68,7 +73,7 @@ export abstract class BookPreviewModelInstantiatorIncarnation
 		link,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		title: string;
 		author: string;
 		link: URL;
@@ -78,7 +83,7 @@ export abstract class BookPreviewModelInstantiatorIncarnation
 class _BookPreviewModelInstanceIncarnationImplementation extends BookPreviewModelInstanceIncarnation {
 	constructor(
 		id: string,
-		thumbnail: string,
+		thumbnail: Image,
 		title: string,
 		author: string,
 		link: URL
@@ -96,7 +101,7 @@ class _BookPreviewModelInstantiatorIncarnationImplementation extends BookPreview
 		link,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		title: string;
 		author: string;
 		link: URL;

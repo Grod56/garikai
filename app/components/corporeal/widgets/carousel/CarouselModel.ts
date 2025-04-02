@@ -1,23 +1,25 @@
 import {
 	ClassName,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 const CLASS_NAME = "embla";
 
-export interface CarouselModelInstance extends ModelInstance {}
+export interface CarouselModelInstance
+	extends CorporealComponentModelInstance {}
 
-export interface CarouselModelInstantiator extends ModelInstantiator {
+export interface CarouselModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({ id }: { id: string }): CarouselModelInstance;
 }
 
 export abstract class CarouselModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements CarouselModelInstance
 {
 	constructor(id: string) {
@@ -30,7 +32,7 @@ export abstract class CarouselModelInstanceIncarnation
 }
 
 export abstract class CarouselModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements CarouselModelInstantiator
 {
 	abstract instantiate({

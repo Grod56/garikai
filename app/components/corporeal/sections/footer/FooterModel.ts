@@ -1,16 +1,21 @@
-import { ClassName, ModelInstance, ModelInstantiator } from "../../../Model";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "../../../ModelIncarnation";
+	ClassName,
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "../../CorporealComponentModel";
+import {
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 const CLASS_NAME = "footer";
 
-export interface FooterModelInstance extends ModelInstance {
+export interface FooterModelInstance extends CorporealComponentModelInstance {
 	readonly copyright: string;
 }
 
-export interface FooterModelInstantiator extends ModelInstantiator {
+export interface FooterModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		copyrightText,
@@ -21,7 +26,7 @@ export interface FooterModelInstantiator extends ModelInstantiator {
 }
 
 export abstract class FooterModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements FooterModelInstance
 {
 	constructor(
@@ -38,7 +43,7 @@ export abstract class FooterModelInstanceIncarnation
 }
 
 export abstract class FooterModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements FooterModelInstantiator
 {
 	abstract instantiate({

@@ -4,6 +4,7 @@ import { removeMarkup } from "@/app/utilities/general";
 import postPreviewModelInstantiator, {
 	PostPreviewModelInstance,
 } from "../components/corporeal/widgets/post-preview/PostPreviewModel";
+import { Image } from "../types/Image";
 
 // TODO: To be fixed
 export function usePostPreviewRepository(): [
@@ -34,7 +35,12 @@ export function usePostPreviewRepository(): [
 				setFocalPost(
 					postPreviewModelInstantiator.instantiate({
 						id: focalPostJSON.id,
-						thumbnail: focalPostJSON.images[0].url,
+						thumbnail: {
+							source: focalPostJSON.images[0].url,
+							alt: "Fpcal post thumbnail",
+							placeholder:
+								"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAAXNSR0IArs4c6QAAALBJREFUGFcBpQBa/wGqqqr/LSwtAMbNzgDk7fEAo7KSAFVUQQBnRnYA8/HwAAG3t7f/JSMkAMLJywDY3d0AsbemAJ+NmQAZFhsA29zaAAG4uLj/HRocALvBvQDYv5kAFhQaAP8MGAAMEBcADBMeAAGnp6j/KygpAObl3QDJrY0AAwUKADtNZwDx9/4ArbOrAAGLi4v/LS0tABcVFQDfxaEA4fEGAA4XIQAiICkAkJF/AL0PQDh4YdUeAAAAAElFTkSuQmCC",
+						} as Image,
 						title: focalPostJSON.title,
 						snippet: removeMarkup(focalPostJSON.content),
 						author: focalPostJSON.author.displayName,
@@ -47,7 +53,12 @@ export function usePostPreviewRepository(): [
 					parsedJSON.items.map((item: any) => {
 						return postPreviewModelInstantiator.instantiate({
 							id: item.id,
-							thumbnail: item.images[0].url,
+							thumbnail: {
+								source: item.images[0].url,
+								alt: "Post thumbnail",
+								placeholder:
+									"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAAXNSR0IArs4c6QAAALBJREFUGFcBpQBa/wGqqqr/LSwtAMbNzgDk7fEAo7KSAFVUQQBnRnYA8/HwAAG3t7f/JSMkAMLJywDY3d0AsbemAJ+NmQAZFhsA29zaAAG4uLj/HRocALvBvQDYv5kAFhQaAP8MGAAMEBcADBMeAAGnp6j/KygpAObl3QDJrY0AAwUKADtNZwDx9/4ArbOrAAGLi4v/LS0tABcVFQDfxaEA4fEGAA4XIQAiICkAkJF/AL0PQDh4YdUeAAAAAElFTkSuQmCC",
+							} as Image,
 							title: item.title,
 							snippet: removeMarkup(item.content),
 							author: item.author.displayName,

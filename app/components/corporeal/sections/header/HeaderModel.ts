@@ -1,17 +1,22 @@
-import { ClassName, ModelInstance, ModelInstantiator } from "../../../Model";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "../../../ModelIncarnation";
+	ClassName,
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "../../CorporealComponentModel";
+import {
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 const CLASS_NAME = "header";
 
-export interface HeaderModelInstance extends ModelInstance {
+export interface HeaderModelInstance extends CorporealComponentModelInstance {
 	readonly headerTitle: string;
 	readonly headerSubtitle: string;
 }
 
-export interface HeaderModelInstantiator extends ModelInstantiator {
+export interface HeaderModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		headerTitle,
@@ -24,7 +29,7 @@ export interface HeaderModelInstantiator extends ModelInstantiator {
 }
 
 export abstract class HeaderModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements HeaderModelInstance
 {
 	constructor(
@@ -39,7 +44,7 @@ export abstract class HeaderModelInstanceIncarnation
 }
 
 export abstract class HeaderModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements HeaderModelInstantiator
 {
 	abstract instantiate({

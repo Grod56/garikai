@@ -1,3 +1,5 @@
+import "./image-card.scss";
+import Image from "next/image";
 import { ImageCardModelInstance } from "./ImageCardModel";
 
 export default function ImageCard({
@@ -14,11 +16,14 @@ export default function ImageCard({
 			data-testid={imageCardModelInstance.id}
 			data-orientation={imageCardModelInstance.orientation}
 		>
-			<img
-				src={imageCardModelInstance.thumbnail}
+			<Image
 				className="card-thumbnail"
+				src={imageCardModelInstance.thumbnail.source}
+				alt={imageCardModelInstance.thumbnail.alt}
+				placeholder={imageCardModelInstance.thumbnail.placeholder}
+				width={300}
+				height={250}
 				data-testid={"thumbnail"}
-				loading="lazy"
 			/>
 			<div className="card-details">{children}</div>
 		</div>

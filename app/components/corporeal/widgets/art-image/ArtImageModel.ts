@@ -1,41 +1,42 @@
 import {
 	ClassName,
-	Model,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
+import { Image } from "@/app/types/Image";
 
 export const CLASS_NAME = "art-image";
 
-export interface ArtImageModelInstance extends ModelInstance {
-	readonly imageSource: string;
-	readonly imageTitle: string;
+export interface ArtImageModelInstance extends CorporealComponentModelInstance {
+	readonly image: Image;
+	readonly title: string;
 }
 
-export interface ArtImageModelInstantiator extends ModelInstantiator {
+export interface ArtImageModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
-		imageSource,
-		imageTitle,
+		image,
+		title,
 	}: {
 		id: string;
-		imageSource: string;
-		imageTitle: string;
+		image: Image;
+		title: string;
 	}): ArtImageModelInstance;
 }
 
 export abstract class ArtImageModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements ArtImageModelInstance
 {
 	constructor(
 		id: string,
-		readonly imageSource: string,
-		readonly imageTitle: string
+		readonly image: Image,
+		readonly title: string
 	) {
 		super(id);
 		this.artImageModelInstanceClassName = {
@@ -47,40 +48,40 @@ export abstract class ArtImageModelInstanceIncarnation
 }
 
 export abstract class ArtImageModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements ArtImageModelInstantiator
 {
 	abstract instantiate({
 		id,
-		imageSource,
-		imageTitle,
+		image,
+		title,
 	}: {
 		id: string;
-		imageSource: string;
-		imageTitle: string;
+		image: Image;
+		title: string;
 	}): ArtImageModelInstanceIncarnation;
 }
 
 class _ArtImageModelInstanceIncarnationImplementation extends ArtImageModelInstanceIncarnation {
-	constructor(id: string, imageSource: string, imageTitle: string) {
-		super(id, imageSource, imageTitle);
+	constructor(id: string, image: Image, title: string) {
+		super(id, image, title);
 	}
 }
 
 class _ArtImageModelInstantiatorIncarnationImplementation extends ArtImageModelInstantiatorIncarnation {
 	instantiate({
 		id,
-		imageSource,
-		imageTitle,
+		image,
+		title,
 	}: {
 		id: string;
-		imageSource: string;
-		imageTitle: string;
+		image: Image;
+		title: string;
 	}): ArtImageModelInstanceIncarnation {
 		return new _ArtImageModelInstanceIncarnationImplementation(
 			id,
-			imageSource,
-			imageTitle
+			image,
+			title
 		);
 	}
 }

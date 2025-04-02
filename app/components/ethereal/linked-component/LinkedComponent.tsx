@@ -7,6 +7,7 @@ export default function LinkedComponent({
 	linkedComponentModelInstance: LinkedComponentModelInstance;
 	children: React.ReactNode;
 }) {
+	// Hacky but better than previous solution
 	return (
 		<div
 			className={"linked-component"}

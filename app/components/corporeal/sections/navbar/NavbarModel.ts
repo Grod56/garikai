@@ -1,19 +1,24 @@
-import { ClassName, ModelInstance, ModelInstantiator } from "../../../Model";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "../../../ModelIncarnation";
+	ClassName,
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "../../CorporealComponentModel";
+import {
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 const CLASS_NAME = "navbar";
 
-export interface NavbarModelInstance extends ModelInstance {}
+export interface NavbarModelInstance extends CorporealComponentModelInstance {}
 
-export interface NavbarModelInstantiator extends ModelInstantiator {
+export interface NavbarModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({ id }: { id: string }): NavbarModelInstance;
 }
 
 export abstract class NavbarModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements NavbarModelInstance
 {
 	constructor(id: string) {
@@ -24,7 +29,7 @@ export abstract class NavbarModelInstanceIncarnation
 }
 
 export abstract class NavbarModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements NavbarModelInstantiator
 {
 	abstract instantiate({

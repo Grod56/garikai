@@ -1,22 +1,24 @@
 import {
 	ClassName,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 export const CLASS_NAME = "grid-container";
 
-export interface GridContainerModelInstance extends ModelInstance {
+export interface GridContainerModelInstance
+	extends CorporealComponentModelInstance {
 	readonly maxXorY: number;
 	readonly orientation: "horizontal" | "vertical";
 	readonly overflow: "true" | "false";
 }
 
-export interface GridContainerModelInstantiator extends ModelInstantiator {
+export interface GridContainerModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		maxXorY,
@@ -31,7 +33,7 @@ export interface GridContainerModelInstantiator extends ModelInstantiator {
 }
 
 export abstract class GridContainerModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements GridContainerModelInstance
 {
 	constructor(
@@ -53,7 +55,7 @@ export abstract class GridContainerModelInstanceIncarnation
 }
 
 export abstract class GridContainerModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements GridContainerModelInstantiator
 {
 	abstract instantiate({

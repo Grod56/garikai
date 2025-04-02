@@ -1,5 +1,6 @@
-import { ModelInstance } from "@/app/components/Model";
+import { EtherealComponentModelInstance } from "../EtherealComponentModel";
 
-export interface LinkedComponentModelInstance extends ModelInstance {
+export interface LinkedComponentModelInstance
+	extends EtherealComponentModelInstance {
 	readonly link: URL;
 }

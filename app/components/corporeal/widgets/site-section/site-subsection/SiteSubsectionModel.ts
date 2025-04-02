@@ -1,20 +1,22 @@
 import {
 	ClassName,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../../CorporealComponentModel";
 
 const CLASS_NAME = "site-subsection";
 
-export interface SiteSubsectionModelInstance extends ModelInstance {
+export interface SiteSubsectionModelInstance
+	extends CorporealComponentModelInstance {
 	readonly subsectionTitle: string;
 }
 
-export interface SiteSubsectionModelInstantiator extends ModelInstantiator {
+export interface SiteSubsectionModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		subsectionTitle,
@@ -25,7 +27,7 @@ export interface SiteSubsectionModelInstantiator extends ModelInstantiator {
 }
 
 export abstract class SiteSubsectionModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements SiteSubsectionModelInstance
 {
 	constructor(
@@ -41,7 +43,7 @@ export abstract class SiteSubsectionModelInstanceIncarnation
 }
 
 export abstract class SiteSubsectionModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements SiteSubsectionModelInstantiator
 {
 	abstract instantiate({

@@ -9,13 +9,17 @@ export function useArtImageRepository() {
 
 	async function retrieveAll(): Promise<ArtImageModelInstance[]> {
 		try {
-			const { data } = await supabase.from("ArtImage").select("*");
+			const { data } = await supabase.from("ArtImageView").select("*");
 			if (data) {
 				return data.map((record) => {
 					return artImageModelInstantiator.instantiate({
 						id: record.id,
-						imageSource: record.sourceURL,
-						imageTitle: record.title,
+						image: {
+							source: record.source,
+							alt: record.alt,
+							placeholder: record.placeholder,
+						},
+						title: record.title,
 					});
 				});
 			}

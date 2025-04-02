@@ -1,23 +1,25 @@
 import {
 	ClassName,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 export const CLASS_NAME: string = "flexible-container";
 
-export interface FlexibleContainerModelInstance extends ModelInstance {}
+export interface FlexibleContainerModelInstance
+	extends CorporealComponentModelInstance {}
 
-export interface FlexibleContainerModelInstantiator extends ModelInstantiator {
+export interface FlexibleContainerModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({ id }: { id: string }): FlexibleContainerModelInstance;
 }
 
 export abstract class FlexibleContainerModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements FlexibleContainerModelInstance
 {
 	constructor(id: string) {
@@ -32,7 +34,7 @@ export abstract class FlexibleContainerModelInstanceIncarnation
 }
 
 export abstract class FlexibleContainerModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements FlexibleContainerModelInstantiator
 {
 	abstract instantiate({

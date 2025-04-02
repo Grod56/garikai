@@ -1,23 +1,25 @@
 import {
 	ClassName,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 export const CLASS_NAME = "art-image-skeleton";
 
-export interface ArtImageSkeletonModelInstance extends ModelInstance {}
+export interface ArtImageSkeletonModelInstance
+	extends CorporealComponentModelInstance {}
 
-export interface ArtImageSkeletonModelInstantiator extends ModelInstantiator {
+export interface ArtImageSkeletonModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({ id }: { id: string }): ArtImageSkeletonModelInstance;
 }
 
 export abstract class ArtImageSkeletonModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements ArtImageSkeletonModelInstance
 {
 	constructor(id: string) {
@@ -32,7 +34,7 @@ export abstract class ArtImageSkeletonModelInstanceIncarnation
 }
 
 export abstract class ArtImageSkeletonModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements ArtImageSkeletonModelInstantiator
 {
 	abstract instantiate({

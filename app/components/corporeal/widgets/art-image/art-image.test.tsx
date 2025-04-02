@@ -6,16 +6,23 @@ import artImageModelDefault, {
 } from "./ArtImageModel";
 import { render, screen } from "@testing-library/react";
 import ArtImage from "./ArtImage";
-import { ModelInstantiator, ModelInstance } from "@/app/components/Model";
 import {
-	ModelInstantiatorIncarnation,
-	ModelInstanceIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstantiator,
+	CorporealComponentModelInstance,
+} from "@/app/components/corporeal/CorporealComponentModel";
+import {
+	CorporealComponentModelInstantiatorIncarnation,
+	CorporealComponentModelInstanceIncarnation,
+} from "../../CorporealComponentModel";
 
 const instantiatorTestInput = {
 	id: "test-id",
-	imageSource: "https://localhost",
-	imageTitle: "test title",
+	image: {
+		source: "https://localhost",
+		alt: "This is an image",
+		placeholder: "empty" as "empty",
+	},
+	title: "test title",
 };
 
 describe("ArtImage Model", () => {
@@ -23,12 +30,12 @@ describe("ArtImage Model", () => {
 		const modelInstantiator = artImageModelDefault;
 
 		it("is instance of ModelInstantiator", () => {
-			const mockModelInstantiator: ModelInstantiator = {
+			const mockModelInstantiator: CorporealComponentModelInstantiator = {
 				instantiate: jest.fn(),
 			};
 			const mockModelInstantiatorProperties = Object.keys(
 				mockModelInstantiator
-			).map((key) => key as keyof ModelInstantiator);
+			).map((key) => key as keyof CorporealComponentModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
 				expect(typeof mockModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
@@ -41,16 +48,16 @@ describe("ArtImage Model", () => {
 			};
 			const mockModelInstantiatorProperties = Object.keys(
 				mockArtImageModelInstantiator
-			).map((key) => key as keyof ModelInstantiator);
+			).map((key) => key as keyof CorporealComponentModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
 				expect(typeof mockArtImageModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
 				);
 			});
 		});
-		it("is instance of ModelInstantiatorIncarnation", () => {
+		it("is instance of CorporealModelInstantiatorIncarnation", () => {
 			expect(modelInstantiator).toBeInstanceOf(
-				ModelInstantiatorIncarnation
+				CorporealComponentModelInstantiatorIncarnation
 			);
 		});
 		it("is instance of ArtImageModelInstantiatorIncarnation", () => {
@@ -63,13 +70,13 @@ describe("ArtImage Model", () => {
 			const modelInstance: ArtImageModelInstance =
 				modelInstantiator.instantiate({ ...instantiatorTestInput });
 			it("is instance of ModelInstance", () => {
-				const mockModelInstance: ModelInstance = {
+				const mockModelInstance: CorporealComponentModelInstance = {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
 				};
 				const mockModelInstanceProperties = Object.keys(
 					mockModelInstance
-				).map((key) => key as keyof ModelInstance);
+				).map((key) => key as keyof CorporealComponentModelInstance);
 
 				mockModelInstanceProperties.forEach((property) => {
 					expect(typeof mockModelInstance[property]).toEqual(
@@ -81,8 +88,12 @@ describe("ArtImage Model", () => {
 				const mockArtImageModelInstance: ArtImageModelInstance = {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
-					imageSource: "whatsapp",
-					imageTitle: "Title",
+					image: {
+						source: "https://mock2000.com",
+						alt: "An image",
+						placeholder: "empty" as "empty",
+					},
+					title: "Title sample",
 				};
 				const mockModelInstanceProperties = Object.keys(
 					mockArtImageModelInstance
@@ -94,8 +105,10 @@ describe("ArtImage Model", () => {
 					);
 				});
 			});
-			it("is instance of ModelInstanceIncarnation", () => {
-				expect(modelInstance).toBeInstanceOf(ModelInstanceIncarnation);
+			it("is instance of CorporealModelInstanceIncarnation", () => {
+				expect(modelInstance).toBeInstanceOf(
+					CorporealComponentModelInstanceIncarnation
+				);
 			});
 			it("is instance of ArtImageModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(
@@ -128,11 +141,8 @@ describe("ArtImage Component", () => {
 		expect(componentElement.id).toEqual(modelInstance.id);
 		expect(componentElement).toHaveAttribute(
 			"src",
-			modelInstance.imageSource
+			modelInstance.image.source
 		);
-		expect(componentElement).toHaveAttribute(
-			"title",
-			modelInstance.imageTitle
-		);
+		expect(componentElement).toHaveAttribute("title", modelInstance.title);
 	});
 });

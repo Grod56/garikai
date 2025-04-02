@@ -1,20 +1,21 @@
 import {
 	ClassName,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 export const CLASS_NAME = "coming-soon-banner";
 
-export interface BannerModelInstance extends ModelInstance {
+export interface BannerModelInstance extends CorporealComponentModelInstance {
 	readonly bannerText: string;
 }
 
-export interface BannerModelInstantiator extends ModelInstantiator {
+export interface BannerModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		bannerText,
@@ -25,7 +26,7 @@ export interface BannerModelInstantiator extends ModelInstantiator {
 }
 
 export abstract class BannerModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements BannerModelInstance
 {
 	constructor(
@@ -43,7 +44,7 @@ export abstract class BannerModelInstanceIncarnation
 }
 
 export abstract class BannerModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements BannerModelInstantiator
 {
 	abstract instantiate({

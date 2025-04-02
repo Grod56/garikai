@@ -1,20 +1,22 @@
 import {
 	ClassName,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 
 export const CLASS_NAME = "image-card-skeleton";
 
-export interface ImageCardSkeletonModelInstance extends ModelInstance {
+export interface ImageCardSkeletonModelInstance
+	extends CorporealComponentModelInstance {
 	readonly orientation: "horizontal" | "vertical" | "flexible";
 }
 
-export interface ImageCardSkeletonModelInstantiator extends ModelInstantiator {
+export interface ImageCardSkeletonModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		orientation,
@@ -25,7 +27,7 @@ export interface ImageCardSkeletonModelInstantiator extends ModelInstantiator {
 }
 
 export abstract class ImageCardSkeletonModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements ImageCardSkeletonModelInstance
 {
 	constructor(
@@ -43,7 +45,7 @@ export abstract class ImageCardSkeletonModelInstanceIncarnation
 }
 
 export abstract class ImageCardSkeletonModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements ImageCardSkeletonModelInstantiator
 {
 	abstract instantiate({

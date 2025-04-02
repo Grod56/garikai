@@ -5,12 +5,15 @@ import navbarModelDefault, {
 	NavbarModelInstantiatorIncarnation,
 } from "./NavbarModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "../../../ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
 import { render, screen } from "@testing-library/react";
 import Navbar from "./Navbar";
-import { ModelInstance, ModelInstantiator } from "../../../Model";
+import {
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "../../CorporealComponentModel";
 
 const instantiatorTestInput = {
 	id: "test-id",
@@ -21,12 +24,12 @@ describe("Navbar Model", () => {
 		const modelInstantiator = navbarModelDefault;
 
 		it("is instance of ModelInstantiator", () => {
-			const mockModelInstantiator: ModelInstantiator = {
+			const mockModelInstantiator: CorporealComponentModelInstantiator = {
 				instantiate: jest.fn(),
 			};
 			const mockModelInstantiatorProperties = Object.keys(
 				mockModelInstantiator
-			).map((key) => key as keyof ModelInstantiator);
+			).map((key) => key as keyof CorporealComponentModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
 				expect(typeof mockModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
@@ -39,16 +42,16 @@ describe("Navbar Model", () => {
 			};
 			const mockModelInstantiatorProperties = Object.keys(
 				mockNavbarModelInstantiator
-			).map((key) => key as keyof ModelInstantiator);
+			).map((key) => key as keyof CorporealComponentModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
 				expect(typeof mockNavbarModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
 				);
 			});
 		});
-		it("is instance of ModelInstantiatorIncarnation", () => {
+		it("is instance of CorporealModelInstantiatorIncarnation", () => {
 			expect(modelInstantiator).toBeInstanceOf(
-				ModelInstantiatorIncarnation
+				CorporealComponentModelInstantiatorIncarnation
 			);
 		});
 		it("is instance of NavbarModelInstantiatorIncarnation", () => {
@@ -61,13 +64,13 @@ describe("Navbar Model", () => {
 			const modelInstance: NavbarModelInstance =
 				modelInstantiator.instantiate({ ...instantiatorTestInput });
 			it("is instance of ModelInstance", () => {
-				const mockModelInstance: ModelInstance = {
+				const mockModelInstance: CorporealComponentModelInstance = {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
 				};
 				const mockModelInstanceProperties = Object.keys(
 					mockModelInstance
-				).map((key) => key as keyof ModelInstance);
+				).map((key) => key as keyof CorporealComponentModelInstance);
 
 				mockModelInstanceProperties.forEach((property) => {
 					expect(typeof mockModelInstance[property]).toEqual(
@@ -90,8 +93,10 @@ describe("Navbar Model", () => {
 					);
 				});
 			});
-			it("is instance of ModelInstanceIncarnation", () => {
-				expect(modelInstance).toBeInstanceOf(ModelInstanceIncarnation);
+			it("is instance of CorporealModelInstanceIncarnation", () => {
+				expect(modelInstance).toBeInstanceOf(
+					CorporealComponentModelInstanceIncarnation
+				);
 			});
 			it("is instance of NavbarModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(

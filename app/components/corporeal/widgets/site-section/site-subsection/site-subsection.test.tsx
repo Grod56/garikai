@@ -6,11 +6,14 @@ import siteSubsectionModelDefault, {
 } from "./SiteSubsectionModel";
 import { render, screen } from "@testing-library/react";
 import SiteSubsection from "./SiteSubsection";
-import { ModelInstantiator, ModelInstance } from "@/app/components/Model";
 import {
-	ModelInstantiatorIncarnation,
-	ModelInstanceIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstantiator,
+	CorporealComponentModelInstance,
+} from "@/app/components/corporeal/CorporealComponentModel";
+import {
+	CorporealComponentModelInstantiatorIncarnation,
+	CorporealComponentModelInstanceIncarnation,
+} from "../../../CorporealComponentModel";
 
 const instantiatorTestInput = {
 	id: "test-id",
@@ -22,12 +25,12 @@ describe("SiteSubsection Model", () => {
 		const modelInstantiator = siteSubsectionModelDefault;
 
 		it("is instance of ModelInstantiator", () => {
-			const mockModelInstantiator: ModelInstantiator = {
+			const mockModelInstantiator: CorporealComponentModelInstantiator = {
 				instantiate: jest.fn(),
 			};
 			const mockModelInstantiatorProperties = Object.keys(
 				mockModelInstantiator
-			).map((key) => key as keyof ModelInstantiator);
+			).map((key) => key as keyof CorporealComponentModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
 				expect(typeof mockModelInstantiator[property]).toEqual(
 					typeof modelInstantiator[property]
@@ -41,16 +44,16 @@ describe("SiteSubsection Model", () => {
 				};
 			const mockModelInstantiatorProperties = Object.keys(
 				mockSiteSubsectionModelInstantiator
-			).map((key) => key as keyof ModelInstantiator);
+			).map((key) => key as keyof CorporealComponentModelInstantiator);
 			mockModelInstantiatorProperties.forEach((property) => {
 				expect(
 					typeof mockSiteSubsectionModelInstantiator[property]
 				).toEqual(typeof modelInstantiator[property]);
 			});
 		});
-		it("is instance of ModelInstantiatorIncarnation", () => {
+		it("is instance of CorporealModelInstantiatorIncarnation", () => {
 			expect(modelInstantiator).toBeInstanceOf(
-				ModelInstantiatorIncarnation
+				CorporealComponentModelInstantiatorIncarnation
 			);
 		});
 		it("is instance of SiteSubsectionModelInstantiatorIncarnation", () => {
@@ -63,13 +66,13 @@ describe("SiteSubsection Model", () => {
 			const modelInstance: SiteSubsectionModelInstance =
 				modelInstantiator.instantiate({ ...instantiatorTestInput });
 			it("is instance of ModelInstance", () => {
-				const mockModelInstance: ModelInstance = {
+				const mockModelInstance: CorporealComponentModelInstance = {
 					id: "id",
 					compositeClassNameString: "compositeClassNameString",
 				};
 				const mockModelInstanceProperties = Object.keys(
 					mockModelInstance
-				).map((key) => key as keyof ModelInstance);
+				).map((key) => key as keyof CorporealComponentModelInstance);
 
 				mockModelInstanceProperties.forEach((property) => {
 					expect(typeof mockModelInstance[property]).toEqual(
@@ -94,8 +97,10 @@ describe("SiteSubsection Model", () => {
 					).toEqual(typeof modelInstance[property]);
 				});
 			});
-			it("is instance of ModelInstanceIncarnation", () => {
-				expect(modelInstance).toBeInstanceOf(ModelInstanceIncarnation);
+			it("is instance of CorporealModelInstanceIncarnation", () => {
+				expect(modelInstance).toBeInstanceOf(
+					CorporealComponentModelInstanceIncarnation
+				);
 			});
 			it("is instance of SiteSubsectionModelInstanceIncarnation", () => {
 				expect(modelInstance).toBeInstanceOf(

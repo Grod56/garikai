@@ -1,24 +1,29 @@
-import { ClassName, ModelInstantiator } from "@/app/components/Model";
-import { ModelInstantiatorIncarnation } from "@/app/components/ModelIncarnation";
+import {
+	ClassName,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
+import { CorporealComponentModelInstantiatorIncarnation } from "../../CorporealComponentModel";
 import {
 	ImageCardModelInstance,
 	ImageCardModelInstanceIncarnation,
 } from "../image-card/ImageCardModel";
 import { LinkedComponentModelInstance } from "@/app/components/ethereal/linked-component/LinkedComponentModel";
+import { Image } from "@/app/types/Image";
 
 export const CLASS_NAME = "post-preview";
 
 export interface PostPreviewModelInstance
 	extends ImageCardModelInstance,
 		LinkedComponentModelInstance {
-	readonly thumbnail: string;
+	readonly thumbnail: Image;
 	readonly title: string;
 	readonly snippet: string;
 	readonly byline: string;
 	readonly link: URL;
 }
 
-export interface PostPreviewModelInstantiator extends ModelInstantiator {
+export interface PostPreviewModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		thumbnail,
@@ -30,7 +35,7 @@ export interface PostPreviewModelInstantiator extends ModelInstantiator {
 		orientation,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		title: string;
 		snippet: string;
 		author: string;
@@ -48,7 +53,7 @@ export abstract class PostPreviewModelInstanceIncarnation
 	readonly postPreviewModelInstanceClassName: ClassName<typeof CLASS_NAME>;
 	constructor(
 		id: string,
-		readonly thumbnail: string,
+		readonly thumbnail: Image,
 		readonly title: string,
 		readonly snippet: string,
 		readonly postAuthor: string,
@@ -70,7 +75,7 @@ export abstract class PostPreviewModelInstanceIncarnation
 }
 
 export abstract class PostPreviewModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements PostPreviewModelInstantiator
 {
 	abstract instantiate({
@@ -84,7 +89,7 @@ export abstract class PostPreviewModelInstantiatorIncarnation
 		orientation,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		title: string;
 		snippet: string;
 		author: string;
@@ -97,7 +102,7 @@ export abstract class PostPreviewModelInstantiatorIncarnation
 class _PostPreviewModelInstanceIncarnationImplementation extends PostPreviewModelInstanceIncarnation {
 	constructor(
 		id: string,
-		postThumbnailSource: string,
+		thumbnail: Image,
 		postTitle: string,
 		snippet: string,
 		postAuthor: string,
@@ -107,7 +112,7 @@ class _PostPreviewModelInstanceIncarnationImplementation extends PostPreviewMode
 	) {
 		super(
 			id,
-			postThumbnailSource,
+			thumbnail,
 			postTitle,
 			snippet,
 			postAuthor,
@@ -130,7 +135,7 @@ class _PostPreviewModelInstantiatorIncarnationImplementation extends PostPreview
 		orientation,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		title: string;
 		snippet: string;
 		author: string;

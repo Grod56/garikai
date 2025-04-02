@@ -1,40 +1,42 @@
 import {
 	ClassName,
-	Model,
-	ModelInstance,
-	ModelInstantiator,
-} from "@/app/components/Model";
+	CorporealComponentModelInstance,
+	CorporealComponentModelInstantiator,
+} from "@/app/components/corporeal/CorporealComponentModel";
 import {
-	ModelInstanceIncarnation,
-	ModelInstantiatorIncarnation,
-} from "@/app/components/ModelIncarnation";
+	CorporealComponentModelInstanceIncarnation,
+	CorporealComponentModelInstantiatorIncarnation,
+} from "../../CorporealComponentModel";
+import { Image } from "@/app/types/Image";
 
 export const CLASS_NAME = "image-card";
 
-export interface ImageCardModelInstance extends ModelInstance {
-	readonly thumbnail: string;
+export interface ImageCardModelInstance
+	extends CorporealComponentModelInstance {
+	readonly thumbnail: Image;
 	readonly orientation: "horizontal" | "vertical" | "flexible";
 }
 
-export interface ImageCardModelInstantiator extends ModelInstantiator {
+export interface ImageCardModelInstantiator
+	extends CorporealComponentModelInstantiator {
 	instantiate({
 		id,
 		thumbnail,
 		orientation,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		orientation: "horizontal" | "vertical" | "flexible";
 	}): ImageCardModelInstance;
 }
 
 export abstract class ImageCardModelInstanceIncarnation
-	extends ModelInstanceIncarnation
+	extends CorporealComponentModelInstanceIncarnation
 	implements ImageCardModelInstance
 {
 	constructor(
 		id: string,
-		readonly thumbnail: string,
+		readonly thumbnail: Image,
 		readonly orientation: "horizontal" | "vertical" | "flexible"
 	) {
 		super(id);
@@ -48,7 +50,7 @@ export abstract class ImageCardModelInstanceIncarnation
 }
 
 export abstract class ImageCardModelInstantiatorIncarnation
-	extends ModelInstantiatorIncarnation
+	extends CorporealComponentModelInstantiatorIncarnation
 	implements ImageCardModelInstantiator
 {
 	abstract instantiate({
@@ -57,7 +59,7 @@ export abstract class ImageCardModelInstantiatorIncarnation
 		orientation,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		orientation: "horizontal" | "vertical" | "flexible";
 	}): ImageCardModelInstanceIncarnation;
 }
@@ -65,10 +67,10 @@ export abstract class ImageCardModelInstantiatorIncarnation
 class _ImageCardModelInstanceIncarnationImplementation extends ImageCardModelInstanceIncarnation {
 	constructor(
 		id: string,
-		cardThumbnail: string,
+		thumbnail: Image,
 		orientation: "horizontal" | "vertical" | "flexible"
 	) {
-		super(id, cardThumbnail, orientation);
+		super(id, thumbnail, orientation);
 	}
 }
 
@@ -79,7 +81,7 @@ class _ImageCardModelInstantiatorImplementation extends ImageCardModelInstantiat
 		orientation,
 	}: {
 		id: string;
-		thumbnail: string;
+		thumbnail: Image;
 		orientation: "horizontal" | "vertical" | "flexible";
 	}): ImageCardModelInstanceIncarnation {
 		return new _ImageCardModelInstanceIncarnationImplementation(

@@ -71,7 +71,7 @@ a {
 	padding-inline: 2em;
 	background:
 		linear-gradient(transparent, var(--color-1)),
-		url(/resources/images/header.jpg);
+		url("/resources/images/header.jpg");
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -193,40 +193,6 @@ a {
 	font-size: 10rem;
 }
 
-.image-card {
-	display: flex;
-	background: linear-gradient(to bottom, #00080aee, #00080a);
-	color: white;
-}
-
-.image-card[data-orientation="horizontal"] {
-	flex-direction: row;
-}
-
-.image-card:is([data-orientation="flexible"], [data-orientation="vertical"]) {
-	flex-direction: column;
-	max-width: 100%;
-}
-
-.image-card .card-thumbnail {
-	object-fit: cover;
-}
-
-.image-card .card-details,
-.plain-card {
-	display: flex;
-	flex-direction: column;
-	text-align: left;
-	gap: 0.5em;
-	padding: 1em;
-	overflow-wrap: anywhere;
-	overflow: hidden;
-}
-
-.image-card .card-details {
-	flex: 1;
-}
-
 .linked-component {
 	transition: 0.2s;
 }
@@ -338,13 +304,14 @@ a {
 	flex: 1;
 }
 
-.book-preview {
-	width: 100%;
-}
+// .book-preview {
+// 	min-width: 100%;
+// 	max-width: 100%;
+// }
 
-.image-card.book-preview .card-thumbnail {
-	max-height: 40vh;
-}
+// .image-card.book-preview .card-thumbnail {
+// 	max-height: 40vh;
+// }
 
 .book-preview .title {
 	font-size: 2.3rem;
@@ -434,13 +401,6 @@ hr {
 	background-size: cover;
 }
 
-.art-image {
-	max-height: 60vh;
-	min-width: 100%;
-	object-fit: cover;
-	filter: brightness(1.2);
-}
-
 .site-subsection {
 	display: flex;
 	flex-direction: column;
@@ -462,19 +422,6 @@ hr {
 	.site-section hr {
 		width: 70vw;
 		margin-left: 3em;
-	}
-	.image-card[data-orientation="flexible"] {
-		flex-direction: row;
-		max-height: 11em;
-		min-height: 100%;
-	}
-	.image-card .card-thumbnail {
-		max-height: 50vh;
-	}
-	.image-card[data-orientation="flexible"] .card-thumbnail {
-		min-height: 100%;
-		max-height: inherit;
-		max-width: 30%;
 	}
 	.post-preview {
 		min-width: auto;
