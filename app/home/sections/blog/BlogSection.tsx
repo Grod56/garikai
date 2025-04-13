@@ -1,63 +1,49 @@
-import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
-import GridContainer from "@/app/components/corporeal/widgets/grid-container/GridContainer";
-import ImageCardSkeleton from "@/app/components/corporeal/widgets/image-card-skeleton/ImageCardSkeleton";
-import PostPreview from "@/app/components/corporeal/widgets/post-preview/PostPreview";
-import SiteSubsection from "@/app/components/corporeal/widgets/site-section/site-subsection/SiteSubsection";
-import siteSubsectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/site-subsection/SiteSubsectionModel";
-import imageCardSkeletonModelInstantiator from "@/app/components/corporeal/widgets/image-card-skeleton/ImageCardSkeletonModel";
-import gridContainerModelInstantiator from "@/app/components/corporeal/widgets/grid-container/GridContainerModel";
+import SiteSection from "@/app/components/content/site-section/SiteSection";
+import GridContainer from "@/app/components/widgets/grid-container/GridContainer";
+import ImageCardSkeleton from "@/app/components/widgets/image-card-skeleton/ImageCardSkeleton";
+import PostPreview from "@/app/components/content/post-preview/PostPreview";
+import SiteSubsection from "@/app/components/content/site-section/site-subsection/SiteSubsection";
 import { usePostPreviewRepository } from "@/app/repositories/PostPreviewRepository";
+import { useSiteSectionModel } from "@/app/components/content/site-section/SiteSectionModel";
+import { useSiteSubsectionModel } from "@/app/components/content/site-section/site-subsection/SiteSubsectionModel";
+import { useImageCardSkeletonModel } from "@/app/components/widgets/image-card-skeleton/ImageCardSkeletonModel";
+import { useGridContainerModel } from "@/app/components/widgets/grid-container/GridContainerModel";
 
 export default function BlogSection() {
-	const [focalPost, latestPosts] = usePostPreviewRepository();
+	const siteSectionModel = useSiteSectionModel("blog", "blog", "Blog");
+	const latestPostSubsectionModel = useSiteSubsectionModel(
+		"latest-post",
+		"Latest Post"
+	);
+	const recentPostsSubsectionModel = useSiteSubsectionModel(
+		"recent-posts",
+		"Recent Posts"
+	);
+	const { focalPost, latestPosts } = usePostPreviewRepository();
+	const recentPostsGridContainer = useGridContainerModel(
+		3,
+		"horizontal",
+		true
+	);
 
 	return (
-		<SiteSection
-			siteSectionModelInstance={siteSectionModelInstantiator.instantiate({
-				id: "blog",
-				sectionName: "blog",
-				sectionTitle: "Blog",
-			})}
-		>
-			<SiteSubsection
-				siteSubsectionModelInstance={siteSubsectionModelInstantiator.instantiate(
-					{ id: "latest-post", subsectionTitle: "Latest Post" }
-				)}
-			>
+		<SiteSection model={siteSectionModel}>
+			<SiteSubsection model={latestPostSubsectionModel}>
 				{focalPost ? (
-					<PostPreview postPreviewModelInstance={focalPost} />
+					<PostPreview model={focalPost} />
 				) : (
 					<ImageCardSkeleton
-						imageCardSkeletonModelInstance={imageCardSkeletonModelInstantiator.instantiate(
-							{
-								id: "focal-post-skeleton",
-								orientation: "flexible",
-							}
-						)}
+						model={useImageCardSkeletonModel("flexible")}
 					/>
 				)}
 			</SiteSubsection>
-			<SiteSubsection
-				siteSubsectionModelInstance={siteSubsectionModelInstantiator.instantiate(
-					{ id: "recent-posts", subsectionTitle: "Recent Posts" }
-				)}
-			>
-				<GridContainer
-					gridContainerModelInstance={gridContainerModelInstantiator.instantiate(
-						{
-							id: "recent-posts-grid-container",
-							maxXorY: 3,
-							orientation: "horizontal",
-							isOverflow: true,
-						}
-					)}
-				>
+			<SiteSubsection model={recentPostsSubsectionModel}>
+				<GridContainer model={recentPostsGridContainer}>
 					{latestPosts
 						? latestPosts.map((latestPost) => (
 								<PostPreview
-									key={latestPost.id}
-									postPreviewModelInstance={latestPost}
+									key={latestPost.modelInstance.id}
+									model={latestPost}
 								/>
 							))
 						: Array(3)
@@ -69,11 +55,8 @@ export default function BlogSection() {
 									) => (
 										<ImageCardSkeleton
 											key={index}
-											imageCardSkeletonModelInstance={imageCardSkeletonModelInstantiator.instantiate(
-												{
-													id: `recent-post-skeleton_${index}`,
-													orientation: "vertical",
-												}
+											model={useImageCardSkeletonModel(
+												"vertical"
 											)}
 										/>
 									)

@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/app.scss";
-import Footer from "./components/corporeal/sections/footer/Footer";
-import footerModelDefault from "./components/corporeal/sections/footer/FooterModel";
-import Header from "./components/corporeal/sections/header/Header";
-import headerModelDefault from "./components/corporeal/sections/header/HeaderModel";
-import Navbar from "./components/corporeal/sections/navbar/Navbar";
-import navbarModelDefault from "./components/corporeal/sections/navbar/NavbarModel";
 import { Metadata } from "next/types";
+import Header from "./components/content/header/Header";
+import Navbar from "./components/content/navbar/Navbar";
+import Footer from "./components/content/footer/Footer";
+import { useHeaderModel } from "./components/content/header/HeaderModel";
+import { useNavbarModel } from "./components/content/navbar/NavbarModel";
+import { useFooterModel } from "./components/content/footer/FooterModel";
 
 export const metadata: Metadata = {
 	title: {
@@ -20,28 +20,21 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	const headerModel = useHeaderModel(
+		"header",
+		process.env.HEADER_TITLE!,
+		process.env.HEADER_SUBTITLE!
+	);
+	const navbarModel = useNavbarModel("navbar");
+	const footerModel = useFooterModel("footer", process.env.COPYRIGHT_TEXT!);
+
 	return (
 		<html lang="en">
 			<body>
-				<Header
-					headerModelInstance={headerModelDefault.instantiate({
-						id: "header",
-						headerTitle: process.env.HEADER_TITLE!,
-						headerSubtitle: process.env.HEADER_SUBTITLE!,
-					})}
-				/>
-				<Navbar
-					navbarModelInstance={navbarModelDefault.instantiate({
-						id: "navbar",
-					})}
-				/>
+				<Header model={headerModel} />
+				<Navbar model={navbarModel} />
 				{children}
-				<Footer
-					footerModelInstance={footerModelDefault.instantiate({
-						id: "footer",
-						copyrightText: process.env.COPYRIGHT_TEXT!,
-					})}
-				/>
+				<Footer model={footerModel} />
 			</body>
 		</html>
 	);

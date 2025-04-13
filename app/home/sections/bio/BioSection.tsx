@@ -1,15 +1,11 @@
-import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
+import { useSiteSectionModel } from "@/app/components/content/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/content/site-section/SiteSection";
 
 export default function BioSection() {
+	const sectionModel = useSiteSectionModel("bio", "bio", "Bio");
+
 	return (
-		<SiteSection
-			siteSectionModelInstance={siteSectionModelInstantiator.instantiate({
-				id: "bio",
-				sectionName: "bio",
-				sectionTitle: "Bio",
-			})}
-		>
+		<SiteSection model={sectionModel}>
 			<p>
 				Welcome! This place is the nexus of all of my interests,
 				hobbies, projects, and professional undertakings. Feel free to

@@ -1,0 +1,87 @@
+$maxHorizontalHeight: 10.5em;
+$maxHorizontalThumbnailWidth: 32%;
+$maxLandscapeVerticalThumbnailHeight: 7em;
+$maxPortraitVerticalThumbnailHeight: 40vh;
+
+.image-card {
+	display: flex;
+	background: linear-gradient(
+		to bottom,
+		var(--secondary-a-color-2),
+		var(--secondary-color-1)
+	);
+	color: white;
+	max-width: 100%;
+	min-width: 100%;
+}
+
+@mixin horizontal-image-card {
+	flex-direction: row;
+	max-height: $maxHorizontalHeight;
+	min-height: 100%;
+}
+
+@mixin vertical-image-card {
+	flex-direction: column;
+}
+
+@mixin horizontal-card-thumbnail($maxWidth) {
+	max-width: $maxWidth;
+	min-width: $maxWidth;
+	max-height: inherit;
+}
+
+@mixin vertical-card-thumbnail($maxHeight) {
+	max-height: $maxHeight;
+	max-width: 100%;
+	width: auto;
+}
+
+.image-card[data-orientation="horizontal"] {
+	@include horizontal-image-card;
+}
+
+.image-card:is([data-orientation="flexible"], [data-orientation="vertical"]) {
+	@include vertical-image-card;
+}
+
+.image-card .card-thumbnail {
+	object-fit: cover;
+	height: auto;
+}
+
+.image-card[data-orientation="horizontal"] .card-thumbnail {
+	@include horizontal-card-thumbnail($maxHorizontalThumbnailWidth);
+}
+
+.image-card:is([data-orientation="flexible"], [data-orientation="vertical"])
+	.card-thumbnail {
+	@include vertical-card-thumbnail($maxPortraitVerticalThumbnailHeight);
+}
+
+.image-card .card-details,
+.plain-card {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	gap: 0.5em;
+	padding: 1em;
+	overflow-wrap: anywhere;
+	overflow: hidden;
+}
+
+.image-card .card-details {
+	flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+	.image-card[data-orientation="flexible"] {
+		@include horizontal-image-card;
+	}
+	.image-card:is([data-orientation="flexible"]) .card-thumbnail {
+		@include horizontal-card-thumbnail($maxHorizontalThumbnailWidth);
+	}
+	.image-card:is([data-orientation="vertical"]) .card-thumbnail {
+		@include vertical-card-thumbnail($maxLandscapeVerticalThumbnailHeight);
+	}
+}

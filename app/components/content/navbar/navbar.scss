@@ -1,0 +1,26 @@
+.navbar {
+	justify-content: center;
+	position: sticky;
+	top: -1px;
+	z-index: 10;
+	margin: 0;
+	padding-block: 1em;
+	padding-inline: 1em;
+	border: 0;
+	border-radius: 0;
+	backdrop-filter: blur(5px);
+	background: var(--secondary-a-color-1);
+}
+.navlinks {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	column-gap: 1.5em;
+	row-gap: 0.5em;
+}
+.navlinks a {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--primary-color-1);
+}

@@ -1,6 +1,6 @@
 "use client";
-import mainModelInstantiator from "../components/corporeal/sections/main/MainModel";
-import Main from "../components/corporeal/sections/main/Main";
+import { useMainModel } from "../components/content/main/MainModel";
+import Main from "../components/content/main/Main";
 import BioSection from "./sections/bio/BioSection";
 import PortfolioSection from "./sections/portfolio/PortfolioSection";
 import ArtSection from "./sections/art/ArtSection";
@@ -9,13 +9,9 @@ import ReadingListSection from "./sections/reading-list/ReadingListSection";
 import ContactDetailsSection from "./sections/contact-details/ContactDetailsSection";
 
 export default function Home() {
+	const mainModel = useMainModel("home", "home");
 	return (
-		<Main
-			mainModelInstance={mainModelInstantiator.instantiate({
-				id: "home",
-				name: "home",
-			})}
-		>
+		<Main model={mainModel}>
 			<BioSection />
 			<PortfolioSection />
 			<ArtSection />

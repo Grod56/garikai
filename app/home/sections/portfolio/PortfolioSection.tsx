@@ -1,23 +1,17 @@
-import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
-import Banner from "@/app/components/corporeal/widgets/banner/Banner";
-import bannerModelInstantiator from "@/app/components/corporeal/widgets/banner/BannerModel";
+import { useSiteSectionModel } from "@/app/components/content/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/content/site-section/SiteSection";
+import Banner from "@/app/components/content/banner/Banner";
+import { useBannerModel } from "@/app/components/content/banner/BannerModel";
 
 export default function PortfolioSection() {
+	const siteSectionModel = useSiteSectionModel(
+		"portfolio",
+		"portfolio",
+		"Portfolio"
+	);
 	return (
-		<SiteSection
-			siteSectionModelInstance={siteSectionModelInstantiator.instantiate({
-				id: "portfolio",
-				sectionName: "portfolio",
-				sectionTitle: "Portfolio",
-			})}
-		>
-			<Banner
-				bannerModelInstance={bannerModelInstantiator.instantiate({
-					id: "portfolio-coming-soon-banner",
-					bannerText: "Coming Soon",
-				})}
-			/>
+		<SiteSection model={siteSectionModel}>
+			<Banner model={useBannerModel("portfolio-banner", "Coming Soon")} />
 		</SiteSection>
 	);
 }

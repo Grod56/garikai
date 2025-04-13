@@ -1,23 +1,22 @@
-import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
-import imageCardSkeletonModelInstantiator from "@/app/components/corporeal/widgets/image-card-skeleton/ImageCardSkeletonModel";
-import gridContainerModelInstantiator from "@/app/components/corporeal/widgets/grid-container/GridContainerModel";
-import BookPreview from "@/app/components/corporeal/widgets/book-preview/BookPreview";
-import GridContainer from "@/app/components/corporeal/widgets/grid-container/GridContainer";
-import ImageCardSkeleton from "@/app/components/corporeal/widgets/image-card-skeleton/ImageCardSkeleton";
+import { useSiteSectionModel } from "@/app/components/content/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/content/site-section/SiteSection";
+import BookPreview from "@/app/components/content/book-preview/BookPreview";
+import GridContainer from "@/app/components/widgets/grid-container/GridContainer";
+import ImageCardSkeleton from "@/app/components/widgets/image-card-skeleton/ImageCardSkeleton";
 import { useBookPreviewRepository } from "@/app/repositories/BookPreviewRepository";
+import { useGridContainerModel } from "@/app/components/widgets/grid-container/GridContainerModel";
+import { useImageCardSkeletonModel } from "@/app/components/widgets/image-card-skeleton/ImageCardSkeletonModel";
 
 export default function ReadingListSection() {
+	const siteSectionModel = useSiteSectionModel(
+		"reading-list",
+		"reading-list",
+		"Reading List"
+	);
 	const bookPreviews = useBookPreviewRepository();
 
 	return (
-		<SiteSection
-			siteSectionModelInstance={siteSectionModelInstantiator.instantiate({
-				id: "reading-list",
-				sectionName: "reading-list",
-				sectionTitle: "Reading List",
-			})}
-		>
+		<SiteSection model={siteSectionModel}>
 			<p>
 				Collection of material that has greatly influenced the way I
 				think—together with stuff I'm currently working on. Will
@@ -25,20 +24,13 @@ export default function ReadingListSection() {
 				clarity in the near future.
 			</p>
 			<GridContainer
-				gridContainerModelInstance={gridContainerModelInstantiator.instantiate(
-					{
-						id: "reading-list-grid-container",
-						maxXorY: 2,
-						orientation: "horizontal",
-						isOverflow: false,
-					}
-				)}
+				model={useGridContainerModel(2, "horizontal", false)}
 			>
 				{bookPreviews
 					? bookPreviews.map((bookPreview) => (
 							<BookPreview
-								key={bookPreview.id}
-								bookPreviewModelInstance={bookPreview}
+								key={bookPreview.modelInstance.id}
+								model={bookPreview}
 							/>
 						))
 					: Array(6)
@@ -46,11 +38,8 @@ export default function ReadingListSection() {
 							.map((_, index) => (
 								<ImageCardSkeleton
 									key={index}
-									imageCardSkeletonModelInstance={imageCardSkeletonModelInstantiator.instantiate(
-										{
-											id: `reading-list-skeleton_${index}`,
-											orientation: "flexible",
-										}
+									model={useImageCardSkeletonModel(
+										"flexible"
 									)}
 								/>
 							))}

@@ -1,14 +1,13 @@
-import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
+import { useSiteSectionModel } from "@/app/components/content/site-section/SiteSectionModel";
+import SiteSection from "@/app/components/content/site-section/SiteSection";
 export default function ContactDetailsSection() {
+	const siteSectionModel = useSiteSectionModel(
+		"contact-details",
+		"contact-details",
+		"Contact Details"
+	);
 	return (
-		<SiteSection
-			siteSectionModelInstance={siteSectionModelInstantiator.instantiate({
-				id: "contact-details",
-				sectionName: "contact-details",
-				sectionTitle: "Contact Details",
-			})}
-		>
+		<SiteSection model={siteSectionModel}>
 			<p>
 				For professional inquiries, shoot me an email @{" "}
 				<a href="mailto:providenceuniversalstudios@gmail.com">

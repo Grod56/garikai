@@ -1,32 +1,25 @@
-import siteSectionModelInstantiator from "@/app/components/corporeal/widgets/site-section/SiteSectionModel";
-import SiteSection from "@/app/components/corporeal/widgets/site-section/SiteSection";
-import Carousel from "@/app/components/corporeal/widgets/carousel/Carousel";
-import ArtImage from "@/app/components/corporeal/widgets/art-image/ArtImage";
-import carouselModelInstantiator from "@/app/components/corporeal/widgets/carousel/CarouselModel";
-import { useArtImageRepository } from "@/app/repositories/ArtImageRepository";
-import ArtImageSkeleton from "@/app/components/corporeal/widgets/art-image-skeleton/ArtImageSkeleton";
-import artImageSkeletonModelInstantiator from "@/app/components/corporeal/widgets/art-image-skeleton/ArtImageSkeletonModel";
+import SiteSection from "@/app/components/content/site-section/SiteSection";
+import Carousel from "@/app/components/widgets/carousel/Carousel";
+import ArtImagePreview from "@/app/components/content/art-image-preview/ArtImagePreview";
+import { useArtImagePreviewRepository } from "@/app/repositories/ArtImagePreviewRepository";
+import ArtImageSkeleton from "@/app/components/widgets/art-image-skeleton/ArtImageSkeleton";
+import { useSiteSectionModel } from "@/app/components/content/site-section/SiteSectionModel";
+import { useCarouselModel } from "@/app/components/widgets/carousel/CarouselModel";
+import { useArtImageSkeletonModel } from "@/app/components/widgets/art-image-skeleton/ArtImageSkeletonModel";
 
 export default function ArtSection() {
-	const artImages = useArtImageRepository();
+	const siteSectionModel = useSiteSectionModel("art", "art", "Art");
+	const carouselModel = useCarouselModel();
+	const artImagePreviews = useArtImagePreviewRepository();
+
 	return (
-		<SiteSection
-			siteSectionModelInstance={siteSectionModelInstantiator.instantiate({
-				id: "art",
-				sectionName: "art",
-				sectionTitle: "Art",
-			})}
-		>
-			<Carousel
-				carouselModelInstance={carouselModelInstantiator.instantiate({
-					id: "art-image-carousel",
-				})}
-			>
-				{artImages
-					? artImages.map((artImage) => (
-							<ArtImage
-								key={artImage.id}
-								artImageModelInstance={artImage}
+		<SiteSection model={siteSectionModel}>
+			<Carousel model={carouselModel}>
+				{artImagePreviews
+					? artImagePreviews.map((artImagePreview) => (
+							<ArtImagePreview
+								key={artImagePreview.modelInstance.id}
+								model={artImagePreview}
 							/>
 						))
 					: Array(6)
@@ -38,11 +31,7 @@ export default function ArtSection() {
 								) => (
 									<ArtImageSkeleton
 										key={index}
-										artImageSkeletonModelInstance={artImageSkeletonModelInstantiator.instantiate(
-											{
-												id: `art-image-skeleton_${index}`, //TODO: Sloppy
-											}
-										)}
+										model={useArtImageSkeletonModel()}
 									/>
 								)
 							)}

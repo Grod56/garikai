@@ -1,0 +1,15 @@
+.flexible-container {
+	display: flex;
+	gap: 1em;
+	flex-wrap: wrap;
+}
+
+.flexible-container > * {
+	flex: 1;
+}
+
+@media (min-width: 768px) {
+	.flexible-container > * {
+		flex: unset;
+	}
+}
