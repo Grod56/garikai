@@ -1,0 +1,31 @@
+.footer,
+.socials a {
+	color: var(--secondary-color-1);
+}
+
+.footer-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 3em;
+	justify-content: center;
+	align-items: center;
+	gap: 2em;
+	min-height: 10em;
+	background-color: var(--primary-color-4);
+}
+
+.footer .copyright {
+	min-width: fit-content;
+	text-align: center;
+}
+
+.footer .socials {
+	display: flex;
+	gap: 1.5rem;
+	font-size: 2rem;
+}
+
+.footer hr {
+	width: 75vw;
+	border-top: 1px solid var(--secondary-color-1);
+}

@@ -1,0 +1,87 @@
+.main[data-name="home"] {
+	background: linear-gradient(
+		120deg,
+		var(--primary-color-2),
+		var(--primary-color-3)
+	);
+}
+
+.site-section[data-sectionname="bio"] .background-layer {
+	// background: url("https://www.pngkey.com/png/full/15-150952_transparent-pattern-sacred-geometry-svg-pattern.png");
+	background: url("/resources/images/home/bio.svg");
+	background-size: 30%;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.site-section:is([data-sectionname="portfolio"], [data-sectionname="art"])
+	.background-layer::after {
+	content: none;
+}
+
+.site-section[data-sectionname="portfolio"] .background-layer {
+	background: url("/resources/images/home/portfolio.svg");
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+
+.site-section[data-sectionname="art"] .background-layer {
+	overflow: hidden;
+	background-color: var(--secondary-color-1);
+	background-image: url("/resources/images/home/art.svg");
+	background-position: bottom left;
+	background-repeat: no-repeat;
+}
+
+.site-section[data-sectionname="art"] .section-title {
+	color: var(--primary-color-2);
+}
+
+.site-section[data-sectionname="blog"] .background-layer {
+	background-image: url("/resources/images/home/blog.svg");
+	background-position: top left;
+	background-repeat: no-repeat;
+}
+
+.site-section[data-sectionname="blog"] .content-layer {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+
+.site-section[data-sectionname="reading-list"] .background-layer {
+	background: url("/resources/images/home/reading-list.svg");
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.view-more {
+	font-size: 2rem;
+	color: var(--secondary-color-1);
+	border-radius: 0;
+	max-width: fit-content;
+	margin-top: 1em;
+	align-self: self-end;
+}
+
+@media (min-width: 768px) {
+	.site-section[data-sectionname="bio"] .background-layer {
+		background-size: 21vw;
+	}
+	.site-section[data-sectionname="portfolio"] .background-layer {
+		background-size: 41%;
+	}
+	.site-section[data-sectionname="art"] .background-layer {
+		background-size: 50%;
+	}
+	.site-section[data-sectionname="blog"] .background-layer {
+		background-size: 50%;
+	}
+	.site-section[data-sectionname="reading-list"] .background-layer {
+		background-size: 55%;
+	}
+	.site-section[data-sectionname="art"] .content-layer {
+		max-width: 100%;
+	}
+}

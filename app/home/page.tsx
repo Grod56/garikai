@@ -1,5 +1,4 @@
-import Home from "./Home";
-import "./home.scss";
+import Home from "./ui/Home";
 
 export default function Page() {
 	return <Home />;

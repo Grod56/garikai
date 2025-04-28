@@ -1,0 +1,77 @@
+.post-preview {
+	display: flex;
+	min-height: 100%;
+	max-height: inherit;
+	min-width: 50vw;
+}
+
+.post-preview > * {
+	flex: 1;
+}
+
+.post-preview .image-card .card-thumbnail {
+	width: 100%;
+	max-height: 6em;
+	object-fit: cover;
+}
+
+.post-preview .title {
+	font-family: serif;
+	font-weight: 400;
+	font-size: 1.7rem;
+}
+
+.post-preview .byline {
+	color: var(--primary-color-1);
+	font-size: 1.3rem;
+}
+
+.post-preview
+	.image-card:is(
+		[data-orientation="flexible"],
+		[data-orientation="horizontal"]
+	)
+	.card-thumbnail {
+	max-height: 100%;
+	object-fit: cover;
+}
+
+.post-preview
+	.image-card:is(
+		[data-orientation="flexible"],
+		[data-orientation="horizontal"]
+	)
+	.title {
+	font-size: 2.3rem;
+}
+
+.post-preview
+	.image-card:is(
+		[data-orientation="flexible"],
+		[data-orientation="horizontal"]
+	)
+	.snippet {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	line-clamp: 4;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: normal;
+	font-size: 1.6rem;
+}
+
+.post-preview
+	.image-card:is(
+		[data-orientation="flexible"],
+		[data-orientation="horizontal"]
+	)
+	.byline {
+	font-size: 1.3rem;
+}
+
+@media (min-width: 768px) {
+	.post-preview {
+		min-width: auto;
+	}
+}
