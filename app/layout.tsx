@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "@/app/app.scss";
 import { Metadata } from "next/types";
-import Header from "./components/content/header/Header";
-import Navbar from "./components/content/navbar/Navbar";
-import Footer from "./components/content/footer/Footer";
-import { useHeaderModel } from "./components/content/header/HeaderModel";
-import { useNavbarModel } from "./components/content/navbar/NavbarModel";
-import { useFooterModel } from "./components/content/footer/FooterModel";
+import { instantiateFooterModel } from "../app-library/components/content/footer/model-instantiator/FooterModelInstantiator";
+import Footer from "../app-library/components/content/footer/ui/Footer";
+import { instantiateHeaderModel } from "../app-library/components/content/header/model-instantiator/HeaderModelInstantiator";
+import Header from "../app-library/components/content/header/ui/Header";
+import { instantiateNavbarModel } from "../app-library/components/content/navbar/model-instantiator/NavbarModelInstantiator";
+import Navbar from "../app-library/components/content/navbar/ui/Navbar";
+import "@/app/app.scss";
 
 export const metadata: Metadata = {
 	title: {
@@ -20,13 +20,16 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const headerModel = useHeaderModel(
-		"header",
-		process.env.HEADER_TITLE!,
-		process.env.HEADER_SUBTITLE!
-	);
-	const navbarModel = useNavbarModel("navbar");
-	const footerModel = useFooterModel("footer", process.env.COPYRIGHT_TEXT!);
+	const headerModel = instantiateHeaderModel({
+		id: "header",
+		headerTitle: process.env.HEADER_TITLE!,
+		headerSubtitle: process.env.HEADER_SUBTITLE!,
+	});
+	const navbarModel = instantiateNavbarModel({ id: "navbar" });
+	const footerModel = instantiateFooterModel({
+		id: "footer",
+		copyrightText: process.env.COPYRIGHT_TEXT!,
+	});
 
 	return (
 		<html lang="en">

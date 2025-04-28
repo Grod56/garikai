@@ -1,0 +1,20 @@
+.banner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 50vh;
+	padding: 2em;
+	background: linear-gradient(
+		to right,
+		var(--secondary-color-1),
+		var(--secondary-a-color-2),
+		var(--secondary-color-1)
+	);
+	color: var(--primary-color-4);
+}
+
+.banner-text {
+	font-family: "Explora";
+	font-size: 10rem;
+}

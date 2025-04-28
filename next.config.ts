@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+	eslint: {
+		dirs: ["app-library", "app"],
+	},
 	sassOptions: {
 		implementation: "sass-embedded",
 	},
