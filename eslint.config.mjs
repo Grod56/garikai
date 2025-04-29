@@ -1,15 +1,23 @@
 import js from "@eslint/js";
+import pluginReact from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
-import { defineConfig, globalIgnores } from "eslint/config";
-import reactHooks from "eslint-plugin-react-hooks";
+import pluginNext from "@next/eslint-plugin-next";
 
 export default defineConfig([
 	{
 		files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
 		plugins: { js },
 		extends: ["js/recommended"],
+	},
+	{
+		settings: {
+			react: {
+				version: "detect",
+			},
+		},
 	},
 	{
 		files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
@@ -35,7 +43,17 @@ export default defineConfig([
 				"warn",
 				{ argsIgnorePattern: "^_" },
 			],
+			"react/no-unescaped-entities": "warn",
 		},
 	},
-	globalIgnores(["__test__/"]),
+	{
+		plugins: {
+			"@next/next": pluginNext,
+		},
+		files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+		rules: {
+			...pluginNext.configs.recommended.rules,
+			...pluginNext.configs["core-web-vitals"].rules,
+		},
+	},
 ]);
