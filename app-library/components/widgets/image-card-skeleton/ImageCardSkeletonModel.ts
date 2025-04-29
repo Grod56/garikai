@@ -1,13 +1,9 @@
 import { Orientation } from "@/app-library/custom-types/Orientation";
-import {
-	WidgetComponentModel,
-	WidgetComponentModelInstance,
-} from "../WidgetComponentModel";
+import { WidgetComponentModel } from "../WidgetComponentModel";
 
 export type ImageCardSkeletonModel =
 	WidgetComponentModel<ImageCardSkeletonModelInstance>;
 
-export interface ImageCardSkeletonModelInstance
-	extends WidgetComponentModelInstance {
+export interface ImageCardSkeletonModelInstance {
 	readonly orientation: Orientation;
 }
