@@ -37,16 +37,6 @@ export default defineConfig([
 		},
 	},
 	{
-		rules: {
-			"@typescript-eslint/no-empty-object-type": "warn",
-			"@typescript-eslint/no-unused-vars": [
-				"warn",
-				{ argsIgnorePattern: "^_" },
-			],
-			"react/no-unescaped-entities": "warn",
-		},
-	},
-	{
 		plugins: {
 			"@next/next": pluginNext,
 		},
@@ -54,6 +44,16 @@ export default defineConfig([
 		rules: {
 			...pluginNext.configs.recommended.rules,
 			...pluginNext.configs["core-web-vitals"].rules,
+		},
+	},
+	{
+		rules: {
+			"@typescript-eslint/no-empty-object-type": "warn",
+			"@typescript-eslint/no-unused-vars": [
+				"warn",
+				{ argsIgnorePattern: "^_" },
+			],
+			"react/no-unescaped-entities": "warn",
 		},
 	},
 ]);

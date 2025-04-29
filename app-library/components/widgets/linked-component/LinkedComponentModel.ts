@@ -1,12 +1,8 @@
-import {
-	WidgetComponentModel,
-	WidgetComponentModelInstance,
-} from "../WidgetComponentModel";
+import { WidgetComponentModel } from "../WidgetComponentModel";
 
 export type LinkedComponentModel =
 	WidgetComponentModel<LinkedComponentModelInstance>;
 
-export interface LinkedComponentModelInstance
-	extends WidgetComponentModelInstance {
+export interface LinkedComponentModelInstance {
 	readonly link: URL;
 }
