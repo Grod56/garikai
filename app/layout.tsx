@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 	},
 };
 
-const exploraFont = Explora({ weight: "400" });
+const exploraFont = Explora({ weight: "400", subsets: ["latin"] });
 
 export default function RootLayout({
 	children,
