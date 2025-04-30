@@ -24,6 +24,7 @@ export const testInstanceInteractionInterface: InstanceInteractionInterface<
 };
 
 export const memoizableInteractiveModelTestObject: StatifiableNonReadonlyModel<
+	InstanceInteractionInterface<TestModelInstance, TestInteraction>,
 	TestModelInstance,
 	TestInteraction
 > = {
