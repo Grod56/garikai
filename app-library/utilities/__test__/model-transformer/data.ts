@@ -1,11 +1,12 @@
 import { ModelInteraction } from "@/app-library/custom-types/model/InteractiveModel";
-import { InstanceInteractionInterface } from "@/app-library/custom-types/model/MemoizableModel";
-import { Model } from "@/app-library/custom-types/model/Model";
-import { MemoizableModel } from "@/app-library/custom-types/model/MemoizableModel";
+import { InstanceInteractionInterface } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
+import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
+import { StatifiableNonReadonlyModel } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
 
-export const memoizableReadonlyModelTestObject: Model<TestModelInstance> = {
-	modelInstance: { displayValue: "Readonly test" },
-};
+export const memoizableReadonlyModelTestObject: ReadonlyModel<TestModelInstance> =
+	{
+		modelInstance: { displayValue: "Readonly test" },
+	};
 
 export interface TestModelInstance {
 	displayValue: string;
@@ -22,7 +23,7 @@ export const testInstanceInteractionInterface: InstanceInteractionInterface<
 	})),
 };
 
-export const memoizableInteractiveModelTestObject: MemoizableModel<
+export const memoizableInteractiveModelTestObject: StatifiableNonReadonlyModel<
 	TestModelInstance,
 	TestInteraction
 > = {

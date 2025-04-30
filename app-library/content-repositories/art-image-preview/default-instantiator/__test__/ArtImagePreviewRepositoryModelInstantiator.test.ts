@@ -1,5 +1,5 @@
 import { waitFor } from "@testing-library/react";
-import { instantiateArtImagePreviewRepository } from "../ArtImagePreviewRepositoryModelInstantiator";
+import { instantiateArtImagePreviewRepositoryModel } from "../ArtImagePreviewRepositoryModelInstantiator";
 import {
 	faultyRepositoryInstantiatorAPI,
 	repositoryInstantiatorAPI,
@@ -8,13 +8,13 @@ import {
 describe("instantiateArtImagePreviewRepositoryModel", () => {
 	describe("Model returned when called", () => {
 		it("has initial null model instance", () => {
-			const model = instantiateArtImagePreviewRepository(
+			const model = instantiateArtImagePreviewRepositoryModel(
 				repositoryInstantiatorAPI
 			);
 			expect(model.modelInstance).toBeNull();
 		});
 		it("matches 'retrieve models' interaction with instanceInteractionInterface output", async () => {
-			const model = instantiateArtImagePreviewRepository(
+			const model = instantiateArtImagePreviewRepositoryModel(
 				repositoryInstantiatorAPI
 			);
 			await waitFor(() =>
@@ -28,7 +28,7 @@ describe("instantiateArtImagePreviewRepositoryModel", () => {
 			expect(model.modelInstance).toEqual(newModelInstance);
 		});
 		it("throws error when api call returns an error", async () => {
-			const model = instantiateArtImagePreviewRepository(
+			const model = instantiateArtImagePreviewRepositoryModel(
 				faultyRepositoryInstantiatorAPI
 			);
 			await expect(

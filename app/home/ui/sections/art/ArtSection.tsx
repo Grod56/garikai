@@ -5,36 +5,31 @@ import { instantiateArtImageSkeletonModel } from "@/app-library/components/widge
 import ArtImageSkeleton from "@/app-library/components/widgets/art-image-skeleton/ui/ArtImageSkeleton";
 import { instantiateCarouselModel } from "@/app-library/components/widgets/carousel/model-instantiator/CarouselModelInstantiator";
 import Carousel from "@/app-library/components/widgets/carousel/ui/Carousel";
-import { instantiateArtImagePreviewRepository } from "@/app-library/content-repositories/art-image-preview/default-instantiator/ArtImagePreviewRepositoryModelInstantiator";
-import { useEffect } from "react";
-import { useMemoizedInteractiveModel } from "@/app-library/utilities/model-transformer";
 import { getSupabaseArtImagePreviewAPI } from "@/app-library/content-repositories/art-image-preview/default-instantiator/ArtImagePreviewAPIInstantiator";
+import { instantiateArtImagePreviewRepositoryModel } from "@/app-library/content-repositories/art-image-preview/default-instantiator/ArtImagePreviewRepositoryModelInstantiator";
+import { useStatefulReadonlyModel } from "@/app-library/utilities/model-transformer";
+import { useRepository } from "@/app-library/utilities/use-repository";
 
 export default function ArtSection() {
-	const siteSectionModel = instantiateSiteSectionModel({
-		id: "art",
-		sectionName: "art",
-		sectionTitle: "Art",
-	});
-	const carouselModel = instantiateCarouselModel();
-	const { modelInstance: artImagePreviewRepositoryModelInstance, interact } =
-		useMemoizedInteractiveModel(
-			instantiateArtImagePreviewRepository(
-				getSupabaseArtImagePreviewAPI()
-			)
-		);
-
-	useEffect(() => {
-		interact({
-			interactionName: "RETRIEVE_MODELS",
-		});
-	}, [interact]);
+	const siteSectionModel = useStatefulReadonlyModel(
+		instantiateSiteSectionModel({
+			id: "art",
+			sectionName: "art",
+			sectionTitle: "Art",
+		})
+	);
+	const carouselModel = useStatefulReadonlyModel(instantiateCarouselModel());
+	const { modelInstance: repositoryModelInstance } = useRepository(() =>
+		instantiateArtImagePreviewRepositoryModel(
+			getSupabaseArtImagePreviewAPI()
+		)
+	);
 
 	return (
 		<SiteSection model={siteSectionModel}>
 			<Carousel model={carouselModel}>
-				{artImagePreviewRepositoryModelInstance
-					? artImagePreviewRepositoryModelInstance.artImagePreviewModels.map(
+				{repositoryModelInstance
+					? repositoryModelInstance.artImagePreviewModels.map(
 							(artImagePreviewModel) => (
 								<ArtImagePreview
 									key={artImagePreviewModel.modelInstance.id}

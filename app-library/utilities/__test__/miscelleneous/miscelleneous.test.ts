@@ -1,6 +1,6 @@
-import { compositeClassNameResolver, removeMarkup } from "../miscelleneous";
+import { compositeClassNameResolver, removeMarkup } from "../../miscelleneous";
 
-describe("compositeClassNameResolver()", () => {
+describe("compositeClassNameResolver", () => {
 	const emptyList: string[] = [];
 	const populatedList: string[] = ["class1", "class2", "class3"];
 	it("outputs empty string when input is empty", () => {
@@ -13,7 +13,7 @@ describe("compositeClassNameResolver()", () => {
 	});
 });
 
-describe("removeMarkup()", () => {
+describe("removeMarkup", () => {
 	const markedUpText = "<i>Italic</i> <span>content</span>";
 	const nonMarkedUpText = "No markup here.";
 	const matcher = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/;

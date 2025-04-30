@@ -6,6 +6,7 @@ import { instantiateHeaderModel } from "../app-library/components/content/header
 import Header from "../app-library/components/content/header/ui/Header";
 import { instantiateNavbarModel } from "../app-library/components/content/navbar/model-instantiator/NavbarModelInstantiator";
 import Navbar from "../app-library/components/content/navbar/ui/Navbar";
+import { Explora } from "next/font/google";
 import "@/app/app.scss";
 
 export const metadata: Metadata = {
@@ -14,6 +15,8 @@ export const metadata: Metadata = {
 		default: process.env.DEFAULT_TITLE!,
 	},
 };
+
+const exploraFont = Explora({ weight: "400" });
 
 export default function RootLayout({
 	children,
@@ -32,7 +35,8 @@ export default function RootLayout({
 	});
 
 	return (
-		<html lang="en">
+		<html lang="en" className={exploraFont.className}>
+			<head />
 			<body>
 				<Header model={headerModel} />
 				<Navbar model={navbarModel} />
