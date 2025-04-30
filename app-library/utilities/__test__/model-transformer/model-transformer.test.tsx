@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { InteractiveModel } from "../../../custom-types/model/InteractiveModel";
-import { Model } from "../../../custom-types/model/Model";
+import { ReadonlyModel } from "../../../custom-types/model/ReadonlyModel";
 import {
 	memoizableInteractiveModelTestObject,
 	memoizableReadonlyModelTestObject,
@@ -9,29 +9,29 @@ import {
 	TestModelInstance,
 } from "./data";
 import {
-	useMemoizedInteractiveModel,
-	useMemoizedReadonlyModel,
+	useStatefulInteractiveModel,
+	useStatefulReadonlyModel,
 } from "../../model-transformer";
 
 describe("useMemoizedReadonlyModel", () => {
 	it("returns equivalent model", () => {
 		const renderedHook = renderHook(() =>
-			useMemoizedReadonlyModel(memoizableReadonlyModelTestObject)
+			useStatefulReadonlyModel(memoizableReadonlyModelTestObject)
 		);
-		const memoizedModel: Model<TestModelInstance> =
+		const memoizedModel: ReadonlyModel<TestModelInstance> =
 			renderedHook.result.current;
 		expect(memoizedModel).toEqual(memoizableReadonlyModelTestObject);
 	});
 	it("returns identical model instance on rerender", () => {
 		const renderedHook = renderHook(() =>
-			useMemoizedReadonlyModel(memoizableReadonlyModelTestObject)
+			useStatefulReadonlyModel(memoizableReadonlyModelTestObject)
 		);
-		const memoizedModel: Model<TestModelInstance> =
+		const memoizedModel: ReadonlyModel<TestModelInstance> =
 			renderedHook.result.current;
 		act(() => {
 			renderedHook.rerender();
 		});
-		const modelOnRerender: Model<TestModelInstance> =
+		const modelOnRerender: ReadonlyModel<TestModelInstance> =
 			renderedHook.result.current;
 		expect(memoizedModel.modelInstance).toBe(modelOnRerender.modelInstance);
 	});
@@ -40,7 +40,7 @@ describe("useMemoizedReadonlyModel", () => {
 describe("useMemoizedInteractiveModel", () => {
 	it("returns equivalent model", () => {
 		const renderedHook = renderHook(() =>
-			useMemoizedInteractiveModel(memoizableInteractiveModelTestObject)
+			useStatefulInteractiveModel(memoizableInteractiveModelTestObject)
 		);
 		const memoizedModel: InteractiveModel<
 			TestModelInstance,
@@ -53,7 +53,7 @@ describe("useMemoizedInteractiveModel", () => {
 	});
 	it("returns identical model instance on rerender", () => {
 		const renderedHook = renderHook(() =>
-			useMemoizedInteractiveModel(memoizableInteractiveModelTestObject)
+			useStatefulInteractiveModel(memoizableInteractiveModelTestObject)
 		);
 		const memoizedModel: InteractiveModel<
 			TestModelInstance,
@@ -70,7 +70,7 @@ describe("useMemoizedInteractiveModel", () => {
 	});
 	it("changes model instance to expected value after interaction", async () => {
 		const renderedHook = renderHook(() =>
-			useMemoizedInteractiveModel(memoizableInteractiveModelTestObject)
+			useStatefulInteractiveModel(memoizableInteractiveModelTestObject)
 		);
 		const memoizedModel: InteractiveModel<
 			TestModelInstance,

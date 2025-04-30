@@ -10,8 +10,7 @@ import { instantiateImageCardSkeletonModel } from "@/app-library/components/widg
 import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
 import { getBloggerPostPreviewAPI } from "@/app-library/content-repositories/post-preview/default-instantiator/PostPreviewAPIInstantiator";
 import { instantiatePostPreviewRepository } from "@/app-library/content-repositories/post-preview/default-instantiator/PostPreviewRepositoryModelInstantiator";
-import { useMemoizedInteractiveModel } from "@/app-library/utilities/model-transformer";
-import { useEffect } from "react";
+import { useRepository } from "@/app-library/utilities/use-repository";
 
 export default function BlogSection() {
 	const siteSectionModel = instantiateSiteSectionModel({
@@ -27,25 +26,21 @@ export default function BlogSection() {
 		id: "recent-posts",
 		subsectionTitle: "Recent Posts",
 	});
-	const { modelInstance, interact } = useMemoizedInteractiveModel(
-		instantiatePostPreviewRepository(getBloggerPostPreviewAPI())
-	);
 	const recentPostsGridContainer = instantiateGridContainerModel({
 		maxXorY: 3,
 		orientation: "horizontal",
 		overflow: true,
 	});
-
-	useEffect(() => {
-		interact({ interactionName: "RETRIEVE_MODELS" });
-	}, [interact]);
+	const { modelInstance: repositoryModelInstance } = useRepository(() =>
+		instantiatePostPreviewRepository(getBloggerPostPreviewAPI())
+	);
 
 	return (
 		<SiteSection model={siteSectionModel}>
 			<SiteSubsection model={feauterdPostSubsectionModel}>
-				{modelInstance ? (
+				{repositoryModelInstance ? (
 					<FeaturedPostPreview
-						model={modelInstance.featuredPostPreviewModel}
+						model={repositoryModelInstance.featuredPostPreviewModel}
 					/>
 				) : (
 					<ImageCardSkeleton
@@ -57,8 +52,8 @@ export default function BlogSection() {
 			</SiteSubsection>
 			<SiteSubsection model={recentPostsSubsectionModel}>
 				<GridContainer model={recentPostsGridContainer}>
-					{modelInstance
-						? modelInstance.recentPostPreviewModels.map(
+					{repositoryModelInstance
+						? repositoryModelInstance.recentPostPreviewModels.map(
 								(recentPostPreviewModel) => (
 									<PostPreview
 										key={
@@ -88,7 +83,7 @@ export default function BlogSection() {
 								)}
 				</GridContainer>
 			</SiteSubsection>
-			<a href={process.env.NEXT_PUBLIC_BLOG_URL} className="view-more">
+			<a href={process.env.NEXT_PUBLIC_BLOG_URL!} className="view-more">
 				View More
 			</a>
 		</SiteSection>

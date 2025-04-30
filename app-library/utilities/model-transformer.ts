@@ -3,30 +3,41 @@ import {
 	InteractiveModel,
 	ModelInteraction,
 } from "../custom-types/model/InteractiveModel";
-import { ModelInstance, Model } from "../custom-types/model/Model";
-import { MemoizableModel } from "../custom-types/model/MemoizableModel";
+import { ReadonlyModel } from "../custom-types/model/ReadonlyModel";
+import { ModelInstance } from "../custom-types/model/Model";
+import {
+	InstanceInteractionInterface,
+	StatifiableNonReadonlyModel,
+} from "../custom-types/StatifiableNonReadonlyModel";
 
-export function useMemoizedReadonlyModel<
-	T extends Model<U>,
+export function useStatefulReadonlyModel<
+	T extends ReadonlyModel<U>,
 	U extends ModelInstance,
 >(model: T): T {
-	const [memoizedModelInstance] = useState<U>(model.modelInstance);
-	return { modelInstance: memoizedModelInstance } as T;
+	const [memoizedModelInstance] = useState(model.modelInstance);
+	return useMemo(
+		() => ({ modelInstance: memoizedModelInstance }),
+		[memoizedModelInstance]
+	) as T;
 }
 
-export function useMemoizedInteractiveModel<
-	T extends ModelInstance,
-	U extends ModelInteraction,
->(model: MemoizableModel<T, U>): InteractiveModel<T, U> {
-	const [memoizedModelInstance, setModelInstance] = useState<T>(
-		model.modelInstance
+export function useStatefulInteractiveModel<
+	T extends InstanceInteractionInterface<U, V>,
+	U extends ModelInstance,
+	V extends ModelInteraction,
+>(model: StatifiableNonReadonlyModel<T, U, V>): InteractiveModel<U, V> {
+	// The most valid way to "memoize" the input model that I could come up with
+	const [initialModel] = useState(model);
+
+	const [memoizedModelInstance, setModelInstance] = useState(
+		initialModel.modelInstance
 	);
 	const memoizedInstanceInteractionInterface = useMemo(
-		() => model.instanceInteractionInterface,
-		[model]
+		() => initialModel.instanceInteractionInterface,
+		[initialModel]
 	);
 	const memoizedInteract = useCallback(
-		async (interaction: U) => {
+		async (interaction: V) => {
 			const newModelInstance =
 				await memoizedInstanceInteractionInterface.getModelInstance(
 					interaction
@@ -36,8 +47,13 @@ export function useMemoizedInteractiveModel<
 		[memoizedInstanceInteractionInterface]
 	);
 
-	return {
-		modelInstance: memoizedModelInstance,
-		interact: memoizedInteract,
-	};
+	const statefulModel = useMemo(
+		() => ({
+			modelInstance: memoizedModelInstance,
+			interact: memoizedInteract,
+		}),
+		[memoizedInteract, memoizedModelInstance]
+	);
+
+	return statefulModel;
 }

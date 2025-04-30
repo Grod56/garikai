@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { openExternalSite } from "../ui";
+import { openExternalSite } from "../../ui";
 import { openExternalSiteTestInput } from "./data";
 
 describe("openExternalSite", () => {

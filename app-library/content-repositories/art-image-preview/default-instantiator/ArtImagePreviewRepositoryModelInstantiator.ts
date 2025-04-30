@@ -1,6 +1,6 @@
 import { ArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/ArtImagePreviewModel";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
-import { InstanceInteractionInterface } from "@/app-library/custom-types/model/MemoizableModel";
+import { InstanceInteractionInterface } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
 import {
 	ArtImagePreviewAPI,
 	ArtImagePreviewRecord,
@@ -11,7 +11,9 @@ import {
 } from "../ArtImagePreviewRepositoryModel";
 import { instantiateArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/model-instantiator/ArtImagePreviewModelInstantiator";
 
-export function instantiateArtImagePreviewRepository(api: ArtImagePreviewAPI) {
+export function instantiateArtImagePreviewRepositoryModel(
+	api: ArtImagePreviewAPI
+) {
 	const instanceInteractionInterface = _instanceInteractionInterface(api);
 	const model = {
 		modelInstance: null as ArtImagePreviewRepositoryModelInstance,

@@ -7,8 +7,7 @@ import { instantiateImageCardSkeletonModel } from "@/app-library/components/widg
 import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
 import { getSupabaseBookPreviewAPI } from "@/app-library/content-repositories/book-preview/default-instantiator/BookPreviewAPIInstantiator";
 import { instantiateBookPreviewRepository } from "@/app-library/content-repositories/book-preview/default-instantiator/BookPreviewRepositoryModelInstantiator";
-import { useMemoizedInteractiveModel } from "@/app-library/utilities/model-transformer";
-import { useEffect } from "react";
+import { useRepository } from "@/app-library/utilities/use-repository";
 
 export default function ReadingListSection() {
 	const siteSectionModel = instantiateSiteSectionModel({
@@ -16,13 +15,9 @@ export default function ReadingListSection() {
 		sectionName: "reading-list",
 		sectionTitle: "Reading List",
 	});
-	const { modelInstance, interact } = useMemoizedInteractiveModel(
+	const { modelInstance: repositoryModelInstance } = useRepository(() =>
 		instantiateBookPreviewRepository(getSupabaseBookPreviewAPI())
 	);
-
-	useEffect(() => {
-		interact({ interactionName: "RETRIEVE_MODELS" });
-	}, [interact]);
 
 	return (
 		<SiteSection model={siteSectionModel}>
@@ -39,8 +34,8 @@ export default function ReadingListSection() {
 					overflow: false,
 				})}
 			>
-				{modelInstance
-					? modelInstance.bookPreviewModels.map(
+				{repositoryModelInstance
+					? repositoryModelInstance.bookPreviewModels.map(
 							(bookPreviewModel) => (
 								<BookPreview
 									key={bookPreviewModel.modelInstance.id}
