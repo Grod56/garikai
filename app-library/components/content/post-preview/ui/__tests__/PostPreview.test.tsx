@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import PostPreview from "../PostPreview";
+import PostPreview, { ELEMENT_NAME } from "../PostPreview";
 import { postPreviewModelTestObject } from "./data";
 
 describe("PostPreview", () => {
 	render(<PostPreview model={postPreviewModelTestObject} />);
 
 	const { modelInstance } = postPreviewModelTestObject;
-	const componentElement = screen.getByTestId("post-preview");
+	const componentElement = screen.getByTestId(ELEMENT_NAME);
 	const titleElement = screen.getByText(modelInstance.title);
 	const bylineElement = screen.getByText(modelInstance.byline);
 	const thumbnailElement = screen.getByAltText(modelInstance.thumbnail.alt);

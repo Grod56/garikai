@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 
-import Banner from "../Banner";
+import Banner, { ELEMENT_NAME } from "../Banner";
 import { modelTestObject } from "./data";
 
 describe("Banner", () => {
 	render(<Banner model={modelTestObject} />);
 
 	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId("banner");
+	const componentElement = screen.getByTestId(ELEMENT_NAME);
 	const bannerTextElement = screen.getByText(modelInstance.bannerText);
 
 	it("maps id property to corresponding node", () => {

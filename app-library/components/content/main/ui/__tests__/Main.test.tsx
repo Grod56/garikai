@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Main from "../Main";
+import Main, { ELEMENT_NAME } from "../Main";
 import { modelTestObject } from "./data";
 
 describe("Main", () => {
@@ -10,7 +10,7 @@ describe("Main", () => {
 	);
 
 	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId("main");
+	const componentElement = screen.getByTestId(ELEMENT_NAME);
 
 	it("maps id property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute("id", modelInstance.id);

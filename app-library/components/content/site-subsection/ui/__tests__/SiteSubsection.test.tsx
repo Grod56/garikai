@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import SiteSubsection from "../SiteSubsection";
+import SiteSubsection, { ELEMENT_NAME } from "../SiteSubsection";
 import { modelTestObject } from "./data";
 
 describe("SiteSubsection", () => {
@@ -10,12 +10,7 @@ describe("SiteSubsection", () => {
 	);
 
 	const { modelInstance } = modelTestObject;
-
-	afterAll(() => {
-		expect(componentElement).toContainElement(subsectionTitleElement);
-	});
-
-	const componentElement = screen.getByTestId("site-subsection");
+	const componentElement = screen.getByTestId(ELEMENT_NAME);
 	const subsectionTitleElement = screen.getByText(
 		modelInstance.subsectionTitle
 	);

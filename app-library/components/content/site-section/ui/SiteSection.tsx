@@ -1,6 +1,8 @@
 import { SiteSectionModel } from "../SiteSectionModel";
 import "./site-section.scss";
 
+export const ELEMENT_NAME = "site-section";
+
 export default function SiteSection({
 	model: { modelInstance },
 	children,
@@ -10,10 +12,10 @@ export default function SiteSection({
 }) {
 	return (
 		<section
-			className="site-section"
+			className={ELEMENT_NAME}
 			id={modelInstance.id}
 			data-sectionname={modelInstance.sectionName}
-			data-testid="site-section"
+			data-testid={ELEMENT_NAME}
 		>
 			<div className="background-layer">
 				<div className="content-layer">

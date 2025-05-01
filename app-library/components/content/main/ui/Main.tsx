@@ -1,6 +1,7 @@
-"use client"; //TODO: Revisit
 import { MainModel } from "../MainModel";
 import "./main.scss";
+
+export const ELEMENT_NAME = "main";
 
 export default function Main({
 	model: { modelInstance },
@@ -11,10 +12,10 @@ export default function Main({
 }) {
 	return (
 		<main
-			className="main"
+			className={ELEMENT_NAME}
 			id={modelInstance.id}
 			data-name={modelInstance.name}
-			data-testid="main"
+			data-testid={ELEMENT_NAME}
 		>
 			{children}
 		</main>

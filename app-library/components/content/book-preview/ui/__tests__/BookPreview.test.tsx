@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import BookPreview from "../BookPreview";
+import BookPreview, { ELEMENT_NAME } from "../BookPreview";
 import { modelTestObject } from "./data";
 
 describe("BookPreview", () => {
 	render(<BookPreview model={modelTestObject} />);
 
 	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId("book-preview");
+	const componentElement = screen.getByTestId(ELEMENT_NAME);
 	const titleElement = screen.getByText(modelInstance.title);
 	const authorElement = screen.getByText(modelInstance.author);
 	const coverElement = screen.getByAltText(modelInstance.cover.alt);

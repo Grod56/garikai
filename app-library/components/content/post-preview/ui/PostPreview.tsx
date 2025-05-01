@@ -3,6 +3,8 @@ import LinkedComponent from "@/app-library/components/widgets/linked-component/u
 import { PostPreviewModel } from "../PostPreviewModel";
 import "./post-preview.scss";
 
+export const ELEMENT_NAME = "post-preview";
+
 export default function PostPreview({
 	model: { modelInstance },
 }: {
@@ -10,9 +12,9 @@ export default function PostPreview({
 }) {
 	return (
 		<div
-			className="post-preview"
+			className={ELEMENT_NAME}
 			id={modelInstance.id}
-			data-testid="post-preview"
+			data-testid={ELEMENT_NAME}
 		>
 			<LinkedComponent
 				model={{

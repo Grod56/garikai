@@ -1,6 +1,8 @@
 import "./image-card-skeleton.scss";
 import { ImageCardSkeletonModel } from "../ImageCardSkeletonModel";
 
+export const ELEMENT_NAME = "image-card-skeleton";
+
 export default function ImageCardSkeleton({
 	model: { modelInstance },
 }: {
@@ -8,9 +10,9 @@ export default function ImageCardSkeleton({
 }) {
 	return (
 		<div
-			className="image-card-skeleton"
+			className={ELEMENT_NAME}
 			data-orientation={modelInstance.orientation}
-			data-testid="image-card-skeleton"
+			data-testid={ELEMENT_NAME}
 		>
 			<div className="card-thumbnail"></div>
 			<div className="card-details"></div>

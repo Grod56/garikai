@@ -2,6 +2,8 @@ import Image from "@/app-library/components/widgets/image/ui/Image";
 import { ImageCardModel } from "../ImageCardModel";
 import "./image-card.scss";
 
+export const ELEMENT_NAME = "image-card";
+
 export default function ImageCard({
 	model: { modelInstance },
 	children,
@@ -11,9 +13,9 @@ export default function ImageCard({
 }) {
 	return (
 		<div
-			className="image-card"
+			className={ELEMENT_NAME}
 			data-orientation={modelInstance.orientation}
-			data-testid="image-card"
+			data-testid={ELEMENT_NAME}
 		>
 			<Image
 				model={{

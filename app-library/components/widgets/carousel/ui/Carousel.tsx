@@ -4,6 +4,8 @@ import { Children } from "react";
 import { CarouselModel } from "../CarouselModel";
 import "./carousel.scss";
 
+export const ELEMENT_NAME = "carousel";
+
 export default function Carousel({
 	children,
 }: {
@@ -14,7 +16,7 @@ export default function Carousel({
 
 	return (
 		//TODO: Sloppy
-		<div className="carousel" data-testid="carousel">
+		<div className={ELEMENT_NAME} data-testid={ELEMENT_NAME}>
 			<div className="embla" ref={emblaRef}>
 				<div className="embla__container">
 					{children ? (

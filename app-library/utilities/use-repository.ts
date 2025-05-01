@@ -14,9 +14,10 @@ export function useRepository<
 	T extends ModelInstance,
 	U extends ContentRepositoryModelInteraction,
 	V extends InstanceInteractionInterface<T, U>,
-	W extends ContentRepositoryModel<T, U> &
-		StatifiableNonReadonlyModel<V, T, U>,
->(repositoryModelInstantiator: () => W): W {
+	W extends ContentRepositoryModel<T, U>,
+>(
+	repositoryModelInstantiator: () => W & StatifiableNonReadonlyModel<T, U, V>
+): W {
 	const model = useStatefulInteractiveModel(repositoryModelInstantiator());
 	const { interact } = model;
 

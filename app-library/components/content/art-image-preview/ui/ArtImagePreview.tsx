@@ -2,6 +2,8 @@ import { ArtImagePreviewModel } from "../ArtImagePreviewModel";
 import Image from "@/app-library/components/widgets/image/ui/Image";
 import "./art-image-preview.scss";
 
+export const ELEMENT_NAME = "art-image-preview";
+
 export default function ArtImagePreview({
 	model: { modelInstance },
 }: {
@@ -9,10 +11,10 @@ export default function ArtImagePreview({
 }) {
 	return (
 		<div
-			className="art-image-preview"
+			className={ELEMENT_NAME}
 			id={modelInstance.id}
 			title={modelInstance.title}
-			data-testid="art-image-preview"
+			data-testid={ELEMENT_NAME}
 		>
 			<Image
 				model={{

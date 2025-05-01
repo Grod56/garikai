@@ -1,7 +1,10 @@
 import ImageCard from "@/app-library/components/widgets/image-card/ui/ImageCard";
 import LinkedComponent from "@/app-library/components/widgets/linked-component/ui/LinkedComponent";
+import { ELEMENT_NAME } from "./PostPreview";
 import { FeaturedPostPreviewModel } from "../FeaturedPostPreviewModel";
 import "./post-preview.scss";
+
+export { ELEMENT_NAME };
 
 export default function FeaturedPostPreview({
 	model: { modelInstance },
@@ -10,9 +13,9 @@ export default function FeaturedPostPreview({
 }) {
 	return (
 		<div
-			className="post-preview"
+			className={ELEMENT_NAME}
 			id={modelInstance.id}
-			data-testid="post-preview"
+			data-testid={ELEMENT_NAME}
 		>
 			<LinkedComponent
 				model={{
