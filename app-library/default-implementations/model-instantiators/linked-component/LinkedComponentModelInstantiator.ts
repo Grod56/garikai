@@ -1,4 +1,4 @@
-import { LinkedComponentModel } from "../LinkedComponentModel";
+import { LinkedComponentModel } from "@/app-library/components/widgets/linked-component/LinkedComponentModel";
 
 export interface InstantiateLinkedComponentModelParameters {
 	link: URL;
