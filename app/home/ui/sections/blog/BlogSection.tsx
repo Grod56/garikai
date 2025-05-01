@@ -1,15 +1,15 @@
 import FeaturedPostPreview from "@/app-library/components/content/post-preview/ui/FeaturedPostPreview";
 import PostPreview from "@/app-library/components/content/post-preview/ui/PostPreview";
-import { instantiateSiteSectionModel } from "@/app-library/components/content/site-section/model-instantiator/SiteSectionModelInstantiator";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/site-section/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { instantiateSiteSubsectionModel } from "@/app-library/components/content/site-subsection/model-instantiator/SiteSubsectionModelInstantiator";
+import { instantiateSiteSubsectionModel } from "@/app-library/default-implementations/model-instantiators/site-subsection/SiteSubsectionModelInstantiator";
 import SiteSubsection from "@/app-library/components/content/site-subsection/ui/SiteSubsection";
-import { instantiateGridContainerModel } from "@/app-library/components/widgets/grid-container/model-instantiator/GridContainerModelInstantiator";
+import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/grid-container/GridContainerModelInstantiator";
 import GridContainer from "@/app-library/components/widgets/grid-container/ui/GridContainer";
-import { instantiateImageCardSkeletonModel } from "@/app-library/components/widgets/image-card-skeleton/model-instantiator/ImageCardSkeletonModelInstantiator";
+import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/image-card-skeleton/ImageCardSkeletonModelInstantiator";
 import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
-import { getBloggerPostPreviewAPI } from "@/app-library/content-repositories/post-preview/default-instantiator/PostPreviewAPIInstantiator";
-import { instantiatePostPreviewRepository } from "@/app-library/content-repositories/post-preview/default-instantiator/PostPreviewRepositoryModelInstantiator";
+import { instantiateBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-repositories/post-preview/PostPreviewAPIInstantiator";
+import { instantiatePostPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/post-preview/PostPreviewRepositoryModelInstantiator";
 import { useRepository } from "@/app-library/utilities/use-repository";
 
 export default function BlogSection() {
@@ -32,7 +32,9 @@ export default function BlogSection() {
 		overflow: true,
 	});
 	const { modelInstance: repositoryModelInstance } = useRepository(() =>
-		instantiatePostPreviewRepository(getBloggerPostPreviewAPI())
+		instantiatePostPreviewRepositoryModel(
+			instantiateBloggerPostPreviewAPI()
+		)
 	);
 
 	return (

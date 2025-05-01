@@ -1,6 +1,6 @@
-import { instantiateBannerModel } from "@/app-library/components/content/banner/model-instantiator/BannerModelInstantiator";
+import { instantiateBannerModel } from "@/app-library/default-implementations/model-instantiators/banner/BannerModelInstantiator";
 import Banner from "@/app-library/components/content/banner/ui/Banner";
-import { instantiateSiteSectionModel } from "@/app-library/components/content/site-section/model-instantiator/SiteSectionModelInstantiator";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/site-section/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 
 export default function PortfolioSection() {

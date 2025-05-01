@@ -28,7 +28,7 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"app-library/utilities/__test__/ui.test.js"
+		"app-library/utilities/__tests__/ui.test.js"
 	],
 	"exclude": ["node_modules"]
 }

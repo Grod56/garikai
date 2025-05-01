@@ -10,7 +10,7 @@ $maxPortraitVerticalThumbnailHeight: 40vh;
 		var(--secondary-a-color-2),
 		var(--secondary-color-1)
 	);
-	color: white;
+	color: var(--primary-color-4);
 	max-width: 100%;
 	min-width: 100%;
 }
@@ -45,17 +45,18 @@ $maxPortraitVerticalThumbnailHeight: 40vh;
 	@include vertical-image-card;
 }
 
-.image-card .card-thumbnail {
+.image-card .image[data-customname="card-thumbnail"] {
 	object-fit: cover;
 	height: auto;
 }
 
-.image-card[data-orientation="horizontal"] .card-thumbnail {
+.image-card[data-orientation="horizontal"]
+	.image[data-customname="card-thumbnail"] {
 	@include horizontal-card-thumbnail($maxHorizontalThumbnailWidth);
 }
 
 .image-card:is([data-orientation="flexible"], [data-orientation="vertical"])
-	.card-thumbnail {
+	.image[data-customname="card-thumbnail"] {
 	@include vertical-card-thumbnail($maxPortraitVerticalThumbnailHeight);
 }
 
@@ -78,10 +79,12 @@ $maxPortraitVerticalThumbnailHeight: 40vh;
 	.image-card[data-orientation="flexible"] {
 		@include horizontal-image-card;
 	}
-	.image-card:is([data-orientation="flexible"]) .card-thumbnail {
+	.image-card:is([data-orientation="flexible"])
+		.image[data-customname="card-thumbnail"] {
 		@include horizontal-card-thumbnail($maxHorizontalThumbnailWidth);
 	}
-	.image-card:is([data-orientation="vertical"]) .card-thumbnail {
+	.image-card:is([data-orientation="vertical"])
+		.image[data-customname="card-thumbnail"] {
 		@include vertical-card-thumbnail($maxLandscapeVerticalThumbnailHeight);
 	}
 }
