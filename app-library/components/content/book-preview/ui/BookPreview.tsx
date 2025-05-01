@@ -3,6 +3,8 @@ import LinkedComponent from "@/app-library/components/widgets/linked-component/u
 import { BookPreviewModel } from "../BookPreviewModel";
 import "./book-preview.scss";
 
+export const ELEMENT_NAME = "book-preview";
+
 export default function BookPreview({
 	model: { modelInstance },
 }: {
@@ -10,9 +12,9 @@ export default function BookPreview({
 }) {
 	return (
 		<div
-			className="book-preview"
+			className={ELEMENT_NAME}
 			id={modelInstance.id}
-			data-testid="book-preview"
+			data-testid={ELEMENT_NAME}
 		>
 			<LinkedComponent
 				model={{

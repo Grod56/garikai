@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import Footer from "../Footer";
+import Footer, { ELEMENT_NAME } from "../Footer";
 import { modelTestObject } from "./data";
 
 describe("Footer", () => {
 	render(<Footer model={modelTestObject} />);
 
 	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId("footer");
+	const componentElement = screen.getByTestId(ELEMENT_NAME);
 	const copyrightElement = screen.getByText(modelInstance.copyright);
 
 	afterAll(() => {

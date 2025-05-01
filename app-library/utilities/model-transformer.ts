@@ -11,21 +11,21 @@ import {
 } from "../custom-types/StatifiableNonReadonlyModel";
 
 export function useStatefulReadonlyModel<
-	T extends ReadonlyModel<U>,
-	U extends ModelInstance,
->(model: T): T {
+	T extends ModelInstance,
+	U extends ReadonlyModel<T>,
+>(model: ReadonlyModel<T>): U {
 	const [memoizedModelInstance] = useState(model.modelInstance);
 	return useMemo(
 		() => ({ modelInstance: memoizedModelInstance }),
 		[memoizedModelInstance]
-	) as T;
+	) as U;
 }
 
 export function useStatefulInteractiveModel<
-	T extends InstanceInteractionInterface<U, V>,
-	U extends ModelInstance,
-	V extends ModelInteraction,
->(model: StatifiableNonReadonlyModel<T, U, V>): InteractiveModel<U, V> {
+	T extends ModelInstance,
+	U extends ModelInteraction,
+	V extends InstanceInteractionInterface<T, U>,
+>(model: StatifiableNonReadonlyModel<T, U, V>): InteractiveModel<T, U> {
 	// The most valid way to "memoize" the input model that I could come up with
 	const [initialModel] = useState(model);
 
@@ -37,7 +37,7 @@ export function useStatefulInteractiveModel<
 		[initialModel]
 	);
 	const memoizedInteract = useCallback(
-		async (interaction: V) => {
+		async (interaction: U) => {
 			const newModelInstance =
 				await memoizedInstanceInteractionInterface.getModelInstance(
 					interaction

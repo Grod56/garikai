@@ -9,7 +9,7 @@ export type ModelInteraction<
 };
 export interface InteractiveModel<
 	T extends ModelInstance,
-	V extends ModelInteraction,
+	U extends ModelInteraction,
 > extends Model<T> {
-	interact(interaction: V): Promise<void>;
+	interact(interaction: U): Promise<void>;
 }

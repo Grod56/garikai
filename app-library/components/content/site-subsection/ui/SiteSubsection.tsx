@@ -1,6 +1,8 @@
 import { SiteSubsectionModel } from "../SiteSubsectionModel";
 import "./site-subsection.scss";
 
+export const ELEMENT_NAME = "site-subsection";
+
 export default function SiteSubsection({
 	model: { modelInstance },
 	children,
@@ -10,9 +12,9 @@ export default function SiteSubsection({
 }) {
 	return (
 		<section
-			className="site-subsection"
+			className={ELEMENT_NAME}
 			id={modelInstance.id}
-			data-testid="site-subsection"
+			data-testid={ELEMENT_NAME}
 		>
 			<h4 className="subsection-title">
 				{modelInstance.subsectionTitle}

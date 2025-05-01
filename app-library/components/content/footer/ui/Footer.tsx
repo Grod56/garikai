@@ -12,13 +12,19 @@ import { FooterModel } from "../FooterModel";
 import Link from "next/link";
 import "./footer.scss";
 
+export const ELEMENT_NAME = "footer";
+
 export default function Footer({
 	model: { modelInstance },
 }: {
 	model: FooterModel;
 }) {
 	return (
-		<footer className="footer" id={modelInstance.id} data-testid="footer">
+		<footer
+			className={ELEMENT_NAME}
+			id={modelInstance.id}
+			data-testid={ELEMENT_NAME}
+		>
 			<div className="footer-container">
 				<hr />
 				<span className="copyright">{modelInstance.copyright}</span>

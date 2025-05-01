@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { feauturedPostPreviewModelTestObject } from "./data";
-import FeaturedPostPreview from "../FeaturedPostPreview";
+import FeaturedPostPreview, { ELEMENT_NAME } from "../FeaturedPostPreview";
 
 describe("FeaturedPostPreview", () => {
 	render(<FeaturedPostPreview model={feauturedPostPreviewModelTestObject} />);
 
 	const { modelInstance } = feauturedPostPreviewModelTestObject;
-	const componentElement = screen.getByTestId("post-preview");
+	const componentElement = screen.getByTestId(ELEMENT_NAME);
 	const titleElement = screen.getByText(modelInstance.title);
 	const bylineElement = screen.getByText(modelInstance.byline);
 	const thumbnailElement = screen.getByAltText(modelInstance.thumbnail.alt);

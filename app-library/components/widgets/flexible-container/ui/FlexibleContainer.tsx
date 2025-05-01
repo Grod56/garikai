@@ -1,6 +1,8 @@
 import { FlexibleContainerModel } from "../FlexibleContainerModel";
 import "./flexible-container.scss";
 
+export const ELEMENT_NAME = "flexible-container";
+
 export default function FlexibleContainer({
 	children,
 }: {
@@ -8,7 +10,7 @@ export default function FlexibleContainer({
 	children: React.ReactNode;
 }) {
 	return (
-		<div className="flexible-container" data-testid="flexible-container">
+		<div className={ELEMENT_NAME} data-testid={ELEMENT_NAME}>
 			{children}
 		</div>
 	);
