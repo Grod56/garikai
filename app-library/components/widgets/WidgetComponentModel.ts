@@ -1,6 +1,7 @@
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
-import { ModelInstance } from "@/app-library/custom-types/model/Model";
 
-export type WidgetComponentModelInstance = ModelInstance;
+export interface WidgetComponentModelInstance {
+	readonly customName?: string;
+}
 export type WidgetComponentModel<T extends WidgetComponentModelInstance> =
 	ReadonlyModel<T>;

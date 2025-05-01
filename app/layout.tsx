@@ -1,13 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Metadata } from "next/types";
-import { instantiateFooterModel } from "../app-library/components/content/footer/model-instantiator/FooterModelInstantiator";
+import { instantiateFooterModel } from "../app-library/default-implementations/model-instantiators/footer/FooterModelInstantiator";
 import Footer from "../app-library/components/content/footer/ui/Footer";
-import { instantiateHeaderModel } from "../app-library/components/content/header/model-instantiator/HeaderModelInstantiator";
+import { instantiateHeaderModel } from "../app-library/default-implementations/model-instantiators/header/HeaderModelInstantiator";
 import Header from "../app-library/components/content/header/ui/Header";
-import { instantiateNavbarModel } from "../app-library/components/content/navbar/model-instantiator/NavbarModelInstantiator";
+import { instantiateNavbarModel } from "../app-library/default-implementations/model-instantiators/navbar/NavbarModelInstantiator";
 import Navbar from "../app-library/components/content/navbar/ui/Navbar";
 import { Explora } from "next/font/google";
 import "@/app/app.scss";
+
+// Initial configuration ---------------------------------------------------
 
 export const metadata: Metadata = {
 	title: {
@@ -15,14 +17,15 @@ export const metadata: Metadata = {
 		default: process.env.DEFAULT_TITLE!,
 	},
 };
-
 const exploraFont = Explora({ weight: "400", subsets: ["latin"] });
 
-export default function RootLayout({
-	children,
-}: {
+type RootLayoutParameters = {
 	children: React.ReactNode;
-}) {
+};
+
+// -------------------------------------------------------------------------
+
+export default function RootLayout({ children }: RootLayoutParameters) {
 	const headerModel = instantiateHeaderModel({
 		id: "header",
 		headerTitle: process.env.HEADER_TITLE!,

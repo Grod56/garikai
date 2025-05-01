@@ -1,6 +1,6 @@
 "use client";
 import { useStatefulReadonlyModel } from "@/app-library/utilities/model-transformer";
-import { instantiateMainModel } from "../../../app-library/components/content/main/model-instantiator/MainModelInstantiator";
+import { instantiateMainModel } from "../../../app-library/default-implementations/model-instantiators/main/MainModelInstantiator";
 import Main from "../../../app-library/components/content/main/ui/Main";
 import "./home.scss";
 import ArtSection from "./sections/art/ArtSection";

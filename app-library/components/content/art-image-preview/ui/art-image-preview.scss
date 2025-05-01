@@ -1,5 +1,9 @@
 .art-image-preview {
 	min-width: 100%;
+}
+
+.art-image-preview .image {
 	object-fit: cover;
 	filter: brightness(1.2);
+	min-width: 100%;
 }

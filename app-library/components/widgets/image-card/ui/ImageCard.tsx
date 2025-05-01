@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/app-library/components/widgets/image/ui/Image";
 import { ImageCardModel } from "../ImageCardModel";
 import "./image-card.scss";
 
@@ -16,13 +16,14 @@ export default function ImageCard({
 			data-testid="image-card"
 		>
 			<Image
-				className="card-thumbnail"
-				src={modelInstance.thumbnail.source}
-				alt={modelInstance.thumbnail.alt}
-				blurDataURL={modelInstance.thumbnail.placeholder}
-				placeholder="blur"
-				width={300}
-				height={250}
+				model={{
+					modelInstance: {
+						image: modelInstance.thumbnail,
+						width: 300,
+						height: 250,
+						customName: "card-thumbnail",
+					},
+				}}
 			/>
 			<div className="card-details">{children}</div>
 		</div>

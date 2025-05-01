@@ -3,5 +3,5 @@ export interface ContentAPI<T extends ContentRecord> {
 }
 
 export interface ContentRecord {
-	id: string;
+	readonly id: string;
 }

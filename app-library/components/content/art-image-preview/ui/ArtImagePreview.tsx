@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { ArtImagePreviewModel } from "../ArtImagePreviewModel";
+import Image from "@/app-library/components/widgets/image/ui/Image";
 import "./art-image-preview.scss";
 
 export default function ArtImagePreview({
@@ -8,18 +8,21 @@ export default function ArtImagePreview({
 	model: ArtImagePreviewModel;
 }) {
 	return (
-		<Image
+		<div
 			className="art-image-preview"
 			id={modelInstance.id}
-			src={modelInstance.image.source}
 			title={modelInstance.title}
-			alt={modelInstance.image.alt}
-			placeholder="blur"
-			blurDataURL={modelInstance.image.placeholder}
-			height={410}
-			width={420}
-			quality={100}
 			data-testid="art-image-preview"
-		/>
+		>
+			<Image
+				model={{
+					modelInstance: {
+						image: modelInstance.image,
+						width: 420,
+						height: 410,
+					},
+				}}
+			/>
+		</div>
 	);
 }
