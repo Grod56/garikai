@@ -41,7 +41,7 @@ describe("useStatefulInteractiveModel", () => {
 			interact: expect.any(Function),
 		});
 	});
-	it("returns identical model instance on rerender", () => {
+	it("returns identical model properties on rerender", () => {
 		const renderedHook = renderHook(() =>
 			useStatefulInteractiveModel(statifiableInteractiveModelTestObject)
 		);
@@ -51,6 +51,7 @@ describe("useStatefulInteractiveModel", () => {
 		});
 		const modelOnRerender = renderedHook.result.current;
 		expect(model.modelInstance).toBe(modelOnRerender.modelInstance);
+		expect(model.interact).toBe(modelOnRerender.interact);
 	});
 	it("changes model instance to expected value after interaction", async () => {
 		const renderedHook = renderHook(() =>

@@ -47,13 +47,11 @@ export function useStatefulInteractiveModel<
 		[memoizedInstanceInteractionInterface]
 	);
 
-	const statefulModel = useMemo(
-		() => ({
-			modelInstance: memoizedModelInstance,
-			interact: memoizedInteract,
-		}),
-		[memoizedInteract, memoizedModelInstance]
-	);
+	// Note to self: DO NOT memoize the model itself
+	const statefulModel = {
+		modelInstance: memoizedModelInstance,
+		interact: memoizedInteract,
+	};
 
 	return statefulModel;
 }

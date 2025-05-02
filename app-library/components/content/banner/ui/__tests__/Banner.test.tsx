@@ -5,7 +5,6 @@ import { modelTestObject } from "./data";
 
 describe("Banner", () => {
 	render(<Banner model={modelTestObject} />);
-
 	const { modelInstance } = modelTestObject;
 	const componentElement = screen.getByTestId(ELEMENT_NAME);
 	const bannerTextElement = screen.getByText(modelInstance.bannerText);
