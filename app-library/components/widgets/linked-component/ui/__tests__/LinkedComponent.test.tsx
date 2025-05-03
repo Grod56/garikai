@@ -6,28 +6,26 @@ import { modelTestObject } from "./data";
 jest.mock("../../../../../utilities/ui");
 
 describe("LinkedComponent", () => {
+	const { link } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 	const user = userEvent.setup();
-	const { modelInstance } = modelTestObject;
+
 	beforeEach(() => {
 		render(
 			<LinkedComponent model={modelTestObject}>
 				<></>
 			</LinkedComponent>
 		);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 
 	it("maps link property to corresponding node", () => {
-		const componentElement = screen.getByTestId(ELEMENT_NAME);
-		expect(componentElement).toHaveAttribute(
-			"data-href",
-			modelInstance.link.href
-		);
+		expect(componentElement).toHaveAttribute("data-href", link.href);
 	});
 
 	// UI related ----------------
 	it("navigates to link when clicked", async () => {
-		const componentElement = screen.getByTestId(ELEMENT_NAME);
 		await user.click(componentElement);
-		expect(openExternalSite).toHaveBeenCalledWith(modelInstance.link);
+		expect(openExternalSite).toHaveBeenCalledWith(link);
 	});
 });

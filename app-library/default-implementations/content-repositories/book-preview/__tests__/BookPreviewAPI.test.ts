@@ -12,10 +12,10 @@ describe("getSupabaseBookPreviewPreviewAPI", () => {
 		beforeEach(() => {
 			supabaseSpy = jest.spyOn(supabase, "from");
 		});
-
 		afterEach(() => {
 			supabaseSpy.mockRestore();
 		});
+
 		it("requests records from appropriate table when called", async () => {
 			supabaseSpy.mockImplementation(supabaseSpySelectMockImplementation);
 			const api = instantiateSupabaseBookPreviewAPI();

@@ -3,19 +3,24 @@ import ArtImagePreview, { ELEMENT_NAME } from "../ArtImagePreview";
 import { modelTestObject } from "./data";
 
 describe("ArtImagePreview", () => {
-	render(<ArtImagePreview model={modelTestObject} />);
+	const { id, title, image } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const imageElement = screen.getByAltText(modelInstance.image.alt);
+	beforeEach(() => {
+		render(<ArtImagePreview model={modelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps id property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps title property to corresponding node", () => {
-		expect(componentElement).toContainHTML(modelInstance.title);
+		expect(componentElement).toContainHTML(title);
 	});
 	it("maps image property to corresponding node", () => {
-		expect(componentElement).toContainElement(imageElement);
+		const imageElement = screen.getByAltText(image.alt);
+		expect(imageElement).toContainHTML(image.source);
+		expect(imageElement).toContainHTML(image.alt);
+		expect(imageElement).toContainHTML(image.placeholder);
 	});
 });

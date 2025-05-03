@@ -1,28 +1,25 @@
 import { render, screen } from "@testing-library/react";
-import Header from "../Header";
+import Header, { ELEMENT_NAME } from "../Header";
 import { modelTestObject } from "./data";
 
 describe("Header", () => {
-	render(<Header model={modelTestObject} />);
+	const { id, headerTitle, headerSubtitle } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId("header");
-	const headerTitleElement = screen.getByText(modelInstance.headerTitle);
-	const headerSubtitleElement = screen.getByText(
-		modelInstance.headerSubtitle
-	);
-
-	afterAll(() => {
-		expect(componentElement).toContainElement(headerTitleElement);
-		expect(componentElement).toContainElement(headerSubtitleElement);
+	beforeEach(() => {
+		render(<Header model={modelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
+
 	it("maps id property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps headerTitle property to corresponding node", () => {
-		expect(headerTitleElement).toBeDefined();
+		const headerTitleElement = screen.getByText(headerTitle);
+		expect(headerTitleElement).toHaveTextContent(headerTitle);
 	});
 	it("maps headerSubtitle property to corresponding node", () => {
-		expect(headerSubtitleElement).toBeDefined();
+		const headerSubtitleElement = screen.getByText(headerSubtitle);
+		expect(headerSubtitleElement).toHaveTextContent(headerSubtitle);
 	});
 });

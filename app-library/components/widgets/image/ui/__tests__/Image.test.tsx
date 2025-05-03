@@ -3,39 +3,40 @@ import { modelTestObject } from "./data";
 import Image, { ELEMENT_NAME } from "../Image";
 
 describe("Image", () => {
-	render(<Image model={modelTestObject} />);
+	const { image, height, width } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const imageElement = screen.getByAltText(modelInstance.image.alt);
+	beforeEach(() => {
+		render(<Image model={modelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps image property to corresponding node", () => {
+		const imageElement = screen.getByAltText(image.alt);
 		expect(imageElement).toHaveAttribute(
 			"src",
+			//TODO: To be tidied up
 			expect.stringMatching(
 				new RegExp(
-					`(${modelInstance.image.source}|${encodeURIComponent(modelInstance.image.source)})`
+					`(${image.source}|${encodeURIComponent(image.source)})`
 				)
 			)
 		);
-		expect(imageElement).toHaveAttribute("alt", modelInstance.image.alt);
-		expect(imageElement).toContainHTML(modelInstance.image.placeholder);
+		expect(imageElement).toHaveAttribute("alt", image.alt);
+		expect(imageElement).toContainHTML(image.placeholder);
 	});
 	it("maps width property to corresponding node", () => {
-		expect(imageElement).toHaveAttribute(
-			"width",
-			modelInstance.width.toString()
-		);
+		const imageElement = screen.getByAltText(image.alt);
+		expect(imageElement).toHaveAttribute("width", width.toString());
 	});
 	it("maps height property to corresponding node", () => {
-		expect(imageElement).toHaveAttribute(
-			"height",
-			modelInstance.height.toString()
-		);
+		const imageElement = screen.getByAltText(image.alt);
+		expect(imageElement).toHaveAttribute("height", height.toString());
 	});
 	// TODO: Custom name widget shebang
 
 	it("encapsulates relevant nodes within component element", () => {
+		const imageElement = screen.getByAltText(image.alt);
 		expect(componentElement).toContainElement(imageElement);
 	});
 });

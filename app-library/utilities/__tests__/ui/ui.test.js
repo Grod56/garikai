@@ -2,8 +2,11 @@ import { openExternalSite } from "../../ui";
 import { openExternalSiteTestInput } from "./data";
 
 describe("openExternalSite", () => {
-	const windowOpenSpy = jest.spyOn(window, "open");
+	let windowOpenSpy;
 
+	beforeEach(() => {
+		windowOpenSpy = jest.spyOn(window, "open");
+	});
 	afterEach(() => {
 		windowOpenSpy.mockRestore();
 	});

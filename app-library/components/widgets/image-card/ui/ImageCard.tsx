@@ -5,22 +5,24 @@ import "./image-card.scss";
 export const ELEMENT_NAME = "image-card";
 
 export default function ImageCard({
-	model: { modelInstance },
+	model,
 	children,
 }: {
 	model: ImageCardModel;
 	children: React.ReactNode;
 }) {
+	const { thumbnail, orientation } = model.modelInstance;
+
 	return (
 		<div
 			className={ELEMENT_NAME}
-			data-orientation={modelInstance.orientation}
+			data-orientation={orientation}
 			data-testid={ELEMENT_NAME}
 		>
 			<Image
 				model={{
 					modelInstance: {
-						image: modelInstance.thumbnail,
+						image: thumbnail,
 						width: 300,
 						height: 250,
 						customName: "card-thumbnail",

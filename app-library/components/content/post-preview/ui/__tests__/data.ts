@@ -15,7 +15,7 @@ export const postPreviewModelTestObject: PostPreviewModel = {
 	},
 };
 
-export const feauturedPostPreviewModelTestObject: FeaturedPostPreviewModel = {
+export const featuredPostPreviewModelTestObject: FeaturedPostPreviewModel = {
 	modelInstance: {
 		...postPreviewModelTestObject.modelInstance,
 		snippet: "This is a snippet",

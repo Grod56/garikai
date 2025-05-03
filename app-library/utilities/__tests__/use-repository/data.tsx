@@ -6,21 +6,22 @@ import {
 	InstanceInteractionInterface,
 	StatifiableNonReadonlyModel,
 } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
-type ContentModel = {
+export type ContentModel = {
 	id: string;
 };
-type TestRepositoryModelInstance = {
+export type TestRepositoryModelInstance = {
 	contentModels: ContentModel[];
 } | null;
-type TestRepositoryModelInteraction = ContentRepositoryModelInteraction;
+export type TestRepositoryModelInteraction = ContentRepositoryModelInteraction;
 export type TestRepositoryModel = ContentRepositoryModel<
 	TestRepositoryModelInstance,
 	TestRepositoryModelInteraction
 >;
-type TestRepositoryInstanceInteractionInterface = InstanceInteractionInterface<
-	TestRepositoryModelInstance,
-	TestRepositoryModelInteraction
->;
+export type TestRepositoryInstanceInteractionInterface =
+	InstanceInteractionInterface<
+		TestRepositoryModelInstance,
+		TestRepositoryModelInteraction
+	>;
 
 export function testRepositoryModelInstantiator(): TestRepositoryModel &
 	StatifiableNonReadonlyModel<

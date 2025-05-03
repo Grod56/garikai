@@ -3,20 +3,19 @@ import Footer, { ELEMENT_NAME } from "../Footer";
 import { modelTestObject } from "./data";
 
 describe("Footer", () => {
-	render(<Footer model={modelTestObject} />);
+	const { id, copyright } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const copyrightElement = screen.getByText(modelInstance.copyright);
-
-	afterAll(() => {
-		expect(componentElement).toContainElement(copyrightElement);
+	beforeEach(() => {
+		render(<Footer model={modelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 
 	it("maps id property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps copyright property to corresponding node", () => {
-		expect(copyrightElement).toBeDefined();
+		const copyrightElement = screen.getByText(copyright);
+		expect(copyrightElement).toHaveTextContent(copyright);
 	});
 });

@@ -11,7 +11,7 @@ function createBloggerClient(blogPostsEndpointURL: BlogPostsEndpointURL) {
 					if (response.ok) {
 						return response.json();
 					} else {
-						Promise.reject();
+						return Promise.reject();
 					}
 				})
 				.then((responseJSON) => {

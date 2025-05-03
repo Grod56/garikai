@@ -5,21 +5,23 @@ import "./art-image-preview.scss";
 export const ELEMENT_NAME = "art-image-preview";
 
 export default function ArtImagePreview({
-	model: { modelInstance },
+	model,
 }: {
 	model: ArtImagePreviewModel;
 }) {
+	const { id, title, image } = model.modelInstance;
+
 	return (
 		<div
 			className={ELEMENT_NAME}
-			id={modelInstance.id}
-			title={modelInstance.title}
+			id={id}
+			title={title}
 			data-testid={ELEMENT_NAME}
 		>
 			<Image
 				model={{
 					modelInstance: {
-						image: modelInstance.image,
+						image: image,
 						width: 420,
 						height: 410,
 					},

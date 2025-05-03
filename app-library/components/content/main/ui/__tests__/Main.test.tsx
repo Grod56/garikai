@@ -3,22 +3,22 @@ import Main, { ELEMENT_NAME } from "../Main";
 import { modelTestObject } from "./data";
 
 describe("Main", () => {
-	render(
-		<Main model={modelTestObject}>
-			<></>
-		</Main>
-	);
+	const { id, name } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
+	beforeEach(() => {
+		render(
+			<Main model={modelTestObject}>
+				<></>
+			</Main>
+		);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps id property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps name property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute(
-			"data-name",
-			modelInstance.name
-		);
+		expect(componentElement).toHaveAttribute("data-name", name);
 	});
 });

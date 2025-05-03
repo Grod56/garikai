@@ -3,22 +3,23 @@ import SiteSubsection, { ELEMENT_NAME } from "../SiteSubsection";
 import { modelTestObject } from "./data";
 
 describe("SiteSubsection", () => {
-	render(
-		<SiteSubsection model={modelTestObject}>
-			<></>
-		</SiteSubsection>
-	);
+	const { id, subsectionTitle } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const subsectionTitleElement = screen.getByText(
-		modelInstance.subsectionTitle
-	);
+	beforeEach(() => {
+		render(
+			<SiteSubsection model={modelTestObject}>
+				<></>
+			</SiteSubsection>
+		);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps id property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps subsectionTitle property to corresponding node", () => {
-		expect(subsectionTitleElement).toBeDefined();
+		const subsectionTitleElement = screen.getByText(subsectionTitle);
+		expect(subsectionTitleElement).toHaveTextContent(subsectionTitle);
 	});
 });

@@ -13,7 +13,7 @@ describe("instantiateArtImagePreviewRepositoryModel", () => {
 			);
 			expect(model.modelInstance).toBeNull();
 		});
-		it("matches 'retrieve models' interaction with instanceInteractionInterface output", async () => {
+		it("matches interact output with instanceInteractionInterface output", async () => {
 			const model = instantiatePostPreviewRepositoryModel(
 				repositoryInstantiatorAPI
 			);
@@ -27,7 +27,6 @@ describe("instantiateArtImagePreviewRepositoryModel", () => {
 			);
 			expect(model.modelInstance).toEqual(newModelInstance);
 		});
-
 		it("throws error when api call returns an error", async () => {
 			const model = instantiatePostPreviewRepositoryModel(
 				faultyRepositoryInstantiatorAPI

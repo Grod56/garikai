@@ -3,23 +3,23 @@ import { ImageModel } from "../ImageModel";
 
 export const ELEMENT_NAME = "image";
 
-export default function Image({
-	model: { modelInstance },
-}: {
-	model: ImageModel;
-}) {
+export default function Image({ model }: { model: ImageModel }) {
+	const { image, height, width, customName } = model.modelInstance;
+
 	return (
 		<NextImage
 			className={ELEMENT_NAME}
-			src={modelInstance.image.source}
-			alt={modelInstance.image.alt}
-			placeholder="blur"
-			blurDataURL={modelInstance.image.placeholder}
-			height={modelInstance.height}
-			width={modelInstance.width}
+			src={image.source}
+			alt={image.alt}
+			width={width}
+			height={height}
 			quality={100}
-			data-customname={modelInstance.customName}
-			data-placeholder={modelInstance.image.placeholder} // To expose purely for testing purposes
+			blurDataURL={image.placeholder}
+			loading="lazy"
+			placeholder="blur"
+			data-customname={customName}
+			data-originalsrc={image.source} // To expose purely for testing purposes
+			data-placeholder={image.placeholder} // ditto
 			data-testid={ELEMENT_NAME}
 		/>
 	);

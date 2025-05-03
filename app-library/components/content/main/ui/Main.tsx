@@ -4,17 +4,19 @@ import "./main.scss";
 export const ELEMENT_NAME = "main";
 
 export default function Main({
-	model: { modelInstance },
+	model,
 	children,
 }: {
 	model: MainModel;
 	children: React.ReactNode;
 }) {
+	const { id, name } = model.modelInstance;
+
 	return (
 		<main
 			className={ELEMENT_NAME}
-			id={modelInstance.id}
-			data-name={modelInstance.name}
+			id={id}
+			data-name={name}
 			data-testid={ELEMENT_NAME}
 		>
 			{children}

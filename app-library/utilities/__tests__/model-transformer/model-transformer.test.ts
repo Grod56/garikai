@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react";
+import { act, renderHook, RenderHookResult } from "@testing-library/react";
 import {
 	useStatefulInteractiveModel,
 	useStatefulReadonlyModel,
@@ -7,21 +7,34 @@ import {
 	statifiableReadonlyModelTestObject,
 	statifiableInteractiveModelTestObject,
 	testInstanceInteractionInterface,
+	TestModelInstance,
+	TestModelInteraction,
 } from "./data";
+import { InteractiveModel } from "@/app-library/custom-types/model/InteractiveModel";
+import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 
 describe("useStatefulReadonlyModel", () => {
-	it("returns equivalent model", () => {
-		const renderedHook = renderHook(() =>
+	// Potential tidying re. generics needed
+	let renderedHook: RenderHookResult<
+		ReadonlyModel<TestModelInstance>,
+		unknown
+	>;
+	let model: ReadonlyModel<TestModelInstance>;
+
+	beforeEach(() => {
+		renderedHook = renderHook(() =>
 			useStatefulReadonlyModel(statifiableReadonlyModelTestObject)
 		);
-		const model = renderedHook.result.current;
+		model = renderedHook.result.current;
+	});
+	afterEach(() => {
+		renderedHook.unmount();
+	});
+
+	it("returns equivalent model", () => {
 		expect(model).toEqual(statifiableReadonlyModelTestObject);
 	});
 	it("returns identical model instance on rerender", () => {
-		const renderedHook = renderHook(() =>
-			useStatefulReadonlyModel(statifiableReadonlyModelTestObject)
-		);
-		const model = renderedHook.result.current;
 		act(() => {
 			renderedHook.rerender();
 		});
@@ -31,39 +44,44 @@ describe("useStatefulReadonlyModel", () => {
 });
 
 describe("useStatefulInteractiveModel", () => {
-	it("returns equivalent model", () => {
-		const renderedHook = renderHook(() =>
+	// Again
+	let renderedHook: RenderHookResult<
+		InteractiveModel<TestModelInstance, TestModelInteraction>,
+		unknown
+	>;
+	let model: InteractiveModel<TestModelInstance, TestModelInteraction>;
+
+	beforeEach(() => {
+		renderedHook = renderHook(() =>
 			useStatefulInteractiveModel(statifiableInteractiveModelTestObject)
 		);
-		const model = renderedHook.result.current;
+		model = renderedHook.result.current;
+	});
+	afterEach(() => {
+		renderedHook.unmount();
+	});
+
+	it("returns equivalent model", () => {
 		expect(model).toEqual({
 			modelInstance: statifiableInteractiveModelTestObject.modelInstance,
 			interact: expect.any(Function),
 		});
 	});
 	it("returns identical model properties on rerender", () => {
-		const renderedHook = renderHook(() =>
-			useStatefulInteractiveModel(statifiableInteractiveModelTestObject)
-		);
-		const model = renderedHook.result.current;
 		act(() => {
 			renderedHook.rerender();
 		});
 		const modelOnRerender = renderedHook.result.current;
-		expect(model.modelInstance).toBe(modelOnRerender.modelInstance);
-		expect(model.interact).toBe(modelOnRerender.interact);
+		expect(modelOnRerender.modelInstance).toBe(model.modelInstance);
+		expect(modelOnRerender.interact).toBe(model.interact);
 	});
 	it("changes model instance to expected value after interaction", async () => {
-		const renderedHook = renderHook(() =>
-			useStatefulInteractiveModel(statifiableInteractiveModelTestObject)
-		);
-		const model = renderedHook.result.current;
 		await act(() => model.interact({ interactionName: "CHANGE_DISPLAY" }));
 		const expectedModelInstance =
 			await testInstanceInteractionInterface.getModelInstance({
 				interactionName: "CHANGE_DISPLAY",
 			});
-		const modelOnRerender = renderedHook.result.current;
-		expect(modelOnRerender.modelInstance).toEqual(expectedModelInstance);
+		const currentModelInstance = renderedHook.result.current.modelInstance;
+		expect(currentModelInstance).toEqual(expectedModelInstance);
 	});
 });
