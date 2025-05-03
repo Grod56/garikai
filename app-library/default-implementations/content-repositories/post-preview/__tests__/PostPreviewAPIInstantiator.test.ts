@@ -12,10 +12,10 @@ describe("getBloggerPostPreviewPreviewAPI", () => {
 		beforeEach(() => {
 			bloggerSpy = jest.spyOn(blogger, "fetchBlogPosts");
 		});
-
 		afterEach(() => {
 			bloggerSpy.mockRestore();
 		});
+
 		it("requests records from appropriate table when called", async () => {
 			bloggerSpy.mockImplementation(bloggerSpySelectMockImplementation);
 			const api = instantiateBloggerPostPreviewAPI();

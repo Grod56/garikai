@@ -3,33 +3,33 @@ import PostPreview, { ELEMENT_NAME } from "../PostPreview";
 import { postPreviewModelTestObject } from "./data";
 
 describe("PostPreview", () => {
-	render(<PostPreview model={postPreviewModelTestObject} />);
+	const { id, title, byline, thumbnail, postLink } =
+		postPreviewModelTestObject.modelInstance;
 
-	const { modelInstance } = postPreviewModelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const titleElement = screen.getByText(modelInstance.title);
-	const bylineElement = screen.getByText(modelInstance.byline);
-	const thumbnailElement = screen.getByAltText(modelInstance.thumbnail.alt);
-
-	afterAll(() => {
-		expect(componentElement).toContainElement(titleElement);
-		expect(componentElement).toContainElement(bylineElement);
-		expect(componentElement).toContainElement(thumbnailElement);
+	let componentElement: HTMLElement;
+	beforeEach(() => {
+		render(<PostPreview model={postPreviewModelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 
 	it("maps id property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps title property to corresponding node", () => {
-		expect(titleElement).toBeDefined();
+		const titleElement = screen.getByText(title);
+		expect(titleElement).toHaveTextContent(title);
 	});
 	it("maps byline property to corresponding node", () => {
-		expect(bylineElement).toBeDefined();
-	});
-	it("maps link property to corresponding node", () => {
-		expect(componentElement).toContainHTML(modelInstance.postLink.href);
+		const bylineElement = screen.getByText(byline);
+		expect(bylineElement).toHaveTextContent(byline);
 	});
 	it("maps cover property to corresponding node", () => {
-		expect(thumbnailElement).toBeDefined();
+		const thumbnailElement = screen.getByAltText(thumbnail.alt);
+		expect(thumbnailElement).toContainHTML(thumbnail.source);
+		expect(thumbnailElement).toContainHTML(thumbnail.alt);
+		expect(thumbnailElement).toContainHTML(thumbnail.placeholder);
+	});
+	it("maps link property to corresponding node", () => {
+		expect(componentElement).toContainHTML(postLink.href);
 	});
 });

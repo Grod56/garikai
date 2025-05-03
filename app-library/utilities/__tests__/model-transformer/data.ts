@@ -3,16 +3,16 @@ import { InstanceInteractionInterface } from "@/app-library/custom-types/Statifi
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 import { StatifiableNonReadonlyModel } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
 
-interface TestModelInstance {
+export interface TestModelInstance {
 	displayValue: string;
 }
 
-type TestModelInteraction = ModelInteraction<"CHANGE_DISPLAY">;
-type TestInstanceInteractionInterface = InstanceInteractionInterface<
+export type TestModelInteraction = ModelInteraction<"CHANGE_DISPLAY">;
+export type TestInstanceInteractionInterface = InstanceInteractionInterface<
 	TestModelInstance,
 	TestModelInteraction
 >;
-type TestStatifiableNonReadonlyModel = StatifiableNonReadonlyModel<
+export type TestStatifiableNonReadonlyModel = StatifiableNonReadonlyModel<
 	TestModelInstance,
 	TestModelInteraction,
 	InstanceInteractionInterface<TestModelInstance, TestModelInteraction>

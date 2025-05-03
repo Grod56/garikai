@@ -4,15 +4,19 @@ import Banner, { ELEMENT_NAME } from "../Banner";
 import { modelTestObject } from "./data";
 
 describe("Banner", () => {
-	render(<Banner model={modelTestObject} />);
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const bannerTextElement = screen.getByText(modelInstance.bannerText);
+	const { id, bannerText } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
+
+	beforeEach(() => {
+		render(<Banner model={modelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps id property to corresponding node", () => {
-		expect(componentElement.id).toEqual(modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps bannerText property to corresponding node", () => {
-		expect(componentElement).toContainElement(bannerTextElement);
+		const bannerTextElement = screen.getByText(bannerText);
+		expect(bannerTextElement).toHaveTextContent(bannerText);
 	});
 });

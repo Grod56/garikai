@@ -5,22 +5,24 @@ import "./linked-component.scss";
 export const ELEMENT_NAME = "linked-component";
 
 export default function LinkedComponent({
-	model: { modelInstance },
+	model,
 	children,
 }: {
 	model: LinkedComponentModel;
 	children: React.ReactNode;
 }) {
+	const { link } = model.modelInstance;
+
 	return (
 		<div
 			className={ELEMENT_NAME}
 			role="button"
 			// May be a bit hacky, but better than previous solution
 			onClick={() => {
-				openExternalSite(modelInstance.link);
+				openExternalSite(link);
 			}}
 			// Mainly to make link value for accessible for testing
-			data-href={modelInstance.link.href}
+			data-href={link.href}
 			data-testid={ELEMENT_NAME}
 		>
 			{children}

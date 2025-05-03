@@ -1,33 +1,36 @@
 import { render, screen } from "@testing-library/react";
-import GridContainer from "../GridContainer";
+import GridContainer, { ELEMENT_NAME } from "../GridContainer";
 import { modelTestObject } from "./data";
 
 describe("GridContainer", () => {
-	render(
-		<GridContainer model={modelTestObject}>
-			<></>
-		</GridContainer>
-	);
+	const { maxXorY, orientation, overflow } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId("grid-container");
+	beforeEach(() => {
+		render(
+			<GridContainer model={modelTestObject}>
+				<></>
+			</GridContainer>
+		);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps maxXorY property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-maxXorY",
-			String(modelInstance.maxXorY)
+			String(maxXorY)
 		);
 	});
 	it("maps orientation property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-orientation",
-			modelInstance.orientation
+			orientation
 		);
 	});
 	it("maps overflow property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-overflow",
-			String(modelInstance.overflow)
+			String(overflow)
 		);
 	});
 });

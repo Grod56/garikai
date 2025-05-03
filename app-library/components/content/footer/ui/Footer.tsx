@@ -14,20 +14,14 @@ import "./footer.scss";
 
 export const ELEMENT_NAME = "footer";
 
-export default function Footer({
-	model: { modelInstance },
-}: {
-	model: FooterModel;
-}) {
+export default function Footer({ model }: { model: FooterModel }) {
+	const { id, copyright } = model.modelInstance;
+
 	return (
-		<footer
-			className={ELEMENT_NAME}
-			id={modelInstance.id}
-			data-testid={ELEMENT_NAME}
-		>
+		<footer className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<div className="footer-container">
 				<hr />
-				<span className="copyright">{modelInstance.copyright}</span>
+				<span className="copyright">{copyright}</span>
 				<div className="socials">
 					<Link href="mailto:rodneygaryx29@gmail.com" target="_blank">
 						<FontAwesomeIcon icon={Email} />

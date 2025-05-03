@@ -38,11 +38,15 @@ export function useStatefulInteractiveModel<
 	);
 	const memoizedInteract = useCallback(
 		async (interaction: U) => {
-			const newModelInstance =
-				await memoizedInstanceInteractionInterface.getModelInstance(
-					interaction
-				);
-			setModelInstance(newModelInstance);
+			try {
+				const newModelInstance =
+					await memoizedInstanceInteractionInterface.getModelInstance(
+						interaction
+					);
+				setModelInstance(newModelInstance);
+			} catch (error) {
+				throw new Error("Interaction failed", { cause: error });
+			}
 		},
 		[memoizedInstanceInteractionInterface]
 	);

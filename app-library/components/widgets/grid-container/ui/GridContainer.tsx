@@ -4,18 +4,20 @@ import "./grid-container.scss";
 export const ELEMENT_NAME = "grid-container";
 
 export default function GridContainer({
-	model: { modelInstance },
+	model,
 	children,
 }: {
 	model: GridContainerModel;
 	children: React.ReactNode;
 }) {
+	const { maxXorY, orientation, overflow } = model.modelInstance;
+
 	return (
 		<div
 			className={ELEMENT_NAME}
-			data-orientation={modelInstance.orientation}
-			data-maxxory={modelInstance.maxXorY} // TODO: Cleaner implementation expected
-			data-overflow={modelInstance.overflow}
+			data-orientation={orientation}
+			data-maxxory={maxXorY} // TODO: Cleaner implementation expected
+			data-overflow={overflow}
 			data-testid={ELEMENT_NAME}
 		>
 			{children}

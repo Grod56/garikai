@@ -7,36 +7,35 @@ import "./post-preview.scss";
 export { ELEMENT_NAME };
 
 export default function FeaturedPostPreview({
-	model: { modelInstance },
+	model,
 }: {
 	model: FeaturedPostPreviewModel;
 }) {
+	const { id, title, snippet, byline, thumbnail, postLink } =
+		model.modelInstance;
+
 	return (
-		<div
-			className={ELEMENT_NAME}
-			id={modelInstance.id}
-			data-testid={ELEMENT_NAME}
-		>
+		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
 				model={{
 					modelInstance: {
-						link: modelInstance.postLink,
+						link: postLink,
 					},
 				}}
 			>
 				<ImageCard
 					model={{
 						modelInstance: {
-							thumbnail: modelInstance.thumbnail,
+							thumbnail: thumbnail,
 							orientation: "flexible",
 						},
 					}}
 				>
-					<h5 className="title" title={modelInstance.title}>
-						{modelInstance.title}
+					<h5 className="title" title={title}>
+						{title}
 					</h5>
-					<span className="snippet">{modelInstance.snippet}</span>
-					<span className="byline">{modelInstance.byline}</span>
+					<span className="snippet">{snippet}</span>
+					<span className="byline">{byline}</span>
 				</ImageCard>
 			</LinkedComponent>
 		</div>

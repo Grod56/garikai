@@ -3,15 +3,18 @@ import ImageCardSkeleton, { ELEMENT_NAME } from "../ImageCardSkeleton";
 import { modelTestObject } from "./data";
 
 describe("ImageCardSkeleton", () => {
-	render(<ImageCardSkeleton model={modelTestObject} />);
+	const { orientation } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
+	beforeEach(() => {
+		render(<ImageCardSkeleton model={modelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps orientation property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-orientation",
-			modelInstance.orientation
+			orientation
 		);
 	});
 });

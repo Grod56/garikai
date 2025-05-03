@@ -29,22 +29,30 @@ export default defineConfig([
 	pluginReact.configs.flat["jsx-runtime"],
 	{
 		plugins: {
-			"react-hooks": reactHooks,
-		},
-		rules: {
-			...reactHooks.configs.recommended.rules,
-			"react-hooks/rules-of-hooks": "error",
-			"react-hooks/exhaustive-deps": "warn",
-		},
-	},
-	{
-		plugins: {
 			"@next/next": pluginNext,
 		},
 		files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
 		rules: {
 			...pluginNext.configs.recommended.rules,
 			...pluginNext.configs["core-web-vitals"].rules,
+		},
+	},
+	{
+		plugins: {
+			js,
+		},
+		rules: {
+			"no-empty-pattern": "warn",
+		},
+	},
+	{
+		plugins: {
+			"react-hooks": reactHooks,
+		},
+		rules: {
+			...reactHooks.configs.recommended.rules,
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn",
 		},
 	},
 	{

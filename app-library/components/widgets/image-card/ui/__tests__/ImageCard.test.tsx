@@ -3,26 +3,28 @@ import ImageCard, { ELEMENT_NAME } from "../ImageCard";
 import { modelTestObject } from "./data";
 
 describe("ImageCard", () => {
-	render(
-		<ImageCard model={modelTestObject}>
-			<></>
-		</ImageCard>
-	);
+	const { thumbnail, orientation } = modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const thumbnailElement = screen.getByAltText(modelInstance.thumbnail.alt);
+	beforeEach(() => {
+		render(
+			<ImageCard model={modelTestObject}>
+				<></>
+			</ImageCard>
+		);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
+	});
 
 	it("maps thumbnail property to corresponding node", () => {
-		expect(thumbnailElement).toContainHTML(modelInstance.thumbnail.alt);
-		expect(thumbnailElement).toContainHTML(
-			modelInstance.thumbnail.placeholder
-		);
+		const thumbnailElement = screen.getByAltText(thumbnail.alt);
+		expect(thumbnailElement).toContainHTML(thumbnail.source);
+		expect(thumbnailElement).toContainHTML(thumbnail.alt);
+		expect(thumbnailElement).toContainHTML(thumbnail.placeholder);
 	});
 	it("maps orientation property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-orientation",
-			modelInstance.orientation
+			orientation
 		);
 	});
 });

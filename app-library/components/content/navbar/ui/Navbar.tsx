@@ -3,17 +3,11 @@ import "./navbar.scss";
 
 export const ELEMENT_NAME = "navbar";
 
-export default function Navbar({
-	model: { modelInstance },
-}: {
-	model: NavbarModel;
-}) {
+export default function Navbar({ model }: { model: NavbarModel }) {
+	const { id } = model.modelInstance;
+
 	return (
-		<nav
-			className={ELEMENT_NAME}
-			id={modelInstance.id}
-			data-testid={ELEMENT_NAME}
-		>
+		<nav className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<li className="navlinks">
 				<a href="/home#top">Home</a>
 				<a href="/home#bio">Bio</a>

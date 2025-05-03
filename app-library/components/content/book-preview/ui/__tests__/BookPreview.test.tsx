@@ -3,33 +3,33 @@ import BookPreview, { ELEMENT_NAME } from "../BookPreview";
 import { modelTestObject } from "./data";
 
 describe("BookPreview", () => {
-	render(<BookPreview model={modelTestObject} />);
+	const { id, title, author, cover, bookLink } =
+		modelTestObject.modelInstance;
+	let componentElement: HTMLElement;
 
-	const { modelInstance } = modelTestObject;
-	const componentElement = screen.getByTestId(ELEMENT_NAME);
-	const titleElement = screen.getByText(modelInstance.title);
-	const authorElement = screen.getByText(modelInstance.author);
-	const coverElement = screen.getByAltText(modelInstance.cover.alt);
-
-	afterAll(() => {
-		expect(componentElement).toContainElement(titleElement);
-		expect(componentElement).toContainElement(authorElement);
-		expect(componentElement).toContainElement(coverElement);
+	beforeEach(() => {
+		render(<BookPreview model={modelTestObject} />);
+		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 
 	it("maps id property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("id", modelInstance.id);
+		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps title property to corresponding node", () => {
-		expect(titleElement).toBeDefined();
+		const titleElement = screen.getByText(title);
+		expect(titleElement).toHaveTextContent(title);
 	});
 	it("maps author property to corresponding node", () => {
+		const authorElement = screen.getByText(author);
 		expect(authorElement).toBeDefined();
 	});
-	it("maps link property to corresponding node", () => {
-		expect(componentElement).toContainHTML(modelInstance.bookLink.href);
-	});
 	it("maps cover property to corresponding node", () => {
-		expect(coverElement).toBeDefined();
+		const coverElement = screen.getByAltText(cover.alt);
+		expect(coverElement).toContainHTML(cover.source);
+		expect(coverElement).toContainHTML(cover.alt);
+		expect(coverElement).toContainHTML(cover.placeholder);
+	});
+	it("maps link property to corresponding node", () => {
+		expect(componentElement).toContainHTML(bookLink.href);
 	});
 });

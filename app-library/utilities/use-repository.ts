@@ -24,7 +24,9 @@ export function useRepository<
 	useEffect(() => {
 		interact({
 			interactionName: "RETRIEVE_MODELS",
-		}).catch(console.error);
+		}).catch((error: Error) =>
+			console.error("Failed to initialize repository: %s", error.cause)
+		);
 	}, [interact]);
 
 	return model as W;

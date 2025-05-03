@@ -5,36 +5,30 @@ import "./post-preview.scss";
 
 export const ELEMENT_NAME = "post-preview";
 
-export default function PostPreview({
-	model: { modelInstance },
-}: {
-	model: PostPreviewModel;
-}) {
+export default function PostPreview({ model }: { model: PostPreviewModel }) {
+	const { id, title, byline, thumbnail, postLink } = model.modelInstance;
+
 	return (
-		<div
-			className={ELEMENT_NAME}
-			id={modelInstance.id}
-			data-testid={ELEMENT_NAME}
-		>
+		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
 				model={{
 					modelInstance: {
-						link: modelInstance.postLink,
+						link: postLink,
 					},
 				}}
 			>
 				<ImageCard
 					model={{
 						modelInstance: {
-							thumbnail: modelInstance.thumbnail,
+							thumbnail: thumbnail,
 							orientation: "vertical",
 						},
 					}}
 				>
-					<h5 className="title" title={modelInstance.title}>
-						{modelInstance.title}
+					<h5 className="title" title={title}>
+						{title}
 					</h5>
-					<span className="byline">{modelInstance.byline}</span>
+					<span className="byline">{byline}</span>
 				</ImageCard>
 			</LinkedComponent>
 		</div>
