@@ -1,6 +1,6 @@
 import { ArtImagePreviewModel } from "../../ArtImagePreviewModel";
 
-export const modelTestObject: ArtImagePreviewModel = {
+export const testModel: ArtImagePreviewModel = {
 	modelView: {
 		id: "test-id",
 		image: {

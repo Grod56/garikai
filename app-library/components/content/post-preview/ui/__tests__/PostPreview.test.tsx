@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import PostPreview, { ELEMENT_NAME } from "../PostPreview";
-import { postPreviewModelTestObject } from "./data";
+import { postPreviewTestModel } from "./data";
 
 describe("PostPreview", () => {
 	const { id, title, byline, thumbnail, postLink } =
-		postPreviewModelTestObject.modelView;
+		postPreviewTestModel.modelView;
 
 	let componentElement: HTMLElement;
 	beforeEach(() => {
-		render(<PostPreview model={postPreviewModelTestObject} />);
+		render(<PostPreview model={postPreviewTestModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import ImageCardSkeleton, { ELEMENT_NAME } from "../ImageCardSkeleton";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("ImageCardSkeleton", () => {
-	const { orientation } = modelTestObject.modelView;
+	const { orientation } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<ImageCardSkeleton model={modelTestObject} />);
+		render(<ImageCardSkeleton model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

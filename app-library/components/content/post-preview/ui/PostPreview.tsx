@@ -2,10 +2,11 @@ import ImageCard from "@/app-library/components/widgets/image-card/ui/ImageCard"
 import LinkedComponent from "@/app-library/components/widgets/linked-component/ui/LinkedComponent";
 import { PostPreviewModel } from "../PostPreviewModel";
 import "./post-preview.scss";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export const ELEMENT_NAME = "post-preview";
 
-export default function PostPreview({ model }: { model: PostPreviewModel }) {
+const PostPreview = function ({ model }) {
 	const { id, title, byline, thumbnail, postLink } = model.modelView;
 
 	return (
@@ -33,4 +34,6 @@ export default function PostPreview({ model }: { model: PostPreviewModel }) {
 			</LinkedComponent>
 		</div>
 	);
-}
+} as ModeledEmptyComponent<PostPreviewModel>;
+
+export default PostPreview;

@@ -2,17 +2,17 @@ import { openExternalSite } from "../../../../../utilities/ui";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import LinkedComponent, { ELEMENT_NAME } from "../LinkedComponent";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 jest.mock("../../../../../utilities/ui");
 
 describe("LinkedComponent", () => {
-	const { link } = modelTestObject.modelView;
+	const { link } = testModel.modelView;
 	let componentElement: HTMLElement;
 	const user = userEvent.setup();
 
 	beforeEach(() => {
 		render(
-			<LinkedComponent model={modelTestObject}>
+			<LinkedComponent model={testModel}>
 				<></>
 			</LinkedComponent>
 		);

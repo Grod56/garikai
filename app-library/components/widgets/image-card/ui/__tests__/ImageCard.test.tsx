@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import ImageCard, { ELEMENT_NAME } from "../ImageCard";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("ImageCard", () => {
-	const { thumbnail, orientation } = modelTestObject.modelView;
+	const { thumbnail, orientation } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
 		render(
-			<ImageCard model={modelTestObject}>
+			<ImageCard model={testModel}>
 				<></>
 			</ImageCard>
 		);

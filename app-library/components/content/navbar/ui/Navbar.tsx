@@ -1,9 +1,10 @@
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
 import { NavbarModel } from "../NavbarModel";
 import "./navbar.scss";
 
 export const ELEMENT_NAME = "navbar";
 
-export default function Navbar({ model }: { model: NavbarModel }) {
+const Navbar = function ({ model }) {
 	const { id } = model.modelView;
 
 	return (
@@ -19,4 +20,6 @@ export default function Navbar({ model }: { model: NavbarModel }) {
 			</li>
 		</nav>
 	);
-}
+} as ModeledEmptyComponent<NavbarModel>;
+
+export default Navbar;

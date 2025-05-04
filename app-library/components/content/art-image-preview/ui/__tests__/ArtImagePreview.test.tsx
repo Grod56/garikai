@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import ArtImagePreview, { ELEMENT_NAME } from "../ArtImagePreview";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("ArtImagePreview", () => {
-	const { id, title, image } = modelTestObject.modelView;
+	const { id, title, image } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<ArtImagePreview model={modelTestObject} />);
+		render(<ArtImagePreview model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

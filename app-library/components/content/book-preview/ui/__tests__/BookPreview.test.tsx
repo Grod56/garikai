@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import BookPreview, { ELEMENT_NAME } from "../BookPreview";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("BookPreview", () => {
-	const { id, title, author, cover, bookLink } = modelTestObject.modelView;
+	const { id, title, author, cover, bookLink } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<BookPreview model={modelTestObject} />);
+		render(<BookPreview model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

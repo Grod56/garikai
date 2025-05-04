@@ -1,16 +1,11 @@
 import Image from "@/app-library/components/widgets/image/ui/Image";
 import { ImageCardModel } from "../ImageCardModel";
 import "./image-card.scss";
+import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export const ELEMENT_NAME = "image-card";
 
-export default function ImageCard({
-	model,
-	children,
-}: {
-	model: ImageCardModel;
-	children: React.ReactNode;
-}) {
+const ImageCard = function ({ model, children }) {
 	const { thumbnail, orientation } = model.modelView;
 
 	return (
@@ -32,4 +27,6 @@ export default function ImageCard({
 			<div className="card-details">{children}</div>
 		</div>
 	);
-}
+} as ModeledContainerComponent<ImageCardModel>;
+
+export default ImageCard;

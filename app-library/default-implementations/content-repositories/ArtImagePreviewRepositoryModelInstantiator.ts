@@ -1,6 +1,6 @@
 import { ArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/ArtImagePreviewModel";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
-import { ViewInteractionInterface } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
+import { ViewInteractionInterface } from "@/app-library/custom-types/StatifiableModel";
 import {
 	ArtImagePreviewAPI,
 	ArtImagePreviewRecord,

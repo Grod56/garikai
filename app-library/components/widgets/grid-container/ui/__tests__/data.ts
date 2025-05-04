@@ -1,6 +1,6 @@
 import { GridContainerModel } from "../../GridContainerModel";
 
-export const modelTestObject: GridContainerModel = {
+export const testModel: GridContainerModel = {
 	modelView: {
 		maxXorY: 3,
 		orientation: "vertical",

@@ -1,9 +1,10 @@
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
 import { HeaderModel } from "../HeaderModel";
 import "./header.scss";
 
 export const ELEMENT_NAME = "header";
 
-export default function Header({ model }: { model: HeaderModel }) {
+const Header = function ({ model }) {
 	const { id, headerTitle, headerSubtitle } = model.modelView;
 
 	return (
@@ -16,4 +17,6 @@ export default function Header({ model }: { model: HeaderModel }) {
 			</div>
 		</header>
 	);
-}
+} as ModeledEmptyComponent<HeaderModel>;
+
+export default Header;

@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import SiteSubsection, { ELEMENT_NAME } from "../SiteSubsection";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("SiteSubsection", () => {
-	const { id, subsectionTitle } = modelTestObject.modelView;
+	const { id, subsectionTitle } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
 		render(
-			<SiteSubsection model={modelTestObject}>
+			<SiteSubsection model={testModel}>
 				<></>
 			</SiteSubsection>
 		);

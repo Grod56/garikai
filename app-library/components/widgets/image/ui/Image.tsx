@@ -1,9 +1,10 @@
 import NextImage from "next/image";
 import { ImageModel } from "../ImageModel";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export const ELEMENT_NAME = "image";
 
-export default function Image({ model }: { model: ImageModel }) {
+const Image = function ({ model }) {
 	const { image, height, width, customName } = model.modelView;
 
 	return (
@@ -23,4 +24,6 @@ export default function Image({ model }: { model: ImageModel }) {
 			data-testid={ELEMENT_NAME}
 		/>
 	);
-}
+} as ModeledEmptyComponent<ImageModel>;
+
+export default Image;

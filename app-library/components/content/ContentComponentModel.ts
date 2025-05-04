@@ -4,5 +4,6 @@ export interface ContentComponentModelView {
 	readonly id: string;
 }
 
-export type ContentComponentModel<T extends ContentComponentModelView> =
-	ReadonlyModel<T>;
+export type ContentComponentModel<
+	T extends ContentComponentModelView = ContentComponentModelView,
+> = ReadonlyModel<T>;

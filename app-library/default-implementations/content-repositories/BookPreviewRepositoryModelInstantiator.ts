@@ -1,7 +1,7 @@
 import { BookPreviewModel } from "@/app-library/components/content/book-preview/BookPreviewModel";
 import { instantiateBookPreviewModel } from "@/app-library/default-implementations/model-instantiators/BookPreviewModelInstantiator";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
-import { ViewInteractionInterface } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
+import { ViewInteractionInterface } from "@/app-library/custom-types/StatifiableModel";
 import {
 	BookPreviewAPI,
 	BookPreviewRecord,

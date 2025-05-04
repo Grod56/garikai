@@ -1,16 +1,20 @@
 import { render, screen } from "@testing-library/react";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 import Image, { ELEMENT_NAME } from "../Image";
 
 describe("Image", () => {
-	const { image, height, width } = modelTestObject.modelView;
+	const { image, height, width } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<Image model={modelTestObject} />);
+		render(<Image model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 
+	it("renders img image element", () => {
+		const imageElement = screen.getByAltText(image.alt);
+		expect(imageElement.tagName.toLowerCase()).toEqual("img");
+	});
 	it("maps image property to corresponding node", () => {
 		const imageElement = screen.getByAltText(image.alt);
 		expect(imageElement).toHaveAttribute(

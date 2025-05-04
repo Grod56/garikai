@@ -1,6 +1,6 @@
 import { ImageCardModel } from "../../ImageCardModel";
 
-export const modelTestObject: ImageCardModel = {
+export const testModel: ImageCardModel = {
 	modelView: {
 		thumbnail: {
 			source: "/resources/273828773hcm.jpg",

@@ -1,6 +1,6 @@
 import { SiteSectionModel } from "../../SiteSectionModel";
 
-export const modelTestObject: SiteSectionModel = {
+export const testModel: SiteSectionModel = {
 	modelView: {
 		id: "test-id",
 		sectionName: "home",

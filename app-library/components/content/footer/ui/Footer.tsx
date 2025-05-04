@@ -11,10 +11,11 @@ import {
 import { FooterModel } from "../FooterModel";
 import Link from "next/link";
 import "./footer.scss";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export const ELEMENT_NAME = "footer";
 
-export default function Footer({ model }: { model: FooterModel }) {
+const Footer = function ({ model }) {
 	const { id, copyright } = model.modelView;
 
 	return (
@@ -57,4 +58,6 @@ export default function Footer({ model }: { model: FooterModel }) {
 			</div>
 		</footer>
 	);
-}
+} as ModeledEmptyComponent<FooterModel>;
+
+export default Footer;

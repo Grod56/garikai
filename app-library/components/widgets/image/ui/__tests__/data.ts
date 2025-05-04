@@ -1,6 +1,6 @@
 import { ImageModel } from "../../ImageModel";
 
-export const modelTestObject: ImageModel = {
+export const testModel: ImageModel = {
 	modelView: {
 		image: {
 			source: "/resources/jpgtest.png",

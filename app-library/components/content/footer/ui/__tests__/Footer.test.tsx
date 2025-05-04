@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import Footer, { ELEMENT_NAME } from "../Footer";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("Footer", () => {
-	const { id, copyright } = modelTestObject.modelView;
+	const { id, copyright } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<Footer model={modelTestObject} />);
+		render(<Footer model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

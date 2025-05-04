@@ -2,7 +2,7 @@ import { instantiateFeaturedPostPreviewModel } from "@/app-library/default-imple
 import { instantiatePostPreviewModel } from "@/app-library/default-implementations/model-instantiators/PostPreviewModelInstantiator";
 import { PostPreviewModel } from "@/app-library/components/content/post-preview/PostPreviewModel";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
-import { ViewInteractionInterface } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
+import { ViewInteractionInterface } from "@/app-library/custom-types/StatifiableModel";
 import { removeMarkup } from "@/app-library/utilities/miscelleneous";
 import {
 	PostPreviewAPI,

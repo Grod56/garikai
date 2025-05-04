@@ -6,8 +6,8 @@ import {
 } from "@/app-library/content-repositories/RepositoryModel";
 import {
 	ViewInteractionInterface,
-	StatifiableNonReadonlyModel,
-} from "@/app-library/custom-types/StatifiableNonReadonlyModel";
+	StatifiableModel,
+} from "@/app-library/custom-types/StatifiableModel";
 export type ContentModel = {
 	id: string;
 };
@@ -25,10 +25,10 @@ export type TestRepositoryViewInteractionInterface = ViewInteractionInterface<
 >;
 
 export function testRepositoryModelInstantiator(): TestRepositoryModel &
-	StatifiableNonReadonlyModel<
+	StatifiableModel<
+		TestRepositoryViewInteractionInterface,
 		TestRepositoryModelView,
-		TestRepositoryModelInteraction,
-		TestRepositoryViewInteractionInterface
+		TestRepositoryModelInteraction
 	> {
 	return {
 		modelView: null,
@@ -49,10 +49,10 @@ export function testRepositoryModelInstantiator(): TestRepositoryModel &
 export function faultyTestRepositoryModelInstantiator(
 	errorMessage: string
 ): TestRepositoryModel &
-	StatifiableNonReadonlyModel<
+	StatifiableModel<
+		TestRepositoryViewInteractionInterface,
 		TestRepositoryModelView,
-		TestRepositoryModelInteraction,
-		TestRepositoryViewInteractionInterface
+		TestRepositoryModelInteraction
 	> {
 	return {
 		modelView: null,

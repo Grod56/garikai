@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import Navbar, { ELEMENT_NAME } from "../Navbar";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("Navbar", () => {
-	const { id } = modelTestObject.modelView;
+	const { id } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<Navbar model={modelTestObject} />);
+		render(<Navbar model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

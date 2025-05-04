@@ -1,16 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import FeaturedPostPreview, { ELEMENT_NAME } from "../FeaturedPostPreview";
-import { featuredPostPreviewModelTestObject } from "./data";
+import { featuredPostPreviewTestModel } from "./data";
 
 describe("FeaturedPostPreview", () => {
 	const { id, title, snippet, byline, thumbnail, postLink } =
-		featuredPostPreviewModelTestObject.modelView;
+		featuredPostPreviewTestModel.modelView;
 
 	let componentElement: HTMLElement;
 	beforeEach(() => {
-		render(
-			<FeaturedPostPreview model={featuredPostPreviewModelTestObject} />
-		);
+		render(<FeaturedPostPreview model={featuredPostPreviewTestModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

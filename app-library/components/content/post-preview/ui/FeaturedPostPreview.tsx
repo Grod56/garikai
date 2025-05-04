@@ -3,14 +3,11 @@ import LinkedComponent from "@/app-library/components/widgets/linked-component/u
 import { ELEMENT_NAME } from "./PostPreview";
 import { FeaturedPostPreviewModel } from "../FeaturedPostPreviewModel";
 import "./post-preview.scss";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export { ELEMENT_NAME };
 
-export default function FeaturedPostPreview({
-	model,
-}: {
-	model: FeaturedPostPreviewModel;
-}) {
+const FeaturedPostPreview = function ({ model }) {
 	const { id, title, snippet, byline, thumbnail, postLink } = model.modelView;
 
 	return (
@@ -39,4 +36,6 @@ export default function FeaturedPostPreview({
 			</LinkedComponent>
 		</div>
 	);
-}
+} as ModeledEmptyComponent<FeaturedPostPreviewModel>;
+
+export default FeaturedPostPreview;
