@@ -11,7 +11,7 @@ export default function ImageCard({
 	model: ImageCardModel;
 	children: React.ReactNode;
 }) {
-	const { thumbnail, orientation } = model.modelInstance;
+	const { thumbnail, orientation } = model.modelView;
 
 	return (
 		<div
@@ -21,7 +21,7 @@ export default function ImageCard({
 		>
 			<Image
 				model={{
-					modelInstance: {
+					modelView: {
 						image: thumbnail,
 						width: 300,
 						height: 250,

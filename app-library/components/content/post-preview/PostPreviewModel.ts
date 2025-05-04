@@ -1,13 +1,12 @@
 import { Image } from "@/app-library/custom-types/Image";
 import {
 	ContentComponentModel,
-	ContentComponentModelInstance,
+	ContentComponentModelView,
 } from "../ContentComponentModel";
 
-export type PostPreviewModel = ContentComponentModel<PostPreviewModelInstance>;
+export type PostPreviewModel = ContentComponentModel<PostPreviewModelView>;
 
-export interface PostPreviewModelInstance
-	extends ContentComponentModelInstance {
+export interface PostPreviewModelView extends ContentComponentModelView {
 	readonly title: string;
 	readonly byline: string;
 	readonly postLink: URL;

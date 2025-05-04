@@ -1,11 +1,11 @@
 import {
 	ContentComponentModel,
-	ContentComponentModelInstance,
+	ContentComponentModelView,
 } from "../ContentComponentModel";
 
-export type HeaderModel = ContentComponentModel<HeaderModelInstance>;
+export type HeaderModel = ContentComponentModel<HeaderModelView>;
 
-export interface HeaderModelInstance extends ContentComponentModelInstance {
+export interface HeaderModelView extends ContentComponentModelView {
 	readonly headerTitle: string;
 	readonly headerSubtitle: string;
 }

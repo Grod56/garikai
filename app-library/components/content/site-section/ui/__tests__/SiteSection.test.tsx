@@ -3,7 +3,7 @@ import SiteSection from "../SiteSection";
 import { modelTestObject } from "./data";
 
 describe("SiteSection", () => {
-	const { id, sectionName, sectionTitle } = modelTestObject.modelInstance;
+	const { id, sectionName, sectionTitle } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

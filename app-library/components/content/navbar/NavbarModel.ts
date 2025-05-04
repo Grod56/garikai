@@ -1,8 +1,8 @@
 import {
 	ContentComponentModel,
-	ContentComponentModelInstance,
+	ContentComponentModelView,
 } from "../ContentComponentModel";
 
-export type NavbarModel = ContentComponentModel<NavbarModelInstance>;
+export type NavbarModel = ContentComponentModel<NavbarModelView>;
 
-export type NavbarModelInstance = ContentComponentModelInstance;
+export type NavbarModelView = ContentComponentModelView;

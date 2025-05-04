@@ -4,7 +4,7 @@ import "./navbar.scss";
 export const ELEMENT_NAME = "navbar";
 
 export default function Navbar({ model }: { model: NavbarModel }) {
-	const { id } = model.modelInstance;
+	const { id } = model.modelView;
 
 	return (
 		<nav className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>

@@ -1,7 +1,7 @@
 import { ImageCardSkeletonModel } from "../../ImageCardSkeletonModel";
 
 export const modelTestObject: ImageCardSkeletonModel = {
-	modelInstance: {
+	modelView: {
 		orientation: "flexible",
 	},
 };

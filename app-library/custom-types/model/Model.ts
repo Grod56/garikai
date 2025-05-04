@@ -1,4 +1,4 @@
-export type ModelInstance = object | null;
-export interface Model<T extends ModelInstance> {
-	modelInstance: T;
+export type ModelView = object | null;
+export interface Model<T extends ModelView> {
+	modelView: T;
 }

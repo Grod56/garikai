@@ -11,21 +11,20 @@ export default function FeaturedPostPreview({
 }: {
 	model: FeaturedPostPreviewModel;
 }) {
-	const { id, title, snippet, byline, thumbnail, postLink } =
-		model.modelInstance;
+	const { id, title, snippet, byline, thumbnail, postLink } = model.modelView;
 
 	return (
 		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
 				model={{
-					modelInstance: {
+					modelView: {
 						link: postLink,
 					},
 				}}
 			>
 				<ImageCard
 					model={{
-						modelInstance: {
+						modelView: {
 							thumbnail: thumbnail,
 							orientation: "flexible",
 						},

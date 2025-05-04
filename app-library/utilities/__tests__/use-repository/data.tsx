@@ -1,40 +1,41 @@
 import {
-	ContentRepositoryModel,
-	ContentRepositoryModelInteraction,
-} from "@/app-library/content-repositories/ContentRepositoryModel";
+	RepositoryInteractionType,
+	RepositoryModel,
+	RepositoryModelInteraction,
+	RepositoryModelView,
+} from "@/app-library/content-repositories/RepositoryModel";
 import {
-	InstanceInteractionInterface,
+	ViewInteractionInterface,
 	StatifiableNonReadonlyModel,
 } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
 export type ContentModel = {
 	id: string;
 };
-export type TestRepositoryModelInstance = {
+export type TestRepositoryModelView = RepositoryModelView<{
 	contentModels: ContentModel[];
-} | null;
-export type TestRepositoryModelInteraction = ContentRepositoryModelInteraction;
-export type TestRepositoryModel = ContentRepositoryModel<
-	TestRepositoryModelInstance,
+}>;
+export type TestRepositoryModelInteraction = RepositoryModelInteraction;
+export type TestRepositoryModel = RepositoryModel<
+	TestRepositoryModelView,
 	TestRepositoryModelInteraction
 >;
-export type TestRepositoryInstanceInteractionInterface =
-	InstanceInteractionInterface<
-		TestRepositoryModelInstance,
-		TestRepositoryModelInteraction
-	>;
+export type TestRepositoryViewInteractionInterface = ViewInteractionInterface<
+	TestRepositoryModelView,
+	TestRepositoryModelInteraction
+>;
 
 export function testRepositoryModelInstantiator(): TestRepositoryModel &
 	StatifiableNonReadonlyModel<
-		TestRepositoryModelInstance,
+		TestRepositoryModelView,
 		TestRepositoryModelInteraction,
-		TestRepositoryInstanceInteractionInterface
+		TestRepositoryViewInteractionInterface
 	> {
 	return {
-		modelInstance: null,
-		instanceInteractionInterface: {
-			async getModelInstance(interaction) {
-				switch (interaction.interactionName) {
-					case "RETRIEVE_MODELS":
+		modelView: null,
+		viewInteractionInterface: {
+			async getModelView(interaction) {
+				switch (interaction.type) {
+					case RepositoryInteractionType.RETRIEVE:
 						return {
 							contentModels: [{ id: "67" }, { id: "6543" }],
 						};
@@ -49,14 +50,14 @@ export function faultyTestRepositoryModelInstantiator(
 	errorMessage: string
 ): TestRepositoryModel &
 	StatifiableNonReadonlyModel<
-		TestRepositoryModelInstance,
+		TestRepositoryModelView,
 		TestRepositoryModelInteraction,
-		TestRepositoryInstanceInteractionInterface
+		TestRepositoryViewInteractionInterface
 	> {
 	return {
-		modelInstance: null,
-		instanceInteractionInterface: {
-			getModelInstance: jest.fn(() => {
+		modelView: null,
+		viewInteractionInterface: {
+			getModelView: jest.fn(() => {
 				return Promise.reject(errorMessage);
 			}),
 		},

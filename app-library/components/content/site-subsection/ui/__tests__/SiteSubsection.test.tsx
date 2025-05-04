@@ -3,7 +3,7 @@ import SiteSubsection, { ELEMENT_NAME } from "../SiteSubsection";
 import { modelTestObject } from "./data";
 
 describe("SiteSubsection", () => {
-	const { id, subsectionTitle } = modelTestObject.modelInstance;
+	const { id, subsectionTitle } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

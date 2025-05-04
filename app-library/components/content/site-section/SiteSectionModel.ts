@@ -1,12 +1,11 @@
 import {
 	ContentComponentModel,
-	ContentComponentModelInstance,
+	ContentComponentModelView,
 } from "@/app-library/components/content/ContentComponentModel";
 
-export type SiteSectionModel = ContentComponentModel<SiteSectionModelInstance>;
+export type SiteSectionModel = ContentComponentModel<SiteSectionModelView>;
 
-export interface SiteSectionModelInstance
-	extends ContentComponentModelInstance {
+export interface SiteSectionModelView extends ContentComponentModelView {
 	readonly sectionName: string;
 	readonly sectionTitle: string;
 }

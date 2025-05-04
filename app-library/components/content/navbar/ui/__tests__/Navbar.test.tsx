@@ -3,7 +3,7 @@ import Navbar, { ELEMENT_NAME } from "../Navbar";
 import { modelTestObject } from "./data";
 
 describe("Navbar", () => {
-	const { id } = modelTestObject.modelInstance;
+	const { id } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

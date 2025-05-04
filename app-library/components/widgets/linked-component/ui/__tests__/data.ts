@@ -1,7 +1,7 @@
 import { LinkedComponentModel } from "../../LinkedComponentModel";
 
 export const modelTestObject: LinkedComponentModel = {
-	modelInstance: {
+	modelView: {
 		link: new URL("https://localhost:3245/"),
 	},
 };

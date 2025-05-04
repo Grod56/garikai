@@ -3,8 +3,7 @@ import BookPreview, { ELEMENT_NAME } from "../BookPreview";
 import { modelTestObject } from "./data";
 
 describe("BookPreview", () => {
-	const { id, title, author, cover, bookLink } =
-		modelTestObject.modelInstance;
+	const { id, title, author, cover, bookLink } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

@@ -8,7 +8,7 @@ export default function ImageCardSkeleton({
 }: {
 	model: ImageCardSkeletonModel;
 }) {
-	const { orientation } = model.modelInstance;
+	const { orientation } = model.modelView;
 
 	return (
 		<div

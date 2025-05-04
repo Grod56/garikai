@@ -1,3 +1,3 @@
-import { Model, ModelInstance } from "./Model";
+import { Model, ModelView } from "./Model";
 
-export type ReadonlyModel<T extends ModelInstance> = Readonly<Model<T>>;
+export type ReadonlyModel<T extends ModelView> = Readonly<Model<T>>;

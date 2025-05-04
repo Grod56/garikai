@@ -1,9 +1,9 @@
 import {
 	WidgetComponentModel,
-	WidgetComponentModelInstance,
+	WidgetComponentModelView,
 } from "../WidgetComponentModel";
 
 export type ArtImageSkeletonModel =
-	WidgetComponentModel<ArtImageSkeletonModelInstance>;
+	WidgetComponentModel<ArtImageSkeletonModelView>;
 
-export type ArtImageSkeletonModelInstance = WidgetComponentModelInstance;
+export type ArtImageSkeletonModelView = WidgetComponentModelView;

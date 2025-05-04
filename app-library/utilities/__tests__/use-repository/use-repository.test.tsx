@@ -1,4 +1,7 @@
-import { ContentRepositoryModel } from "@/app-library/content-repositories/ContentRepositoryModel";
+import {
+	RepositoryInteractionType,
+	RepositoryModel,
+} from "@/app-library/content-repositories/RepositoryModel";
 import {
 	act,
 	renderHook,
@@ -8,15 +11,15 @@ import {
 import { useRepository } from "../../use-repository";
 import {
 	faultyTestRepositoryModelInstantiator,
-	TestRepositoryModelInstance,
+	TestRepositoryModelView,
 	testRepositoryModelInstantiator,
 	TestRepositoryModelInteraction,
 } from "./data";
 
 describe("useRepository", () => {
 	let renderedHook: RenderHookResult<
-		ContentRepositoryModel<
-			TestRepositoryModelInstance,
+		RepositoryModel<
+			TestRepositoryModelView,
 			TestRepositoryModelInteraction
 		>,
 		unknown
@@ -34,12 +37,12 @@ describe("useRepository", () => {
 	it("automatically initializes repository", async () => {
 		// Would've preferred toHaveBeenCalled, but not possible
 		await waitFor(() => {
-			expect(renderedHook.result.current.modelInstance).toBeTruthy();
+			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
 	});
 	it("only automatically updates repository initially", async () => {
 		await waitFor(() => {
-			expect(renderedHook.result.current.modelInstance).toBeTruthy();
+			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
 		const model = renderedHook.result.current;
 		const interactSpy = jest.spyOn(model, "interact");
@@ -55,29 +58,29 @@ describe("useRepository", () => {
 			.finally(interactSpy.mockRestore);
 	});
 	it("returns equivalent model to that provided by repository model instantiator", async () => {
-		const expectedModelInstance =
-			await testRepositoryModelInstantiator().instanceInteractionInterface.getModelInstance(
-				{ interactionName: "RETRIEVE_MODELS" }
+		const expectedModelView =
+			await testRepositoryModelInstantiator().viewInteractionInterface.getModelView(
+				{ type: RepositoryInteractionType.RETRIEVE }
 			);
 		await waitFor(() => {
-			expect(renderedHook.result.current.modelInstance).toBeTruthy();
+			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
 		const model = renderedHook.result.current;
 		expect(model).toEqual({
-			modelInstance: expectedModelInstance,
+			modelView: expectedModelView,
 			interact: expect.any(Function),
 		});
 	});
 	it("returns memoized repository model", async () => {
 		await waitFor(() => {
-			expect(renderedHook.result.current.modelInstance).toBeTruthy();
+			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
 		const model = renderedHook.result.current;
 		act(() => {
 			renderedHook.rerender();
 		});
 		const modelOnRerender = renderedHook.result.current;
-		expect(model.modelInstance).toBe(modelOnRerender.modelInstance);
+		expect(model.modelView).toBe(modelOnRerender.modelView);
 		expect(model.interact).toBe(modelOnRerender.interact);
 	});
 	it("logs any errors on initialization", async () => {

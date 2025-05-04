@@ -1,7 +1,7 @@
 import { SiteSectionModel } from "../../SiteSectionModel";
 
 export const modelTestObject: SiteSectionModel = {
-	modelInstance: {
+	modelView: {
 		id: "test-id",
 		sectionName: "home",
 		sectionTitle: "This is Home",

@@ -1,10 +1,10 @@
 import {
 	ContentComponentModel,
-	ContentComponentModelInstance,
+	ContentComponentModelView,
 } from "../ContentComponentModel";
 
-export type FooterModel = ContentComponentModel<FooterModelInstance>;
+export type FooterModel = ContentComponentModel<FooterModelView>;
 
-export interface FooterModelInstance extends ContentComponentModelInstance {
+export interface FooterModelView extends ContentComponentModelView {
 	readonly copyright: string;
 }

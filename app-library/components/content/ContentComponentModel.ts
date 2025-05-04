@@ -1,8 +1,8 @@
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 
-export interface ContentComponentModelInstance {
+export interface ContentComponentModelView {
 	readonly id: string;
 }
 
-export type ContentComponentModel<T extends ContentComponentModelInstance> =
+export type ContentComponentModel<T extends ContentComponentModelView> =
 	ReadonlyModel<T>;

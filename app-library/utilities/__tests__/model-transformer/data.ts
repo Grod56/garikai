@@ -1,39 +1,36 @@
 import { ModelInteraction } from "@/app-library/custom-types/model/InteractiveModel";
-import { InstanceInteractionInterface } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
+import { ViewInteractionInterface } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 import { StatifiableNonReadonlyModel } from "@/app-library/custom-types/StatifiableNonReadonlyModel";
 
-export interface TestModelInstance {
+export interface TestModelView {
 	displayValue: string;
 }
 
 export type TestModelInteraction = ModelInteraction<"CHANGE_DISPLAY">;
-export type TestInstanceInteractionInterface = InstanceInteractionInterface<
-	TestModelInstance,
+export type TestViewInteractionInterface = ViewInteractionInterface<
+	TestModelView,
 	TestModelInteraction
 >;
 export type TestStatifiableNonReadonlyModel = StatifiableNonReadonlyModel<
-	TestModelInstance,
+	TestModelView,
 	TestModelInteraction,
-	InstanceInteractionInterface<TestModelInstance, TestModelInteraction>
+	ViewInteractionInterface<TestModelView, TestModelInteraction>
 >;
 
-export const statifiableReadonlyModelTestObject: ReadonlyModel<TestModelInstance> =
+export const statifiableReadonlyModelTestObject: ReadonlyModel<TestModelView> =
 	{
-		modelInstance: { displayValue: "Readonly test" },
+		modelView: { displayValue: "Readonly test" },
 	};
 
-export const testInstanceInteractionInterface: TestInstanceInteractionInterface =
-	{
-		getModelInstance: jest.fn(
-			async (interaction: TestModelInteraction) => ({
-				displayValue: `${interaction.interactionName} has just been executed!`,
-			})
-		),
-	};
+export const testViewInteractionInterface: TestViewInteractionInterface = {
+	getModelView: jest.fn(async (interaction: TestModelInteraction) => ({
+		displayValue: `${interaction.type} has just been executed!`,
+	})),
+};
 
 export const statifiableInteractiveModelTestObject: TestStatifiableNonReadonlyModel =
 	{
-		modelInstance: { displayValue: "Hi, this is a test" },
-		instanceInteractionInterface: testInstanceInteractionInterface,
+		modelView: { displayValue: "Hi, this is a test" },
+		viewInteractionInterface: testViewInteractionInterface,
 	};

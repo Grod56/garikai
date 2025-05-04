@@ -10,7 +10,7 @@ export default function SiteSubsection({
 	model: SiteSubsectionModel;
 	children: React.ReactNode;
 }) {
-	const { id, subsectionTitle } = model.modelInstance;
+	const { id, subsectionTitle } = model.modelView;
 
 	return (
 		<section className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>

@@ -1,16 +1,16 @@
 import { ModelInteraction } from "./model/InteractiveModel";
-import { Model, ModelInstance } from "./model/Model";
+import { Model, ModelView } from "./model/Model";
 
-export interface InstanceInteractionInterface<
-	T extends ModelInstance,
+export interface ViewInteractionInterface<
+	T extends ModelView,
 	U extends ModelInteraction,
 > {
-	getModelInstance(interaction: U): Promise<T>;
+	getModelView(interaction: U): Promise<T>;
 }
 export interface StatifiableNonReadonlyModel<
-	T extends ModelInstance,
+	T extends ModelView,
 	U extends ModelInteraction,
-	V extends InstanceInteractionInterface<T, U>,
+	V extends ViewInteractionInterface<T, U>,
 > extends Model<T> {
-	readonly instanceInteractionInterface: V;
+	readonly viewInteractionInterface: V;
 }

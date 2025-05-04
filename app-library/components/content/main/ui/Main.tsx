@@ -10,7 +10,7 @@ export default function Main({
 	model: MainModel;
 	children: React.ReactNode;
 }) {
-	const { id, name } = model.modelInstance;
+	const { id, name } = model.modelView;
 
 	return (
 		<main

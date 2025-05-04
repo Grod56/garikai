@@ -6,20 +6,20 @@ import "./post-preview.scss";
 export const ELEMENT_NAME = "post-preview";
 
 export default function PostPreview({ model }: { model: PostPreviewModel }) {
-	const { id, title, byline, thumbnail, postLink } = model.modelInstance;
+	const { id, title, byline, thumbnail, postLink } = model.modelView;
 
 	return (
 		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
 				model={{
-					modelInstance: {
+					modelView: {
 						link: postLink,
 					},
 				}}
 			>
 				<ImageCard
 					model={{
-						modelInstance: {
+						modelView: {
 							thumbnail: thumbnail,
 							orientation: "vertical",
 						},

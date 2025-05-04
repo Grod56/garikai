@@ -6,7 +6,7 @@ import { modelTestObject } from "./data";
 jest.mock("../../../../../utilities/ui");
 
 describe("LinkedComponent", () => {
-	const { link } = modelTestObject.modelInstance;
+	const { link } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 	const user = userEvent.setup();
 
