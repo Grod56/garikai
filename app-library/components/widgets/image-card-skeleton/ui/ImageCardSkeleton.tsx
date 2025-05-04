@@ -1,13 +1,10 @@
 import "./image-card-skeleton.scss";
 import { ImageCardSkeletonModel } from "../ImageCardSkeletonModel";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export const ELEMENT_NAME = "image-card-skeleton";
 
-export default function ImageCardSkeleton({
-	model,
-}: {
-	model: ImageCardSkeletonModel;
-}) {
+const ImageCardSkeleton = function ({ model }) {
 	const { orientation } = model.modelView;
 
 	return (
@@ -20,4 +17,6 @@ export default function ImageCardSkeleton({
 			<div className="card-details"></div>
 		</div>
 	);
-}
+} as ModeledEmptyComponent<ImageCardSkeletonModel>;
+
+export default ImageCardSkeleton;

@@ -1,7 +1,7 @@
 import { FeaturedPostPreviewModel } from "../../FeaturedPostPreviewModel";
 import { PostPreviewModel } from "../../PostPreviewModel";
 
-export const postPreviewModelTestObject: PostPreviewModel = {
+export const postPreviewTestModel: PostPreviewModel = {
 	modelView: {
 		id: "postpreview_aicnasnioascid",
 		thumbnail: {
@@ -15,9 +15,9 @@ export const postPreviewModelTestObject: PostPreviewModel = {
 	},
 };
 
-export const featuredPostPreviewModelTestObject: FeaturedPostPreviewModel = {
+export const featuredPostPreviewTestModel: FeaturedPostPreviewModel = {
 	modelView: {
-		...postPreviewModelTestObject.modelView,
+		...postPreviewTestModel.modelView,
 		snippet: "This is a snippet",
 	},
 };

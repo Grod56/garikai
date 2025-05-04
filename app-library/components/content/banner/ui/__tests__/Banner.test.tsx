@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 
 import Banner, { ELEMENT_NAME } from "../Banner";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("Banner", () => {
-	const { id, bannerText } = modelTestObject.modelView;
+	const { id, bannerText } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<Banner model={modelTestObject} />);
+		render(<Banner model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

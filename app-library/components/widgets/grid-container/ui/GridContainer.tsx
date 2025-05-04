@@ -1,15 +1,10 @@
+import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
 import { GridContainerModel } from "../GridContainerModel";
 import "./grid-container.scss";
 
 export const ELEMENT_NAME = "grid-container";
 
-export default function GridContainer({
-	model,
-	children,
-}: {
-	model: GridContainerModel;
-	children: React.ReactNode;
-}) {
+const GridContainer = function ({ model, children }) {
 	const { maxXorY, orientation, overflow } = model.modelView;
 
 	return (
@@ -23,4 +18,6 @@ export default function GridContainer({
 			{children}
 		</div>
 	);
-}
+} as ModeledContainerComponent<GridContainerModel>;
+
+export default GridContainer;

@@ -1,6 +1,6 @@
 import { HeaderModel } from "../../HeaderModel";
 
-export const modelTestObject: HeaderModel = {
+export const testModel: HeaderModel = {
 	modelView: {
 		id: "header_id",
 		headerTitle: "Welcome",

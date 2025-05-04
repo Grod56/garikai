@@ -1,15 +1,10 @@
+import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
 import { SiteSectionModel } from "../SiteSectionModel";
 import "./site-section.scss";
 
 export const ELEMENT_NAME = "site-section";
 
-export default function SiteSection({
-	model,
-	children,
-}: {
-	model: SiteSectionModel;
-	children: React.ReactNode;
-}) {
+const SiteSection = function ({ model, children }) {
 	const { id, sectionName, sectionTitle } = model.modelView;
 
 	return (
@@ -27,4 +22,6 @@ export default function SiteSection({
 			</div>
 		</section>
 	);
-}
+} as ModeledContainerComponent<SiteSectionModel>;
+
+export default SiteSection;

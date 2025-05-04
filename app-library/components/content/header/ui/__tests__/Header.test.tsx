@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import Header, { ELEMENT_NAME } from "../Header";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("Header", () => {
-	const { id, headerTitle, headerSubtitle } = modelTestObject.modelView;
+	const { id, headerTitle, headerSubtitle } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
-		render(<Header model={modelTestObject} />);
+		render(<Header model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 

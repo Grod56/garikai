@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import Main, { ELEMENT_NAME } from "../Main";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("Main", () => {
-	const { id, name } = modelTestObject.modelView;
+	const { id, name } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
 		render(
-			<Main model={modelTestObject}>
+			<Main model={testModel}>
 				<></>
 			</Main>
 		);

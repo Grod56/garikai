@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import GridContainer, { ELEMENT_NAME } from "../GridContainer";
-import { modelTestObject } from "./data";
+import { testModel } from "./data";
 
 describe("GridContainer", () => {
-	const { maxXorY, orientation, overflow } = modelTestObject.modelView;
+	const { maxXorY, orientation, overflow } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
 		render(
-			<GridContainer model={modelTestObject}>
+			<GridContainer model={testModel}>
 				<></>
 			</GridContainer>
 		);

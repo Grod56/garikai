@@ -6,20 +6,20 @@ import {
 	RepositoryModelView,
 } from "../content-repositories/RepositoryModel";
 import {
-	StatifiableNonReadonlyModel,
+	StatifiableModel,
 	ViewInteractionInterface,
-} from "../custom-types/StatifiableNonReadonlyModel";
-import { useStatefulInteractiveModel } from "./model-transformer";
+} from "../custom-types/StatifiableModel";
+import { useTransformedStatefulInteractiveModel } from "./stateful-model";
 
 export function useRepository<
-	T extends RepositoryModelView,
-	U extends RepositoryModelInteraction,
-	V extends ViewInteractionInterface<T, U>,
-	W extends RepositoryModel<T, U>,
->(
-	repositoryModelInstantiator: () => W & StatifiableNonReadonlyModel<T, U, V>
-): W {
-	const model = useStatefulInteractiveModel(repositoryModelInstantiator());
+	T extends RepositoryModel<U, V>,
+	U extends RepositoryModelView = RepositoryModelView,
+	V extends RepositoryModelInteraction = RepositoryModelInteraction,
+	W extends ViewInteractionInterface<U, V> = ViewInteractionInterface<U, V>,
+>(repositoryModelInstantiator: () => T & StatifiableModel<W, U, V>): T {
+	const model = useTransformedStatefulInteractiveModel(
+		repositoryModelInstantiator()
+	);
 	const { interact } = model;
 
 	useEffect(() => {
@@ -30,5 +30,5 @@ export function useRepository<
 		);
 	}, [interact]);
 
-	return model as W;
+	return model as T;
 }

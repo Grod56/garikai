@@ -1,16 +1,12 @@
-import { ArtImagePreviewModel } from "../ArtImagePreviewModel";
 import Image from "@/app-library/components/widgets/image/ui/Image";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ArtImagePreviewModel } from "../ArtImagePreviewModel";
 import "./art-image-preview.scss";
 
 export const ELEMENT_NAME = "art-image-preview";
 
-export default function ArtImagePreview({
-	model,
-}: {
-	model: ArtImagePreviewModel;
-}) {
+const ArtImagePreview = function ({ model }) {
 	const { id, title, image } = model.modelView;
-
 	return (
 		<div
 			className={ELEMENT_NAME}
@@ -29,4 +25,6 @@ export default function ArtImagePreview({
 			/>
 		</div>
 	);
-}
+} as ModeledEmptyComponent<ArtImagePreviewModel>;
+
+export default ArtImagePreview;

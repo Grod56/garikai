@@ -1,15 +1,10 @@
+import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
 import { MainModel } from "../MainModel";
 import "./main.scss";
 
 export const ELEMENT_NAME = "main";
 
-export default function Main({
-	model,
-	children,
-}: {
-	model: MainModel;
-	children: React.ReactNode;
-}) {
+const Main = function ({ model, children }) {
 	const { id, name } = model.modelView;
 
 	return (
@@ -22,4 +17,6 @@ export default function Main({
 			{children}
 		</main>
 	);
-}
+} as ModeledContainerComponent<MainModel>;
+
+export default Main;
