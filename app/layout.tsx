@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Metadata } from "next/types";
-import { instantiateFooterModel } from "../app-library/default-implementations/model-instantiators/footer/FooterModelInstantiator";
+import { instantiateFooterModel } from "../app-library/default-implementations/model-instantiators/FooterModelInstantiator";
 import Footer from "../app-library/components/content/footer/ui/Footer";
-import { instantiateHeaderModel } from "../app-library/default-implementations/model-instantiators/header/HeaderModelInstantiator";
+import { instantiateHeaderModel } from "../app-library/default-implementations/model-instantiators/HeaderModelInstantiator";
 import Header from "../app-library/components/content/header/ui/Header";
-import { instantiateNavbarModel } from "../app-library/default-implementations/model-instantiators/navbar/NavbarModelInstantiator";
+import { instantiateNavbarModel } from "../app-library/default-implementations/model-instantiators/NavbarModelInstantiator";
 import Navbar from "../app-library/components/content/navbar/ui/Navbar";
 import { Explora } from "next/font/google";
 import "@/app/app.scss";

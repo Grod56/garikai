@@ -3,7 +3,7 @@ import ImageCardSkeleton, { ELEMENT_NAME } from "../ImageCardSkeleton";
 import { modelTestObject } from "./data";
 
 describe("ImageCardSkeleton", () => {
-	const { orientation } = modelTestObject.modelInstance;
+	const { orientation } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

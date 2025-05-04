@@ -1,10 +1,10 @@
 import {
 	ContentComponentModel,
-	ContentComponentModelInstance,
+	ContentComponentModelView,
 } from "../ContentComponentModel";
 
-export type BannerModel = ContentComponentModel<BannerModelInstance>;
+export type BannerModel = ContentComponentModel<BannerModelView>;
 
-export interface BannerModelInstance extends ContentComponentModelInstance {
+export interface BannerModelView extends ContentComponentModelView {
 	readonly bannerText: string;
 }

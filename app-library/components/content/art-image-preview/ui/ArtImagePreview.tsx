@@ -9,7 +9,7 @@ export default function ArtImagePreview({
 }: {
 	model: ArtImagePreviewModel;
 }) {
-	const { id, title, image } = model.modelInstance;
+	const { id, title, image } = model.modelView;
 
 	return (
 		<div
@@ -20,7 +20,7 @@ export default function ArtImagePreview({
 		>
 			<Image
 				model={{
-					modelInstance: {
+					modelView: {
 						image: image,
 						width: 420,
 						height: 410,

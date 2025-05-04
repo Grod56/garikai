@@ -3,7 +3,7 @@ import Footer, { ELEMENT_NAME } from "../Footer";
 import { modelTestObject } from "./data";
 
 describe("Footer", () => {
-	const { id, copyright } = modelTestObject.modelInstance;
+	const { id, copyright } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

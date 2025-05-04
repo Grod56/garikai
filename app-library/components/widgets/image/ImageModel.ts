@@ -1,13 +1,13 @@
 import { Image } from "@/app-library/custom-types/Image";
 import {
 	WidgetComponentModel,
-	WidgetComponentModelInstance,
+	WidgetComponentModelView,
 } from "../WidgetComponentModel";
 
-export interface ImageModelInstance extends WidgetComponentModelInstance {
+export interface ImageModelView extends WidgetComponentModelView {
 	readonly image: Image;
 	readonly width: number;
 	readonly height: number;
 }
 
-export type ImageModel = WidgetComponentModel<ImageModelInstance>;
+export type ImageModel = WidgetComponentModel<ImageModelView>;

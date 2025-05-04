@@ -1,10 +1,9 @@
 import { ContentComponentModel } from "../ContentComponentModel";
-import { PostPreviewModelInstance } from "./PostPreviewModel";
+import { PostPreviewModelView } from "./PostPreviewModel";
 
-export interface FeaturedPostPreviewModelInstance
-	extends PostPreviewModelInstance {
+export interface FeaturedPostPreviewModelView extends PostPreviewModelView {
 	readonly snippet: string;
 }
 
 export type FeaturedPostPreviewModel =
-	ContentComponentModel<FeaturedPostPreviewModelInstance>;
+	ContentComponentModel<FeaturedPostPreviewModelView>;

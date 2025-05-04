@@ -1,7 +1,7 @@
 import { BookPreviewModel } from "../../BookPreviewModel";
 
 export const modelTestObject: BookPreviewModel = {
-	modelInstance: {
+	modelView: {
 		id: "test-id",
 		title: "Book Title",
 		author: "Book Author",

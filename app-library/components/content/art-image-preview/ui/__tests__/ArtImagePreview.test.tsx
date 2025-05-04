@@ -3,7 +3,7 @@ import ArtImagePreview, { ELEMENT_NAME } from "../ArtImagePreview";
 import { modelTestObject } from "./data";
 
 describe("ArtImagePreview", () => {
-	const { id, title, image } = modelTestObject.modelInstance;
+	const { id, title, image } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

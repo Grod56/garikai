@@ -3,7 +3,7 @@ import Header, { ELEMENT_NAME } from "../Header";
 import { modelTestObject } from "./data";
 
 describe("Header", () => {
-	const { id, headerTitle, headerSubtitle } = modelTestObject.modelInstance;
+	const { id, headerTitle, headerSubtitle } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

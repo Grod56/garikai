@@ -15,7 +15,7 @@ import "./footer.scss";
 export const ELEMENT_NAME = "footer";
 
 export default function Footer({ model }: { model: FooterModel }) {
-	const { id, copyright } = model.modelInstance;
+	const { id, copyright } = model.modelView;
 
 	return (
 		<footer className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>

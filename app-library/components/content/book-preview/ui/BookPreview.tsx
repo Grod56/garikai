@@ -6,20 +6,20 @@ import "./book-preview.scss";
 export const ELEMENT_NAME = "book-preview";
 
 export default function BookPreview({ model }: { model: BookPreviewModel }) {
-	const { id, title, author, cover, bookLink } = model.modelInstance;
+	const { id, title, author, cover, bookLink } = model.modelView;
 
 	return (
 		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
 				model={{
-					modelInstance: {
+					modelView: {
 						link: bookLink,
 					},
 				}}
 			>
 				<ImageCard
 					model={{
-						modelInstance: {
+						modelView: {
 							thumbnail: cover,
 							orientation: "flexible",
 						},

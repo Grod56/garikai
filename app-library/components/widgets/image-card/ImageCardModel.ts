@@ -2,12 +2,12 @@ import { Image } from "@/app-library/custom-types/Image";
 import { Orientation } from "@/app-library/custom-types/Orientation";
 import {
 	WidgetComponentModel,
-	WidgetComponentModelInstance,
+	WidgetComponentModelView,
 } from "../WidgetComponentModel";
 
-export type ImageCardModel = WidgetComponentModel<ImageCardModelInstance>;
+export type ImageCardModel = WidgetComponentModel<ImageCardModelView>;
 
-export interface ImageCardModelInstance extends WidgetComponentModelInstance {
+export interface ImageCardModelView extends WidgetComponentModelView {
 	readonly thumbnail: Image;
 	readonly orientation: Orientation;
 }

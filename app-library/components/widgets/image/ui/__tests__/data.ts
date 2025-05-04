@@ -1,7 +1,7 @@
 import { ImageModel } from "../../ImageModel";
 
 export const modelTestObject: ImageModel = {
-	modelInstance: {
+	modelView: {
 		image: {
 			source: "/resources/jpgtest.png",
 			alt: "am hkbabsd asomcoapsciahucisnhkjs ascn asmasc",

@@ -3,7 +3,7 @@ import GridContainer, { ELEMENT_NAME } from "../GridContainer";
 import { modelTestObject } from "./data";
 
 describe("GridContainer", () => {
-	const { maxXorY, orientation, overflow } = modelTestObject.modelInstance;
+	const { maxXorY, orientation, overflow } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

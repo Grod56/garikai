@@ -4,7 +4,7 @@ import { postPreviewModelTestObject } from "./data";
 
 describe("PostPreview", () => {
 	const { id, title, byline, thumbnail, postLink } =
-		postPreviewModelTestObject.modelInstance;
+		postPreviewModelTestObject.modelView;
 
 	let componentElement: HTMLElement;
 	beforeEach(() => {

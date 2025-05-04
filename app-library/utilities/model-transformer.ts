@@ -4,56 +4,54 @@ import {
 	ModelInteraction,
 } from "../custom-types/model/InteractiveModel";
 import { ReadonlyModel } from "../custom-types/model/ReadonlyModel";
-import { ModelInstance } from "../custom-types/model/Model";
+import { ModelView } from "../custom-types/model/Model";
 import {
-	InstanceInteractionInterface,
+	ViewInteractionInterface,
 	StatifiableNonReadonlyModel,
 } from "../custom-types/StatifiableNonReadonlyModel";
 
 export function useStatefulReadonlyModel<
-	T extends ModelInstance,
+	T extends ModelView,
 	U extends ReadonlyModel<T>,
 >(model: ReadonlyModel<T>): U {
-	const [memoizedModelInstance] = useState(model.modelInstance);
+	const [memoizedModelView] = useState(model.modelView);
 	return useMemo(
-		() => ({ modelInstance: memoizedModelInstance }),
-		[memoizedModelInstance]
+		() => ({ modelView: memoizedModelView }),
+		[memoizedModelView]
 	) as U;
 }
 
 export function useStatefulInteractiveModel<
-	T extends ModelInstance,
+	T extends ModelView,
 	U extends ModelInteraction,
-	V extends InstanceInteractionInterface<T, U>,
+	V extends ViewInteractionInterface<T, U>,
 >(model: StatifiableNonReadonlyModel<T, U, V>): InteractiveModel<T, U> {
 	// The most valid way to "memoize" the input model that I could come up with
 	const [initialModel] = useState(model);
 
-	const [memoizedModelInstance, setModelInstance] = useState(
-		initialModel.modelInstance
-	);
-	const memoizedInstanceInteractionInterface = useMemo(
-		() => initialModel.instanceInteractionInterface,
+	const [memoizedModelView, setModelView] = useState(initialModel.modelView);
+	const memoizedViewInteractionInterface = useMemo(
+		() => initialModel.viewInteractionInterface,
 		[initialModel]
 	);
 	const memoizedInteract = useCallback(
 		async (interaction: U) => {
 			try {
-				const newModelInstance =
-					await memoizedInstanceInteractionInterface.getModelInstance(
+				const newModelView =
+					await memoizedViewInteractionInterface.getModelView(
 						interaction
 					);
-				setModelInstance(newModelInstance);
+				setModelView(newModelView);
 			} catch (error) {
 				throw new Error("Interaction failed", { cause: error });
 			}
 		},
-		[memoizedInstanceInteractionInterface]
+		[memoizedViewInteractionInterface]
 	);
 
 	// Note to self: DO NOT memoize the model itself
 	const statefulModel = {
-		modelInstance: memoizedModelInstance,
+		modelView: memoizedModelView,
 		interact: memoizedInteract,
 	};
 

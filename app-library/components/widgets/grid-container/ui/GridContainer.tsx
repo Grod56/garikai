@@ -10,7 +10,7 @@ export default function GridContainer({
 	model: GridContainerModel;
 	children: React.ReactNode;
 }) {
-	const { maxXorY, orientation, overflow } = model.modelInstance;
+	const { maxXorY, orientation, overflow } = model.modelView;
 
 	return (
 		<div

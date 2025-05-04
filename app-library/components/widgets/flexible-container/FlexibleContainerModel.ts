@@ -1,9 +1,9 @@
 import {
 	WidgetComponentModel,
-	WidgetComponentModelInstance,
+	WidgetComponentModelView,
 } from "../WidgetComponentModel";
 
 export type FlexibleContainerModel =
-	WidgetComponentModel<FlexibleContainerModelInstance>;
+	WidgetComponentModel<FlexibleContainerModelView>;
 
-export type FlexibleContainerModelInstance = WidgetComponentModelInstance;
+export type FlexibleContainerModelView = WidgetComponentModelView;

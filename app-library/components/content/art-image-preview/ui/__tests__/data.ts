@@ -1,7 +1,7 @@
 import { ArtImagePreviewModel } from "../../ArtImagePreviewModel";
 
 export const modelTestObject: ArtImagePreviewModel = {
-	modelInstance: {
+	modelView: {
 		id: "test-id",
 		image: {
 			source: "https://localhost",

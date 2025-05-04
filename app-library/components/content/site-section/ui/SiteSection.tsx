@@ -10,7 +10,7 @@ export default function SiteSection({
 	model: SiteSectionModel;
 	children: React.ReactNode;
 }) {
-	const { id, sectionName, sectionTitle } = model.modelInstance;
+	const { id, sectionName, sectionTitle } = model.modelView;
 
 	return (
 		<section

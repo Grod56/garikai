@@ -1,8 +1,8 @@
 import {
 	WidgetComponentModel,
-	WidgetComponentModelInstance,
+	WidgetComponentModelView,
 } from "../WidgetComponentModel";
 
-export type CarouselModel = WidgetComponentModel<CarouselModelInstance>;
+export type CarouselModel = WidgetComponentModel<CarouselModelView>;
 
-export type CarouselModelInstance = WidgetComponentModelInstance;
+export type CarouselModelView = WidgetComponentModelView;

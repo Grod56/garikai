@@ -11,7 +11,7 @@ export default function LinkedComponent({
 	model: LinkedComponentModel;
 	children: React.ReactNode;
 }) {
-	const { link } = model.modelInstance;
+	const { link } = model.modelView;
 
 	return (
 		<div

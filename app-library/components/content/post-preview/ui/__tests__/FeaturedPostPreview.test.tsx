@@ -4,7 +4,7 @@ import { featuredPostPreviewModelTestObject } from "./data";
 
 describe("FeaturedPostPreview", () => {
 	const { id, title, snippet, byline, thumbnail, postLink } =
-		featuredPostPreviewModelTestObject.modelInstance;
+		featuredPostPreviewModelTestObject.modelView;
 
 	let componentElement: HTMLElement;
 	beforeEach(() => {

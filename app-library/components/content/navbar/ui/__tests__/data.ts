@@ -1,7 +1,7 @@
 import { NavbarModel } from "../../NavbarModel";
 
 export const modelTestObject: NavbarModel = {
-	modelInstance: {
+	modelView: {
 		id: "test-id",
 	},
 };

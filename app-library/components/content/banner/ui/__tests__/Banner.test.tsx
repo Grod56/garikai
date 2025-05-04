@@ -4,7 +4,7 @@ import Banner, { ELEMENT_NAME } from "../Banner";
 import { modelTestObject } from "./data";
 
 describe("Banner", () => {
-	const { id, bannerText } = modelTestObject.modelInstance;
+	const { id, bannerText } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

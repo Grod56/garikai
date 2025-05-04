@@ -1,7 +1,7 @@
 import { ImageCardModel } from "../../ImageCardModel";
 
 export const modelTestObject: ImageCardModel = {
-	modelInstance: {
+	modelView: {
 		thumbnail: {
 			source: "/resources/273828773hcm.jpg",
 			alt: "Sample alt",

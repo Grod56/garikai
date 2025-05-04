@@ -1,7 +1,7 @@
 import { SiteSubsectionModel } from "../../SiteSubsectionModel";
 
 export const modelTestObject: SiteSubsectionModel = {
-	modelInstance: {
+	modelView: {
 		id: "test-id",
 		subsectionTitle: "Recent",
 	},

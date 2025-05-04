@@ -4,7 +4,7 @@ import "./header.scss";
 export const ELEMENT_NAME = "header";
 
 export default function Header({ model }: { model: HeaderModel }) {
-	const { id, headerTitle, headerSubtitle } = model.modelInstance;
+	const { id, headerTitle, headerSubtitle } = model.modelView;
 
 	return (
 		<header className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>

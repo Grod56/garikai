@@ -1,7 +1,7 @@
 import { BannerModel } from "../../BannerModel";
 
 export const modelTestObject: BannerModel = {
-	modelInstance: {
+	modelView: {
 		id: "test-id",
 		bannerText: "test banner text",
 	},

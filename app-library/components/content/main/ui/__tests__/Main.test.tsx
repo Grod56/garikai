@@ -3,7 +3,7 @@ import Main, { ELEMENT_NAME } from "../Main";
 import { modelTestObject } from "./data";
 
 describe("Main", () => {
-	const { id, name } = modelTestObject.modelInstance;
+	const { id, name } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {

@@ -1,12 +1,11 @@
 import {
 	ContentComponentModel,
-	ContentComponentModelInstance,
+	ContentComponentModelView,
 } from "@/app-library/components/content/ContentComponentModel";
 
 export type SiteSubsectionModel =
-	ContentComponentModel<SiteSubsectionModelInstance>;
+	ContentComponentModel<SiteSubsectionModelView>;
 
-export interface SiteSubsectionModelInstance
-	extends ContentComponentModelInstance {
+export interface SiteSubsectionModelView extends ContentComponentModelView {
 	readonly subsectionTitle: string;
 }

@@ -1,12 +1,12 @@
 import BookPreview from "@/app-library/components/content/book-preview/ui/BookPreview";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/site-section/SiteSectionModelInstantiator";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/grid-container/GridContainerModelInstantiator";
+import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
 import GridContainer from "@/app-library/components/widgets/grid-container/ui/GridContainer";
-import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/image-card-skeleton/ImageCardSkeletonModelInstantiator";
+import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
 import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
-import { instantiateSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-repositories/book-preview/BookPreviewAPIInstantiator";
-import { instantiateBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/book-preview/BookPreviewRepositoryModelInstantiator";
+import { instantiateSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
+import { instantiateBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/BookPreviewRepositoryModelInstantiator";
 import { useRepository } from "@/app-library/utilities/use-repository";
 
 export default function ReadingListSection() {
@@ -15,7 +15,7 @@ export default function ReadingListSection() {
 		sectionName: "reading-list",
 		sectionTitle: "Reading List",
 	});
-	const { modelInstance: repositoryModelInstance } = useRepository(() =>
+	const { modelView: repositoryModelView } = useRepository(() =>
 		instantiateBookPreviewRepositoryModel(
 			instantiateSupabaseBookPreviewAPI()
 		)
@@ -36,11 +36,11 @@ export default function ReadingListSection() {
 					overflow: false,
 				})}
 			>
-				{repositoryModelInstance
-					? repositoryModelInstance.bookPreviewModels.map(
+				{repositoryModelView
+					? repositoryModelView.bookPreviewModels.map(
 							(bookPreviewModel) => (
 								<BookPreview
-									key={bookPreviewModel.modelInstance.id}
+									key={bookPreviewModel.modelView.id}
 									model={bookPreviewModel}
 								/>
 							)

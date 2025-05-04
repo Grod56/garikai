@@ -4,7 +4,7 @@ import { ImageModel } from "../ImageModel";
 export const ELEMENT_NAME = "image";
 
 export default function Image({ model }: { model: ImageModel }) {
-	const { image, height, width, customName } = model.modelInstance;
+	const { image, height, width, customName } = model.modelView;
 
 	return (
 		<NextImage

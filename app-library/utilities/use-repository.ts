@@ -1,20 +1,21 @@
 import { useEffect } from "react";
 import {
-	ContentRepositoryModel,
-	ContentRepositoryModelInteraction,
-} from "../content-repositories/ContentRepositoryModel";
-import { ModelInstance } from "../custom-types/model/Model";
-import { useStatefulInteractiveModel } from "./model-transformer";
+	RepositoryInteractionType,
+	RepositoryModel,
+	RepositoryModelInteraction,
+	RepositoryModelView,
+} from "../content-repositories/RepositoryModel";
 import {
-	InstanceInteractionInterface,
 	StatifiableNonReadonlyModel,
+	ViewInteractionInterface,
 } from "../custom-types/StatifiableNonReadonlyModel";
+import { useStatefulInteractiveModel } from "./model-transformer";
 
 export function useRepository<
-	T extends ModelInstance,
-	U extends ContentRepositoryModelInteraction,
-	V extends InstanceInteractionInterface<T, U>,
-	W extends ContentRepositoryModel<T, U>,
+	T extends RepositoryModelView,
+	U extends RepositoryModelInteraction,
+	V extends ViewInteractionInterface<T, U>,
+	W extends RepositoryModel<T, U>,
 >(
 	repositoryModelInstantiator: () => W & StatifiableNonReadonlyModel<T, U, V>
 ): W {
@@ -23,7 +24,7 @@ export function useRepository<
 
 	useEffect(() => {
 		interact({
-			interactionName: "RETRIEVE_MODELS",
+			type: RepositoryInteractionType.RETRIEVE,
 		}).catch((error: Error) =>
 			console.error("Failed to initialize repository: %s", error.cause)
 		);

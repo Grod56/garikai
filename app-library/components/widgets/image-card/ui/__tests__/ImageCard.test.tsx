@@ -3,7 +3,7 @@ import ImageCard, { ELEMENT_NAME } from "../ImageCard";
 import { modelTestObject } from "./data";
 
 describe("ImageCard", () => {
-	const { thumbnail, orientation } = modelTestObject.modelInstance;
+	const { thumbnail, orientation } = modelTestObject.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
