@@ -24,7 +24,7 @@ export function instantiateArtImagePreviewRepositoryModel(
 					await viewInteractionInterface.getModelView(interaction);
 			} catch (error) {
 				throw new Error(`Failed to update modelView`, {
-					cause: error,
+					cause: new Error(String(error)),
 				});
 			}
 		},
@@ -47,7 +47,7 @@ function _viewInteractionInterface(
 			}
 		} catch (error) {
 			throw new Error(`Failed to generate new model view`, {
-				cause: error,
+				cause: new Error(String(error)),
 			});
 		}
 	};
@@ -84,7 +84,7 @@ async function _retrieveArtImagePreviewRepositoryModels(
 		return { artImagePreviewModels: retrievedModels };
 	} catch (error) {
 		throw new Error(`An error occurred while fetching api records`, {
-			cause: error,
+			cause: new Error(String(error)),
 		});
 	}
 }

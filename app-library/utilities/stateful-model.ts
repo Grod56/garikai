@@ -29,7 +29,9 @@ export function useInitializedStatefulInteractiveModel<
 					);
 				setModelView(newModelView);
 			} catch (error) {
-				throw new Error("Interaction failed", { cause: error });
+				throw new Error("Interaction failed", {
+					cause: new Error(String(error)),
+				});
 			}
 		},
 		[memoizedViewInteractionInterface]
