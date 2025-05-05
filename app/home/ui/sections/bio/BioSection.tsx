@@ -1,15 +1,18 @@
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { BioSectionModel } from "./BioSectionModel";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
-export default function BioSection() {
-	const sectionModel = instantiateSiteSectionModel({
-		id: "bio",
-		sectionName: "bio",
-		sectionTitle: "Bio",
-	});
-
+const BioSection = function ({ model }) {
+	const { sectionTitle } = model.modelView;
 	return (
-		<SiteSection model={sectionModel}>
+		<SiteSection
+			model={instantiateSiteSectionModel({
+				id: "bio",
+				sectionName: "bio",
+				sectionTitle: sectionTitle,
+			})}
+		>
 			<p>
 				Welcome! This place is the nexus of all of my interests,
 				hobbies, projects, and professional undertakings. Feel free to
@@ -41,4 +44,6 @@ export default function BioSection() {
 			</p>
 		</SiteSection>
 	);
-}
+} as ModeledEmptyComponent<BioSectionModel>;
+
+export default BioSection;

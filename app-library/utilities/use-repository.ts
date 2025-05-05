@@ -26,7 +26,7 @@ export function useRepository<
 		interact({
 			type: RepositoryInteractionType.RETRIEVE,
 		}).catch((error: Error) =>
-			console.error("Failed to initialize repository: %s", error.cause)
+			console.error("Failed to initialize repository: %s", error.stack)
 		);
 	}, [interact]);
 

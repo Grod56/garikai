@@ -26,6 +26,9 @@ describe("SiteSection", () => {
 	});
 	it("maps sectionTitle property to corresponding node", () => {
 		const titleElement = screen.getByText(sectionTitle);
-		expect(titleElement).toHaveTextContent(sectionTitle);
+		expect(titleElement).toBeInTheDocument();
+	});
+	it("renders section component element", () => {
+		expect(componentElement.tagName.toLowerCase()).toEqual("section");
 	});
 });

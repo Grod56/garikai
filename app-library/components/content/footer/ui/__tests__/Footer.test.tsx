@@ -10,12 +10,14 @@ describe("Footer", () => {
 		render(<Footer model={testModel} />);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
-
 	it("maps id property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps copyright property to corresponding node", () => {
 		const copyrightElement = screen.getByText(copyright);
-		expect(copyrightElement).toHaveTextContent(copyright);
+		expect(copyrightElement).toBeInTheDocument();
+	});
+	it("renders footer component element", () => {
+		expect(componentElement.tagName.toLowerCase()).toEqual("footer");
 	});
 });

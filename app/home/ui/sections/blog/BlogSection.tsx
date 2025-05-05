@@ -1,45 +1,38 @@
 import FeaturedPostPreview from "@/app-library/components/content/post-preview/ui/FeaturedPostPreview";
 import PostPreview from "@/app-library/components/content/post-preview/ui/PostPreview";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { instantiateSiteSubsectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSubsectionModelInstantiator";
 import SiteSubsection from "@/app-library/components/content/site-subsection/ui/SiteSubsection";
-import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
 import GridContainer from "@/app-library/components/widgets/grid-container/ui/GridContainer";
-import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
 import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
-import { instantiateBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-apis/PostPreviewAPIInstantiator";
-import { instantiatePostPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/PostPreviewRepositoryModelInstantiator";
-import { useRepository } from "@/app-library/utilities/use-repository";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
+import { BlogSectionModel } from "./BlogSectionModel";
+import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
+import { instantiateSiteSubsectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSubsectionModelInstantiator";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
-export default function BlogSection() {
-	const siteSectionModel = instantiateSiteSectionModel({
-		id: "blog",
-		sectionName: "blog",
-		sectionTitle: "Blog",
-	});
-	const feauterdPostSubsectionModel = instantiateSiteSubsectionModel({
-		id: "featured-post",
-		subsectionTitle: "Featured Post",
-	});
-	const recentPostsSubsectionModel = instantiateSiteSubsectionModel({
-		id: "recent-posts",
-		subsectionTitle: "Recent Posts",
-	});
-	const recentPostsGridContainer = instantiateGridContainerModel({
-		maxXorY: 3,
-		orientation: "horizontal",
-		overflow: true,
-	});
-	const { modelView: repositoryModelView } = useRepository(() =>
-		instantiatePostPreviewRepositoryModel(
-			instantiateBloggerPostPreviewAPI()
-		)
-	);
+const BlogSection = function ({ model }) {
+	const {
+		sectionTitle,
+		postPreviewRepositoryModel: repositoryModel,
+		blogURL,
+	} = model.modelView;
+	const { modelView: repositoryModelView } = repositoryModel;
 
 	return (
-		<SiteSection model={siteSectionModel}>
-			<SiteSubsection model={feauterdPostSubsectionModel}>
+		<SiteSection
+			model={instantiateSiteSectionModel({
+				id: "blog",
+				sectionName: "blog",
+				sectionTitle: sectionTitle,
+			})}
+		>
+			<SiteSubsection
+				model={instantiateSiteSubsectionModel({
+					id: "featured-post",
+					subsectionTitle: "Featured Post",
+				})}
+			>
 				{repositoryModelView ? (
 					<FeaturedPostPreview
 						model={repositoryModelView.featuredPostPreviewModel}
@@ -52,8 +45,19 @@ export default function BlogSection() {
 					/>
 				)}
 			</SiteSubsection>
-			<SiteSubsection model={recentPostsSubsectionModel}>
-				<GridContainer model={recentPostsGridContainer}>
+			<SiteSubsection
+				model={instantiateSiteSubsectionModel({
+					id: "recent-posts",
+					subsectionTitle: "Recent Posts",
+				})}
+			>
+				<GridContainer
+					model={instantiateGridContainerModel({
+						maxXorY: 3,
+						orientation: "horizontal",
+						overflow: true,
+					})}
+				>
 					{repositoryModelView
 						? repositoryModelView.recentPostPreviewModels.map(
 								(recentPostPreviewModel) => (
@@ -84,9 +88,11 @@ export default function BlogSection() {
 								)}
 				</GridContainer>
 			</SiteSubsection>
-			<a href={process.env.NEXT_PUBLIC_BLOG_URL!} className="view-more">
+			<a href={blogURL.href} className="view-more">
 				View More
 			</a>
 		</SiteSection>
 	);
-}
+} as ModeledEmptyComponent<BlogSectionModel>;
+
+export default BlogSection;

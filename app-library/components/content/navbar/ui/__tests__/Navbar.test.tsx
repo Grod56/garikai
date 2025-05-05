@@ -14,4 +14,7 @@ describe("Navbar", () => {
 	it("maps id property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute("id", id);
 	});
+	it("renders nav component element", () => {
+		expect(componentElement.tagName.toLowerCase()).toEqual("nav");
+	});
 });

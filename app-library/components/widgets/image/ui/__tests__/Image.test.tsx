@@ -11,10 +11,6 @@ describe("Image", () => {
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
 
-	it("renders img image element", () => {
-		const imageElement = screen.getByAltText(image.alt);
-		expect(imageElement.tagName.toLowerCase()).toEqual("img");
-	});
 	it("maps image property to corresponding node", () => {
 		const imageElement = screen.getByAltText(image.alt);
 		expect(imageElement).toHaveAttribute(
@@ -42,5 +38,9 @@ describe("Image", () => {
 	it("encapsulates relevant nodes within component element", () => {
 		const imageElement = screen.getByAltText(image.alt);
 		expect(componentElement).toContainElement(imageElement);
+	});
+	it("renders img image element", () => {
+		const imageElement = screen.getByAltText(image.alt);
+		expect(imageElement.tagName.toLowerCase()).toEqual("img");
 	});
 });

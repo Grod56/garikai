@@ -1,16 +1,21 @@
-import { instantiateBannerModel } from "@/app-library/default-implementations/model-instantiators/BannerModelInstantiator";
 import Banner from "@/app-library/components/content/banner/ui/Banner";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { instantiateBannerModel } from "@/app-library/default-implementations/model-instantiators/BannerModelInstantiator";
+import { PortfolioSectionModel } from "./PortfolioSectionModel";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
-export default function PortfolioSection() {
-	const siteSectionModel = instantiateSiteSectionModel({
-		id: "portfolio",
-		sectionName: "portfolio",
-		sectionTitle: "Portfolio",
-	});
+const PortfolioSection = function ({ model }) {
+	const { sectionTitle } = model.modelView;
+
 	return (
-		<SiteSection model={siteSectionModel}>
+		<SiteSection
+			model={instantiateSiteSectionModel({
+				id: "portfolio",
+				sectionName: "portfolio",
+				sectionTitle: sectionTitle,
+			})}
+		>
 			<Banner
 				model={instantiateBannerModel({
 					id: "portfolio-banner",
@@ -19,4 +24,6 @@ export default function PortfolioSection() {
 			/>
 		</SiteSection>
 	);
-}
+} as ModeledEmptyComponent<PortfolioSectionModel>;
+
+export default PortfolioSection;
