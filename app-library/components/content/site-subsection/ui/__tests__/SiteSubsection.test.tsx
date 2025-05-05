@@ -20,6 +20,6 @@ describe("SiteSubsection", () => {
 	});
 	it("maps subsectionTitle property to corresponding node", () => {
 		const subsectionTitleElement = screen.getByText(subsectionTitle);
-		expect(subsectionTitleElement).toHaveTextContent(subsectionTitle);
+		expect(subsectionTitleElement).toBeInTheDocument();
 	});
 });

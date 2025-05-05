@@ -1,13 +1,19 @@
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-export default function ContactDetailsSection() {
-	const siteSectionModel = instantiateSiteSectionModel({
-		id: "contact-details",
-		sectionName: "contact-details",
-		sectionTitle: "Contact Details",
-	});
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ContactDetailsSectionModel } from "./ContactDetailsSectionModel";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
+
+const ContactDetailsSection = function ({ model }) {
+	const { sectionTitle } = model.modelView;
+
 	return (
-		<SiteSection model={siteSectionModel}>
+		<SiteSection
+			model={instantiateSiteSectionModel({
+				id: "contact-details",
+				sectionName: "contact-details",
+				sectionTitle: sectionTitle,
+			})}
+		>
 			<p>
 				For professional inquiries, shoot me an email @{" "}
 				<a href="mailto:providenceuniversalstudios@gmail.com">
@@ -24,4 +30,6 @@ export default function ContactDetailsSection() {
 			</p>
 		</SiteSection>
 	);
-}
+} as ModeledEmptyComponent<ContactDetailsSectionModel>;
+
+export default ContactDetailsSection;

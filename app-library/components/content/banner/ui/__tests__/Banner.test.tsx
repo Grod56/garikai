@@ -17,6 +17,6 @@ describe("Banner", () => {
 	});
 	it("maps bannerText property to corresponding node", () => {
 		const bannerTextElement = screen.getByText(bannerText);
-		expect(bannerTextElement).toHaveTextContent(bannerText);
+		expect(bannerTextElement).toBeInTheDocument();
 	});
 });

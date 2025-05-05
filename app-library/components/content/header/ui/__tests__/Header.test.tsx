@@ -16,10 +16,13 @@ describe("Header", () => {
 	});
 	it("maps headerTitle property to corresponding node", () => {
 		const headerTitleElement = screen.getByText(headerTitle);
-		expect(headerTitleElement).toHaveTextContent(headerTitle);
+		expect(headerTitleElement).toBeInTheDocument();
 	});
 	it("maps headerSubtitle property to corresponding node", () => {
 		const headerSubtitleElement = screen.getByText(headerSubtitle);
-		expect(headerSubtitleElement).toHaveTextContent(headerSubtitle);
+		expect(headerSubtitleElement).toBeInTheDocument();
+	});
+	it("renders header component element", () => {
+		expect(componentElement.tagName.toLowerCase()).toEqual("header");
 	});
 });

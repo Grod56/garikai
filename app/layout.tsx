@@ -1,13 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@/app/app.scss";
+import { Explora } from "next/font/google";
 import { Metadata } from "next/types";
 import { instantiateFooterModel } from "../app-library/default-implementations/model-instantiators/FooterModelInstantiator";
-import Footer from "../app-library/components/content/footer/ui/Footer";
 import { instantiateHeaderModel } from "../app-library/default-implementations/model-instantiators/HeaderModelInstantiator";
-import Header from "../app-library/components/content/header/ui/Header";
 import { instantiateNavbarModel } from "../app-library/default-implementations/model-instantiators/NavbarModelInstantiator";
-import Navbar from "../app-library/components/content/navbar/ui/Navbar";
-import { Explora } from "next/font/google";
-import "@/app/app.scss";
+import { BodyLayout } from "./body-layout/BodyLayout";
 
 // Initial configuration ---------------------------------------------------
 
@@ -18,33 +16,39 @@ export const metadata: Metadata = {
 	},
 };
 const exploraFont = Explora({ weight: "400", subsets: ["latin"] });
+const headerTitle = process.env.HEADER_TITLE!;
+const headerSubTitle = process.env.HEADER_SUBTITLE!;
+const copyrightText = process.env.COPYRIGHT_TEXT!;
 
 // -------------------------------------------------------------------------
 
-type RootLayoutParameters = {
+export default function RootLayout({
+	children,
+}: {
 	children: React.ReactNode;
-};
-
-export default function RootLayout({ children }: RootLayoutParameters) {
+}) {
 	const headerModel = instantiateHeaderModel({
 		id: "header",
-		headerTitle: process.env.HEADER_TITLE!,
-		headerSubtitle: process.env.HEADER_SUBTITLE!,
+		headerTitle: headerTitle,
+		headerSubtitle: headerSubTitle,
 	});
 	const navbarModel = instantiateNavbarModel({ id: "navbar" });
 	const footerModel = instantiateFooterModel({
 		id: "footer",
-		copyrightText: process.env.COPYRIGHT_TEXT!,
+		copyrightText: copyrightText,
 	});
 
 	return (
 		<html lang="en" className={exploraFont.className}>
 			<head />
 			<body>
-				<Header model={headerModel} />
-				<Navbar model={navbarModel} />
-				{children}
-				<Footer model={footerModel} />
+				<BodyLayout
+					model={{
+						modelView: { headerModel, navbarModel, footerModel },
+					}}
+				>
+					{children}
+				</BodyLayout>
 			</body>
 		</html>
 	);

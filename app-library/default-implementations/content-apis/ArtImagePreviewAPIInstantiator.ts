@@ -23,7 +23,7 @@ export function instantiateSupabaseArtImagePreviewAPI(): ArtImagePreviewAPI {
 				);
 				return records;
 			}
-			throw new Error("supabase returned null on request");
+			throw new Error("Supabase returned null on request");
 		},
 	};
 }

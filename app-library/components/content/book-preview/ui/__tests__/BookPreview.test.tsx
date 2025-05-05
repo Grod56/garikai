@@ -16,7 +16,7 @@ describe("BookPreview", () => {
 	});
 	it("maps title property to corresponding node", () => {
 		const titleElement = screen.getByText(title);
-		expect(titleElement).toHaveTextContent(title);
+		expect(titleElement).toBeInTheDocument();
 	});
 	it("maps author property to corresponding node", () => {
 		const authorElement = screen.getByText(author);

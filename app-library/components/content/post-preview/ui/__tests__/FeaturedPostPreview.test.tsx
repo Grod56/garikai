@@ -17,15 +17,15 @@ describe("FeaturedPostPreview", () => {
 	});
 	it("maps title property to corresponding node", () => {
 		const titleElement = screen.getByText(title);
-		expect(titleElement).toHaveTextContent(title);
+		expect(titleElement).toBeInTheDocument();
 	});
 	it("maps snippet property to corresponding node", () => {
 		const snippetElement = screen.getByText(snippet);
-		expect(snippetElement).toHaveTextContent(snippet);
+		expect(snippetElement).toBeInTheDocument();
 	});
 	it("maps byline property to corresponding node", () => {
 		const bylineElement = screen.getByText(byline);
-		expect(bylineElement).toHaveTextContent(byline);
+		expect(bylineElement).toBeInTheDocument();
 	});
 	it("maps cover property to corresponding node", () => {
 		const thumbnailElement = screen.getByAltText(thumbnail.alt);

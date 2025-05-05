@@ -1,28 +1,26 @@
 import BookPreview from "@/app-library/components/content/book-preview/ui/BookPreview";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
 import GridContainer from "@/app-library/components/widgets/grid-container/ui/GridContainer";
-import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
 import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
-import { instantiateSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
-import { instantiateBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/BookPreviewRepositoryModelInstantiator";
-import { useRepository } from "@/app-library/utilities/use-repository";
+import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
+import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
+import { ReadingListSectionModel } from "./ReadingListSectionModel";
+import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
-export default function ReadingListSection() {
-	const siteSectionModel = instantiateSiteSectionModel({
-		id: "reading-list",
-		sectionName: "reading-list",
-		sectionTitle: "Reading List",
-	});
-	const { modelView: repositoryModelView } = useRepository(() =>
-		instantiateBookPreviewRepositoryModel(
-			instantiateSupabaseBookPreviewAPI()
-		)
-	);
+const ReadingListSection = function ({ model }) {
+	const { sectionTitle, bookPreviewRepositoryModel: repositoryModel } =
+		model.modelView;
+	const { modelView: repositoryModelView } = repositoryModel;
 
 	return (
-		<SiteSection model={siteSectionModel}>
+		<SiteSection
+			model={instantiateSiteSectionModel({
+				id: "reading-list",
+				sectionName: "reading-list",
+				sectionTitle: sectionTitle,
+			})}
+		>
 			<p>
 				Collection of material that has greatly influenced the way I
 				think—together with stuff I&apos;m currently working on. Will
@@ -58,4 +56,6 @@ export default function ReadingListSection() {
 			</GridContainer>
 		</SiteSection>
 	);
-}
+} as ModeledEmptyComponent<ReadingListSectionModel>;
+
+export default ReadingListSection;
