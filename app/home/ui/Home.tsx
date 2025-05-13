@@ -19,6 +19,9 @@ import PortfolioSection from "./sections/portfolio/PortfolioSection";
 import ReadingListSection from "./sections/reading-list/ReadingListSection";
 import "./home.scss";
 
+// Config
+const blogURL = new URL(process.env.NEXT_PUBLIC_BLOG_URL!);
+
 export default function Home() {
 	const mainModel = instantiateMainModel({ id: "home", name: "home" });
 
@@ -35,7 +38,6 @@ export default function Home() {
 				instantiateBloggerPostPreviewAPI()
 			)
 		);
-	const blogURL = new URL(process.env.NEXT_PUBLIC_BLOG_URL!);
 
 	const bookPreviewRepositoryModel =
 		useRepository<BookPreviewRepositoryModel>(() =>

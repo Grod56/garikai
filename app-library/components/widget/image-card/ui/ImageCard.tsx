@@ -1,4 +1,4 @@
-import Image from "@/app-library/components/widgets/image/ui/Image";
+import Image from "@/app-library/components/widget/image/ui/Image";
 import { ImageCardModel } from "../ImageCardModel";
 import "./image-card.scss";
 import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";

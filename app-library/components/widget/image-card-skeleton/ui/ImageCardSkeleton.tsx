@@ -1,6 +1,6 @@
 import "./image-card-skeleton.scss";
 import { ImageCardSkeletonModel } from "../ImageCardSkeletonModel";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export const ELEMENT_NAME = "image-card-skeleton";
 
@@ -17,6 +17,6 @@ const ImageCardSkeleton = function ({ model }) {
 			<div className="card-details"></div>
 		</div>
 	);
-} as ModeledEmptyComponent<ImageCardSkeletonModel>;
+} as ModeledVoidComponent<ImageCardSkeletonModel>;
 
 export default ImageCardSkeleton;

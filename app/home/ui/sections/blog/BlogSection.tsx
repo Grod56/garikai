@@ -1,23 +1,18 @@
-import FeaturedPostPreview from "@/app-library/components/content/post-preview/ui/FeaturedPostPreview";
-import PostPreview from "@/app-library/components/content/post-preview/ui/PostPreview";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import SiteSubsection from "@/app-library/components/content/site-subsection/ui/SiteSubsection";
-import GridContainer from "@/app-library/components/widgets/grid-container/ui/GridContainer";
-import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
-import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
-import { BlogSectionModel } from "./BlogSectionModel";
+import GridContainer from "@/app-library/components/widget/grid-container/ui/GridContainer";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
-import { instantiateSiteSubsectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSubsectionModelInstantiator";
 import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
+import { instantiateSiteSubsectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSubsectionModelInstantiator";
+import FeaturedPostPreviewPlaceholder from "@/app/home/ui/sections/blog/featured-post-preview-placeholder/FeaturedPostPreviewPlaceholder";
+import { BlogSectionModel } from "./BlogSectionModel";
+import RecentPostPreviewsPlaceholder from "./recent-posts-placeholder/RecentPostPreviewsPlaceholder";
 
 const BlogSection = function ({ model }) {
-	const {
-		sectionTitle,
-		postPreviewRepositoryModel: repositoryModel,
-		blogURL,
-	} = model.modelView;
-	const { modelView: repositoryModelView } = repositoryModel;
+	const { sectionTitle, postPreviewRepositoryModel, blogURL } =
+		model.modelView;
+	const { modelView: repositoryModelView } = postPreviewRepositoryModel;
 
 	return (
 		<SiteSection
@@ -33,17 +28,14 @@ const BlogSection = function ({ model }) {
 					subsectionTitle: "Featured Post",
 				})}
 			>
-				{repositoryModelView ? (
-					<FeaturedPostPreview
-						model={repositoryModelView.featuredPostPreviewModel}
-					/>
-				) : (
-					<ImageCardSkeleton
-						model={instantiateImageCardSkeletonModel({
-							orientation: "flexible",
-						})}
-					/>
-				)}
+				<FeaturedPostPreviewPlaceholder
+					model={{
+						modelView: {
+							placeholderedFeaturedPostPreviewModel:
+								repositoryModelView?.featuredPostPreviewModel,
+						},
+					}}
+				/>
 			</SiteSubsection>
 			<SiteSubsection
 				model={instantiateSiteSubsectionModel({
@@ -58,34 +50,14 @@ const BlogSection = function ({ model }) {
 						overflow: true,
 					})}
 				>
-					{repositoryModelView
-						? repositoryModelView.recentPostPreviewModels.map(
-								(recentPostPreviewModel) => (
-									<PostPreview
-										key={
-											recentPostPreviewModel.modelView.id
-										}
-										model={recentPostPreviewModel}
-									/>
-								)
-							)
-						: Array(3)
-								.fill(1)
-								.map(
-									(
-										_,
-										index // TODO: gridContainer model columns here
-									) => (
-										<ImageCardSkeleton
-											key={index}
-											model={instantiateImageCardSkeletonModel(
-												{
-													orientation: "vertical",
-												}
-											)}
-										/>
-									)
-								)}
+					<RecentPostPreviewsPlaceholder
+						model={{
+							modelView: {
+								placeholderedRecentPostPreviewModels:
+									repositoryModelView?.recentPostPreviewModels,
+							},
+						}}
+					/>
 				</GridContainer>
 			</SiteSubsection>
 			<a href={blogURL.href} className="view-more">
@@ -93,6 +65,6 @@ const BlogSection = function ({ model }) {
 			</a>
 		</SiteSection>
 	);
-} as ModeledEmptyComponent<BlogSectionModel>;
+} as ModeledVoidComponent<BlogSectionModel>;
 
 export default BlogSection;

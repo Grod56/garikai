@@ -2,7 +2,7 @@ import { ModelInteraction } from "@/app-library/custom-types/model/InteractiveMo
 import {
 	StatifiableModel,
 	ViewInteractionInterface,
-} from "@/app-library/custom-types/StatifiableModel";
+} from "@/app-library/custom-types/model/StatifiableModel";
 
 export interface TestModelView {
 	displayValue: string;

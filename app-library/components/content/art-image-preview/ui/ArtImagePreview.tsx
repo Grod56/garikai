@@ -1,5 +1,5 @@
-import Image from "@/app-library/components/widgets/image/ui/Image";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import Image from "@/app-library/components/widget/image/ui/Image";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { ArtImagePreviewModel } from "../ArtImagePreviewModel";
 import "./art-image-preview.scss";
 
@@ -25,6 +25,6 @@ const ArtImagePreview = function ({ model }) {
 			/>
 		</div>
 	);
-} as ModeledEmptyComponent<ArtImagePreviewModel>;
+} as ModeledVoidComponent<ArtImagePreviewModel>;
 
 export default ArtImagePreview;

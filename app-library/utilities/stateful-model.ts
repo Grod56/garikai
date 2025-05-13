@@ -7,8 +7,13 @@ import { ModelView } from "../custom-types/model/Model";
 import {
 	StatifiableModel,
 	ViewInteractionInterface,
-} from "../custom-types/StatifiableModel";
+} from "../custom-types/model/StatifiableModel";
 
+/**Constructs stateful interactive model based on the provided view-interaction interface,
+ * and initialized with the provided model view
+ * @param viewInteractionInterface
+ * @param initialModelView
+ * */
 export function useInitializedStatefulInteractiveModel<
 	T extends InteractiveModel<U, V>,
 	U extends ModelView = ModelView,
@@ -43,9 +48,13 @@ export function useInitializedStatefulInteractiveModel<
 		interact: memoizedInteract,
 	};
 
-	return statefulModel as T;
+	return statefulModel as Readonly<T>;
 }
 
+/**Constructs new stateful interactive model
+ * based on the provided view-interaction interface
+ * @param viewInteractionInterface
+ *  */
 export function useNewStatefulInteractiveModel<
 	T extends InteractiveModel<U, V>,
 	U extends ModelView = ModelView,
@@ -58,6 +67,9 @@ export function useNewStatefulInteractiveModel<
 	);
 }
 
+/**Transforms provided 'statifiable' model into new stateful interactive model
+ * @param model - Statifiable model
+ */
 export function useTransformedStatefulInteractiveModel<
 	T extends InteractiveModel<U, V>,
 	U extends ModelView = ModelView,
