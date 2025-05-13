@@ -1,4 +1,4 @@
-import { FlexibleContainerModel } from "../../components/widgets/flexible-container/FlexibleContainerModel";
+import { FlexibleContainerModel } from "../../components/widget/flexible-container/FlexibleContainerModel";
 
 export function instantiateFlexibleContainerModel(): FlexibleContainerModel {
 	return { modelView: {} };

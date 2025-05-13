@@ -7,7 +7,7 @@ import {
 import {
 	ViewInteractionInterface,
 	StatifiableModel,
-} from "@/app-library/custom-types/StatifiableModel";
+} from "@/app-library/custom-types/model/StatifiableModel";
 export type ContentModel = {
 	id: string;
 };

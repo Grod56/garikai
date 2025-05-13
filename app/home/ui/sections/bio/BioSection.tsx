@@ -1,5 +1,5 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { BioSectionModel } from "./BioSectionModel";
 import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
@@ -44,6 +44,6 @@ const BioSection = function ({ model }) {
 			</p>
 		</SiteSection>
 	);
-} as ModeledEmptyComponent<BioSectionModel>;
+} as ModeledVoidComponent<BioSectionModel>;
 
 export default BioSection;

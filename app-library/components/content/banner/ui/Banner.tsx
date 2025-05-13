@@ -1,4 +1,4 @@
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { BannerModel } from "../BannerModel";
 import "./banner.scss";
 
@@ -12,6 +12,6 @@ const Banner = function ({ model }) {
 			<span className="banner-text">{bannerText}</span>
 		</div>
 	);
-} as ModeledEmptyComponent<BannerModel>;
+} as ModeledVoidComponent<BannerModel>;
 
 export default Banner;

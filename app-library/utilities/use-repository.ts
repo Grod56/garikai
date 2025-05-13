@@ -8,7 +8,7 @@ import {
 import {
 	StatifiableModel,
 	ViewInteractionInterface,
-} from "../custom-types/StatifiableModel";
+} from "../custom-types/model/StatifiableModel";
 import { useTransformedStatefulInteractiveModel } from "./stateful-model";
 
 export function useRepository<

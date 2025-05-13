@@ -1,4 +1,4 @@
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { HeaderModel } from "../HeaderModel";
 import "./header.scss";
 
@@ -17,6 +17,6 @@ const Header = function ({ model }) {
 			</div>
 		</header>
 	);
-} as ModeledEmptyComponent<HeaderModel>;
+} as ModeledVoidComponent<HeaderModel>;
 
 export default Header;

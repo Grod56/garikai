@@ -1,4 +1,4 @@
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { NavbarModel } from "../NavbarModel";
 import "./navbar.scss";
 
@@ -20,6 +20,6 @@ const Navbar = function ({ model }) {
 			</li>
 		</nav>
 	);
-} as ModeledEmptyComponent<NavbarModel>;
+} as ModeledVoidComponent<NavbarModel>;
 
 export default Navbar;

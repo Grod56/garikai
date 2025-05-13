@@ -26,8 +26,11 @@ describe("useRepository", () => {
 	>;
 
 	beforeEach(() => {
-		renderedHook = renderHook(() =>
-			useRepository(testRepositoryModelInstantiator)
+		act(
+			() =>
+				(renderedHook = renderHook(() =>
+					useRepository(testRepositoryModelInstantiator)
+				))
 		);
 	});
 	afterEach(() => {
@@ -35,7 +38,7 @@ describe("useRepository", () => {
 	});
 
 	it("automatically initializes repository", async () => {
-		// Would've preferred toHaveBeenCalled, but not possible
+		// Would've preferred interact toHaveBeenCalled, but not possible
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
@@ -87,11 +90,15 @@ describe("useRepository", () => {
 		const consoleErrorSpy = jest.spyOn(console, "error");
 		consoleErrorSpy.mockImplementation();
 		const errorMessage = "Error error reached critical levels";
-		renderHook(() => {
-			useRepository(() =>
-				faultyTestRepositoryModelInstantiator(errorMessage)
-			);
-		});
+
+		//TODO: Warning still not clearing
+		act(() =>
+			renderHook(() => {
+				useRepository(() =>
+					faultyTestRepositoryModelInstantiator(errorMessage)
+				);
+			})
+		);
 		await waitFor(() => {
 			expect(consoleErrorSpy).toHaveBeenCalledWith(
 				expect.any(String),

@@ -1,6 +1,6 @@
 import Banner from "@/app-library/components/content/banner/ui/Banner";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { instantiateBannerModel } from "@/app-library/default-implementations/model-instantiators/BannerModelInstantiator";
 import { PortfolioSectionModel } from "./PortfolioSectionModel";
 import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
@@ -24,6 +24,6 @@ const PortfolioSection = function ({ model }) {
 			/>
 		</SiteSection>
 	);
-} as ModeledEmptyComponent<PortfolioSectionModel>;
+} as ModeledVoidComponent<PortfolioSectionModel>;
 
 export default PortfolioSection;

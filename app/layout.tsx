@@ -1,11 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "@/app/app.scss";
+import "@/app/layout.scss";
+import "@/app-library/styles/themes/quaint-navy.scss";
 import { Explora } from "next/font/google";
 import { Metadata } from "next/types";
 import { instantiateFooterModel } from "../app-library/default-implementations/model-instantiators/FooterModelInstantiator";
 import { instantiateHeaderModel } from "../app-library/default-implementations/model-instantiators/HeaderModelInstantiator";
 import { instantiateNavbarModel } from "../app-library/default-implementations/model-instantiators/NavbarModelInstantiator";
-import { BodyLayout } from "./body-layout/BodyLayout";
+import BodyLayout from "./body-layout/BodyLayout";
 
 // Initial configuration ---------------------------------------------------
 

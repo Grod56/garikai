@@ -1,5 +1,5 @@
 import { Orientation } from "@/app-library/custom-types/Orientation";
-import { ImageCardSkeletonModel } from "../../components/widgets/image-card-skeleton/ImageCardSkeletonModel";
+import { ImageCardSkeletonModel } from "../../components/widget/image-card-skeleton/ImageCardSkeletonModel";
 
 export interface InstantiateImageCardSkeletonModelParameters {
 	orientation: Orientation;

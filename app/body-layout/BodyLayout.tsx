@@ -4,7 +4,7 @@ import Footer from "@/app-library/components/content/footer/ui/Footer";
 import Header from "@/app-library/components/content/header/ui/Header";
 import Navbar from "@/app-library/components/content/navbar/ui/Navbar";
 
-export const BodyLayout = function ({ model, children }) {
+const BodyLayout = function ({ model, children }) {
 	const { headerModel, navbarModel, footerModel } = model.modelView;
 
 	return (
@@ -16,3 +16,5 @@ export const BodyLayout = function ({ model, children }) {
 		</>
 	);
 } as ModeledContainerComponent<BodyLayoutModel>;
+
+export default BodyLayout;

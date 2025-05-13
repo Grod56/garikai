@@ -1,9 +1,9 @@
-import ImageCard from "@/app-library/components/widgets/image-card/ui/ImageCard";
-import LinkedComponent from "@/app-library/components/widgets/linked-component/ui/LinkedComponent";
+import ImageCard from "@/app-library/components/widget/image-card/ui/ImageCard";
+import LinkedComponent from "@/app-library/components/widget/linked-component/ui/LinkedComponent";
 import { ELEMENT_NAME } from "./PostPreview";
 import { FeaturedPostPreviewModel } from "../FeaturedPostPreviewModel";
 import "./post-preview.scss";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export { ELEMENT_NAME };
 
@@ -36,6 +36,6 @@ const FeaturedPostPreview = function ({ model }) {
 			</LinkedComponent>
 		</div>
 	);
-} as ModeledEmptyComponent<FeaturedPostPreviewModel>;
+} as ModeledVoidComponent<FeaturedPostPreviewModel>;
 
 export default FeaturedPostPreview;

@@ -1,5 +1,5 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { ContactDetailsSectionModel } from "./ContactDetailsSectionModel";
 import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
@@ -30,6 +30,6 @@ const ContactDetailsSection = function ({ model }) {
 			</p>
 		</SiteSection>
 	);
-} as ModeledEmptyComponent<ContactDetailsSectionModel>;
+} as ModeledVoidComponent<ContactDetailsSectionModel>;
 
 export default ContactDetailsSection;

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { BodyLayout } from "../BodyLayout";
 import { testModel } from "./data";
+import BodyLayout from "../BodyLayout";
 
 describe("BodyLayout", () => {
 	const { headerModel, navbarModel, footerModel } = testModel.modelView;

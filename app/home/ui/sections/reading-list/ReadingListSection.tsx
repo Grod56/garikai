@@ -1,17 +1,16 @@
 import BookPreview from "@/app-library/components/content/book-preview/ui/BookPreview";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import GridContainer from "@/app-library/components/widgets/grid-container/ui/GridContainer";
-import ImageCardSkeleton from "@/app-library/components/widgets/image-card-skeleton/ui/ImageCardSkeleton";
-import { ModeledEmptyComponent } from "@/app-library/custom-types/ModeledComponent";
+import GridContainer from "@/app-library/components/widget/grid-container/ui/GridContainer";
+import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
+import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
 import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
 import { ReadingListSectionModel } from "./ReadingListSectionModel";
 import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
 const ReadingListSection = function ({ model }) {
-	const { sectionTitle, bookPreviewRepositoryModel: repositoryModel } =
-		model.modelView;
-	const { modelView: repositoryModelView } = repositoryModel;
+	const { sectionTitle, bookPreviewRepositoryModel } = model.modelView;
+	const { modelView: repositoryModelView } = bookPreviewRepositoryModel;
 
 	return (
 		<SiteSection
@@ -56,6 +55,6 @@ const ReadingListSection = function ({ model }) {
 			</GridContainer>
 		</SiteSection>
 	);
-} as ModeledEmptyComponent<ReadingListSectionModel>;
+} as ModeledVoidComponent<ReadingListSectionModel>;
 
 export default ReadingListSection;
