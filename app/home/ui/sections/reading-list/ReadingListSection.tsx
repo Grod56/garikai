@@ -1,16 +1,18 @@
-import BookPreview from "@/app-library/components/content/book-preview/ui/BookPreview";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import GridContainer from "@/app-library/components/widget/grid-container/ui/GridContainer";
-import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { instantiateBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/BookPreviewRepositoryModelInstantiator";
 import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
-import { instantiateImageCardSkeletonModel } from "@/app-library/default-implementations/model-instantiators/ImageCardSkeletonModelInstantiator";
-import { ReadingListSectionModel } from "./ReadingListSectionModel";
 import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
+import { useRepository } from "@/app-library/utilities/use-repository";
+import BookPreviewsPlaceholder from "./book-previews-placeholder/BookPreviewsPlaceholder";
+import { ReadingListSectionModel } from "./ReadingListSectionModel";
 
 const ReadingListSection = function ({ model }) {
-	const { sectionTitle, bookPreviewRepositoryModel } = model.modelView;
-	const { modelView: repositoryModelView } = bookPreviewRepositoryModel;
+	const { sectionTitle, bookPreviewAPI } = model.modelView;
+	const { modelView: repositoryModelView } = useRepository(() =>
+		instantiateBookPreviewRepositoryModel(bookPreviewAPI)
+	);
 
 	return (
 		<SiteSection
@@ -33,25 +35,14 @@ const ReadingListSection = function ({ model }) {
 					overflow: false,
 				})}
 			>
-				{repositoryModelView
-					? repositoryModelView.bookPreviewModels.map(
-							(bookPreviewModel) => (
-								<BookPreview
-									key={bookPreviewModel.modelView.id}
-									model={bookPreviewModel}
-								/>
-							)
-						)
-					: Array(6)
-							.fill(1)
-							.map((_, index) => (
-								<ImageCardSkeleton
-									key={index}
-									model={instantiateImageCardSkeletonModel({
-										orientation: "flexible",
-									})}
-								/>
-							))}
+				<BookPreviewsPlaceholder
+					model={{
+						modelView: {
+							placeholderedBookPreviewModels:
+								repositoryModelView?.bookPreviewModels,
+						},
+					}}
+				/>
 			</GridContainer>
 		</SiteSection>
 	);

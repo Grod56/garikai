@@ -1,5 +1,5 @@
 import { Model } from "@/app-library/custom-types/model/Model";
-import { UnwrapperModel } from "../UnwrapperModel";
+import { ComponentListModel } from "../ComponentListModel";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 
 type TestModelView = {
@@ -8,7 +8,7 @@ type TestModelView = {
 
 export type TestModel = Model<TestModelView>;
 
-const testWrappedModels: TestModel[] = [
+const testComponentModels: TestModel[] = [
 	{ modelView: { text: "summer" } },
 	{ modelView: { text: "autumn" } },
 	{ modelView: { text: "winter" } },
@@ -16,12 +16,12 @@ const testWrappedModels: TestModel[] = [
 ];
 
 export function getTestModel(
-	UnwrappedModeledComponent: ModeledVoidComponent<TestModel>
-): UnwrapperModel<TestModel> {
+	Component: ModeledVoidComponent<TestModel>
+): ComponentListModel<TestModel> {
 	const model = {
 		modelView: {
-			wrappedModels: testWrappedModels,
-			UnwrappedModeledComponent,
+			componentModels: testComponentModels,
+			Component,
 		},
 	};
 	return model;

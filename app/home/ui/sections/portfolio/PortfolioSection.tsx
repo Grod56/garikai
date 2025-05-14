@@ -1,4 +1,4 @@
-import Banner from "@/app-library/components/content/banner/ui/Banner";
+import Banner from "@/app-library/components/widget/banner/ui/Banner";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { instantiateBannerModel } from "@/app-library/default-implementations/model-instantiators/BannerModelInstantiator";
@@ -18,7 +18,6 @@ const PortfolioSection = function ({ model }) {
 		>
 			<Banner
 				model={instantiateBannerModel({
-					id: "portfolio-banner",
 					bannerText: "Coming Soon",
 				})}
 			/>

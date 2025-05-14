@@ -4,7 +4,7 @@ import {
 } from "../../components/widget/grid-container/GridContainerModel";
 
 export interface InstantiateGridContainerModelParameters {
-	maxXorY: 2 | 3; //TODO: Not ideal
+	maxXorY: number;
 	orientation: Orientation;
 	overflow: boolean;
 }

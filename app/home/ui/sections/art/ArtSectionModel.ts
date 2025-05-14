@@ -1,9 +1,9 @@
-import { ArtImagePreviewRepositoryModel } from "@/app-library/content-repositories/ArtImagePreviewRepositoryModel";
+import { ArtImagePreviewAPI } from "@/app-library/content-apis/ArtImagePreviewAPI";
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 import { SectionModelView } from "../SectionModel";
 
 export interface ArtSectionView extends SectionModelView {
-	artImagePreviewRepositoryModel: ArtImagePreviewRepositoryModel;
+	artImagePreviewAPI: ArtImagePreviewAPI;
 }
 
 export type ArtSectionModel = ReadonlyModel<ArtSectionView>;
