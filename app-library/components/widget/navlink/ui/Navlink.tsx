@@ -1,5 +1,6 @@
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { NavlinkModel } from "../NavlinkModel";
+import "./navlink.scss";
 
 export const ELEMENT_NAME = "navlink";
 
