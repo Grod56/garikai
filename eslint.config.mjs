@@ -5,6 +5,7 @@ import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginNext from "@next/eslint-plugin-next";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
 	{
@@ -65,4 +66,5 @@ export default defineConfig([
 			"react/no-unescaped-entities": "warn",
 		},
 	},
+	eslintConfigPrettier,
 ]);
