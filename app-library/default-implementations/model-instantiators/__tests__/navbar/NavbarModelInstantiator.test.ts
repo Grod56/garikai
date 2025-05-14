@@ -4,10 +4,15 @@ import { modelInstantiatorTestInput } from "./data";
 describe("instantiateNavbarModel", () => {
 	describe("Model returned when called", () => {
 		const model = instantiateNavbarModel({ ...modelInstantiatorTestInput });
-		const { modelView } = model;
+		const { id, navlinkModels } = model.modelView;
 
 		it("corresponds with input parameters", () => {
-			expect(modelView.id).toEqual(modelInstantiatorTestInput.id);
+			expect(id).toEqual(modelInstantiatorTestInput.id);
+			navlinkModels.forEach((navlinkModel, index) => {
+				expect(navlinkModel.modelView).toEqual(
+					modelInstantiatorTestInput.navlinkModelViews[index]
+				);
+			});
 		});
 	});
 });

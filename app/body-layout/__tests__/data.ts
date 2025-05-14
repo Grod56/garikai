@@ -12,6 +12,7 @@ export const testModel: BodyLayoutModel = {
 		navbarModel: {
 			modelView: {
 				id: "svkllsdm",
+				navlinkModels: [],
 			},
 		},
 		footerModel: {

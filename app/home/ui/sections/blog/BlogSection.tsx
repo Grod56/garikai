@@ -8,11 +8,14 @@ import { instantiateSiteSubsectionModel } from "@/app-library/default-implementa
 import FeaturedPostPreviewPlaceholder from "@/app/home/ui/sections/blog/featured-post-preview-placeholder/FeaturedPostPreviewPlaceholder";
 import { BlogSectionModel } from "./BlogSectionModel";
 import RecentPostPreviewsPlaceholder from "./recent-posts-placeholder/RecentPostPreviewsPlaceholder";
+import { useRepository } from "@/app-library/utilities/use-repository";
+import { instantiatePostPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/PostPreviewRepositoryModelInstantiator";
 
 const BlogSection = function ({ model }) {
-	const { sectionTitle, postPreviewRepositoryModel, blogURL } =
-		model.modelView;
-	const { modelView: repositoryModelView } = postPreviewRepositoryModel;
+	const { sectionTitle, postPreviewAPI, blogURL } = model.modelView;
+	const { modelView: repositoryModelView } = useRepository(() =>
+		instantiatePostPreviewRepositoryModel(postPreviewAPI)
+	);
 
 	return (
 		<SiteSection

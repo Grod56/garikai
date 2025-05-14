@@ -1,3 +1,4 @@
+import { NavlinkModel } from "../../widget/navlink/NavlinkModel";
 import {
 	ContentComponentModel,
 	ContentComponentModelView,
@@ -5,4 +6,6 @@ import {
 
 export type NavbarModel = ContentComponentModel<NavbarModelView>;
 
-export type NavbarModelView = ContentComponentModelView;
+export interface NavbarModelView extends ContentComponentModelView {
+	readonly navlinkModels: NavlinkModel[];
+}

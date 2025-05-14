@@ -33,7 +33,18 @@ export default function RootLayout({
 		headerTitle: headerTitle,
 		headerSubtitle: headerSubTitle,
 	});
-	const navbarModel = instantiateNavbarModel({ id: "navbar" });
+	const navbarModel = instantiateNavbarModel({
+		id: "navbar",
+		navlinkModelViews: [
+			{ link: "/home#top", linkText: "Home" },
+			{ link: "/home#bio", linkText: "Bio" },
+			{ link: "/home#portfolio", linkText: "Portfolio" },
+			{ link: "/home#art", linkText: "Art" },
+			{ link: "/home#blog", linkText: "Blog" },
+			{ link: "/home#reading-list", linkText: "Reading List" },
+			{ link: "/home#contact-details", linkText: "Contact Details" },
+		],
+	});
 	const footerModel = instantiateFooterModel({
 		id: "footer",
 		copyrightText: copyrightText,

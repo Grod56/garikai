@@ -3,7 +3,7 @@ import Navbar, { ELEMENT_NAME } from "../Navbar";
 import { testModel } from "./data";
 
 describe("Navbar", () => {
-	const { id } = testModel.modelView;
+	const { id, navlinkModels } = testModel.modelView;
 	let componentElement: HTMLElement;
 
 	beforeEach(() => {
@@ -13,6 +13,13 @@ describe("Navbar", () => {
 
 	it("maps id property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute("id", id);
+	});
+	it("maps navlinkModels property to corresponding nodes", () => {
+		navlinkModels.forEach((navlinkModel) => {
+			const { link, linkText } = navlinkModel.modelView;
+			const linkElement = screen.getByText(linkText);
+			expect(linkElement).toContainHTML(link);
+		});
 	});
 	it("renders nav component element", () => {
 		expect(componentElement.tagName.toLowerCase()).toEqual("nav");

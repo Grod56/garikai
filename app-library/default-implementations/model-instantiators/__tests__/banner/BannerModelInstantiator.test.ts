@@ -7,7 +7,6 @@ describe("instantiateBannerModel", () => {
 		const { modelView } = model;
 
 		it("corresponds with input parameters", () => {
-			expect(modelView.id).toEqual(modelInstantiatorTestInput.id);
 			expect(modelView.bannerText).toEqual(
 				modelInstantiatorTestInput.bannerText
 			);

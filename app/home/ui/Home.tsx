@@ -1,14 +1,7 @@
 "use client";
-import { ArtImagePreviewRepositoryModel } from "@/app-library/content-repositories/ArtImagePreviewRepositoryModel";
-import { BookPreviewRepositoryModel } from "@/app-library/content-repositories/BookPreviewRepositoryModel";
-import { PostPreviewRepositoryModel } from "@/app-library/content-repositories/PostPreviewRepositoryModel";
 import { instantiateSupabaseArtImagePreviewAPI } from "@/app-library/default-implementations/content-apis/ArtImagePreviewAPIInstantiator";
 import { instantiateSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
 import { instantiateBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-apis/PostPreviewAPIInstantiator";
-import { instantiateArtImagePreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/ArtImagePreviewRepositoryModelInstantiator";
-import { instantiateBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/BookPreviewRepositoryModelInstantiator";
-import { instantiatePostPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/PostPreviewRepositoryModelInstantiator";
-import { useRepository } from "@/app-library/utilities/use-repository";
 import Main from "../../../app-library/components/content/main/ui/Main";
 import { instantiateMainModel } from "../../../app-library/default-implementations/model-instantiators/MainModelInstantiator";
 import ArtSection from "./sections/art/ArtSection";
@@ -24,27 +17,9 @@ const blogURL = new URL(process.env.NEXT_PUBLIC_BLOG_URL!);
 
 export default function Home() {
 	const mainModel = instantiateMainModel({ id: "home", name: "home" });
-
-	const artImagePreviewRepositoryModel =
-		useRepository<ArtImagePreviewRepositoryModel>(() =>
-			instantiateArtImagePreviewRepositoryModel(
-				instantiateSupabaseArtImagePreviewAPI()
-			)
-		);
-
-	const postPreviewRepositoryModel =
-		useRepository<PostPreviewRepositoryModel>(() =>
-			instantiatePostPreviewRepositoryModel(
-				instantiateBloggerPostPreviewAPI()
-			)
-		);
-
-	const bookPreviewRepositoryModel =
-		useRepository<BookPreviewRepositoryModel>(() =>
-			instantiateBookPreviewRepositoryModel(
-				instantiateSupabaseBookPreviewAPI()
-			)
-		);
+	const artImagePreviewAPI = instantiateSupabaseArtImagePreviewAPI();
+	const postPreviewAPI = instantiateBloggerPostPreviewAPI();
+	const bookPreviewAPI = instantiateSupabaseBookPreviewAPI();
 
 	return (
 		<Main model={mainModel}>
@@ -66,7 +41,7 @@ export default function Home() {
 				model={{
 					modelView: {
 						sectionTitle: "Art",
-						artImagePreviewRepositoryModel,
+						artImagePreviewAPI,
 					},
 				}}
 			/>
@@ -74,7 +49,7 @@ export default function Home() {
 				model={{
 					modelView: {
 						sectionTitle: "Blog",
-						postPreviewRepositoryModel,
+						postPreviewAPI,
 						blogURL,
 					},
 				}}
@@ -83,7 +58,7 @@ export default function Home() {
 				model={{
 					modelView: {
 						sectionTitle: "Reading List",
-						bookPreviewRepositoryModel,
+						bookPreviewAPI,
 					},
 				}}
 			/>

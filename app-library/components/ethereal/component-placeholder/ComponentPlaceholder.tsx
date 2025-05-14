@@ -11,13 +11,10 @@ function ComponentPlaceholder<M extends Model<V>, V extends object = object>({
 		PlaceholderedComponent,
 		PlaceholderComponent,
 	} = model.modelView;
-	return (
-		<>
-			{placeholderedComponentModel && (
-				<PlaceholderedComponent model={placeholderedComponentModel} />
-			)}
-			{!placeholderedComponentModel && <PlaceholderComponent />}
-		</>
+	return placeholderedComponentModel ? (
+		<PlaceholderedComponent model={placeholderedComponentModel} />
+	) : (
+		<PlaceholderComponent />
 	);
 }
 
