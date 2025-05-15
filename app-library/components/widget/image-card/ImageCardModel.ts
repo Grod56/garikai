@@ -1,5 +1,5 @@
 import { Image } from "@/app-library/custom-types/Image";
-import { Orientation } from "@/app-library/custom-types/Orientation";
+import { Orientation } from "@/app-library/custom-types/Miscellaneous";
 import {
 	WidgetComponentModel,
 	WidgetComponentModelView,

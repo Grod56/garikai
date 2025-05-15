@@ -1,4 +1,4 @@
-import { Orientation } from "@/app-library/custom-types/Orientation";
+import { Orientation } from "@/app-library/custom-types/Miscellaneous";
 import { ImageCardSkeletonModel } from "../../components/widget/image-card-skeleton/ImageCardSkeletonModel";
 
 export interface InstantiateImageCardSkeletonModelParameters {

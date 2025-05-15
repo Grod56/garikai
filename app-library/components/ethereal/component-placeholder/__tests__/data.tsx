@@ -1,6 +1,7 @@
+import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
 import { Model } from "@/app-library/custom-types/model/Model";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { JSX, useState } from "react";
+import { useState } from "react";
 import { ComponentPlaceholderModel } from "../ComponentPlaceholderModel";
 
 type TestPlaceholderedComponentModelView = {
@@ -12,7 +13,7 @@ export type TestPlaceholderedComponentModel =
 
 export function useTestData(
 	PlaceholderedComponent: ModeledVoidComponent<TestPlaceholderedComponentModel>,
-	PlaceholderComponent: () => JSX.Element
+	PlaceholderComponent: GeneralComponent
 ) {
 	const [placeholderedComponentModel, setPlaceholderedComponentModel] =
 		useState<TestPlaceholderedComponentModel | undefined>(undefined);

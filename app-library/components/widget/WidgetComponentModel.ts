@@ -1,4 +1,4 @@
-import { ReadonlyModel as Model } from "@/app-library/custom-types/model/ReadonlyModel";
+import { Model } from "@/app-library/custom-types/model/Model";
 
 export interface WidgetComponentModelView {
 	readonly customName?: string;

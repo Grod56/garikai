@@ -1,105 +1,67 @@
+import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
 import { act, render, renderHook, screen } from "@testing-library/react";
 import ConditionalComponent from "../ConditionalComponent";
 import { TestCondition, useTestData } from "./data";
-import { JSX } from "react";
 
 describe("ConditionalComponent", () => {
 	const getComponents = () =>
-		new Map<TestCondition, () => JSX.Element>([
-			["AB", jest.fn(() => <div data-testid="AB"></div>)],
-			["CD", jest.fn(() => <div data-testid="CD"></div>)],
+		new Map<TestCondition, GeneralComponent>([
+			["AB", jest.fn(() => <div data-testid="AB" />)],
 		]);
+	const getFallbackComponent = () =>
+		jest.fn(() => <div data-testid="fallback" />);
+
 	beforeAll(() => {
-		const renderedHook = renderHook(() => useTestData(getComponents()));
+		const renderedHook = renderHook(() =>
+			useTestData(getComponents(), getFallbackComponent())
+		);
 		const { testModel } = renderedHook.result.current;
-		const { components } = testModel.modelView;
+		const { components, FallBackComponent } = testModel.modelView;
 		components.values().forEach((component) => {
 			expect(component).not.toHaveBeenCalled();
 		});
-	});
-
-	it("only calls component corresponding to condition", async () => {
-		const renderedHook = renderHook(() => useTestData(getComponents()));
-		const { testModel, setCondition } = renderedHook.result.current;
-
-		const renderedComponent = render(
-			<ConditionalComponent model={testModel} />
-		);
-
-		act(() => {
-			setCondition("CD");
-		});
-
-		renderedComponent.rerender(
-			<ConditionalComponent
-				model={renderedHook.result.current.testModel}
-			/>
-		);
-
-		const components =
-			renderedHook.result.current.testModel.modelView.components;
-		expect(components.get("CD")).toHaveBeenCalled();
-		components
-			.keys()
-			.filter((key) => key !== "CD")
-			.forEach((filteredKey) =>
-				expect(components.get(filteredKey)).not.toHaveBeenCalled()
-			);
-	});
-
-	it("calls none of provided components when condition does not map to any", () => {
-		const renderedHook = renderHook(() => useTestData(getComponents()));
-		const { testModel, setCondition } = renderedHook.result.current;
-
-		const renderedComponent = render(
-			<ConditionalComponent model={testModel} />
-		);
-		act(() => {
-			setCondition("EF");
-		});
-
-		renderedComponent.rerender(
-			<ConditionalComponent
-				model={renderedHook.result.current.testModel}
-			/>
-		);
-
-		renderedHook.result.current.testModel.modelView.components
-			.values()
-			.forEach((component) => {
-				expect(component).not.toHaveBeenCalled();
-			});
+		expect(FallBackComponent).not.toHaveBeenCalled();
 	});
 
 	it("only renders Component relevant to provided condition", () => {
-		const renderedHook = renderHook(() => useTestData(getComponents()));
+		const renderedHook = renderHook(() =>
+			useTestData(getComponents(), getFallbackComponent())
+		);
 		const { setCondition } = renderedHook.result.current;
 
 		act(() => setCondition("AB"));
 
-		render(
+		const rendered = render(
 			<ConditionalComponent
 				model={renderedHook.result.current.testModel}
 			/>
 		);
 
-		expect(screen.queryByTestId("AB")).toBeInTheDocument();
-		expect(screen.queryByTestId("CD")).not.toBeInTheDocument();
+		const containerElement = rendered.container;
+		const selectedElement = screen.getByTestId("AB");
+
+		expect(selectedElement).toBe(containerElement.firstChild);
+		expect(selectedElement).toBe(containerElement.lastChild);
 	});
 
-	it("renders none of provided components when condition does not map to any", () => {
-		const renderedHook = renderHook(() => useTestData(getComponents()));
+	it("renders fallback component when condition does not map to any components", () => {
+		const renderedHook = renderHook(() =>
+			useTestData(getComponents(), getFallbackComponent())
+		);
 		const { setCondition } = renderedHook.result.current;
 
-		act(() => setCondition("EF"));
+		act(() => setCondition("CD"));
 
-		render(
+		const rendered = render(
 			<ConditionalComponent
 				model={renderedHook.result.current.testModel}
 			/>
 		);
 
-		expect(screen.queryByTestId("AB")).not.toBeInTheDocument();
-		expect(screen.queryByTestId("CD")).not.toBeInTheDocument();
+		const containerElement = rendered.container;
+		const selectedElement = screen.getByTestId("fallback");
+
+		expect(selectedElement).toEqual(containerElement.firstChild);
+		expect(selectedElement).toEqual(containerElement.lastChild);
 	});
 });
