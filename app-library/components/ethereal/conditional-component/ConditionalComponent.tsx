@@ -5,8 +5,12 @@ function ConditionalComponent<C>({
 }: {
 	model: ConditionalComponentModel<C>;
 }) {
-	const { condition, components } = model.modelView;
-	return <>{components.get(condition)?.()}</>;
+	const { condition, components, FallBackComponent } = model.modelView;
+	return components.get(condition) ? (
+		components.get(condition)!()
+	) : (
+		<FallBackComponent />
+	);
 }
 
 export default ConditionalComponent;

@@ -1,9 +1,8 @@
+import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
 import { Model } from "@/app-library/custom-types/model/Model";
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { JSX } from "react";
 
-export type PlaceholderComponent = () => JSX.Element;
 export type PlaceholderedComponentModel<
 	M extends Model<V>,
 	V extends object = object,
@@ -15,7 +14,7 @@ export interface ComponentPlaceholderModelView<
 > {
 	placeholderedComponentModel: PlaceholderedComponentModel<M>;
 	PlaceholderedComponent: ModeledVoidComponent<M>;
-	PlaceholderComponent: PlaceholderComponent;
+	PlaceholderComponent: GeneralComponent;
 }
 
 export type ComponentPlaceholderModel<
