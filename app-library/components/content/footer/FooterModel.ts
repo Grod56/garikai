@@ -1,3 +1,4 @@
+import { SocialLinkModel } from "../../widget/social-link/SocialLinkModel";
 import {
 	ContentComponentModel,
 	ContentComponentModelView,
@@ -6,5 +7,6 @@ import {
 export type FooterModel = ContentComponentModel<FooterModelView>;
 
 export interface FooterModelView extends ContentComponentModelView {
-	readonly copyright: string;
+	copyright: string;
+	socialLinkModels: SocialLinkModel[];
 }

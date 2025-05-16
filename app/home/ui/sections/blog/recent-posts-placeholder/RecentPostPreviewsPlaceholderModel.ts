@@ -6,7 +6,7 @@ export enum RecentPostPreviewsPlaceholderType {
 }
 
 export interface RecentPostPreviewsPlaceholderModelView {
-	placeholderedRecentPostPreviewModels: PostPreviewModel[] | undefined;
+	recentPostPreviewModels: PostPreviewModel[] | undefined;
 }
 
 export type RecentPostPreviewsPlaceholderModel =

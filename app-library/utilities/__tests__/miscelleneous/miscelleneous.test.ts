@@ -1,4 +1,8 @@
-import { compositeClassNameResolver, removeMarkup } from "../../miscelleneous";
+import {
+	compositeClassNameResolver,
+	instantiateReadonlyModel,
+	removeMarkup,
+} from "../../miscelleneous";
 
 describe("compositeClassNameResolver", () => {
 	it("outputs empty string when input is empty", () => {
@@ -23,5 +27,14 @@ describe("removeMarkup", () => {
 	it("outputs unaltered output when markup not present in input", () => {
 		const nonMarkedUpText = "No markup here.";
 		expect(removeMarkup(nonMarkedUpText)).toEqual(nonMarkedUpText);
+	});
+});
+
+describe("instantiateReadonlyModel", () => {
+	it("outputs model with equivalent modelview", () => {
+		const modelView = { name: "John", surname: "Vervaeke" };
+		const model = instantiateReadonlyModel(modelView);
+
+		expect(model.modelView).toEqual(modelView);
 	});
 });

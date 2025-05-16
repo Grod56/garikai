@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import BodyLayout from "../BodyLayout";
+import AppDesign from "../AppDesign";
 
-describe("BodyLayout", () => {
+describe("AppDesign", () => {
 	it("lays out elements in their proper sequence", () => {
 		const rendered = render(
-			<BodyLayout>
+			<AppDesign>
 				<></>
-			</BodyLayout>
+			</AppDesign>
 		);
 		const containerElement = rendered.container;
 		const headerElement = screen.getByRole("banner");

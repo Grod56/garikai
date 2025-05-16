@@ -2,7 +2,7 @@ import { BookPreviewModel } from "@/app-library/components/content/book-preview/
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 
 export interface BookPreviewsPlaceholderModelView {
-	placeholderedBookPreviewModels: BookPreviewModel[] | undefined;
+	bookPreviewModels: BookPreviewModel[] | undefined;
 }
 
 export type BookPreviewsPlaceholderModel =

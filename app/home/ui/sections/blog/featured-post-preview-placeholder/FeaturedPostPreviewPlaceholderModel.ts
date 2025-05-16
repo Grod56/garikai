@@ -1,12 +1,9 @@
 import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
 import { FeaturedPostPreviewModel } from "../../../../../../app-library/components/content/post-preview/FeaturedPostPreviewModel";
-
-export enum FeaturedPostPreviewPlaceholderType {
-	PENDING,
-}
+import { PlaceholderedComponentModel } from "@/app-library/components/ethereal/component-placeholder/ComponentPlaceholderModel";
 
 export interface FeaturedPostPreviewPlaceholderModelView {
-	placeholderedFeaturedPostPreviewModel: FeaturedPostPreviewModel | undefined;
+	featuredPostPreviewModel: PlaceholderedComponentModel<FeaturedPostPreviewModel>;
 }
 
 export type FeaturedPostPreviewPlaceholderModel =

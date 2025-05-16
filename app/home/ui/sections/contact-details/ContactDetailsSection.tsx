@@ -1,14 +1,14 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import { ContactDetailsSectionModel } from "./ContactDetailsSectionModel";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
 const ContactDetailsSection = function ({ model }) {
 	const { sectionTitle } = model.modelView;
 
 	return (
 		<SiteSection
-			model={instantiateSiteSectionModel({
+			model={instantiateReadonlyModel({
 				id: "contact-details",
 				sectionName: "contact-details",
 				sectionTitle: sectionTitle,

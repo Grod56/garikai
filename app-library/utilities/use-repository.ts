@@ -11,7 +11,7 @@ import {
 } from "../custom-types/model/StatifiableModel";
 import { useTransformedStatefulInteractiveModel } from "./stateful-model";
 
-export function useRepository<
+export function useStatefulRepository<
 	T extends RepositoryModel<U, V>,
 	U extends RepositoryModelView = RepositoryModelView,
 	V extends RepositoryModelInteraction = RepositoryModelInteraction,

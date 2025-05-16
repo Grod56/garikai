@@ -1,5 +1,4 @@
-.footer,
-.socials a {
+.footer {
 	color: var(--secondary-color-1);
 }
 
@@ -19,13 +18,13 @@
 	text-align: center;
 }
 
+.footer hr {
+	width: 75vw;
+	border-top: 1px solid var(--secondary-color-1);
+}
+
 .footer .socials {
 	display: flex;
 	gap: 1.5rem;
 	font-size: 2rem;
-}
-
-.footer hr {
-	width: 75vw;
-	border-top: 1px solid var(--secondary-color-1);
 }

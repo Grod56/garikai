@@ -44,7 +44,7 @@ describe("ConditionalComponent", () => {
 		expect(selectedElement).toBe(containerElement.lastChild);
 	});
 
-	it("renders fallback component when condition does not map to any components", () => {
+	it("only renders fallback component when condition is unmapped", () => {
 		const renderedHook = renderHook(() =>
 			useTestData(getComponents(), getFallbackComponent())
 		);
