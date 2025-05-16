@@ -1,16 +1,16 @@
 import { BookPreviewModel } from "@/app-library/components/content/book-preview/BookPreviewModel";
-import { instantiateBookPreviewModel } from "@/app-library/default-implementations/model-instantiators/BookPreviewModelInstantiator";
+import { RepositoryInteractionType } from "@/app-library/content-repositories/RepositoryModel";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
 import { ViewInteractionInterface } from "@/app-library/custom-types/model/StatifiableModel";
+import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import {
 	BookPreviewAPI,
 	BookPreviewRecord,
 } from "../../content-apis/BookPreviewAPI";
 import {
-	BookPreviewRepositoryModelView,
 	BookPreviewRepositoryModelInteraction,
+	BookPreviewRepositoryModelView,
 } from "../../content-repositories/BookPreviewRepositoryModel";
-import { RepositoryInteractionType } from "@/app-library/content-repositories/RepositoryModel";
 
 export function instantiateBookPreviewRepositoryModel(api: BookPreviewAPI) {
 	const viewInteractionInterface = _viewInteractionInterface(api);
@@ -44,7 +44,7 @@ async function _retrieveBookPreviewRepositoryModels(
 		const records = await api.retrieveRecords();
 		const retrievedModels: BookPreviewModel[] = records.map(
 			(record: BookPreviewRecord) => {
-				return instantiateBookPreviewModel({
+				return instantiateReadonlyModel({
 					id: `book-preview_${record.id}`,
 					title: record.title,
 					author: record.author,

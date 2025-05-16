@@ -2,21 +2,21 @@
 import { instantiateSupabaseArtImagePreviewAPI } from "@/app-library/default-implementations/content-apis/ArtImagePreviewAPIInstantiator";
 import { instantiateSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
 import { instantiateBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-apis/PostPreviewAPIInstantiator";
+import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import Main from "../../../app-library/components/content/main/ui/Main";
-import { instantiateMainModel } from "../../../app-library/default-implementations/model-instantiators/MainModelInstantiator";
+import "./home.scss";
 import ArtSection from "./sections/art/ArtSection";
 import BioSection from "./sections/bio/BioSection";
 import BlogSection from "./sections/blog/BlogSection";
 import ContactDetailsSection from "./sections/contact-details/ContactDetailsSection";
 import PortfolioSection from "./sections/portfolio/PortfolioSection";
 import ReadingListSection from "./sections/reading-list/ReadingListSection";
-import "./home.scss";
 
 // Config
 const blogURL = new URL(process.env.NEXT_PUBLIC_BLOG_URL!);
 
 export default function Home() {
-	const mainModel = instantiateMainModel({ id: "home", name: "home" });
+	const mainModel = instantiateReadonlyModel({ id: "home", name: "home" });
 	const artImagePreviewAPI = instantiateSupabaseArtImagePreviewAPI();
 	const postPreviewAPI = instantiateBloggerPostPreviewAPI();
 	const bookPreviewAPI = instantiateSupabaseBookPreviewAPI();
@@ -24,50 +24,38 @@ export default function Home() {
 	return (
 		<Main model={mainModel}>
 			<BioSection
-				model={{
-					modelView: {
-						sectionTitle: "Bio",
-					},
-				}}
+				model={instantiateReadonlyModel({
+					sectionTitle: "Bio",
+				})}
 			/>
 			<PortfolioSection
-				model={{
-					modelView: {
-						sectionTitle: "Portfolio",
-					},
-				}}
+				model={instantiateReadonlyModel({
+					sectionTitle: "Portfolio",
+				})}
 			/>
 			<ArtSection
-				model={{
-					modelView: {
-						sectionTitle: "Art",
-						artImagePreviewAPI,
-					},
-				}}
+				model={instantiateReadonlyModel({
+					sectionTitle: "Art",
+					artImagePreviewAPI,
+				})}
 			/>
 			<BlogSection
-				model={{
-					modelView: {
-						sectionTitle: "Blog",
-						postPreviewAPI,
-						blogURL,
-					},
-				}}
+				model={instantiateReadonlyModel({
+					sectionTitle: "Blog",
+					postPreviewAPI,
+					blogURL,
+				})}
 			/>
 			<ReadingListSection
-				model={{
-					modelView: {
-						sectionTitle: "Reading List",
-						bookPreviewAPI,
-					},
-				}}
+				model={instantiateReadonlyModel({
+					sectionTitle: "Reading List",
+					bookPreviewAPI,
+				})}
 			/>
 			<ContactDetailsSection
-				model={{
-					modelView: {
-						sectionTitle: "Contact Details",
-					},
-				}}
+				model={instantiateReadonlyModel({
+					sectionTitle: "Contact Details",
+				})}
 			/>
 		</Main>
 	);

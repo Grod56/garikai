@@ -1,16 +1,16 @@
 import { ArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/ArtImagePreviewModel";
+import { RepositoryInteractionType } from "@/app-library/content-repositories/RepositoryModel";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
 import { ViewInteractionInterface } from "@/app-library/custom-types/model/StatifiableModel";
+import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import {
 	ArtImagePreviewAPI,
 	ArtImagePreviewRecord,
 } from "../../content-apis/ArtImagePreviewAPI";
 import {
-	ArtImagePreviewRepositoryModelView,
 	ArtImagePreviewRepositoryModelInteraction,
+	ArtImagePreviewRepositoryModelView,
 } from "../../content-repositories/ArtImagePreviewRepositoryModel";
-import { instantiateArtImagePreviewModel } from "@/app-library/default-implementations/model-instantiators/ArtImagePreviewModelInstantiator";
-import { RepositoryInteractionType } from "@/app-library/content-repositories/RepositoryModel";
 
 export function instantiateArtImagePreviewRepositoryModel(
 	api: ArtImagePreviewAPI
@@ -69,7 +69,7 @@ async function _retrieveArtImagePreviewRepositoryModels(
 		const records = await api.retrieveRecords();
 		const retrievedModels: ArtImagePreviewModel[] = records.map(
 			(record: ArtImagePreviewRecord) => {
-				return instantiateArtImagePreviewModel({
+				return instantiateReadonlyModel({
 					id: `art-image-preview_${record.id}`,
 					image: {
 						source: record.imageSource,

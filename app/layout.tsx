@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Explora } from "next/font/google";
 import { Metadata } from "next/types";
-import BodyLayout from "./body-layout/BodyLayout";
+import AppDesign from "./app-design/AppDesign";
 
 // Initial configuration ---------------------------------------------------
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 		<html lang="en" className={exploraFont.className}>
 			<head />
 			<body>
-				<BodyLayout>{children}</BodyLayout>
+				<AppDesign>{children}</AppDesign>
 			</body>
 		</html>
 	);

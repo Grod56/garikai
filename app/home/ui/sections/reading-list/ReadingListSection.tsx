@@ -2,21 +2,20 @@ import SiteSection from "@/app-library/components/content/site-section/ui/SiteSe
 import GridContainer from "@/app-library/components/widget/grid-container/ui/GridContainer";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { instantiateBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/BookPreviewRepositoryModelInstantiator";
-import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
-import { useRepository } from "@/app-library/utilities/use-repository";
+import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
+import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import BookPreviewsPlaceholder from "./book-previews-placeholder/BookPreviewsPlaceholder";
 import { ReadingListSectionModel } from "./ReadingListSectionModel";
 
 const ReadingListSection = function ({ model }) {
 	const { sectionTitle, bookPreviewAPI } = model.modelView;
-	const { modelView: repositoryModelView } = useRepository(() =>
+	const { modelView: repositoryModelView } = useStatefulRepository(() =>
 		instantiateBookPreviewRepositoryModel(bookPreviewAPI)
 	);
 
 	return (
 		<SiteSection
-			model={instantiateSiteSectionModel({
+			model={instantiateReadonlyModel({
 				id: "reading-list",
 				sectionName: "reading-list",
 				sectionTitle: sectionTitle,
@@ -29,19 +28,17 @@ const ReadingListSection = function ({ model }) {
 				clarity in the near future.
 			</p>
 			<GridContainer
-				model={instantiateGridContainerModel({
+				model={instantiateReadonlyModel({
 					maxXorY: 2,
 					orientation: "horizontal",
 					overflow: false,
 				})}
 			>
 				<BookPreviewsPlaceholder
-					model={{
-						modelView: {
-							placeholderedBookPreviewModels:
-								repositoryModelView?.bookPreviewModels,
-						},
-					}}
+					model={instantiateReadonlyModel({
+						bookPreviewModels:
+							repositoryModelView?.bookPreviewModels,
+					})}
 				/>
 			</GridContainer>
 		</SiteSection>

@@ -8,7 +8,7 @@ import {
 	RenderHookResult,
 	waitFor,
 } from "@testing-library/react";
-import { useRepository } from "../../use-repository";
+import { useStatefulRepository } from "../../use-repository";
 import {
 	faultyTestRepositoryModelInstantiator,
 	TestRepositoryModelView,
@@ -16,7 +16,7 @@ import {
 	TestRepositoryModelInteraction,
 } from "./data";
 
-describe("useRepository", () => {
+describe("useStatefulRepository", () => {
 	let renderedHook: RenderHookResult<
 		RepositoryModel<
 			TestRepositoryModelView,
@@ -29,7 +29,7 @@ describe("useRepository", () => {
 		act(
 			() =>
 				(renderedHook = renderHook(() =>
-					useRepository(testRepositoryModelInstantiator)
+					useStatefulRepository(testRepositoryModelInstantiator)
 				))
 		);
 	});
@@ -91,10 +91,10 @@ describe("useRepository", () => {
 		consoleErrorSpy.mockImplementation();
 		const errorMessage = "Error error reached critical levels";
 
-		//TODO: Warning still not clearing
+		// Jest warning still not clearing
 		act(() =>
 			renderHook(() => {
-				useRepository(() =>
+				useStatefulRepository(() =>
 					faultyTestRepositoryModelInstantiator(errorMessage)
 				);
 			})

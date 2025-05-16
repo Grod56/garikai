@@ -1,23 +1,22 @@
-import Banner from "@/app-library/components/widget/banner/ui/Banner";
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
+import Banner from "@/app-library/components/widget/banner/ui/Banner";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { instantiateBannerModel } from "@/app-library/default-implementations/model-instantiators/BannerModelInstantiator";
+import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import { PortfolioSectionModel } from "./PortfolioSectionModel";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
 
 const PortfolioSection = function ({ model }) {
 	const { sectionTitle } = model.modelView;
 
 	return (
 		<SiteSection
-			model={instantiateSiteSectionModel({
+			model={instantiateReadonlyModel({
 				id: "portfolio",
 				sectionName: "portfolio",
 				sectionTitle: sectionTitle,
 			})}
 		>
 			<Banner
-				model={instantiateBannerModel({
+				model={instantiateReadonlyModel({
 					bannerText: "Coming Soon",
 				})}
 			/>

@@ -2,31 +2,29 @@ import SiteSection from "@/app-library/components/content/site-section/ui/SiteSe
 import SiteSubsection from "@/app-library/components/content/site-subsection/ui/SiteSubsection";
 import GridContainer from "@/app-library/components/widget/grid-container/ui/GridContainer";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { instantiateGridContainerModel } from "@/app-library/default-implementations/model-instantiators/GridContainerModelInstantiator";
-import { instantiateSiteSectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSectionModelInstantiator";
-import { instantiateSiteSubsectionModel } from "@/app-library/default-implementations/model-instantiators/SiteSubsectionModelInstantiator";
+import { instantiatePostPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/PostPreviewRepositoryModelInstantiator";
+import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
+import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import FeaturedPostPreviewPlaceholder from "@/app/home/ui/sections/blog/featured-post-preview-placeholder/FeaturedPostPreviewPlaceholder";
 import { BlogSectionModel } from "./BlogSectionModel";
 import RecentPostPreviewsPlaceholder from "./recent-posts-placeholder/RecentPostPreviewsPlaceholder";
-import { useRepository } from "@/app-library/utilities/use-repository";
-import { instantiatePostPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/PostPreviewRepositoryModelInstantiator";
 
 const BlogSection = function ({ model }) {
 	const { sectionTitle, postPreviewAPI, blogURL } = model.modelView;
-	const { modelView: repositoryModelView } = useRepository(() =>
+	const { modelView: repositoryModelView } = useStatefulRepository(() =>
 		instantiatePostPreviewRepositoryModel(postPreviewAPI)
 	);
 
 	return (
 		<SiteSection
-			model={instantiateSiteSectionModel({
+			model={instantiateReadonlyModel({
 				id: "blog",
 				sectionName: "blog",
 				sectionTitle: sectionTitle,
 			})}
 		>
 			<SiteSubsection
-				model={instantiateSiteSubsectionModel({
+				model={instantiateReadonlyModel({
 					id: "featured-post",
 					subsectionTitle: "Featured Post",
 				})}
@@ -34,32 +32,30 @@ const BlogSection = function ({ model }) {
 				<FeaturedPostPreviewPlaceholder
 					model={{
 						modelView: {
-							placeholderedFeaturedPostPreviewModel:
+							featuredPostPreviewModel:
 								repositoryModelView?.featuredPostPreviewModel,
 						},
 					}}
 				/>
 			</SiteSubsection>
 			<SiteSubsection
-				model={instantiateSiteSubsectionModel({
+				model={instantiateReadonlyModel({
 					id: "recent-posts",
 					subsectionTitle: "Recent Posts",
 				})}
 			>
 				<GridContainer
-					model={instantiateGridContainerModel({
+					model={instantiateReadonlyModel({
 						maxXorY: 3,
 						orientation: "horizontal",
 						overflow: true,
 					})}
 				>
 					<RecentPostPreviewsPlaceholder
-						model={{
-							modelView: {
-								placeholderedRecentPostPreviewModels:
-									repositoryModelView?.recentPostPreviewModels,
-							},
-						}}
+						model={instantiateReadonlyModel({
+							recentPostPreviewModels:
+								repositoryModelView?.recentPostPreviewModels,
+						})}
 					/>
 				</GridContainer>
 			</SiteSubsection>
