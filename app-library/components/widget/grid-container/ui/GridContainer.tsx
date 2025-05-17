@@ -1,7 +1,10 @@
 import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
-import { CSSProperties, useLayoutEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
+import { CSSProperties } from "react";
 import { GridContainerModel, Orientation } from "../GridContainerModel";
+import {
+	MediaContextProvider,
+	Media,
+} from "@/app-library/third-party/fresnel/Media";
 import "./grid-container.scss";
 
 export const ELEMENT_NAME = "grid-container";
@@ -23,27 +26,37 @@ const getNewStyle = (
 	return undefined;
 };
 
+//TODO: To be polished in the future
 const GridContainer = function ({ model, children }) {
 	const { maxXorY, orientation, overflow } = model.modelView;
-	const isWideScreen = useMediaQuery({ minWidth: 768 });
-	const [style, setStyle] = useState<CSSProperties | undefined>();
-
-	// SSR fix (I hate everything about this)
-	useLayoutEffect(() => {
-		setStyle(getNewStyle(orientation, maxXorY, overflow, isWideScreen));
-	}, [isWideScreen, maxXorY, orientation, overflow]);
 
 	return (
-		<div
-			className={ELEMENT_NAME}
-			data-orientation={orientation}
-			data-maxxory={maxXorY} // Now just exposed for testing
-			data-overflow={overflow}
-			style={style} // Iffy, but will do for now
-			data-testid={ELEMENT_NAME}
-		>
-			{children}
-		</div>
+		<MediaContextProvider>
+			<Media at="xs">
+				<div
+					className={ELEMENT_NAME}
+					data-orientation={orientation}
+					data-maxxory={maxXorY} // Now just exposed for testing
+					data-overflow={overflow}
+					style={getNewStyle(orientation, maxXorY, overflow, false)} // Iffy, but will do for now
+					data-testid={ELEMENT_NAME}
+				>
+					{children}
+				</div>
+			</Media>
+			<Media greaterThan="xs">
+				<div
+					className={ELEMENT_NAME}
+					data-orientation={orientation}
+					data-maxxory={maxXorY}
+					data-overflow={overflow}
+					style={getNewStyle(orientation, maxXorY, overflow, true)}
+					data-testid={ELEMENT_NAME}
+				>
+					{children}
+				</div>
+			</Media>
+		</MediaContextProvider>
 	);
 } as ModeledContainerComponent<GridContainerModel>;
 

@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import blogger from "@/app-library/external-apis/blogger";
+import blogger from "@/app-library/third-party/apis/blogger";
 import { successfulRequestPayload } from "./data";
 
 describe("blogger", () => {

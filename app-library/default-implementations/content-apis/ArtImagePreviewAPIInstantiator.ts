@@ -2,7 +2,7 @@ import {
 	ArtImagePreviewAPI,
 	ArtImagePreviewRecord,
 } from "../../content-apis/ArtImagePreviewAPI";
-import supabase from "@/app-library/external-apis/supabase";
+import supabase from "@/app-library/third-party/apis/supabase";
 
 export function instantiateSupabaseArtImagePreviewAPI(): ArtImagePreviewAPI {
 	return {

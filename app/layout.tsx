@@ -1,3 +1,4 @@
+import FresnelHead from "@/app-library/third-party/fresnel/FresnelHead";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Explora } from "next/font/google";
 import { Metadata } from "next/types";
@@ -22,8 +23,8 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={exploraFont.className}>
-			<head />
-			<body>
+			<FresnelHead />
+			<body suppressHydrationWarning>
 				<AppDesign>{children}</AppDesign>
 			</body>
 		</html>

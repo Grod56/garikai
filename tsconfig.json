@@ -29,7 +29,7 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"app-library/utilities/__tests__/ui.test.js",
-		"app-library/external-apis/__tests__/blogger/blogger.test.js"
+		"app-library/third-party/apis/__tests__/blogger/blogger.test.js"
 	],
 	"exclude": ["node_modules"]
 }

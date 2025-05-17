@@ -1,4 +1,4 @@
-$maxHorizontalHeight: 10.5em;
+$maxHorizontalHeight: max(10.5em, fit-content);
 $maxHorizontalThumbnailWidth: 32%;
 $maxLandscapeVerticalThumbnailHeight: 7em;
 $maxPortraitVerticalThumbnailHeight: 40vh;
