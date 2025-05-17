@@ -1,5 +1,5 @@
 import { waitFor } from "@testing-library/react";
-import blogger from "@/app-library/external-apis/blogger";
+import blogger from "@/app-library/third-party/apis/blogger";
 import {
 	faultyBloggerSpySelectMockImplementation,
 	bloggerSpySelectMockImplementation,

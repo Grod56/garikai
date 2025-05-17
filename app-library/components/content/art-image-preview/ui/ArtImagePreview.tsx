@@ -18,7 +18,7 @@ const ArtImagePreview = function ({ model }) {
 				model={{
 					modelView: {
 						image: image,
-						width: 420,
+						width: 520,
 						height: 410,
 					},
 				}}

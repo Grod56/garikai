@@ -2,7 +2,7 @@ import {
 	PostPreviewAPI,
 	PostPreviewRecord,
 } from "../../content-apis/PostPreviewAPI";
-import blogger from "@/app-library/external-apis/blogger";
+import blogger from "@/app-library/third-party/apis/blogger";
 
 type BloggerBlogPostItem = {
 	id: string;

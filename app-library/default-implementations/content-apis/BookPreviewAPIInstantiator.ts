@@ -1,4 +1,4 @@
-import supabase from "@/app-library/external-apis/supabase";
+import supabase from "@/app-library/third-party/apis/supabase";
 import {
 	BookPreviewAPI,
 	BookPreviewRecord,

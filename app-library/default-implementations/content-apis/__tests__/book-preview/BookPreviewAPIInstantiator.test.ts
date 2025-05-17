@@ -1,5 +1,5 @@
 import { waitFor } from "@testing-library/react";
-import supabase from "@/app-library/external-apis/supabase";
+import supabase from "@/app-library/third-party/apis/supabase";
 import {
 	faultySupabaseSpySelectMockImplementation,
 	supabaseSpySelectMockImplementation,
