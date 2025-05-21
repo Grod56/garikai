@@ -22,13 +22,13 @@ const BioSection = function ({ model }) {
 				&quot;summarize&quot; myself.
 			</p>
 			<p>
-				My name is Garikai Rodney Gumbo, I&apos;m an Electrical
-				Engineering student by day, and a software coder by night—to put
-				it most appropriately. Besides these areas of
+				My name is Garikai Gumbo, I&apos;m an Electrical Engineer by
+				training, and a software coder by night—to put it most
+				appropriately. Outside these areas of
 				&quot;specialization&quot;, I am also interested in pencil
-				drawing, cursive calligraphy, classical literature, biblical
+				drawing, cursive calligraphy, classical literature, Biblical
 				symbolism, Orthodox iconography, patristics... among other
-				things.
+				things. Will be sharing more on these here in the near future.
 			</p>
 			<p>
 				You may check out what I&apos;m thinking about or currently

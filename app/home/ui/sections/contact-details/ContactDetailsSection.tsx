@@ -24,7 +24,7 @@ const ContactDetailsSection = function ({ model }) {
 					Whatsapp
 				</a>
 				. If perhaps something piqued your interest here, or maybe even
-				annoyed you (I take it all in spades I promise 😤), my personal
+				annoyed you (I take it all in spades I promise 😌), my personal
 				email is right <a href="mailto:rodneygaryx29@gmail.com">here</a>
 				. The rest of my socials are down in the footer.
 			</p>
