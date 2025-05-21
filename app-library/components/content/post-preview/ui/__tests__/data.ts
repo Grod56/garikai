@@ -17,7 +17,7 @@ export const postPreviewTestModel: PostPreviewModel = {
 
 export const featuredPostPreviewTestModel: FeaturedPostPreviewModel = {
 	modelView: {
-		...postPreviewTestModel.modelView,
+		...postPreviewTestModel.modelView!,
 		snippet: "This is a snippet",
 	},
 };

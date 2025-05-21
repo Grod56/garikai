@@ -1,0 +1,15 @@
+@use "../../../../../../app-library/styles/component-utilities/grid-container";
+
+.art-image-placeholders-container {
+	@include grid-container.grid(6, horizontal, true, false);
+	overflow: visible;
+	margin-inline: auto;
+	max-width: 100%;
+	margin-left: -2em;
+}
+
+@media (min-width: 768px) {
+	.art-image-placeholders-container {
+		@include grid-container.grid(6, horizontal, true, true);
+	}
+}

@@ -1,4 +1,4 @@
-import { Model } from "@/app-library/custom-types/model/Model";
+import { Model } from "@mvc-react/mvc";
 import { ComponentPlaceholderModel } from "./ComponentPlaceholderModel";
 
 function ComponentPlaceholder<M extends Model<V>, V extends object = object>({

@@ -1,5 +1,5 @@
 import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
-import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
+import { ReadonlyModel } from "@mvc-react/mvc";
 
 export interface ConditionalComponentModelView<C> {
 	condition: C;

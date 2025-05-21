@@ -1,10 +1,10 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { instantiateArtImagePreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/ArtImagePreviewRepositoryModelInstantiator";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import ArtImagePreviewsPlaceholder from "./art-image-previews-placeholder/ArtImagePreviewsPlaceholder";
 import { ArtSectionModel } from "./ArtSectionModel";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 const ArtSection = function ({ model }) {
 	const { sectionTitle, artImagePreviewAPI } = model.modelView;
@@ -14,14 +14,14 @@ const ArtSection = function ({ model }) {
 
 	return (
 		<SiteSection
-			model={instantiateReadonlyModel({
+			model={newReadonlyModel({
 				id: "art",
 				sectionName: "art",
 				sectionTitle: sectionTitle,
 			})}
 		>
 			<ArtImagePreviewsPlaceholder
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					artImagePreviewModels:
 						repositoryModelView?.artImagePreviewModels,
 				})}

@@ -1,13 +1,9 @@
 import { ArtImagePreviewModel } from "../components/content/art-image-preview/ArtImagePreviewModel";
-import {
-	RepositoryModel,
-	RepositoryModelInteraction,
-	RepositoryModelView,
-} from "./RepositoryModel";
+import { RepositoryModel, RepositoryModelInteraction } from "./RepositoryModel";
 
-export type ArtImagePreviewRepositoryModelView = RepositoryModelView<{
+export interface ArtImagePreviewRepositoryModelView {
 	readonly artImagePreviewModels: ArtImagePreviewModel[];
-}>;
+}
 
 export type ArtImagePreviewRepositoryModelInteraction =
 	RepositoryModelInteraction;

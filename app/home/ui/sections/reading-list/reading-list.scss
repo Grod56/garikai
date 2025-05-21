@@ -1,0 +1,11 @@
+@use "../../../../../app-library/styles/component-utilities/grid-container";
+
+.book-previews-container {
+	@include grid-container.grid(2, horizontal, false, false);
+}
+
+@media (min-width: 768px) {
+	.book-previews-container {
+		@include grid-container.grid(2, horizontal, false, true);
+	}
+}

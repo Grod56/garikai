@@ -3,12 +3,12 @@ import PostPreview from "@/app-library/components/content/post-preview/ui/PostPr
 import ComponentList from "@/app-library/components/ethereal/component-list/ComponentList";
 import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/ImageCardSkeletonModel";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import ComponentPlaceholder from "../../../../../../app-library/components/ethereal/component-placeholder/ComponentPlaceholder";
 import ImageCardSkeleton from "../../../../../../app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
 import { RecentPostPreviewsPlaceholderModel } from "./RecentPostPreviewsPlaceholderModel";
 import { PlaceholderedComponentModel } from "@/app-library/components/ethereal/component-placeholder/ComponentPlaceholderModel";
 import { ComponentListModel } from "@/app-library/components/ethereal/component-list/ComponentListModel";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 const RecentPostPreviewsPlaceholder = function ({ model }) {
 	const { recentPostPreviewModels } = model.modelView;
@@ -19,16 +19,16 @@ const RecentPostPreviewsPlaceholder = function ({ model }) {
 		ComponentListModel<PostPreviewModel>
 	> =
 		recentPostPreviewModels &&
-		instantiateReadonlyModel({
+		newReadonlyModel({
 			componentModels: recentPostPreviewModels,
 			Component: PostPreview,
 		});
 	const PlaceholderComponent = () => (
 		<ComponentList
-			model={instantiateReadonlyModel({
+			model={newReadonlyModel({
 				Component: ImageCardSkeleton,
 				componentModels: Array<ImageCardSkeletonModel>(3).fill(
-					instantiateReadonlyModel({
+					newReadonlyModel({
 						orientation: "vertical",
 					})
 				),

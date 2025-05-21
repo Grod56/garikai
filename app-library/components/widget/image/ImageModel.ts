@@ -1,8 +1,6 @@
 import { Image } from "@/app-library/custom-types/Image";
-import {
-	WidgetComponentModel,
-	WidgetComponentModelView,
-} from "../WidgetComponentModel";
+import { WidgetComponentModelView } from "../widget-component";
+import { ReadonlyModel } from "@mvc-react/mvc";
 
 export interface ImageModelView extends WidgetComponentModelView {
 	readonly image: Image;
@@ -10,4 +8,4 @@ export interface ImageModelView extends WidgetComponentModelView {
 	readonly height: number;
 }
 
-export type ImageModel = WidgetComponentModel<ImageModelView>;
+export type ImageModel = ReadonlyModel<ImageModelView>;

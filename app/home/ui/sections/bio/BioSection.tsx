@@ -1,13 +1,13 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import { BioSectionModel } from "./BioSectionModel";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 const BioSection = function ({ model }) {
 	const { sectionTitle } = model.modelView;
 	return (
 		<SiteSection
-			model={instantiateReadonlyModel({
+			model={newReadonlyModel({
 				id: "bio",
 				sectionName: "bio",
 				sectionTitle: sectionTitle,

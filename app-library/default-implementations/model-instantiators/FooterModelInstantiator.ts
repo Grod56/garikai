@@ -1,6 +1,6 @@
 import { FooterModel } from "@/app-library/components/content/footer/FooterModel";
 import { SocialLinkModelView } from "@/app-library/components/widget/social-link/SocialLinkModel";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export interface InstantiateFooterModelParameters {
 	id: string;
@@ -13,7 +13,7 @@ export function instantiateFooterModel({
 	copyrightText,
 	socialLinkModelViews,
 }: InstantiateFooterModelParameters): FooterModel {
-	return instantiateReadonlyModel({
+	return newReadonlyModel({
 		id,
 		get copyright(): string {
 			return `© 
@@ -21,7 +21,7 @@ export function instantiateFooterModel({
 				`;
 		},
 		socialLinkModels: socialLinkModelViews.map((modelView) =>
-			instantiateReadonlyModel(modelView)
+			newReadonlyModel(modelView)
 		),
 	});
 }

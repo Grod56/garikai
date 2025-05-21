@@ -1,0 +1,52 @@
+@mixin grid(
+	$maxXorY: 2,
+	$orientation: horizontal,
+	$overflow: false,
+	$isWideScreen: false
+) {
+	display: grid;
+	gap: 1em;
+	@if $overflow == true {
+		@include _grid-overflow-style($orientation);
+	}
+	@include _grid-reactive-style(
+		$orientation,
+		$maxXorY,
+		$overflow,
+		$isWideScreen
+	);
+}
+
+@mixin _grid-reactive-style(
+	$orientation,
+	$maxXorY: 2,
+	$overflow: false,
+	$isWideScreen: false
+) {
+	@if $overflow == true or $isWideScreen == true {
+		@include _grid-layout($orientation, $maxXorY);
+	}
+}
+
+@mixin _grid-overflow-style($orientation) {
+	@if $orientation == horizontal {
+		overflow-x: scroll;
+		overflow-y: hidden;
+		scrollbar-width: none;
+	} @else if $orientation == vertical {
+		overflow-x: hidden;
+		overflow-y: scroll;
+	} @else {
+		@error "Invalid orientation '#{$orientation}'";
+	}
+}
+
+@mixin _grid-layout($orientation, $maxXorY) {
+	@if $orientation == horizontal {
+		grid-template-columns: repeat($maxXorY, 1fr);
+	} @else if $orientation == vertical {
+		grid-template-rows: repeat($maxXorY, 1fr);
+	} @else {
+		@error "Invalid orientation '#{$orientation}'";
+	}
+}

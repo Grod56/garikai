@@ -2,18 +2,17 @@ import {
 	RepositoryInteractionType,
 	RepositoryModel,
 	RepositoryModelInteraction,
-	RepositoryModelView,
 } from "@/app-library/content-repositories/RepositoryModel";
 import {
 	ViewInteractionInterface,
 	StatifiableModel,
-} from "@/app-library/custom-types/model/StatifiableModel";
+} from "@mvc-react/stateful";
 export type ContentModel = {
 	id: string;
 };
-export type TestRepositoryModelView = RepositoryModelView<{
+export type TestRepositoryModelView = {
 	contentModels: ContentModel[];
-}>;
+};
 export type TestRepositoryModelInteraction = RepositoryModelInteraction;
 export type TestRepositoryModel = RepositoryModel<
 	TestRepositoryModelView,
@@ -27,18 +26,17 @@ export type TestRepositoryViewInteractionInterface = ViewInteractionInterface<
 export function testRepositoryModelInstantiator(): TestRepositoryModel &
 	StatifiableModel<
 		TestRepositoryViewInteractionInterface,
-		TestRepositoryModelView,
-		TestRepositoryModelInteraction
+		TestRepositoryModelView
 	> {
 	return {
 		modelView: null,
 		viewInteractionInterface: {
-			async getModelView(interaction) {
+			produceModelView(interaction) {
 				switch (interaction.type) {
 					case RepositoryInteractionType.RETRIEVE:
-						return {
+						return Promise.resolve({
 							contentModels: [{ id: "67" }, { id: "6543" }],
-						};
+						});
 				}
 			},
 		},
@@ -51,13 +49,12 @@ export function faultyTestRepositoryModelInstantiator(
 ): TestRepositoryModel &
 	StatifiableModel<
 		TestRepositoryViewInteractionInterface,
-		TestRepositoryModelView,
-		TestRepositoryModelInteraction
+		TestRepositoryModelView
 	> {
 	return {
 		modelView: null,
 		viewInteractionInterface: {
-			getModelView: jest.fn(() => {
+			produceModelView: jest.fn(() => {
 				return Promise.reject(errorMessage);
 			}),
 		},

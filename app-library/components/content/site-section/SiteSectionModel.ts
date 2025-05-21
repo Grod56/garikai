@@ -1,9 +1,7 @@
-import {
-	ContentComponentModel,
-	ContentComponentModelView,
-} from "@/app-library/components/content/ContentComponentModel";
+import { ContentComponentModelView } from "@/app-library/components/content/content-component";
+import { ReadonlyModel } from "@mvc-react/mvc";
 
-export type SiteSectionModel = ContentComponentModel<SiteSectionModelView>;
+export type SiteSectionModel = ReadonlyModel<SiteSectionModelView>;
 
 export interface SiteSectionModelView extends ContentComponentModelView {
 	readonly sectionName: string;

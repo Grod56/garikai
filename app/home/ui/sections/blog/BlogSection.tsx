@@ -1,13 +1,13 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import SiteSubsection from "@/app-library/components/content/site-subsection/ui/SiteSubsection";
-import GridContainer from "@/app-library/components/widget/grid-container/ui/GridContainer";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { instantiatePostPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/PostPreviewRepositoryModelInstantiator";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import FeaturedPostPreviewPlaceholder from "@/app/home/ui/sections/blog/featured-post-preview-placeholder/FeaturedPostPreviewPlaceholder";
 import { BlogSectionModel } from "./BlogSectionModel";
 import RecentPostPreviewsPlaceholder from "./recent-posts-placeholder/RecentPostPreviewsPlaceholder";
+import { newReadonlyModel } from "@mvc-react/mvc";
+import "./blog.scss";
 
 const BlogSection = function ({ model }) {
 	const { sectionTitle, postPreviewAPI, blogURL } = model.modelView;
@@ -17,14 +17,14 @@ const BlogSection = function ({ model }) {
 
 	return (
 		<SiteSection
-			model={instantiateReadonlyModel({
+			model={newReadonlyModel({
 				id: "blog",
 				sectionName: "blog",
 				sectionTitle: sectionTitle,
 			})}
 		>
 			<SiteSubsection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					id: "featured-post",
 					subsectionTitle: "Featured Post",
 				})}
@@ -39,25 +39,19 @@ const BlogSection = function ({ model }) {
 				/>
 			</SiteSubsection>
 			<SiteSubsection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					id: "recent-posts",
 					subsectionTitle: "Recent Posts",
 				})}
 			>
-				<GridContainer
-					model={instantiateReadonlyModel({
-						maxXorY: 3,
-						orientation: "horizontal",
-						overflow: true,
-					})}
-				>
+				<div className="recent-posts-container">
 					<RecentPostPreviewsPlaceholder
-						model={instantiateReadonlyModel({
+						model={newReadonlyModel({
 							recentPostPreviewModels:
 								repositoryModelView?.recentPostPreviewModels,
 						})}
 					/>
-				</GridContainer>
+				</div>
 			</SiteSubsection>
 			<a href={blogURL.href} className="view-more">
 				View More

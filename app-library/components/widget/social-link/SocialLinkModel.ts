@@ -1,7 +1,5 @@
-import {
-	WidgetComponentModel,
-	WidgetComponentModelView,
-} from "../WidgetComponentModel";
+import { ReadonlyModel } from "@mvc-react/mvc";
+import { WidgetComponentModelView } from "../widget-component";
 
 type SocialLinkTypeObject<N extends string, L extends string> = {
 	type: N;
@@ -21,4 +19,4 @@ export interface SocialLinkModelView extends WidgetComponentModelView {
 	socialLink: SocialLink;
 }
 
-export type SocialLinkModel = WidgetComponentModel<SocialLinkModelView>;
+export type SocialLinkModel = ReadonlyModel<SocialLinkModelView>;

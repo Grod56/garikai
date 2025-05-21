@@ -1,19 +1,14 @@
-import {
-	InteractiveModel,
-	ModelInteraction,
-} from "../custom-types/model/InteractiveModel";
-import { ModelView } from "../custom-types/model/Model";
+import { InteractiveModel, ModelInteraction } from "@mvc-react/mvc";
+import { ModelView } from "@mvc-react/mvc";
 
 export enum RepositoryInteractionType {
 	RETRIEVE,
 }
 
-export type RepositoryModelView<T extends ModelView = ModelView> = T | null;
-
 export type RepositoryModelInteraction =
 	ModelInteraction<RepositoryInteractionType>;
 
 export type RepositoryModel<
-	T extends RepositoryModelView,
+	T extends ModelView,
 	U extends RepositoryModelInteraction,
 > = InteractiveModel<T, U>;

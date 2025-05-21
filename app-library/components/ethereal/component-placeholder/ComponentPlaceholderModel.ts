@@ -1,6 +1,6 @@
 import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
-import { Model } from "@/app-library/custom-types/model/Model";
-import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
+import { Model } from "@mvc-react/mvc";
+import { ReadonlyModel } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export type PlaceholderedComponentModel<

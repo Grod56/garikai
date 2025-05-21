@@ -1,10 +1,7 @@
-import {
-	WidgetComponentModel,
-	WidgetComponentModelView,
-} from "../WidgetComponentModel";
+import { ReadonlyModel } from "@mvc-react/mvc";
+import { WidgetComponentModelView } from "../widget-component";
 
-export type LinkedComponentModel =
-	WidgetComponentModel<LinkedComponentModelView>;
+export type LinkedComponentModel = ReadonlyModel<LinkedComponentModelView>;
 
 export interface LinkedComponentModelView extends WidgetComponentModelView {
 	readonly link: URL;

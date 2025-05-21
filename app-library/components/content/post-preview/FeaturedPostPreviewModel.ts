@@ -1,4 +1,4 @@
-import { ContentComponentModel } from "../ContentComponentModel";
+import { ReadonlyModel } from "@mvc-react/mvc";
 import { PostPreviewModelView } from "./PostPreviewModel";
 
 export interface FeaturedPostPreviewModelView extends PostPreviewModelView {
@@ -6,4 +6,4 @@ export interface FeaturedPostPreviewModelView extends PostPreviewModelView {
 }
 
 export type FeaturedPostPreviewModel =
-	ContentComponentModel<FeaturedPostPreviewModelView>;
+	ReadonlyModel<FeaturedPostPreviewModelView>;

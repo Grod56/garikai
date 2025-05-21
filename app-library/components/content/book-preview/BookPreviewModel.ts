@@ -1,10 +1,8 @@
-import {
-	ContentComponentModel,
-	ContentComponentModelView,
-} from "@/app-library/components/content/ContentComponentModel";
+import { ContentComponentModelView } from "@/app-library/components/content/content-component";
 import { Image } from "@/app-library/custom-types/Image";
+import { ReadonlyModel } from "@mvc-react/mvc";
 
-export type BookPreviewModel = ContentComponentModel<BookPreviewModelView>;
+export type BookPreviewModel = ReadonlyModel<BookPreviewModelView>;
 
 export interface BookPreviewModelView extends ContentComponentModelView {
 	readonly title: string;

@@ -1,4 +1,4 @@
-import { Model } from "@/app-library/custom-types/model/Model";
+import { Model } from "@mvc-react/mvc";
 import { ComponentListModel } from "../ComponentListModel";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 

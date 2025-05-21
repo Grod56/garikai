@@ -2,7 +2,6 @@
 import { instantiateSupabaseArtImagePreviewAPI } from "@/app-library/default-implementations/content-apis/ArtImagePreviewAPIInstantiator";
 import { instantiateSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
 import { instantiateBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-apis/PostPreviewAPIInstantiator";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import Main from "../../../app-library/components/content/main/ui/Main";
 import "./home.scss";
 import ArtSection from "./sections/art/ArtSection";
@@ -11,12 +10,13 @@ import BlogSection from "./sections/blog/BlogSection";
 import ContactDetailsSection from "./sections/contact-details/ContactDetailsSection";
 import PortfolioSection from "./sections/portfolio/PortfolioSection";
 import ReadingListSection from "./sections/reading-list/ReadingListSection";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 // Config
 const blogURL = new URL(process.env.NEXT_PUBLIC_BLOG_URL!);
 
 export default function Home() {
-	const mainModel = instantiateReadonlyModel({ id: "home", name: "home" });
+	const mainModel = newReadonlyModel({ id: "home", name: "home" });
 	const artImagePreviewAPI = instantiateSupabaseArtImagePreviewAPI();
 	const postPreviewAPI = instantiateBloggerPostPreviewAPI();
 	const bookPreviewAPI = instantiateSupabaseBookPreviewAPI();
@@ -24,36 +24,36 @@ export default function Home() {
 	return (
 		<Main model={mainModel}>
 			<BioSection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					sectionTitle: "Bio",
 				})}
 			/>
 			<PortfolioSection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					sectionTitle: "Portfolio",
 				})}
 			/>
 			<ArtSection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					sectionTitle: "Art",
 					artImagePreviewAPI,
 				})}
 			/>
 			<BlogSection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					sectionTitle: "Blog",
 					postPreviewAPI,
 					blogURL,
 				})}
 			/>
 			<ReadingListSection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					sectionTitle: "Reading List",
 					bookPreviewAPI,
 				})}
 			/>
 			<ContactDetailsSection
-				model={instantiateReadonlyModel({
+				model={newReadonlyModel({
 					sectionTitle: "Contact Details",
 				})}
 			/>

@@ -1,49 +1,25 @@
-import {
-	RepositoryInteractionType,
-	RepositoryModel,
-} from "@/app-library/content-repositories/RepositoryModel";
-import {
-	act,
-	renderHook,
-	RenderHookResult,
-	waitFor,
-} from "@testing-library/react";
+import { RepositoryInteractionType } from "@/app-library/content-repositories/RepositoryModel";
+import { act, renderHook, waitFor } from "@testing-library/react";
 import { useStatefulRepository } from "../../use-repository";
 import {
 	faultyTestRepositoryModelInstantiator,
-	TestRepositoryModelView,
 	testRepositoryModelInstantiator,
-	TestRepositoryModelInteraction,
 } from "./data";
 
 describe("useStatefulRepository", () => {
-	let renderedHook: RenderHookResult<
-		RepositoryModel<
-			TestRepositoryModelView,
-			TestRepositoryModelInteraction
-		>,
-		unknown
-	>;
-
-	beforeEach(() => {
-		act(
-			() =>
-				(renderedHook = renderHook(() =>
-					useStatefulRepository(testRepositoryModelInstantiator)
-				))
-		);
-	});
-	afterEach(() => {
-		renderedHook.unmount();
-	});
-
 	it("automatically initializes repository", async () => {
+		const renderedHook = renderHook(() =>
+			useStatefulRepository(testRepositoryModelInstantiator)
+		);
 		// Would've preferred interact toHaveBeenCalled, but not possible
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
 	});
 	it("only automatically updates repository initially", async () => {
+		const renderedHook = renderHook(() =>
+			useStatefulRepository(testRepositoryModelInstantiator)
+		);
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
@@ -61,9 +37,12 @@ describe("useStatefulRepository", () => {
 			.finally(interactSpy.mockRestore);
 	});
 	it("returns equivalent model to that provided by repository model instantiator", async () => {
+		const renderedHook = renderHook(() =>
+			useStatefulRepository(testRepositoryModelInstantiator)
+		);
 		const expectedModelView =
-			await testRepositoryModelInstantiator().viewInteractionInterface.getModelView(
-				{ type: RepositoryInteractionType.RETRIEVE }
+			await testRepositoryModelInstantiator().viewInteractionInterface.produceModelView(
+				{ type: RepositoryInteractionType.RETRIEVE, input: null }
 			);
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
@@ -74,7 +53,10 @@ describe("useStatefulRepository", () => {
 			interact: expect.any(Function),
 		});
 	});
-	it("returns memoized repository model", async () => {
+	it("returns stateful repository model", async () => {
+		const renderedHook = renderHook(() =>
+			useStatefulRepository(testRepositoryModelInstantiator)
+		);
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
 		});
@@ -100,8 +82,7 @@ describe("useStatefulRepository", () => {
 			})
 		);
 		await waitFor(() => {
-			expect(consoleErrorSpy).toHaveBeenCalledWith(
-				expect.any(String),
+			expect(consoleErrorSpy.mock.calls[0][0]).toEqual(
 				expect.stringContaining(errorMessage)
 			);
 		}).finally(consoleErrorSpy.mockRestore);

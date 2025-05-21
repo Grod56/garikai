@@ -1,5 +1,5 @@
 import { PostPreviewModel } from "@/app-library/components/content/post-preview/PostPreviewModel";
-import { ReadonlyModel } from "@/app-library/custom-types/model/ReadonlyModel";
+import { ReadonlyModel } from "@mvc-react/mvc";
 
 export enum RecentPostPreviewsPlaceholderType {
 	PENDING,
