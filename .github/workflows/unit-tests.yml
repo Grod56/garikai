@@ -1,4 +1,4 @@
-name: Unit Tests
+name: unit tests
 
 on:
     push:
@@ -13,5 +13,9 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: "22"
-            - run: npm install
-            - run: npm run test
+
+            - name: Installation
+              run: npm ci
+
+            - name: Run tests
+              run: npm run test
