@@ -15,7 +15,7 @@ jobs:
                   node-version: "22"
 
             - name: Installation
-              run: npm ci
+              run: npm install
 
             - name: Run tests
               run: npm run test
