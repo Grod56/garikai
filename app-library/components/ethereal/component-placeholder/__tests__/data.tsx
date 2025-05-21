@@ -1,5 +1,5 @@
 import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
-import { Model } from "@/app-library/custom-types/model/Model";
+import { Model } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { useState } from "react";
 import { ComponentPlaceholderModel } from "../ComponentPlaceholderModel";

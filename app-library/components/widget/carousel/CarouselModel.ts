@@ -1,9 +1,6 @@
-import { Model } from "@/app-library/custom-types/model/Model";
+import { Model, ReadonlyModel } from "@mvc-react/mvc";
 import { ComponentListModel } from "../../ethereal/component-list/ComponentListModel";
-import {
-	WidgetComponentModel,
-	WidgetComponentModelView,
-} from "../WidgetComponentModel";
+import { WidgetComponentModelView } from "../widget-component";
 
 export interface CarouselModelView<
 	M extends Model<V>,
@@ -15,4 +12,4 @@ export interface CarouselModelView<
 export type CarouselModel<
 	M extends Model<V>,
 	V extends object = object,
-> = WidgetComponentModel<CarouselModelView<M>>;
+> = ReadonlyModel<CarouselModelView<M>>;

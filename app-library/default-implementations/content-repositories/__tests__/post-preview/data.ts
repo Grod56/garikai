@@ -27,13 +27,17 @@ const testRecords: PostPreviewRecord[] = [
 ];
 
 export const testRepositoryInstantiatorAPI: PostPreviewAPI = {
-	retrieveRecords: jest.fn(async () => {
-		return testRecords;
+	retrieveRecords: jest.fn(() => {
+		return Promise.resolve(testRecords);
 	}),
 };
 
-export const faultyRepositoryInstantiatorAPI: PostPreviewAPI = {
-	retrieveRecords: jest.fn(async () => {
-		throw new Error("This is an error");
-	}),
-};
+export function faultyRepositoryInstantiatorAPI(
+	errorMessage: string
+): PostPreviewAPI {
+	return {
+		retrieveRecords: jest.fn(() => {
+			return Promise.reject(errorMessage);
+		}),
+	};
+}

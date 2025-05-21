@@ -23,13 +23,17 @@ export const testRecords: ArtImagePreviewRecord[] = [
 ];
 
 export const testRepositoryInstantiatorAPI: ArtImagePreviewAPI = {
-	retrieveRecords: jest.fn(async () => {
-		return testRecords;
+	retrieveRecords: jest.fn(() => {
+		return Promise.resolve(testRecords);
 	}),
 };
 
-export const faultyRepositoryInstantiatorAPI: ArtImagePreviewAPI = {
-	retrieveRecords: jest.fn(async () => {
-		throw new Error("This is an error");
-	}),
-};
+export function faultyRepositoryInstantiatorAPI(
+	errorMessage: string
+): ArtImagePreviewAPI {
+	return {
+		retrieveRecords: jest.fn(() => {
+			return Promise.reject(errorMessage);
+		}),
+	};
+}

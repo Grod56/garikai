@@ -1,5 +1,5 @@
-import { Model } from "@/app-library/custom-types/model/Model";
+import { ReadonlyModel } from "@mvc-react/mvc";
 import { SectionModelView } from "../SectionModel";
 
 export type PortfolioSectionView = SectionModelView;
-export type PortfolioSectionModel = Model<PortfolioSectionView>;
+export type PortfolioSectionModel = ReadonlyModel<PortfolioSectionView>;

@@ -1,5 +1,5 @@
 import ComponentList from "@/app-library/components/ethereal/component-list/ComponentList";
-import { Model } from "@/app-library/custom-types/model/Model";
+import { Model } from "@mvc-react/mvc";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { CarouselModel } from "../CarouselModel";

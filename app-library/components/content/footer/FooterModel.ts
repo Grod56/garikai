@@ -1,10 +1,8 @@
+import { ReadonlyModel } from "@mvc-react/mvc";
 import { SocialLinkModel } from "../../widget/social-link/SocialLinkModel";
-import {
-	ContentComponentModel,
-	ContentComponentModelView,
-} from "../ContentComponentModel";
+import { ContentComponentModelView } from "../content-component";
 
-export type FooterModel = ContentComponentModel<FooterModelView>;
+export type FooterModel = ReadonlyModel<FooterModelView>;
 
 export interface FooterModelView extends ContentComponentModelView {
 	copyright: string;

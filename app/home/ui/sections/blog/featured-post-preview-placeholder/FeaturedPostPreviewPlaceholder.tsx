@@ -3,7 +3,7 @@ import FeaturedPostPreview from "../../../../../../app-library/components/conten
 import ComponentPlaceholder from "../../../../../../app-library/components/ethereal/component-placeholder/ComponentPlaceholder";
 import ImageCardSkeleton from "../../../../../../app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
 import { FeaturedPostPreviewPlaceholderModel } from "./FeaturedPostPreviewPlaceholderModel";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 const FeaturedPostPreviewPlaceholder = function ({ model }) {
 	const { featuredPostPreviewModel } = model.modelView;
@@ -16,7 +16,7 @@ const FeaturedPostPreviewPlaceholder = function ({ model }) {
 					PlaceholderedComponent: FeaturedPostPreview,
 					PlaceholderComponent: () => (
 						<ImageCardSkeleton
-							model={instantiateReadonlyModel({
+							model={newReadonlyModel({
 								orientation: "flexible",
 							})}
 						/>

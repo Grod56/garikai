@@ -1,10 +1,10 @@
+import { newReadonlyModel } from "@mvc-react/mvc";
 import Footer from "@/app-library/components/content/footer/ui/Footer";
 import Header from "@/app-library/components/content/header/ui/Header";
 import Navbar from "@/app-library/components/content/navbar/ui/Navbar";
 import { instantiateFooterModel } from "@/app-library/default-implementations/model-instantiators/FooterModelInstantiator";
 import { instantiateNavbarModel } from "@/app-library/default-implementations/model-instantiators/NavbarModelInstantiator";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
-import "@/app-library/styles/layouts/standard.scss";
+import "@/app-library/styles/app-layouts/standard.scss";
 import "@/app-library/styles/themes/quaint-navy.scss";
 
 // Initial config -----------------------------------------------------------
@@ -13,7 +13,7 @@ const headerTitle = process.env.HEADER_TITLE!;
 const headerSubTitle = process.env.HEADER_SUBTITLE!;
 const copyrightText = process.env.COPYRIGHT_TEXT!;
 
-const headerModel = instantiateReadonlyModel({
+const headerModel = newReadonlyModel({
 	id: "header",
 	headerTitle: headerTitle,
 	headerSubtitle: headerSubTitle,
@@ -75,6 +75,7 @@ const footerModel = instantiateFooterModel({
 		},
 	],
 });
+
 //----------------------------------------------------------------------------
 
 const AppDesign = function ({ children }: { children: React.ReactNode }) {

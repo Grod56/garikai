@@ -1,10 +1,8 @@
 import { Image } from "@/app-library/custom-types/Image";
-import {
-	ContentComponentModel,
-	ContentComponentModelView,
-} from "../ContentComponentModel";
+import { ContentComponentModelView } from "../content-component";
+import { ReadonlyModel } from "@mvc-react/mvc";
 
-export type PostPreviewModel = ContentComponentModel<PostPreviewModelView>;
+export type PostPreviewModel = ReadonlyModel<PostPreviewModelView>;
 
 export interface PostPreviewModelView extends ContentComponentModelView {
 	readonly title: string;

@@ -1,9 +1,6 @@
-import {
-	WidgetComponentModel,
-	WidgetComponentModelView,
-} from "../WidgetComponentModel";
+import { ReadonlyModel } from "@mvc-react/mvc";
+import { WidgetComponentModelView } from "../widget-component";
 
-export type ArtImageSkeletonModel =
-	WidgetComponentModel<ArtImageSkeletonModelView>;
+export type ArtImageSkeletonModel = ReadonlyModel<ArtImageSkeletonModelView>;
 
 export type ArtImageSkeletonModelView = WidgetComponentModelView;

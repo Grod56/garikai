@@ -8,33 +8,40 @@ import { RepositoryInteractionType } from "@/app-library/content-repositories/Re
 
 describe("instantiateArtImagePreviewRepositoryModel", () => {
 	describe("Model returned when called", () => {
-		it("has initial null model view", () => {
-			const model = instantiateArtImagePreviewRepositoryModel(
-				testRepositoryInstantiatorAPI
-			);
-			expect(model.modelView).toBeNull();
-		});
 		it("matches interact output with viewInteractionInterface output", async () => {
 			const model = instantiateArtImagePreviewRepositoryModel(
 				testRepositoryInstantiatorAPI
 			);
-			await waitFor(() =>
-				model.interact({ type: RepositoryInteractionType.RETRIEVE })
-			);
+			model.interact({
+				type: RepositoryInteractionType.RETRIEVE,
+				input: null,
+			});
 			const newModelView = await waitFor(() =>
-				model.viewInteractionInterface.getModelView({
+				model.viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
+					input: null,
 				})
 			);
-			expect(model.modelView).toEqual(newModelView);
+			await waitFor(() => {
+				expect(model.modelView).toEqual(newModelView);
+			});
 		});
-		it("throws error when api call returns an error", async () => {
+		it("reports error when api call returns an error", async () => {
+			const consoleErrorSpy = jest.spyOn(console, "error");
+			consoleErrorSpy.mockImplementation();
+			const errorMessage = "What an error";
 			const model = instantiateArtImagePreviewRepositoryModel(
-				faultyRepositoryInstantiatorAPI
+				faultyRepositoryInstantiatorAPI(errorMessage)
 			);
-			await expect(
-				model.interact({ type: RepositoryInteractionType.RETRIEVE })
-			).rejects.toThrow();
+			model.interact({
+				type: RepositoryInteractionType.RETRIEVE,
+				input: null,
+			});
+			await waitFor(() => {
+				expect(consoleErrorSpy.mock.calls[0][0]).toEqual(
+					expect.stringContaining(errorMessage)
+				);
+			}).finally(consoleErrorSpy.mockRestore);
 		});
 	});
 });

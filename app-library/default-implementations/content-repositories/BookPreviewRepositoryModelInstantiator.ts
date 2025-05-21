@@ -1,30 +1,35 @@
 import { BookPreviewModel } from "@/app-library/components/content/book-preview/BookPreviewModel";
 import { RepositoryInteractionType } from "@/app-library/content-repositories/RepositoryModel";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
-import { ViewInteractionInterface } from "@/app-library/custom-types/model/StatifiableModel";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import {
 	BookPreviewAPI,
 	BookPreviewRecord,
 } from "../../content-apis/BookPreviewAPI";
 import {
+	BookPreviewRepositoryModel,
 	BookPreviewRepositoryModelInteraction,
 	BookPreviewRepositoryModelView,
 } from "../../content-repositories/BookPreviewRepositoryModel";
+import {
+	StatifiableModel,
+	ViewInteractionInterface,
+} from "@mvc-react/stateful";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export function instantiateBookPreviewRepositoryModel(api: BookPreviewAPI) {
 	const viewInteractionInterface = _viewInteractionInterface(api);
-	const model = {
-		modelView: null as BookPreviewRepositoryModelView,
-		async interact(interaction: BookPreviewRepositoryModelInteraction) {
-			try {
-				this.modelView =
-					await viewInteractionInterface.getModelView(interaction);
-			} catch (error) {
-				throw new Error(`Failed to update modelView`, {
-					cause: new Error(String(error)),
+	const model: BookPreviewRepositoryModel &
+		StatifiableModel<BookPreviewRepositoryViewInteractionInterface> = {
+		modelView: null,
+		interact(interaction: BookPreviewRepositoryModelInteraction) {
+			viewInteractionInterface
+				.produceModelView(interaction)
+				.then((newModelView) => (this.modelView = newModelView))
+				.catch((error) => {
+					console.error(
+						`Failed to update modelView: ${String(error)}`
+					);
 				});
-			}
 		},
 		viewInteractionInterface,
 	};
@@ -37,53 +42,39 @@ type BookPreviewRepositoryViewInteractionInterface = ViewInteractionInterface<
 	BookPreviewRepositoryModelInteraction
 >;
 
-async function _retrieveBookPreviewRepositoryModels(
-	api: BookPreviewAPI
-): Promise<BookPreviewRepositoryModelView> {
-	try {
-		const records = await api.retrieveRecords();
-		const retrievedModels: BookPreviewModel[] = records.map(
-			(record: BookPreviewRecord) => {
-				return instantiateReadonlyModel({
-					id: `book-preview_${record.id}`,
-					title: record.title,
-					author: record.author,
-					bookLink: new URL(record.bookLink),
-					cover: {
-						source: record.coverSource,
-						alt: record.coverAlt,
-						placeholder:
-							record.coverPlaceholder as ImagePlaceholder,
-					},
-				});
-			}
-		);
-		return { bookPreviewModels: retrievedModels };
-	} catch (error) {
-		throw new Error(`An error occurred while fetching api records`, {
-			cause: new Error(String(error)),
-		});
-	}
-}
-
 function _viewInteractionInterface(
 	api: BookPreviewAPI
 ): BookPreviewRepositoryViewInteractionInterface {
-	const getModelView = async (
+	function produceModelView(
 		interaction: BookPreviewRepositoryModelInteraction
-	): Promise<BookPreviewRepositoryModelView> => {
-		try {
-			switch (interaction.type) {
-				case RepositoryInteractionType.RETRIEVE:
-					return await _retrieveBookPreviewRepositoryModels(api);
-			}
-		} catch (error) {
-			throw new Error(`Failed to generate new model view`, {
-				cause: new Error(String(error)),
+	): Promise<BookPreviewRepositoryModelView> {
+		switch (interaction.type) {
+			case RepositoryInteractionType.RETRIEVE:
+				return _retrieveBookPreviewRepositorySnapshot(api);
+		}
+	}
+
+	return { produceModelView };
+}
+
+async function _retrieveBookPreviewRepositorySnapshot(
+	api: BookPreviewAPI
+): Promise<BookPreviewRepositoryModelView> {
+	const records = await api.retrieveRecords();
+	const retrievedModels: BookPreviewModel[] = records.map(
+		(record: BookPreviewRecord) => {
+			return newReadonlyModel({
+				id: `book-preview_${record.id}`,
+				title: record.title,
+				author: record.author,
+				bookLink: new URL(record.bookLink),
+				cover: {
+					source: record.coverSource,
+					alt: record.coverAlt,
+					placeholder: record.coverPlaceholder as ImagePlaceholder,
+				},
 			});
 		}
-	};
-	return {
-		getModelView,
-	};
+	);
+	return { bookPreviewModels: retrievedModels };
 }

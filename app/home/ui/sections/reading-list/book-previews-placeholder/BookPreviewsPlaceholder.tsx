@@ -7,8 +7,8 @@ import { PlaceholderedComponentModel } from "@/app-library/components/ethereal/c
 import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/ImageCardSkeletonModel";
 import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { instantiateReadonlyModel } from "@/app-library/utilities/miscelleneous";
 import { BookPreviewsPlaceholderModel } from "./BookPreviewsPlaceholderModel";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 const BookPreviewsPlaceholder = function ({ model }) {
 	const { bookPreviewModels } = model.modelView;
@@ -18,16 +18,16 @@ const BookPreviewsPlaceholder = function ({ model }) {
 		ComponentListModel<BookPreviewModel>
 	> =
 		bookPreviewModels &&
-		instantiateReadonlyModel({
+		newReadonlyModel({
 			componentModels: bookPreviewModels,
 			Component: BookPreview,
 		});
 	const PlaceholderComponent = () => (
 		<ComponentList
-			model={instantiateReadonlyModel({
+			model={newReadonlyModel({
 				Component: ImageCardSkeleton,
 				componentModels: Array<ImageCardSkeletonModel>(6).fill(
-					instantiateReadonlyModel({
+					newReadonlyModel({
 						orientation: "flexible",
 					})
 				),

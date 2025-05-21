@@ -1,10 +1,10 @@
 import { PostPreviewAPI } from "@/app-library/content-apis/PostPreviewAPI";
-import { Model } from "@/app-library/custom-types/model/Model";
 import { SectionModelView } from "../SectionModel";
+import { ReadonlyModel } from "@mvc-react/mvc";
 
 export interface BlogSectionModelView extends SectionModelView {
 	postPreviewAPI: PostPreviewAPI;
 	blogURL: URL;
 }
 
-export type BlogSectionModel = Model<BlogSectionModelView>;
+export type BlogSectionModel = ReadonlyModel<BlogSectionModelView>;

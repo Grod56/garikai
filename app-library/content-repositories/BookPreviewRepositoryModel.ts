@@ -1,13 +1,9 @@
 import { BookPreviewModel } from "@/app-library/components/content/book-preview/BookPreviewModel";
-import {
-	RepositoryModel,
-	RepositoryModelInteraction,
-	RepositoryModelView,
-} from "./RepositoryModel";
+import { RepositoryModel, RepositoryModelInteraction } from "./RepositoryModel";
 
-export type BookPreviewRepositoryModelView = RepositoryModelView<{
+export interface BookPreviewRepositoryModelView {
 	readonly bookPreviewModels: BookPreviewModel[];
-}>;
+}
 
 export type BookPreviewRepositoryModelInteraction = RepositoryModelInteraction;
 

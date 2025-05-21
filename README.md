@@ -1,3 +1,3 @@
 ## Garikai Rodney Gumbo
 
-Hi. I am Garikai. And this is my Website.
+[View website](https://garikai.vercel.app)

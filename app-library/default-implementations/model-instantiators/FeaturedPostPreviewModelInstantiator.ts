@@ -15,7 +15,7 @@ export function instantiateFeaturedPostPreviewModel(
 	const postPreviewModel = instantiatePostPreviewModel({ ...parameters });
 	return {
 		modelView: {
-			...postPreviewModel.modelView,
+			...postPreviewModel.modelView!,
 			snippet: parameters.snippet,
 		},
 	};

@@ -1,7 +1,8 @@
 import { JSX } from "react";
-import { Model } from "./model/Model";
+import { Model } from "@mvc-react/mvc";
 
-/**Encapsulates a functional modeled react component that has no children. */
+/**Encapsulates a functional react component which is patterned
+ * after a {@link Model}, and has no children. */
 export interface ModeledVoidComponent<
 	M extends Model<V>,
 	V extends object = object,
@@ -9,7 +10,8 @@ export interface ModeledVoidComponent<
 	({ model }: { model: M }): JSX.Element;
 }
 
-/**Encapsulates a functional modeled react component that has children. */
+/**Encapsulates a functional react component which is patterned
+ * after a {@link Model}, and has children. */
 export interface ModeledContainerComponent<
 	M extends Model<V>,
 	V extends object = object,
@@ -17,7 +19,8 @@ export interface ModeledContainerComponent<
 	({ model, children }: { model: M; children: React.ReactNode }): JSX.Element;
 }
 
-/**Encapsulates a functional modeled react component */
+/**Encapsulates a functional react component which is patterned
+ * after a {@link Model} */
 export type ModeledComponent<M extends Model<V>, V extends object = object> =
 	| ModeledVoidComponent<M>
 	| ModeledContainerComponent<M>;
