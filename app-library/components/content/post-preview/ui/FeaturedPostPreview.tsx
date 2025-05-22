@@ -4,6 +4,7 @@ import { ELEMENT_NAME } from "./PostPreview";
 import { FeaturedPostPreviewModel } from "../FeaturedPostPreviewModel";
 import "./post-preview.scss";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export { ELEMENT_NAME };
 
@@ -13,19 +14,15 @@ const FeaturedPostPreview = function ({ model }) {
 	return (
 		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
-				model={{
-					modelView: {
-						link: postLink,
-					},
-				}}
+				model={newReadonlyModel({
+					link: postLink,
+				})}
 			>
 				<ImageCard
-					model={{
-						modelView: {
-							thumbnail: thumbnail,
-							orientation: "flexible",
-						},
-					}}
+					model={newReadonlyModel({
+						thumbnail: thumbnail,
+						orientation: "flexible",
+					})}
 				>
 					<h5 className="title" title={title}>
 						{title}

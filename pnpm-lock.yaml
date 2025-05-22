@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@artsy/fresnel':
-        specifier: ^8.1.0
-        version: 8.1.0(react@19.1.0)
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.7.2
         version: 6.7.2
@@ -144,12 +141,6 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
-
-  '@artsy/fresnel@8.1.0':
-    resolution: {integrity: sha512-zlTUFfMDlJa2rmt631qC3/uwuZlGtLIpJtwddDEYdmy/p2P/rvZej+IXLHTP5a922CUMujWtEJHm/9wh93B2OQ==}
-    engines: {node: '>=12.20.2', yarn: 1.x.x}
-    peerDependencies:
-      react: '>=18.0.0'
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -3052,10 +3043,6 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
-
-  '@artsy/fresnel@8.1.0(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
 
   '@babel/code-frame@7.27.1':
     dependencies:

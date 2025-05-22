@@ -15,6 +15,7 @@ const RecentPostPreviewsPlaceholder = function ({ model }) {
 
 	const RecentPostPreviewsContainerComponent =
 		ComponentList<PostPreviewModel>;
+
 	const recentPostPreviewsContainerComponentModel: PlaceholderedComponentModel<
 		ComponentListModel<PostPreviewModel>
 	> =
@@ -23,6 +24,7 @@ const RecentPostPreviewsPlaceholder = function ({ model }) {
 			componentModels: recentPostPreviewModels,
 			Component: PostPreview,
 		});
+
 	const PlaceholderComponent = () => (
 		<ComponentList
 			model={newReadonlyModel({
@@ -38,15 +40,12 @@ const RecentPostPreviewsPlaceholder = function ({ model }) {
 
 	return (
 		<ComponentPlaceholder
-			model={{
-				modelView: {
-					PlaceholderedComponent:
-						RecentPostPreviewsContainerComponent,
-					placeholderedComponentModel:
-						recentPostPreviewsContainerComponentModel,
-					PlaceholderComponent,
-				},
-			}}
+			model={newReadonlyModel({
+				PlaceholderedComponent: RecentPostPreviewsContainerComponent,
+				placeholderedComponentModel:
+					recentPostPreviewsContainerComponentModel,
+				PlaceholderComponent,
+			})}
 		/>
 	);
 } as ModeledVoidComponent<RecentPostPreviewsPlaceholderModel>;

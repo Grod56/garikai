@@ -10,19 +10,17 @@ const FeaturedPostPreviewPlaceholder = function ({ model }) {
 
 	return (
 		<ComponentPlaceholder
-			model={{
-				modelView: {
-					placeholderedComponentModel: featuredPostPreviewModel,
-					PlaceholderedComponent: FeaturedPostPreview,
-					PlaceholderComponent: () => (
-						<ImageCardSkeleton
-							model={newReadonlyModel({
-								orientation: "flexible",
-							})}
-						/>
-					),
-				},
-			}}
+			model={newReadonlyModel({
+				placeholderedComponentModel: featuredPostPreviewModel,
+				PlaceholderedComponent: FeaturedPostPreview,
+				PlaceholderComponent: () => (
+					<ImageCardSkeleton
+						model={newReadonlyModel({
+							orientation: "flexible",
+						})}
+					/>
+				),
+			})}
 		/>
 	);
 } as ModeledVoidComponent<FeaturedPostPreviewPlaceholderModel>;

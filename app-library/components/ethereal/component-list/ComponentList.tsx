@@ -1,7 +1,7 @@
-import { Model } from "@mvc-react/mvc";
+import { Model, ModelView } from "@mvc-react/mvc";
 import { ComponentListModel } from "./ComponentListModel";
 
-function ComponentList<M extends Model<V>, V extends object = object>({
+function ComponentList<M extends Model<V>, V extends ModelView = ModelView>({
 	model,
 }: {
 	model: ComponentListModel<M>;

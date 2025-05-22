@@ -2,8 +2,8 @@ import { newReadonlyModel } from "@mvc-react/mvc";
 import Footer from "@/app-library/components/content/footer/ui/Footer";
 import Header from "@/app-library/components/content/header/ui/Header";
 import Navbar from "@/app-library/components/content/navbar/ui/Navbar";
-import { instantiateFooterModel } from "@/app-library/default-implementations/model-instantiators/FooterModelInstantiator";
-import { instantiateNavbarModel } from "@/app-library/default-implementations/model-instantiators/NavbarModelInstantiator";
+import { newFooterModel } from "@/app-library/default-implementations/model-instantiators/FooterModelInstantiator";
+import { newNavbarModel } from "@/app-library/default-implementations/model-instantiators/NavbarModelInstantiator";
 import "@/app-library/styles/app-layouts/standard.scss";
 import "@/app-library/styles/themes/quaint-navy.scss";
 
@@ -18,7 +18,7 @@ const headerModel = newReadonlyModel({
 	headerTitle: headerTitle,
 	headerSubtitle: headerSubTitle,
 });
-const navbarModel = instantiateNavbarModel({
+const navbarModel = newNavbarModel({
 	id: "navbar",
 	navlinkModelViews: [
 		{ link: "/home#top", linkText: "Home" },
@@ -30,7 +30,7 @@ const navbarModel = instantiateNavbarModel({
 		{ link: "/home#contact-details", linkText: "Contact Details" },
 	],
 });
-const footerModel = instantiateFooterModel({
+const footerModel = newFooterModel({
 	id: "footer",
 	copyrightText: copyrightText,
 	socialLinkModelViews: [

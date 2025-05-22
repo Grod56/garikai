@@ -1,9 +1,9 @@
-import { instantiateFooterModel } from "../../FooterModelInstantiator";
+import { newFooterModel } from "../../FooterModelInstantiator";
 import { modelInstantiatorTestInput } from "./data";
 
-describe("instantiateFooterModel", () => {
+describe("newFooterModel", () => {
 	describe("Model returned when called", () => {
-		const model = instantiateFooterModel({ ...modelInstantiatorTestInput });
+		const model = newFooterModel({ ...modelInstantiatorTestInput });
 		const { id, copyright, socialLinkModels } = model.modelView!;
 
 		it("corresponds with input parameters", () => {

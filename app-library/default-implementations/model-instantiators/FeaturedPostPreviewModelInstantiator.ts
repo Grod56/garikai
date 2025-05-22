@@ -1,6 +1,6 @@
 import { FeaturedPostPreviewModel } from "../../components/content/post-preview/FeaturedPostPreviewModel";
 import {
-	instantiatePostPreviewModel,
+	newPostPreviewModel,
 	InstantiatePostPreviewModelParameters,
 } from "./PostPreviewModelInstantiator";
 
@@ -9,10 +9,10 @@ export interface InstantiateFeaturedPostPreviewModelParameters
 	snippet: string;
 }
 
-export function instantiateFeaturedPostPreviewModel(
+export function newFeaturedPostPreviewModel(
 	parameters: InstantiateFeaturedPostPreviewModelParameters
 ): FeaturedPostPreviewModel {
-	const postPreviewModel = instantiatePostPreviewModel({ ...parameters });
+	const postPreviewModel = newPostPreviewModel({ ...parameters });
 	return {
 		modelView: {
 			...postPreviewModel.modelView!,

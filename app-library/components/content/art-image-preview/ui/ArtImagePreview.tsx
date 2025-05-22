@@ -2,6 +2,7 @@ import Image from "@/app-library/components/widget/image/ui/Image";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { ArtImagePreviewModel } from "../ArtImagePreviewModel";
 import "./art-image-preview.scss";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export const ELEMENT_NAME = "art-image-preview";
 
@@ -15,13 +16,11 @@ const ArtImagePreview = function ({ model }) {
 			data-testid={ELEMENT_NAME}
 		>
 			<Image
-				model={{
-					modelView: {
-						image: image,
-						width: 520,
-						height: 410,
-					},
-				}}
+				model={newReadonlyModel({
+					image: image,
+					width: 520,
+					height: 410,
+				})}
 			/>
 		</div>
 	);

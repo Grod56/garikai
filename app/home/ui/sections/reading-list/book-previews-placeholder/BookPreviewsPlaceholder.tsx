@@ -14,6 +14,7 @@ const BookPreviewsPlaceholder = function ({ model }) {
 	const { bookPreviewModels } = model.modelView;
 
 	const BookPreviewsContainerComponent = ComponentList<BookPreviewModel>;
+
 	const bookPreviewsContainerComponentModel: PlaceholderedComponentModel<
 		ComponentListModel<BookPreviewModel>
 	> =
@@ -22,6 +23,7 @@ const BookPreviewsPlaceholder = function ({ model }) {
 			componentModels: bookPreviewModels,
 			Component: BookPreview,
 		});
+
 	const PlaceholderComponent = () => (
 		<ComponentList
 			model={newReadonlyModel({
@@ -37,14 +39,12 @@ const BookPreviewsPlaceholder = function ({ model }) {
 
 	return (
 		<ComponentPlaceholder
-			model={{
-				modelView: {
-					PlaceholderedComponent: BookPreviewsContainerComponent,
-					placeholderedComponentModel:
-						bookPreviewsContainerComponentModel,
-					PlaceholderComponent,
-				},
-			}}
+			model={newReadonlyModel({
+				PlaceholderedComponent: BookPreviewsContainerComponent,
+				placeholderedComponentModel:
+					bookPreviewsContainerComponentModel,
+				PlaceholderComponent,
+			})}
 		/>
 	);
 } as ModeledVoidComponent<BookPreviewsPlaceholderModel>;

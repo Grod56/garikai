@@ -3,6 +3,7 @@ import LinkedComponent from "@/app-library/components/widget/linked-component/ui
 import { BookPreviewModel } from "../BookPreviewModel";
 import "./book-preview.scss";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export const ELEMENT_NAME = "book-preview";
 
@@ -12,19 +13,15 @@ const BookPreview = function ({ model }) {
 	return (
 		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
-				model={{
-					modelView: {
-						link: bookLink,
-					},
-				}}
+				model={newReadonlyModel({
+					link: bookLink,
+				})}
 			>
 				<ImageCard
-					model={{
-						modelView: {
-							thumbnail: cover,
-							orientation: "flexible",
-						},
-					}}
+					model={newReadonlyModel({
+						thumbnail: cover,
+						orientation: "flexible",
+					})}
 				>
 					<h5 className="title" title={title}>
 						{title}

@@ -1,5 +1,5 @@
-import { instantiateFeaturedPostPreviewModel } from "@/app-library/default-implementations/model-instantiators/FeaturedPostPreviewModelInstantiator";
-import { instantiatePostPreviewModel } from "@/app-library/default-implementations/model-instantiators/PostPreviewModelInstantiator";
+import { newFeaturedPostPreviewModel } from "@/app-library/default-implementations/model-instantiators/FeaturedPostPreviewModelInstantiator";
+import { newPostPreviewModel } from "@/app-library/default-implementations/model-instantiators/PostPreviewModelInstantiator";
 import { PostPreviewModel } from "@/app-library/components/content/post-preview/PostPreviewModel";
 import { ImagePlaceholder } from "@/app-library/custom-types/Image";
 import { removeMarkup } from "@/app-library/utilities/miscelleneous";
@@ -21,7 +21,7 @@ import {
 const imagePlaceholder = process.env
 	.NEXT_PUBLIC_DEFAULT_IMAGE_PLACEHOLDER! as ImagePlaceholder;
 
-export function instantiatePostPreviewRepositoryModel(api: PostPreviewAPI) {
+export function newPostPreviewRepositoryModel(api: PostPreviewAPI) {
 	const viewInteractionInterface = _viewInteractionInterface(api);
 	const model: PostPreviewRepositoryModel &
 		StatifiableModel<PostPreviewRepositoryViewInteractionInterface> = {
@@ -68,7 +68,7 @@ async function _retrievePostPreviewRepositorySnapshot(
 	const featuredPostPreviewRecord = records[0];
 	const recentPostPreviewModels: PostPreviewModel[] = records.map(
 		(record: PostPreviewRecord) => {
-			return instantiatePostPreviewModel({
+			return newPostPreviewModel({
 				id: `post-preview_${record.id}`,
 				title: record.title,
 				author: record.author,
@@ -82,7 +82,7 @@ async function _retrievePostPreviewRepositorySnapshot(
 			});
 		}
 	);
-	const featuredPostPreviewModel = instantiateFeaturedPostPreviewModel({
+	const featuredPostPreviewModel = newFeaturedPostPreviewModel({
 		id: `featured-post-preview_${featuredPostPreviewRecord.id}`,
 		title: featuredPostPreviewRecord.title,
 		author: featuredPostPreviewRecord.author,

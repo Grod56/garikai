@@ -4,7 +4,7 @@ import {
 } from "../../content-apis/ArtImagePreviewAPI";
 import supabase from "@/app-library/third-party/apis/supabase";
 
-export function instantiateSupabaseArtImagePreviewAPI(): ArtImagePreviewAPI {
+export function newSupabaseArtImagePreviewAPI(): ArtImagePreviewAPI {
 	return {
 		retrieveRecords: async () => {
 			const { data } = await supabase

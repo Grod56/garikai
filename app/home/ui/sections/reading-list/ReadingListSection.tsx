@@ -1,6 +1,6 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { instantiateBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/BookPreviewRepositoryModelInstantiator";
+import { newBookPreviewRepositoryModel } from "@/app-library/default-implementations/content-repositories/BookPreviewRepositoryModelInstantiator";
 import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import BookPreviewsPlaceholder from "./book-previews-placeholder/BookPreviewsPlaceholder";
 import { ReadingListSectionModel } from "./ReadingListSectionModel";
@@ -10,7 +10,7 @@ import "./reading-list.scss";
 const ReadingListSection = function ({ model }) {
 	const { sectionTitle, bookPreviewAPI } = model.modelView;
 	const { modelView: repositoryModelView } = useStatefulRepository(() =>
-		instantiateBookPreviewRepositoryModel(bookPreviewAPI)
+		newBookPreviewRepositoryModel(bookPreviewAPI)
 	);
 
 	return (

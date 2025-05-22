@@ -1,15 +1,15 @@
 import { waitFor } from "@testing-library/react";
-import { instantiateArtImagePreviewRepositoryModel } from "../../ArtImagePreviewRepositoryModelInstantiator";
+import { newArtImagePreviewRepositoryModel } from "../../ArtImagePreviewRepositoryModelInstantiator";
 import {
 	faultyRepositoryInstantiatorAPI,
 	testRepositoryInstantiatorAPI,
 } from "./data";
 import { RepositoryInteractionType } from "@/app-library/content-repositories/RepositoryModel";
 
-describe("instantiateArtImagePreviewRepositoryModel", () => {
+describe("newArtImagePreviewRepositoryModel", () => {
 	describe("Model returned when called", () => {
 		it("matches interact output with viewInteractionInterface output", async () => {
-			const model = instantiateArtImagePreviewRepositoryModel(
+			const model = newArtImagePreviewRepositoryModel(
 				testRepositoryInstantiatorAPI
 			);
 			model.interact({
@@ -30,7 +30,7 @@ describe("instantiateArtImagePreviewRepositoryModel", () => {
 			const consoleErrorSpy = jest.spyOn(console, "error");
 			consoleErrorSpy.mockImplementation();
 			const errorMessage = "What an error";
-			const model = instantiateArtImagePreviewRepositoryModel(
+			const model = newArtImagePreviewRepositoryModel(
 				faultyRepositoryInstantiatorAPI(errorMessage)
 			);
 			model.interact({

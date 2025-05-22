@@ -16,6 +16,7 @@ import { faEarthAmericas as Other } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
 import "./social-link.scss";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export const ELEMENT_NAME = "social-link";
 
@@ -31,38 +32,25 @@ const SocialLink = function ({ model }) {
 			data-testid={ELEMENT_NAME}
 		>
 			<ConditionalComponent
-				model={{
-					modelView: {
-						condition: socialLink.type,
-						components: new Map<
-							typeof socialLink.type,
-							GeneralComponent
-						>([
-							[
-								"Facebook",
-								() => <FontAwesomeIcon icon={Facebook} />,
-							],
-							["Email", () => <FontAwesomeIcon icon={Email} />],
-							["GitHub", () => <FontAwesomeIcon icon={Github} />],
-							[
-								"Instagram",
-								() => <FontAwesomeIcon icon={Instagram} />,
-							],
-							[
-								"WhatsApp",
-								() => <FontAwesomeIcon icon={WhatsApp} />,
-							],
-							["X", () => <FontAwesomeIcon icon={X} />],
-							[
-								"YouTube",
-								() => <FontAwesomeIcon icon={Youtube} />,
-							],
-						]),
-						FallBackComponent: () => (
-							<FontAwesomeIcon icon={Other} />
-						),
-					},
-				}}
+				model={newReadonlyModel({
+					condition: socialLink.type,
+					components: new Map<
+						typeof socialLink.type,
+						GeneralComponent
+					>([
+						["Facebook", () => <FontAwesomeIcon icon={Facebook} />],
+						["Email", () => <FontAwesomeIcon icon={Email} />],
+						["GitHub", () => <FontAwesomeIcon icon={Github} />],
+						[
+							"Instagram",
+							() => <FontAwesomeIcon icon={Instagram} />,
+						],
+						["WhatsApp", () => <FontAwesomeIcon icon={WhatsApp} />],
+						["X", () => <FontAwesomeIcon icon={X} />],
+						["YouTube", () => <FontAwesomeIcon icon={Youtube} />],
+					]),
+					FallBackComponent: () => <FontAwesomeIcon icon={Other} />,
+				})}
 			/>
 		</Link>
 	);

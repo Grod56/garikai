@@ -6,7 +6,7 @@ export interface InstantiateNavbarModelParameters {
 	navlinkModelViews: NavlinkModelView[];
 }
 
-export function instantiateNavbarModel({
+export function newNavbarModel({
 	id,
 	navlinkModelViews,
 }: InstantiateNavbarModelParameters): NavbarModel {

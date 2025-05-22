@@ -1,9 +1,9 @@
-import { instantiateNavbarModel } from "../../NavbarModelInstantiator";
+import { newNavbarModel } from "../../NavbarModelInstantiator";
 import { modelInstantiatorTestInput } from "./data";
 
-describe("instantiateNavbarModel", () => {
+describe("newNavbarModel", () => {
 	describe("Model returned when called", () => {
-		const model = instantiateNavbarModel({ ...modelInstantiatorTestInput });
+		const model = newNavbarModel({ ...modelInstantiatorTestInput });
 		const { id, navlinkModels } = model.modelView;
 
 		it("corresponds with input parameters", () => {
