@@ -1,5 +1,5 @@
 import { PostPreviewAPI } from "@/app-library/content-apis/PostPreviewAPI";
-import { SectionModelView } from "../SectionModel";
+import { SectionModelView } from "../section";
 import { ReadonlyModel } from "@mvc-react/mvc";
 
 export interface BlogSectionModelView extends SectionModelView {

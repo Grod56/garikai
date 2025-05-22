@@ -1,9 +1,9 @@
-import { instantiatePostPreviewModel } from "../../PostPreviewModelInstantiator";
+import { newPostPreviewModel } from "../../PostPreviewModelInstantiator";
 import { modelInstantiatorTestInput } from "./data";
 
-describe("instantiatePostPreviewModel", () => {
+describe("newPostPreviewModel", () => {
 	describe("Model returned when called", () => {
-		const model = instantiatePostPreviewModel({
+		const model = newPostPreviewModel({
 			...modelInstantiatorTestInput,
 		});
 		const { modelView } = model;

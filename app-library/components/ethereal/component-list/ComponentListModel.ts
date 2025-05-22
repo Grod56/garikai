@@ -1,10 +1,10 @@
-import { Model } from "@mvc-react/mvc";
+import { Model, ModelView } from "@mvc-react/mvc";
 import { ReadonlyModel } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 
 export interface ComponentListModelView<
 	M extends Model<V>,
-	V extends object = object,
+	V extends ModelView = ModelView,
 > {
 	componentModels: M[];
 	Component: ModeledVoidComponent<M>;
@@ -12,5 +12,5 @@ export interface ComponentListModelView<
 
 export type ComponentListModel<
 	M extends Model<V>,
-	V extends object = object,
+	V extends ModelView = ModelView,
 > = ReadonlyModel<ComponentListModelView<M>>;

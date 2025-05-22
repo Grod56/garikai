@@ -4,7 +4,7 @@ import {
 	BookPreviewRecord,
 } from "../../content-apis/BookPreviewAPI";
 
-export function instantiateSupabaseBookPreviewAPI(): BookPreviewAPI {
+export function newSupabaseBookPreviewAPI(): BookPreviewAPI {
 	return {
 		retrieveRecords: async () => {
 			const { data } = await supabase

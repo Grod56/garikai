@@ -13,7 +13,7 @@ export interface InstantiatePostPreviewModelParameters {
 	thumbnail: Image;
 }
 
-export function instantiatePostPreviewModel({
+export function newPostPreviewModel({
 	id,
 	title,
 	postLink,

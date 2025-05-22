@@ -14,14 +14,16 @@ const ArtImagePreviewsPlaceholder = function ({ model }) {
 	const { artImagePreviewModels } = model.modelView;
 
 	const ArtImagePreviewsContainerComponent = Carousel<ArtImagePreviewModel>;
-	const artImagePreviewsContainerComponentModel = artImagePreviewModels && {
-		modelView: {
+
+	const artImagePreviewsContainerComponentModel =
+		artImagePreviewModels &&
+		newReadonlyModel({
 			componentListModel: newReadonlyModel({
 				Component: ArtImagePreview,
 				componentModels: artImagePreviewModels,
 			}),
-		},
-	};
+		});
+
 	const PlaceholderComponent = () => (
 		<div className="art-image-placeholders-container">
 			<ComponentList
@@ -37,14 +39,12 @@ const ArtImagePreviewsPlaceholder = function ({ model }) {
 
 	return (
 		<ComponentPlaceholder
-			model={{
-				modelView: {
-					placeholderedComponentModel:
-						artImagePreviewsContainerComponentModel,
-					PlaceholderedComponent: ArtImagePreviewsContainerComponent,
-					PlaceholderComponent,
-				},
-			}}
+			model={newReadonlyModel({
+				placeholderedComponentModel:
+					artImagePreviewsContainerComponentModel,
+				PlaceholderedComponent: ArtImagePreviewsContainerComponent,
+				PlaceholderComponent,
+			})}
 		/>
 	);
 } as ModeledVoidComponent<ArtImagePreviewsPlaceholderModel>;

@@ -16,7 +16,7 @@ import {
 } from "@mvc-react/stateful";
 import { newReadonlyModel } from "@mvc-react/mvc";
 
-export function instantiateBookPreviewRepositoryModel(api: BookPreviewAPI) {
+export function newBookPreviewRepositoryModel(api: BookPreviewAPI) {
 	const viewInteractionInterface = _viewInteractionInterface(api);
 	const model: BookPreviewRepositoryModel &
 		StatifiableModel<BookPreviewRepositoryViewInteractionInterface> = {

@@ -8,7 +8,7 @@ export interface InstantiateFooterModelParameters {
 	socialLinkModelViews: SocialLinkModelView[];
 }
 
-export function instantiateFooterModel({
+export function newFooterModel({
 	id,
 	copyrightText,
 	socialLinkModelViews,

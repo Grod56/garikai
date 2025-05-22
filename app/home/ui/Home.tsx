@@ -1,7 +1,7 @@
 "use client";
-import { instantiateSupabaseArtImagePreviewAPI } from "@/app-library/default-implementations/content-apis/ArtImagePreviewAPIInstantiator";
-import { instantiateSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
-import { instantiateBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-apis/PostPreviewAPIInstantiator";
+import { newSupabaseArtImagePreviewAPI } from "@/app-library/default-implementations/content-apis/ArtImagePreviewAPIInstantiator";
+import { newSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
+import { newBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-apis/PostPreviewAPIInstantiator";
 import Main from "../../../app-library/components/content/main/ui/Main";
 import "./home.scss";
 import ArtSection from "./sections/art/ArtSection";
@@ -17,9 +17,9 @@ const blogURL = new URL(process.env.NEXT_PUBLIC_BLOG_URL!);
 
 export default function Home() {
 	const mainModel = newReadonlyModel({ id: "home", name: "home" });
-	const artImagePreviewAPI = instantiateSupabaseArtImagePreviewAPI();
-	const postPreviewAPI = instantiateBloggerPostPreviewAPI();
-	const bookPreviewAPI = instantiateSupabaseBookPreviewAPI();
+	const artImagePreviewAPI = newSupabaseArtImagePreviewAPI();
+	const postPreviewAPI = newBloggerPostPreviewAPI();
+	const bookPreviewAPI = newSupabaseBookPreviewAPI();
 
 	return (
 		<Main model={mainModel}>

@@ -4,7 +4,7 @@ import {
 	faultyBloggerSpySelectMockImplementation,
 	bloggerSpySelectMockImplementation,
 } from "./data";
-import { instantiateBloggerPostPreviewAPI } from "../../PostPreviewAPIInstantiator";
+import { newBloggerPostPreviewAPI } from "../../PostPreviewAPIInstantiator";
 describe("getBloggerPostPreviewPreviewAPI", () => {
 	describe("retrieveRecords", () => {
 		let bloggerSpy: jest.SpyInstance;
@@ -18,7 +18,7 @@ describe("getBloggerPostPreviewPreviewAPI", () => {
 
 		it("requests records from appropriate table when called", async () => {
 			bloggerSpy.mockImplementation(bloggerSpySelectMockImplementation);
-			const api = instantiateBloggerPostPreviewAPI();
+			const api = newBloggerPostPreviewAPI();
 			await waitFor(() => api.retrieveRecords());
 			expect(bloggerSpy).toHaveBeenCalled();
 		});
@@ -26,7 +26,7 @@ describe("getBloggerPostPreviewPreviewAPI", () => {
 			bloggerSpy.mockImplementation(
 				faultyBloggerSpySelectMockImplementation
 			);
-			const api = instantiateBloggerPostPreviewAPI();
+			const api = newBloggerPostPreviewAPI();
 			await expect(api.retrieveRecords()).rejects.toThrow();
 		});
 	});

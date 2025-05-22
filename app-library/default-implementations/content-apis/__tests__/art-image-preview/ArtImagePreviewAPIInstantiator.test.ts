@@ -1,11 +1,11 @@
 import { waitFor } from "@testing-library/react";
 import supabase from "@/app-library/third-party/apis/supabase";
-import { instantiateSupabaseArtImagePreviewAPI } from "../../ArtImagePreviewAPIInstantiator";
+import { newSupabaseArtImagePreviewAPI } from "../../ArtImagePreviewAPIInstantiator";
 import {
 	faultySupabaseSpySelectMockImplementation,
 	supabaseSpySelectMockImplementation,
 } from "./data";
-describe("instantiateSupabaseArtImagePreviewAPI", () => {
+describe("newSupabaseArtImagePreviewAPI", () => {
 	describe("retrieveRecords", () => {
 		let supabaseSpy: jest.SpyInstance;
 
@@ -18,7 +18,7 @@ describe("instantiateSupabaseArtImagePreviewAPI", () => {
 
 		it("requests records from appropriate table when called", async () => {
 			supabaseSpy.mockImplementation(supabaseSpySelectMockImplementation);
-			const api = instantiateSupabaseArtImagePreviewAPI();
+			const api = newSupabaseArtImagePreviewAPI();
 			await waitFor(() => api.retrieveRecords());
 			expect(supabaseSpy).toHaveBeenCalledWith("ArtImagePreviewView");
 		});
@@ -26,7 +26,7 @@ describe("instantiateSupabaseArtImagePreviewAPI", () => {
 			supabaseSpy.mockImplementation(
 				faultySupabaseSpySelectMockImplementation
 			);
-			const api = instantiateSupabaseArtImagePreviewAPI();
+			const api = newSupabaseArtImagePreviewAPI();
 			await expect(api.retrieveRecords()).rejects.toThrow();
 		});
 	});

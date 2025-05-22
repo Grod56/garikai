@@ -3,6 +3,7 @@ import LinkedComponent from "@/app-library/components/widget/linked-component/ui
 import { PostPreviewModel } from "../PostPreviewModel";
 import "./post-preview.scss";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export const ELEMENT_NAME = "post-preview";
 
@@ -12,19 +13,15 @@ const PostPreview = function ({ model }) {
 	return (
 		<div className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
 			<LinkedComponent
-				model={{
-					modelView: {
-						link: postLink,
-					},
-				}}
+				model={newReadonlyModel({
+					link: postLink,
+				})}
 			>
 				<ImageCard
-					model={{
-						modelView: {
-							thumbnail: thumbnail,
-							orientation: "vertical",
-						},
-					}}
+					model={newReadonlyModel({
+						thumbnail: thumbnail,
+						orientation: "vertical",
+					})}
 				>
 					<h5 className="title" title={title}>
 						{title}

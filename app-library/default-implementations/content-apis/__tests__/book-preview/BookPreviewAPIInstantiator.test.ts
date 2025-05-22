@@ -4,7 +4,7 @@ import {
 	faultySupabaseSpySelectMockImplementation,
 	supabaseSpySelectMockImplementation,
 } from "./data";
-import { instantiateSupabaseBookPreviewAPI } from "../../BookPreviewAPIInstantiator";
+import { newSupabaseBookPreviewAPI } from "../../BookPreviewAPIInstantiator";
 describe("getSupabaseBookPreviewPreviewAPI", () => {
 	describe("retrieveRecords", () => {
 		let supabaseSpy: jest.SpyInstance;
@@ -18,7 +18,7 @@ describe("getSupabaseBookPreviewPreviewAPI", () => {
 
 		it("requests records from appropriate table when called", async () => {
 			supabaseSpy.mockImplementation(supabaseSpySelectMockImplementation);
-			const api = instantiateSupabaseBookPreviewAPI();
+			const api = newSupabaseBookPreviewAPI();
 			await waitFor(() => api.retrieveRecords());
 			expect(supabaseSpy).toHaveBeenCalledWith("BookPreviewView");
 		});
@@ -26,7 +26,7 @@ describe("getSupabaseBookPreviewPreviewAPI", () => {
 			supabaseSpy.mockImplementation(
 				faultySupabaseSpySelectMockImplementation
 			);
-			const api = instantiateSupabaseBookPreviewAPI();
+			const api = newSupabaseBookPreviewAPI();
 			await expect(api.retrieveRecords()).rejects.toThrow();
 		});
 	});

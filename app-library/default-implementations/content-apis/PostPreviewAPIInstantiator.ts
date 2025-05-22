@@ -18,7 +18,7 @@ type BloggerBlogPostItem = {
 	}[];
 };
 
-export function instantiateBloggerPostPreviewAPI(): PostPreviewAPI {
+export function newBloggerPostPreviewAPI(): PostPreviewAPI {
 	return {
 		retrieveRecords: async () => {
 			const { data } = await blogger.fetchBlogPosts();

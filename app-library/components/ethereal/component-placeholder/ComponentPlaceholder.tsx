@@ -1,11 +1,10 @@
-import { Model } from "@mvc-react/mvc";
+import { Model, ModelView } from "@mvc-react/mvc";
 import { ComponentPlaceholderModel } from "./ComponentPlaceholderModel";
 
-function ComponentPlaceholder<M extends Model<V>, V extends object = object>({
-	model,
-}: {
-	model: ComponentPlaceholderModel<M>;
-}) {
+function ComponentPlaceholder<
+	M extends Model<V>,
+	V extends ModelView = ModelView,
+>({ model }: { model: ComponentPlaceholderModel<M> }) {
 	const {
 		placeholderedComponentModel,
 		PlaceholderedComponent,
