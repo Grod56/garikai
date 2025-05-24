@@ -1,7 +1,6 @@
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { SocialLinkModel } from "../SocialLinkModel";
 import Link from "next/link";
-import ConditionalComponent from "@/app-library/components/ethereal/conditional-component/ConditionalComponent";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import {
 	faWhatsapp as WhatsApp,
@@ -15,8 +14,9 @@ import { faEnvelope as Email } from "@fortawesome/free-regular-svg-icons";
 import { faEarthAmericas as Other } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
-import "./social-link.scss";
 import { newReadonlyModel } from "@mvc-react/mvc";
+import { ConditionalComponent } from "@mvc-react/components";
+import "./social-link.scss";
 
 export const ELEMENT_NAME = "social-link";
 

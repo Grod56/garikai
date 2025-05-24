@@ -26,7 +26,6 @@ export function useStatefulRepository<
 		try {
 			interact({
 				type: RepositoryInteractionType.RETRIEVE,
-				input: null,
 			});
 		} catch (error) {
 			console.error(`Failed to initialize repository: ${String(error)}`);

@@ -1,9 +1,9 @@
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { NavbarModel } from "../NavbarModel";
-import "./navbar.scss";
-import ComponentList from "@/app-library/components/ethereal/component-list/ComponentList";
 import Navlink from "@/app-library/components/widget/navlink/ui/Navlink";
 import { newReadonlyModel } from "@mvc-react/mvc";
+import { ComponentList } from "@mvc-react/components";
+import "./navbar.scss";
 
 export const ELEMENT_NAME = "navbar";
 

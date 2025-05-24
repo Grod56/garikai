@@ -1,9 +1,9 @@
-import ComponentList from "@/app-library/components/ethereal/component-list/ComponentList";
 import SocialLink from "@/app-library/components/widget/social-link/ui/SocialLink";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
 import { FooterModel } from "../FooterModel";
-import "./footer.scss";
 import { newReadonlyModel } from "@mvc-react/mvc";
+import { ComponentList } from "@mvc-react/components";
+import "./footer.scss";
 
 export const ELEMENT_NAME = "footer";
 

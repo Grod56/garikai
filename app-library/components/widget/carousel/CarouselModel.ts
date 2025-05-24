@@ -1,6 +1,6 @@
 import { Model, ModelView, ReadonlyModel } from "@mvc-react/mvc";
-import { ComponentListModel } from "../../ethereal/component-list/ComponentListModel";
 import { WidgetComponentModelView } from "../widget-component";
+import { ComponentListModel } from "@mvc-react/components";
 
 export interface CarouselModelView<
 	M extends Model<V>,

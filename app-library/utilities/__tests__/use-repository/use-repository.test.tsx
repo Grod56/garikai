@@ -42,7 +42,7 @@ describe("useStatefulRepository", () => {
 		);
 		const expectedModelView =
 			await testRepositoryModelInstantiator().viewInteractionInterface.produceModelView(
-				{ type: RepositoryInteractionType.RETRIEVE, input: null }
+				{ type: RepositoryInteractionType.RETRIEVE }
 			);
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
