@@ -14,12 +14,10 @@ describe("newArtImagePreviewRepositoryModel", () => {
 			);
 			model.interact({
 				type: RepositoryInteractionType.RETRIEVE,
-				input: null,
 			});
 			const newModelView = await waitFor(() =>
 				model.viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-					input: null,
 				})
 			);
 			await waitFor(() => {
@@ -35,7 +33,6 @@ describe("newArtImagePreviewRepositoryModel", () => {
 			);
 			model.interact({
 				type: RepositoryInteractionType.RETRIEVE,
-				input: null,
 			});
 			await waitFor(() => {
 				expect(consoleErrorSpy.mock.calls[0][0]).toEqual(

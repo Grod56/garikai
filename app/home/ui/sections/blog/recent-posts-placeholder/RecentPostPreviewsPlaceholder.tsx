@@ -1,14 +1,16 @@
 import { PostPreviewModel } from "@/app-library/components/content/post-preview/PostPreviewModel";
 import PostPreview from "@/app-library/components/content/post-preview/ui/PostPreview";
-import ComponentList from "@/app-library/components/ethereal/component-list/ComponentList";
 import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/ImageCardSkeletonModel";
 import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import ComponentPlaceholder from "../../../../../../app-library/components/ethereal/component-placeholder/ComponentPlaceholder";
-import ImageCardSkeleton from "../../../../../../app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
+import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
 import { RecentPostPreviewsPlaceholderModel } from "./RecentPostPreviewsPlaceholderModel";
-import { PlaceholderedComponentModel } from "@/app-library/components/ethereal/component-placeholder/ComponentPlaceholderModel";
-import { ComponentListModel } from "@/app-library/components/ethereal/component-list/ComponentListModel";
 import { newReadonlyModel } from "@mvc-react/mvc";
+import {
+	PlaceholderedComponentModel,
+	ComponentListModel,
+	ComponentList,
+	ComponentPlaceholder,
+} from "@mvc-react/components";
 
 const RecentPostPreviewsPlaceholder = function ({ model }) {
 	const { recentPostPreviewModels } = model.modelView;

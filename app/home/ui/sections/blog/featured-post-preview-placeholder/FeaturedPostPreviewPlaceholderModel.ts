@@ -1,6 +1,6 @@
 import { ReadonlyModel } from "@mvc-react/mvc";
-import { FeaturedPostPreviewModel } from "../../../../../../app-library/components/content/post-preview/FeaturedPostPreviewModel";
-import { PlaceholderedComponentModel } from "@/app-library/components/ethereal/component-placeholder/ComponentPlaceholderModel";
+import { FeaturedPostPreviewModel } from "@/app-library/components/content/post-preview/FeaturedPostPreviewModel";
+import { PlaceholderedComponentModel } from "@mvc-react/components";
 
 export interface FeaturedPostPreviewPlaceholderModelView {
 	featuredPostPreviewModel: PlaceholderedComponentModel<FeaturedPostPreviewModel>;

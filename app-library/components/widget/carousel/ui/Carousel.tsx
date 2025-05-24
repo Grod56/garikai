@@ -1,9 +1,8 @@
-import ComponentList from "@/app-library/components/ethereal/component-list/ComponentList";
-import { ComponentListModelView } from "@/app-library/components/ethereal/component-list/ComponentListModel";
 import { Model, ModelView, newReadonlyModel } from "@mvc-react/mvc";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import { CarouselModel } from "../CarouselModel";
+import { ComponentList, ComponentListModelView } from "@mvc-react/components";
 import "./carousel.scss";
 
 export const ELEMENT_NAME = "carousel";

@@ -2,7 +2,7 @@
 import { newSupabaseArtImagePreviewAPI } from "@/app-library/default-implementations/content-apis/ArtImagePreviewAPIInstantiator";
 import { newSupabaseBookPreviewAPI } from "@/app-library/default-implementations/content-apis/BookPreviewAPIInstantiator";
 import { newBloggerPostPreviewAPI } from "@/app-library/default-implementations/content-apis/PostPreviewAPIInstantiator";
-import Main from "../../../app-library/components/content/main/ui/Main";
+import Main from "@/app-library/components/content/main/ui/Main";
 import "./home.scss";
 import ArtSection from "./sections/art/ArtSection";
 import BioSection from "./sections/bio/BioSection";

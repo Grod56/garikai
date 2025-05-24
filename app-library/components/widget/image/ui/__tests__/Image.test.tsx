@@ -13,15 +13,7 @@ describe("Image", () => {
 
 	it("maps image property to corresponding node", () => {
 		const imageElement = screen.getByAltText(image.alt);
-		expect(imageElement).toHaveAttribute(
-			"src",
-			//TODO: To be tidied up
-			expect.stringMatching(
-				new RegExp(
-					`(${image.source}|${encodeURIComponent(image.source)})`
-				)
-			)
-		);
+		expect(imageElement).toContainHTML(image.source);
 		expect(imageElement).toHaveAttribute("alt", image.alt);
 		expect(imageElement).toContainHTML(image.placeholder);
 	});
@@ -33,6 +25,7 @@ describe("Image", () => {
 		const imageElement = screen.getByAltText(image.alt);
 		expect(imageElement).toHaveAttribute("height", height.toString());
 	});
+
 	// TODO: Custom name widget shebang
 
 	it("encapsulates relevant nodes within component element", () => {

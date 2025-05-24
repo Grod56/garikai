@@ -23,9 +23,12 @@ importers:
       '@fortawesome/react-fontawesome':
         specifier: ^0.2.2
         version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.1.0)
+      '@mvc-react/components':
+        specifier: ^1.0.2
+        version: 1.0.2(@mvc-react/mvc@2.2.1)(react@19.1.0)
       '@mvc-react/stateful':
-        specifier: ^2.2.2
-        version: 2.2.2
+        specifier: ^2.2.6
+        version: 2.2.6(@mvc-react/mvc@2.2.1)(react@19.1.0)
       '@next/env':
         specifier: ^15.3.2
         version: 15.3.2
@@ -70,8 +73,8 @@ importers:
         specifier: ^9.27.0
         version: 9.27.0
       '@mvc-react/mvc':
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: ^2.2.1
+        version: 2.2.1
       '@next/eslint-plugin-next':
         specifier: ^15.3.2
         version: 15.3.2
@@ -612,11 +615,20 @@ packages:
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
 
-  '@mvc-react/mvc@2.1.1':
-    resolution: {integrity: sha512-jeuCHxvQKSluf0FZE9WzU9Z37OcxDqbFj8HIHfhoOg8SoE/rJZgaQ2SVPOyd8Zbd7j9/cMGMD05UC4slx9FLyA==}
+  '@mvc-react/components@1.0.2':
+    resolution: {integrity: sha512-kfTBLKSaYYJj/2H+NCk6JbIPpZsMVxKuXUWyJ6t4rVXpX6ciu5CkKkXtrXDR2uZsjTa7KTT6/v7BD+WKpfNXHQ==}
+    peerDependencies:
+      '@mvc-react/mvc': ^2.1.1
+      react: ^19.1.0
 
-  '@mvc-react/stateful@2.2.2':
-    resolution: {integrity: sha512-PpKmfZe+Rd+B/Cf2WE7IzEflc3eyPiOvy1D9easO+c6bEnF2/8nGIxoOGWfsXxEvNAkpmzvjgvStLhUFRfexLA==}
+  '@mvc-react/mvc@2.2.1':
+    resolution: {integrity: sha512-EtdXW1Bau1sYQSNsYYaFPIyByrrm2/SKXhjUjLoqqc/IEmKM3ubevZ6POy1kzoWPTyopNqrNH9N9WJOz4zESpg==}
+
+  '@mvc-react/stateful@2.2.6':
+    resolution: {integrity: sha512-Scp/eNWC6Ctd6RZj1NynbntHuYBtuFOwuY1L0Z6W2IeCrtAr7EPgl2ULbtiXN1fDmlUqdevdAtvcRTyNvPr05A==}
+    peerDependencies:
+      '@mvc-react/mvc': ^2.1.1
+      react: ^19.1.0
 
   '@next/env@15.3.2':
     resolution: {integrity: sha512-xURk++7P7qR9JG1jJtLzPzf0qEvqCN0A/T3DXf8IPMKo9/6FfjxtEffRJIIew/bIL4T3C2jLLqBor8B/zVlx6g==}
@@ -3600,11 +3612,16 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@mvc-react/mvc@2.1.1': {}
-
-  '@mvc-react/stateful@2.2.2':
+  '@mvc-react/components@1.0.2(@mvc-react/mvc@2.2.1)(react@19.1.0)':
     dependencies:
-      '@mvc-react/mvc': 2.1.1
+      '@mvc-react/mvc': 2.2.1
+      react: 19.1.0
+
+  '@mvc-react/mvc@2.2.1': {}
+
+  '@mvc-react/stateful@2.2.6(@mvc-react/mvc@2.2.1)(react@19.1.0)':
+    dependencies:
+      '@mvc-react/mvc': 2.2.1
       react: 19.1.0
 
   '@next/env@15.3.2': {}
