@@ -1,6 +1,6 @@
 import NextImage from "next/image";
-import { ImageModel } from "../ImageModel";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ImageModel } from "../image";
+import { ModeledVoidComponent } from "@mvc-react/components";
 
 export const ELEMENT_NAME = "image";
 

@@ -1,14 +1,14 @@
 import {
 	BookPreviewRecord,
 	BookPreviewAPI,
-} from "../../../../content-apis/BookPreviewAPI";
+} from "../../../../content-apis/book-preview";
 
 export const testRecords: BookPreviewRecord[] = [
 	{
 		id: "9271938",
 		title: "Test title",
 		author: "An author",
-		bookLink: "https://localhost:8768",
+		bookLink: "https://localhost:8768/3436363",
 		coverSource: "/resources/dackanask/acs",
 		coverAlt: "kacmklla",
 		coverPlaceholder:

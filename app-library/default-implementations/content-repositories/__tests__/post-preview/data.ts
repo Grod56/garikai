@@ -1,7 +1,7 @@
 import {
 	PostPreviewRecord,
 	PostPreviewAPI,
-} from "../../../../content-apis/PostPreviewAPI";
+} from "../../../../content-apis/post-preview";
 
 const testRecords: PostPreviewRecord[] = [
 	{
@@ -12,7 +12,7 @@ const testRecords: PostPreviewRecord[] = [
 			"Lorem ipsum asijioasjoieb ebfnwefunw neeunwiudnw edkendoiwnoeidnw",
 		author: "Michael Timothy",
 		publishedDate: `${Date.now()}`,
-		postLink: "https://link.th",
+		postLink: "https://link.th/dfbdbd",
 	},
 	{
 		id: "askcnuiuiq8922212",
@@ -22,7 +22,7 @@ const testRecords: PostPreviewRecord[] = [
 			"anfiu uiefnwuifniu wuefniwufniwuefowuejfiuwbefiwbefneufnwuneifunwiune",
 		author: "Theresa Nay",
 		publishedDate: `${Date.now()}`,
-		postLink: "https://my.link",
+		postLink: "https://my.link/fgbfb",
 	},
 ];
 

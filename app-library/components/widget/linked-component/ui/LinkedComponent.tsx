@@ -1,7 +1,7 @@
-import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
 import { openExternalSite } from "@/app-library/utilities/ui";
-import { LinkedComponentModel } from "../LinkedComponentModel";
+import { LinkedComponentModel } from "../linked-component";
 import "./linked-component.scss";
+import { ModeledContainerComponent } from "@mvc-react/components";
 
 export const ELEMENT_NAME = "linked-component";
 

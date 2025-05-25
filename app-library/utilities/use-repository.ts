@@ -1,36 +1,23 @@
-import { useEffect } from "react";
-import {
-	RepositoryInteractionType,
-	RepositoryModel,
-	RepositoryModelInteraction,
-} from "../content-repositories/RepositoryModel";
 import { ModelView } from "@mvc-react/mvc";
 import {
-	ViewInteractionInterface,
 	StatifiableModel,
 	useTransformedStatefulInteractiveModel,
 } from "@mvc-react/stateful";
+import { useEffect } from "react";
+import {
+	RepositoryInteractionType,
+	RepositoryModelInteraction,
+} from "../content-repositories/repository";
 
-export function useStatefulRepository<
-	T extends RepositoryModel<U, V>,
-	U extends ModelView = ModelView,
-	V extends RepositoryModelInteraction = RepositoryModelInteraction,
-	W extends ViewInteractionInterface<U, V> = ViewInteractionInterface<U, V>,
->(repositoryModelInstantiator: () => T & StatifiableModel<W>): T {
-	const model = useTransformedStatefulInteractiveModel(
-		repositoryModelInstantiator()
-	);
+export function useStatefulRepository<V extends ModelView>(
+	statifiableModel: StatifiableModel<V, RepositoryModelInteraction>
+) {
+	const model = useTransformedStatefulInteractiveModel(statifiableModel);
 	const { interact } = model;
 
 	useEffect(() => {
-		try {
-			interact({
-				type: RepositoryInteractionType.RETRIEVE,
-			});
-		} catch (error) {
-			console.error(`Failed to initialize repository: ${String(error)}`);
-		}
+		interact({ type: RepositoryInteractionType.RETRIEVE });
 	}, [interact]);
 
-	return model as T;
+	return model;
 }

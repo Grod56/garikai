@@ -1,4 +1,4 @@
-import { SocialLinkModel } from "../../SocialLinkModel";
+import { SocialLinkModel } from "../../social-link";
 
 export const testModel: SocialLinkModel = {
 	modelView: {

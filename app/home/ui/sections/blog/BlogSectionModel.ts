@@ -1,4 +1,4 @@
-import { PostPreviewAPI } from "@/app-library/content-apis/PostPreviewAPI";
+import { PostPreviewAPI } from "@/app-library/content-apis/post-preview";
 import { SectionModelView } from "../section";
 import { ReadonlyModel } from "@mvc-react/mvc";
 

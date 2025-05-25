@@ -1,5 +1,5 @@
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { BannerModel } from "../BannerModel";
+import { ModeledVoidComponent } from "@mvc-react/components";
+import { BannerModel } from "../banner";
 import "./banner.scss";
 
 export const ELEMENT_NAME = "banner";

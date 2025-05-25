@@ -1,8 +1,8 @@
-import { BookPreviewModel } from "@/app-library/components/content/book-preview/BookPreviewModel";
+import { BookPreviewModel } from "@/app-library/components/content/book-preview/book-preview";
 import BookPreview from "@/app-library/components/content/book-preview/ui/BookPreview";
-import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/ImageCardSkeletonModel";
+import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card";
 import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+
 import { BookPreviewsPlaceholderModel } from "./BookPreviewsPlaceholderModel";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import {
@@ -10,6 +10,7 @@ import {
 	PlaceholderedComponentModel,
 	ComponentListModel,
 	ComponentPlaceholder,
+	ModeledVoidComponent,
 } from "@mvc-react/components";
 
 const BookPreviewsPlaceholder = function ({ model }) {

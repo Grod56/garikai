@@ -1,9 +1,10 @@
 import ImageCard from "@/app-library/components/widget/image-card/ui/ImageCard";
 import LinkedComponent from "@/app-library/components/widget/linked-component/ui/LinkedComponent";
-import { BookPreviewModel } from "../BookPreviewModel";
+import { BookPreviewModel } from "../book-preview";
 import "./book-preview.scss";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+
 import { newReadonlyModel } from "@mvc-react/mvc";
+import { ModeledVoidComponent } from "@mvc-react/components";
 
 export const ELEMENT_NAME = "book-preview";
 

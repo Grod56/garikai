@@ -1,4 +1,4 @@
-import { BookPreviewRecord } from "@/app-library/content-apis/BookPreviewAPI";
+import { BookPreviewRecord } from "@/app-library/content-apis/book-preview";
 
 export const testRecords: BookPreviewRecord[] = [
 	{

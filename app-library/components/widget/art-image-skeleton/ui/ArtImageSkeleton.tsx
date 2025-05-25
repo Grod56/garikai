@@ -1,5 +1,5 @@
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { ArtImageSkeletonModel } from "../ArtImageSkeletonModel";
+import { ModeledVoidComponent } from "@mvc-react/components";
+import { ArtImageSkeletonModel } from "../art-image-skeleton";
 import "./art-image-skeleton.scss";
 
 export const ELEMENT_NAME = "art-image-skeleton";

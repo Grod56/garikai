@@ -1,0 +1,11 @@
+import { Image } from "@/app-library/utility-types/Image";
+import { Orientation } from "@/app-library/utility-types/miscellaneous";
+import { ReadonlyModel } from "@mvc-react/mvc";
+import { WidgetComponentModelView } from "../widget-component";
+
+export type ImageCardModel = ReadonlyModel<ImageCardModelView>;
+
+export interface ImageCardModelView extends WidgetComponentModelView {
+	readonly thumbnail: Image;
+	readonly orientation: Orientation;
+}

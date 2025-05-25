@@ -1,4 +1,4 @@
-import { ImageCardModel } from "../../ImageCardModel";
+import { ImageCardModel } from "../../image-card";
 
 export const testModel: ImageCardModel = {
 	modelView: {

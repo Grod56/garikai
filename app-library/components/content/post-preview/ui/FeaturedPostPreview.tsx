@@ -1,10 +1,11 @@
 import ImageCard from "@/app-library/components/widget/image-card/ui/ImageCard";
 import LinkedComponent from "@/app-library/components/widget/linked-component/ui/LinkedComponent";
 import { ELEMENT_NAME } from "./PostPreview";
-import { FeaturedPostPreviewModel } from "../FeaturedPostPreviewModel";
+import { FeaturedPostPreviewModel } from "../featured-post-preview";
 import "./post-preview.scss";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+
 import { newReadonlyModel } from "@mvc-react/mvc";
+import { ModeledVoidComponent } from "@mvc-react/components";
 
 export { ELEMENT_NAME };
 

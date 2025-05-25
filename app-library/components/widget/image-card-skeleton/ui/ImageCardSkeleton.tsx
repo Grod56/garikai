@@ -1,6 +1,6 @@
 import "./image-card-skeleton.scss";
-import { ImageCardSkeletonModel } from "../ImageCardSkeletonModel";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ImageCardSkeletonModel } from "../image-card";
+import { ModeledVoidComponent } from "@mvc-react/components";
 
 export const ELEMENT_NAME = "image-card-skeleton";
 

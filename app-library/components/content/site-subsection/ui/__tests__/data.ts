@@ -1,4 +1,4 @@
-import { SiteSubsectionModel } from "../../SiteSubsectionModel";
+import { SiteSubsectionModel } from "../../site-subsection";
 
 export const testModel: SiteSubsectionModel = {
 	modelView: {

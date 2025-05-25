@@ -1,4 +1,4 @@
-import { ImageCardSkeletonModel } from "../../ImageCardSkeletonModel";
+import { ImageCardSkeletonModel } from "../../image-card";
 
 export const testModel: ImageCardSkeletonModel = {
 	modelView: {

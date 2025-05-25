@@ -1,4 +1,4 @@
-import { HeaderModel } from "../../HeaderModel";
+import { HeaderModel } from "../../header";
 
 export const testModel: HeaderModel = {
 	modelView: {

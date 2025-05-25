@@ -1,5 +1,5 @@
-import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
-import { SiteSubsectionModel } from "../SiteSubsectionModel";
+import { ModeledContainerComponent } from "@mvc-react/components";
+import { SiteSubsectionModel } from "../site-subsection";
 import "./site-subsection.scss";
 
 export const ELEMENT_NAME = "site-subsection";
