@@ -1,5 +1,4 @@
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { SocialLinkModel } from "../SocialLinkModel";
+import { SocialLinkModel } from "../social-link";
 import Link from "next/link";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import {
@@ -13,9 +12,12 @@ import {
 import { faEnvelope as Email } from "@fortawesome/free-regular-svg-icons";
 import { faEarthAmericas as Other } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { GeneralComponent } from "@/app-library/custom-types/Miscellaneous";
+import { GeneralComponent } from "@/app-library/utility-types/miscellaneous";
 import { newReadonlyModel } from "@mvc-react/mvc";
-import { ConditionalComponent } from "@mvc-react/components";
+import {
+	ConditionalComponent,
+	ModeledVoidComponent,
+} from "@mvc-react/components";
 import "./social-link.scss";
 
 export const ELEMENT_NAME = "social-link";

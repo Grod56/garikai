@@ -1,4 +1,4 @@
-import { FooterModel } from "../../FooterModel";
+import { FooterModel } from "../../footer";
 
 export const testModel: FooterModel = {
 	modelView: {

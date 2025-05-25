@@ -1,0 +1,22 @@
+import { FeaturedPostPreviewModel } from "../../components/content/post-preview/featured-post-preview";
+import {
+	newPostPreviewModel,
+	NewPostPreviewModelParameters,
+} from "./post-preview";
+
+export interface NewFeaturedPostPreviewModelParameters
+	extends NewPostPreviewModelParameters {
+	snippet: string;
+}
+
+export function newFeaturedPostPreviewModel(
+	parameters: NewFeaturedPostPreviewModelParameters
+): FeaturedPostPreviewModel {
+	const postPreviewModel = newPostPreviewModel({ ...parameters });
+	return {
+		modelView: {
+			...postPreviewModel.modelView!,
+			snippet: parameters.snippet,
+		},
+	};
+}

@@ -1,0 +1,11 @@
+@use "../../../../../app-library/styles/component-utilities/grid-container";
+
+.portfolio-items-container {
+	@include grid-container.grid(1, "horizontal", false, false);
+}
+
+@media (min-width: 768px) {
+	.portfolio-items-container {
+		@include grid-container.grid(1, "horizontal", false, true);
+	}
+}

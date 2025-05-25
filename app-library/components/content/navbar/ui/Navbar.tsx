@@ -1,8 +1,7 @@
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { NavbarModel } from "../NavbarModel";
+import { NavbarModel } from "../navbar";
 import Navlink from "@/app-library/components/widget/navlink/ui/Navlink";
 import { newReadonlyModel } from "@mvc-react/mvc";
-import { ComponentList } from "@mvc-react/components";
+import { ComponentList, ModeledVoidComponent } from "@mvc-react/components";
 import "./navbar.scss";
 
 export const ELEMENT_NAME = "navbar";

@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Explora } from "next/font/google";
 import { Metadata } from "next/types";
-import AppDesign from "@/app-design/AppDesign";
+import AppDesign from "@/app-library/app-design/AppDesign";
 
 // Initial configuration ---------------------------------------------------
 
@@ -22,7 +22,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={exploraFont.className}>
-			<head />
+			<head>
+				<meta
+					name="google-site-verification"
+					content="UY7Ym8IOpWKyjiL3REW9YXXS-T6g637HgcAx2tYYyDQ"
+				/>
+			</head>
 			<body suppressHydrationWarning>
 				<AppDesign>{children}</AppDesign>
 			</body>

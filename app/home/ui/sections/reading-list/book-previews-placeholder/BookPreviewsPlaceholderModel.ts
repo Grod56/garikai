@@ -1,4 +1,4 @@
-import { BookPreviewModel } from "@/app-library/components/content/book-preview/BookPreviewModel";
+import { BookPreviewModel } from "@/app-library/components/content/book-preview/book-preview";
 import { ReadonlyModel } from "@mvc-react/mvc";
 
 export interface BookPreviewsPlaceholderModelView {

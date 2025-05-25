@@ -1,7 +1,7 @@
 import { Model, ModelView, newReadonlyModel } from "@mvc-react/mvc";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
-import { CarouselModel } from "../CarouselModel";
+import { CarouselModel } from "../carousel";
 import { ComponentList, ComponentListModelView } from "@mvc-react/components";
 import "./carousel.scss";
 

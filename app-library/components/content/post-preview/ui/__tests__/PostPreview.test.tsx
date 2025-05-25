@@ -23,13 +23,13 @@ describe("PostPreview", () => {
 		const bylineElement = screen.getByText(byline);
 		expect(bylineElement).toBeInTheDocument();
 	});
-	it("maps cover property to corresponding node", () => {
+	it("maps thumbnail property to corresponding node", () => {
 		const thumbnailElement = screen.getByAltText(thumbnail.alt);
 		expect(thumbnailElement).toContainHTML(thumbnail.source);
 		expect(thumbnailElement).toContainHTML(thumbnail.alt);
 		expect(thumbnailElement).toContainHTML(thumbnail.placeholder);
 	});
-	it("maps link property to corresponding node", () => {
+	it("maps postLink property to corresponding node", () => {
 		expect(componentElement).toContainHTML(postLink.href);
 	});
 });

@@ -1,7 +1,7 @@
-import { PostPreviewModel } from "@/app-library/components/content/post-preview/PostPreviewModel";
+import { PostPreviewModel } from "@/app-library/components/content/post-preview/post-preview";
 import PostPreview from "@/app-library/components/content/post-preview/ui/PostPreview";
-import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/ImageCardSkeletonModel";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card";
+
 import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
 import { RecentPostPreviewsPlaceholderModel } from "./RecentPostPreviewsPlaceholderModel";
 import { newReadonlyModel } from "@mvc-react/mvc";
@@ -10,6 +10,7 @@ import {
 	ComponentListModel,
 	ComponentList,
 	ComponentPlaceholder,
+	ModeledVoidComponent,
 } from "@mvc-react/components";
 
 const RecentPostPreviewsPlaceholder = function ({ model }) {

@@ -1,7 +1,7 @@
 import {
 	ArtImagePreviewAPI,
 	ArtImagePreviewRecord,
-} from "../../../../content-apis/ArtImagePreviewAPI";
+} from "../../../../content-apis/art-image-preview";
 
 export const testRecords: ArtImagePreviewRecord[] = [
 	{

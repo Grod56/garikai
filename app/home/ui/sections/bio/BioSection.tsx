@@ -1,7 +1,8 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
+
 import { BioSectionModel } from "./BioSectionModel";
 import { newReadonlyModel } from "@mvc-react/mvc";
+import { ModeledVoidComponent } from "@mvc-react/components";
 
 const BioSection = function ({ model }) {
 	const { sectionTitle } = model.modelView;

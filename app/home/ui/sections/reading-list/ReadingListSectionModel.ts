@@ -1,4 +1,4 @@
-import { BookPreviewAPI } from "@/app-library/content-apis/BookPreviewAPI";
+import { BookPreviewAPI } from "@/app-library/content-apis/book-preview";
 import { ReadonlyModel } from "@mvc-react/mvc";
 import { SectionModelView } from "../section";
 

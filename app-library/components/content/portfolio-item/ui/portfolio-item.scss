@@ -1,0 +1,16 @@
+@use "../../../../styles/component-utilities/image-card-details";
+
+.portfolio-item {
+	.title {
+		@include image-card-details.title;
+	}
+	.description {
+		@include image-card-details.body;
+	}
+	.category-container {
+		@include image-card-details.footnote;
+		.category {
+			font-style: italic;
+		}
+	}
+}

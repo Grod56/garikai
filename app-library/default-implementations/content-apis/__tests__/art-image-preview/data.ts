@@ -1,4 +1,4 @@
-import { ArtImagePreviewRecord } from "@/app-library/content-apis/ArtImagePreviewAPI";
+import { ArtImagePreviewRecord } from "@/app-library/content-apis/art-image-preview";
 
 export const testRecords: ArtImagePreviewRecord[] = [
 	{

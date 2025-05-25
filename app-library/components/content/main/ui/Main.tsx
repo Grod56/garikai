@@ -1,5 +1,5 @@
-import { ModeledContainerComponent } from "@/app-library/custom-types/ModeledComponent";
-import { MainModel } from "../MainModel";
+import { ModeledContainerComponent } from "@mvc-react/components";
+import { MainModel } from "../main";
 import "./main.scss";
 
 export const ELEMENT_NAME = "main";

@@ -1,8 +1,8 @@
 import SocialLink from "@/app-library/components/widget/social-link/ui/SocialLink";
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { FooterModel } from "../FooterModel";
+
+import { FooterModel } from "../footer";
 import { newReadonlyModel } from "@mvc-react/mvc";
-import { ComponentList } from "@mvc-react/components";
+import { ComponentList, ModeledVoidComponent } from "@mvc-react/components";
 import "./footer.scss";
 
 export const ELEMENT_NAME = "footer";

@@ -1,4 +1,4 @@
-import { PostPreviewModel } from "@/app-library/components/content/post-preview/PostPreviewModel";
+import { PostPreviewModel } from "@/app-library/components/content/post-preview/post-preview";
 import { ReadonlyModel } from "@mvc-react/mvc";
 
 export enum RecentPostPreviewsPlaceholderType {

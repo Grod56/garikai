@@ -1,4 +1,4 @@
-import { BannerModel } from "../../BannerModel";
+import { BannerModel } from "../../banner";
 
 export const testModel: BannerModel = {
 	modelView: {

@@ -1,5 +1,5 @@
-import { ModeledVoidComponent } from "@/app-library/custom-types/ModeledComponent";
-import { NavlinkModel } from "../NavlinkModel";
+import { ModeledVoidComponent } from "@mvc-react/components";
+import { NavlinkModel } from "../navlink";
 import "./navlink.scss";
 
 export const ELEMENT_NAME = "navlink";
