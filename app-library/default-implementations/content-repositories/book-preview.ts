@@ -1,6 +1,6 @@
 import { BookPreviewModel } from "@/app-library/components/content/book-preview/book-preview";
 import { RepositoryInteractionType } from "@/app-library/content-repositories/repository";
-import { ImagePlaceholder } from "@/app-library/utility-types/Image";
+import { ImagePlaceholder } from "@/app-library/utility-types/image";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import { ViewInteractionInterface } from "@mvc-react/stateful";
 import {

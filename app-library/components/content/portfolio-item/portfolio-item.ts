@@ -1,4 +1,4 @@
-import { Image } from "@/app-library/utility-types/Image";
+import { Image } from "@/app-library/utility-types/image";
 import { ContentComponentModelView } from "../content-component";
 import { ReadonlyModel } from "@mvc-react/mvc";
 

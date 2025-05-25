@@ -1,5 +1,5 @@
 import { ContentComponentModelView } from "@/app-library/components/content/content-component";
-import { Image } from "@/app-library/utility-types/Image";
+import { Image } from "@/app-library/utility-types/image";
 import { ReadonlyModel } from "@mvc-react/mvc";
 
 export interface ArtImagePreviewModelView extends ContentComponentModelView {

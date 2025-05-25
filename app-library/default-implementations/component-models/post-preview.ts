@@ -1,4 +1,4 @@
-import { Image } from "@/app-library/utility-types/Image";
+import { Image } from "@/app-library/utility-types/image";
 import {
 	PostPreviewModel,
 	PostPreviewModelView,
