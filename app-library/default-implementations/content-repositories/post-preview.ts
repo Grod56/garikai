@@ -3,7 +3,7 @@ import { RepositoryInteractionType } from "@/app-library/content-repositories/re
 import { newFeaturedPostPreviewModel } from "@/app-library/default-implementations/component-models/featured-post-preview";
 import { newPostPreviewModel } from "@/app-library/default-implementations/component-models/post-preview";
 import { removeMarkup } from "@/app-library/utilities/miscelleneous";
-import { ImagePlaceholder } from "@/app-library/utility-types/Image";
+import { ImagePlaceholder } from "@/app-library/utility-types/image";
 import { ViewInteractionInterface } from "@mvc-react/stateful";
 import {
 	PostPreviewAPI,

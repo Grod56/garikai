@@ -11,7 +11,7 @@ import {
 	RepositoryInteractionType,
 	RepositoryModelInteraction,
 } from "@/app-library/content-repositories/repository";
-import { ImagePlaceholder } from "@/app-library/utility-types/Image";
+import { ImagePlaceholder } from "@/app-library/utility-types/image";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import { ViewInteractionInterface } from "@mvc-react/stateful";
 
