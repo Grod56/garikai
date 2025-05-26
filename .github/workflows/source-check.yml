@@ -15,7 +15,7 @@ jobs:
                   node-version: "22"
 
             - name: Run Installation
-              run: pnpm ci
+              run: pnpm install
 
             - name: Run Source Check
               run: pnpm run src-check
