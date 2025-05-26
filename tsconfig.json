@@ -25,11 +25,14 @@
 	},
 	"include": [
 		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
 		".next/types/**/*.ts",
-		"app-library/utilities/__tests__/ui.test.js",
-		"app-library/third-party/apis/__tests__/blogger/blogger.test.js"
+		"jest.setup.ts",
+		"app/**/*.ts",
+		"app/**/*.tsx",
+		"app/**/*.js",
+		"app-library/**/*.ts",
+		"app-library/**/*.tsx",
+		"app-library/**/*.js"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "**/__tests__/**"]
 }
