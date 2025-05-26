@@ -1,4 +1,4 @@
-import { NewPostPreviewModelParameters } from "../../post-preview-model";
+import { NewPostPreviewModelParameters } from "../../post-preview";
 
 export const modelInstantiatorTestInput: NewPostPreviewModelParameters = {
 	id: "postpreview_iunin2000",

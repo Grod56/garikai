@@ -1,0 +1,21 @@
+name: source check
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    source-check:
+        name: Execute Source Check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "22"
+
+            - name: Run Installation
+              run: pnpm ci
+
+            - name: Run Source Check
+              run: pnpm run src-check
