@@ -1,4 +1,5 @@
-@use "../../../../styles/component-utilities/image-card-details";
+@use "../../../../styles/utilities/image-card-details";
+@use "../../../../styles/utilities/text";
 
 .book-preview {
 	display: flex;
@@ -6,12 +7,20 @@
 	> * {
 		flex: 1;
 	}
-
-	.author {
-		font-size: 1.3rem;
-		color: var(--primary-color-1);
-	}
 	.title {
-		@include image-card-details.title;
+		@include image-card-details.title(false);
+	}
+	.author {
+		@include image-card-details.footnote;
+	}
+}
+
+@media (min-width: 768px) {
+	.book-preview {
+		.title {
+			@include image-card-details.title(true);
+			@include text.text-clip(3);
+			font-size: 1.9rem;
+		}
 	}
 }

@@ -1,9 +1,9 @@
-import { ArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/art-image-preview";
+import { ArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/art-image-preview-model";
 import ArtImagePreview from "@/app-library/components/content/art-image-preview/ui/ArtImagePreview";
-import { ArtImageSkeletonModel } from "@/app-library/components/widget/art-image-skeleton/art-image-skeleton";
+import { ArtImageSkeletonModel } from "@/app-library/components/widget/art-image-skeleton/art-image-skeleton-model";
 import ArtImageSkeleton from "@/app-library/components/widget/art-image-skeleton/ui/ArtImageSkeleton";
 import Carousel from "@/app-library/components/widget/carousel/ui/Carousel";
-import { ArtImagePreviewsPlaceholderModel } from "./ArtImagePreviewsPlaceholderModel";
+import { ArtImagePreviewsPlaceholderModel } from "./art-image-previews-placeholder-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import {
 	ComponentList,

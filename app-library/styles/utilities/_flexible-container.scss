@@ -1,0 +1,15 @@
+@mixin flexible-container($--is-widescreen: false) {
+	display: flex;
+	gap: 1em;
+	flex-wrap: wrap;
+
+	@if $--is-widescreen == true {
+		> * {
+			flex: 1;
+		}
+	} @else {
+		> * {
+			flex: unset;
+		}
+	}
+}

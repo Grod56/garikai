@@ -1,5 +1,5 @@
-import { NavlinkModelView } from "@/app-library/components/widget/navlink/navlink";
-import { NavbarModel } from "../../components/content/navbar/navbar";
+import { NavlinkModelView } from "@/app-library/components/widget/navlink/navlink-model";
+import { NavbarModel } from "../../components/content/navbar/navbar-model";
 
 export interface NewNavbarModelParameters {
 	id: string;

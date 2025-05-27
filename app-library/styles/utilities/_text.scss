@@ -1,0 +1,13 @@
+@mixin text-clip($--line-number: 2) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $--line-number;
+	line-clamp: $--line-number;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: normal;
+}
+
+@mixin heading {
+	margin: 0;
+}

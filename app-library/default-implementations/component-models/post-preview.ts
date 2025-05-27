@@ -2,7 +2,7 @@ import { Image } from "@/app-library/utility-types/image";
 import {
 	PostPreviewModel,
 	PostPreviewModelView,
-} from "../../components/content/post-preview/post-preview";
+} from "../../components/content/post-preview/post-preview-model";
 
 export interface NewPostPreviewModelParameters {
 	id: string;

@@ -1,6 +1,6 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 
-import { ContactDetailsSectionModel } from "./ContactDetailsSectionModel";
+import { ContactDetailsSectionModel } from "./contact-details-section-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@mvc-react/components";
 

@@ -1,5 +1,5 @@
 import { ModeledVoidComponent } from "@mvc-react/components";
-import { PortfolioItemModel } from "../portfolio-item";
+import { PortfolioItemModel } from "../portfolio-item-model";
 import LinkedComponent from "@/app-library/components/widget/linked-component/ui/LinkedComponent";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import ImageCard from "@/app-library/components/widget/image-card/ui/ImageCard";
@@ -17,10 +17,10 @@ const PortfolioItem = function ({ model }) {
 				<ImageCard
 					model={newReadonlyModel({
 						thumbnail,
-						orientation: "flexible",
+						orientation: "vertical",
 					})}
 				>
-					<span className="title">{title}</span>
+					<h5 className="title">{title}</h5>
 					<span className="description">{description}</span>
 					<span className="category-container">
 						categories: <span className="category">{category}</span>

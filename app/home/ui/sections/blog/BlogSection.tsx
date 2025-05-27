@@ -2,10 +2,10 @@ import SiteSection from "@/app-library/components/content/site-section/ui/SiteSe
 import SiteSubsection from "@/app-library/components/content/site-subsection/ui/SiteSubsection";
 import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import FeaturedPostPreviewPlaceholder from "@/app/home/ui/sections/blog/featured-post-preview-placeholder/FeaturedPostPreviewPlaceholder";
-import { BlogSectionModel } from "./BlogSectionModel";
+import { BlogSectionModel } from "./blog-section-model";
 import RecentPostPreviewsPlaceholder from "./recent-posts-placeholder/RecentPostPreviewsPlaceholder";
 import { newReadonlyModel } from "@mvc-react/mvc";
-import "./blog.scss";
+import "./blog-section.scss";
 import Link from "next/link";
 import { ModeledVoidComponent } from "@mvc-react/components";
 import { newPostPreviewRepositoryVIInterface } from "@/app-library/default-implementations/content-repositories/post-preview";

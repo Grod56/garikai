@@ -1,6 +1,6 @@
 import FeaturedPostPreview from "@/app-library/components/content/post-preview/ui/FeaturedPostPreview";
 import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
-import { FeaturedPostPreviewPlaceholderModel } from "./FeaturedPostPreviewPlaceholderModel";
+import { FeaturedPostPreviewPlaceholderModel } from "./featured-post-preview-placeholder-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import {
 	ComponentPlaceholder,

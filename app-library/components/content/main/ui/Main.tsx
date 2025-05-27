@@ -1,5 +1,5 @@
 import { ModeledContainerComponent } from "@mvc-react/components";
-import { MainModel } from "../main";
+import { MainModel } from "../main-model";
 import "./main.scss";
 
 export const ELEMENT_NAME = "main";

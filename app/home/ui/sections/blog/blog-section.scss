@@ -1,0 +1,11 @@
+@use "../../../../../app-library/styles/utilities/grid-container";
+
+.recent-posts-container {
+	@include grid-container.grid(3, horizontal, true, false);
+}
+
+@media (min-width: 768px) {
+	.recent-posts-container {
+		@include grid-container.grid(3, horizontal, true, true);
+	}
+}

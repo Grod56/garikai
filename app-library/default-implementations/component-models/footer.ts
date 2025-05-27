@@ -1,5 +1,5 @@
-import { FooterModel } from "@/app-library/components/content/footer/footer";
-import { SocialLinkModelView } from "@/app-library/components/widget/social-link/social-link";
+import { FooterModel } from "@/app-library/components/content/footer/footer-model";
+import { SocialLinkModelView } from "@/app-library/components/widget/social-link/social-link-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 
 export interface NewFooterModelParameters {
