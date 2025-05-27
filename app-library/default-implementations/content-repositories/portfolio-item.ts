@@ -1,4 +1,4 @@
-import { PortfolioItemModel } from "@/app-library/components/content/portfolio-item/portfolio-item";
+import { PortfolioItemModel } from "@/app-library/components/content/portfolio-item/portfolio-item-model";
 import {
 	PortfolioItemAPI,
 	PortfolioItemRecord,

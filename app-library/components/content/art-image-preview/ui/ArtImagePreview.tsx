@@ -1,6 +1,6 @@
 import Image from "@/app-library/components/widget/image/ui/Image";
 
-import { ArtImagePreviewModel } from "../art-image-preview";
+import { ArtImagePreviewModel } from "../art-image-preview-model";
 import "./art-image-preview.scss";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@mvc-react/components";

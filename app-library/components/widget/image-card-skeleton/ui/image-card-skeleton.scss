@@ -1,17 +1,4 @@
-@keyframes skeleton-loading {
-	0% {
-		background-color: #00080a90;
-	}
-
-	100% {
-		background-color: #88888890;
-	}
-}
-
-%skeleton-animation {
-	opacity: 0.7;
-	animation: skeleton-loading 1s linear infinite alternate;
-}
+@use "../../../../styles/utilities/animations";
 
 .image-card-skeleton {
 	display: flex;
@@ -19,18 +6,23 @@
 	max-width: 100%;
 	background-color: transparent;
 	gap: 0.2em;
+
+	.card-thumbnail,
+	.card-details {
+		@include animations.skeleton;
+	}
 }
 
 .image-card-skeleton[data-orientation="horizontal"] {
 	flex-direction: row;
 	min-height: 5em;
 	max-height: 5em;
-}
 
-.image-card-skeleton:is([data-orientation="horizontal"]) .card-thumbnail {
-	min-height: 100%;
-	max-height: inherit;
-	width: 30%;
+	.card-thumbnail {
+		min-height: 100%;
+		max-height: inherit;
+		width: 30%;
+	}
 }
 
 .image-card-skeleton:is(
@@ -43,23 +35,12 @@
 	max-height: 100%;
 	background-color: transparent;
 	gap: 0.2em;
-}
-
-.image-card-skeleton .card-thumbnail,
-.image-card-skeleton .card-details {
-	@extend %skeleton-animation;
-}
-
-.image-card-skeleton:is(
-		[data-orientation="flexible"],
-		[data-orientation="vertical"]
-	)
 	.card-thumbnail {
-	min-height: 20vh;
-}
-
-.image-card-skeleton .card-details {
-	flex: 1;
+		min-height: 20vh;
+	}
+	.card-details {
+		flex: 1;
+	}
 }
 
 @media (min-width: 768px) {
@@ -76,17 +57,11 @@
 		flex-direction: row;
 		max-height: 11em;
 		min-height: 11em;
-	}
-	// .image-card-skeleton .card-thumbnail {
-	// 	height: 40vh;
-	// }
-	.image-card-skeleton:is(
-			[data-orientation="flexible"],
-			[data-orientation="horizontal"]
-		)
+
 		.card-thumbnail {
-		min-height: inherit;
-		max-height: inherit;
-		width: 30%;
+			min-height: inherit;
+			max-height: inherit;
+			width: 30%;
+		}
 	}
 }

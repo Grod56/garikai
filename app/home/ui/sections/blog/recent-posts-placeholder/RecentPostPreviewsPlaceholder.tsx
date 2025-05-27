@@ -1,9 +1,9 @@
-import { PostPreviewModel } from "@/app-library/components/content/post-preview/post-preview";
+import { PostPreviewModel } from "@/app-library/components/content/post-preview/post-preview-model";
 import PostPreview from "@/app-library/components/content/post-preview/ui/PostPreview";
-import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card";
+import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card-skeleton-model";
 
 import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
-import { RecentPostPreviewsPlaceholderModel } from "./RecentPostPreviewsPlaceholderModel";
+import { RecentPostPreviewsPlaceholderModel } from "./recent-posts-placeholder-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import {
 	PlaceholderedComponentModel,

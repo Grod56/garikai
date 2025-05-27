@@ -1,4 +1,4 @@
-import { ArtImagePreviewModel } from "../components/content/art-image-preview/art-image-preview";
+import { ArtImagePreviewModel } from "../components/content/art-image-preview/art-image-preview-model";
 import { RepositoryModel, RepositoryModelInteraction } from "./repository";
 
 export interface ArtImagePreviewRepositoryModelView {

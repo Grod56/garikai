@@ -1,36 +1,40 @@
+@use "../utilities/theme";
+@use "../utilities/animations";
+
+@include theme.configure(
+	#c9cad1,
+	antiquewhite,
+	whitesmoke,
+	#fff,
+	#00080a,
+	#e99767
+);
+
+@include animations.configure(theme.$secondary-color-1, theme.$primary-color-1);
+
 * {
-	--primary-color-1: #c9cad1;
-	--primary-a-color-1: #c9cad170;
-	--primary-color-2: antiquewhite;
-	--primary-color-3: whitesmoke;
-	--primary-color-4: #fff;
-	--secondary-color-1: #00080a;
-	--secondary-a-color-1: #00080afa;
-	--secondary-a-color-2: #00080aee;
-	--secondary-a-color-3: #00080a70;
-	--accent-color-1: #e99767;
+	--primary-color-1: #{theme.$primary-color-1};
+	--primary-a-color-1: #{theme.$primary-a-color-1};
+	--primary-color-2: #{theme.$primary-color-2};
+	--primary-color-3: #{theme.$primary-color-3};
+	--primary-color-4: #{theme.$primary-color-4};
+	--secondary-color-1: #{theme.$secondary-color-1};
+	--secondary-a-color-1: #{theme.$secondary-a-color-1};
+	--secondary-a-color-2: #{theme.$secondary-a-color-2};
+	--secondary-a-color-3: #{theme.$secondary-a-color-3};
+	--accent-color-1: #{theme.$accent-color-1};
 }
 
-html,
+@include theme.theme;
+
 body {
 	font-family: sans-serif;
-	-webkit-text-size-adjust: 100%;
-}
 
-body {
-	color: var(--secondary-color-1);
-}
+	a {
+		@include animations.text-color;
+	}
 
-body a {
-	transition: color 0.15s ease;
-}
-
-body a:hover {
-	color: var(--accent-color-1);
-}
-
-a {
-	color: var(--secondary-color-1);
-	text-decoration-line: underline;
-	text-decoration-thickness: 1px;
+	a:hover {
+		color: var(--accent-color-1);
+	}
 }

@@ -1,4 +1,4 @@
-import { PortfolioItemModel } from "../components/content/portfolio-item/portfolio-item";
+import { PortfolioItemModel } from "../components/content/portfolio-item/portfolio-item-model";
 import { RepositoryModel, RepositoryModelInteraction } from "./repository";
 
 export interface PortfolioItemRepositoryModelView {

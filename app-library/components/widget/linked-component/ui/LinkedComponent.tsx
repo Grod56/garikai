@@ -1,5 +1,5 @@
 import { openExternalSite } from "@/app-library/utilities/ui";
-import { LinkedComponentModel } from "../linked-component";
+import { LinkedComponentModel } from "../linked-component-model";
 import "./linked-component.scss";
 import { ModeledContainerComponent } from "@mvc-react/components";
 

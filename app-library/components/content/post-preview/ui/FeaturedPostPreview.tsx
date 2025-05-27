@@ -1,7 +1,7 @@
 import ImageCard from "@/app-library/components/widget/image-card/ui/ImageCard";
 import LinkedComponent from "@/app-library/components/widget/linked-component/ui/LinkedComponent";
 import { ELEMENT_NAME } from "./PostPreview";
-import { FeaturedPostPreviewModel } from "../featured-post-preview";
+import { FeaturedPostPreviewModel } from "../featured-post-preview-model";
 import "./post-preview.scss";
 
 import { newReadonlyModel } from "@mvc-react/mvc";

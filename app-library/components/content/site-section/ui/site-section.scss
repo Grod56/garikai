@@ -1,40 +1,46 @@
-.site-section .content-layer {
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
-	padding-block: 3em;
-	padding-inline: 1.5em;
+.site-section {
+	.content-layer {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		padding-block: 3em;
+		padding-inline: 1.5em;
+		// Should do for containers for now
+		> .title {
+			font-family: sans-serif;
+			font-weight: 600;
+			font-size: 5rem;
+		}
+	}
+
+	.background-layer::after {
+		display: block;
+		width: 75%;
+		height: 1px;
+		background: var(--secondary-a-color-3);
+		content: "";
+		margin-inline: auto;
+	}
 }
 
-.site-section .background-layer::after {
-	display: block;
-	width: 75%;
-	height: 1px;
-	background: var(--secondary-a-color-3);
-	content: "";
-	margin-inline: auto;
-}
-
-.site-section:last-child .background-layer::after {
-	content: none;
-}
-
-.site-section .section-title {
-	font-family: sans-serif;
-	font-weight: 600;
-	font-size: 5rem;
+.site-section:last-child {
+	.background-layer::after {
+		content: none;
+	}
 }
 
 @media (min-width: 768px) {
-	.site-section .background-layer::after {
-		width: 75%;
-		margin-inline: 0;
-		margin-left: 3em;
-	}
-	.site-section .content-layer {
-		text-align: justify;
-		padding-left: 3em;
-		padding-right: 0;
-		max-width: 70vw;
+	.site-section {
+		.background-layer::after {
+			width: 75%;
+			margin-inline: 0;
+			margin-left: 3em;
+		}
+		.content-layer {
+			text-align: justify;
+			padding-left: 3em;
+			padding-right: 0;
+			max-width: 70vw;
+		}
 	}
 }

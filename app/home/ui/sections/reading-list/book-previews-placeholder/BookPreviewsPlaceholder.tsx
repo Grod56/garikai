@@ -1,9 +1,9 @@
-import { BookPreviewModel } from "@/app-library/components/content/book-preview/book-preview";
+import { BookPreviewModel } from "@/app-library/components/content/book-preview/book-preview-model";
 import BookPreview from "@/app-library/components/content/book-preview/ui/BookPreview";
-import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card";
+import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card-skeleton-model";
 import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
 
-import { BookPreviewsPlaceholderModel } from "./BookPreviewsPlaceholderModel";
+import { BookPreviewsPlaceholderModel } from "./book-previews-placeholder-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import {
 	ComponentList,

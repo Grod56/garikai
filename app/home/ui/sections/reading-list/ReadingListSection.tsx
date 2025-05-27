@@ -1,9 +1,9 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import BookPreviewsPlaceholder from "./book-previews-placeholder/BookPreviewsPlaceholder";
-import { ReadingListSectionModel } from "./ReadingListSectionModel";
+import { ReadingListSectionModel } from "./reading-list-section-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
-import "./reading-list.scss";
+import "./reading-list-section.scss";
 import { ModeledVoidComponent } from "@mvc-react/components";
 import { newStatifiableModel } from "@/app-library/utilities/miscelleneous";
 import { newBookPreviewRepositoryVIInterface } from "@/app-library/default-implementations/content-repositories/book-preview";

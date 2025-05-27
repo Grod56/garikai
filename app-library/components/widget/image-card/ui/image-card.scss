@@ -1,11 +1,11 @@
-$maxHorizontalCardHeight: 11em;
-$maxHorizontalThumbnailWidth: 32%;
-$maxWidescreenVerticalThumbnailHeight: 7em;
-$maxMobileVerticalThumbnailHeight: 40vh;
+$max-horizontal-card-height: 11em;
+$max-horizontal-thumbnail-width: 32%;
+$max-widescreen-vertical-thumbnail-height: 7em;
+$max-mobile-vertical-thumbnail-height: 40vh;
 
 @mixin horizontal-image-card {
 	flex-direction: row;
-	max-height: $maxHorizontalCardHeight;
+	max-height: $max-horizontal-card-height;
 	min-height: 100%;
 }
 
@@ -13,16 +13,16 @@ $maxMobileVerticalThumbnailHeight: 40vh;
 	flex-direction: column;
 }
 
-@mixin horizontal-card-thumbnail($maxWidth) {
-	max-width: $maxWidth;
-	min-width: $maxWidth;
+@mixin horizontal-card-thumbnail($--max-width) {
+	max-width: $--max-width;
+	min-width: $--max-width;
 	min-height: 100%;
 	max-height: 100%;
 }
 
-@mixin vertical-card-thumbnail($maxHeight) {
-	max-height: $maxHeight;
-	min-height: $maxHeight;
+@mixin vertical-card-thumbnail($--max-height) {
+	max-height: $--max-height;
+	min-height: $--max-height;
 	min-width: 100%;
 	max-width: 100%;
 }
@@ -71,7 +71,7 @@ $maxMobileVerticalThumbnailHeight: 40vh;
 	@include horizontal-image-card;
 
 	.image[data-customname="card-thumbnail"] {
-		@include horizontal-card-thumbnail($maxHorizontalThumbnailWidth);
+		@include horizontal-card-thumbnail($max-horizontal-thumbnail-width);
 	}
 }
 
@@ -80,7 +80,7 @@ $maxMobileVerticalThumbnailHeight: 40vh;
 	@include vertical-image-card;
 
 	.image[data-customname="card-thumbnail"] {
-		@include vertical-card-thumbnail($maxMobileVerticalThumbnailHeight);
+		@include vertical-card-thumbnail($max-mobile-vertical-thumbnail-height);
 	}
 }
 
@@ -91,7 +91,7 @@ $maxMobileVerticalThumbnailHeight: 40vh;
 	.image-card[data-orientation="flexible"] {
 		@include horizontal-image-card;
 		.image[data-customname="card-thumbnail"] {
-			@include horizontal-card-thumbnail($maxHorizontalThumbnailWidth);
+			@include horizontal-card-thumbnail($max-horizontal-thumbnail-width);
 		}
 	}
 
@@ -99,7 +99,7 @@ $maxMobileVerticalThumbnailHeight: 40vh;
 	.image-card[data-orientation="vertical"] {
 		.image[data-customname="card-thumbnail"] {
 			@include vertical-card-thumbnail(
-				$maxWidescreenVerticalThumbnailHeight
+				$max-widescreen-vertical-thumbnail-height
 			);
 		}
 	}

@@ -1,4 +1,4 @@
-import { FeaturedPostPreviewModel } from "../../components/content/post-preview/featured-post-preview";
+import { FeaturedPostPreviewModel } from "../../components/content/post-preview/featured-post-preview-model";
 import {
 	newPostPreviewModel,
 	NewPostPreviewModelParameters,

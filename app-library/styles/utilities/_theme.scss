@@ -1,0 +1,48 @@
+$primary-color-1: #aaa !default;
+$primary-color-2: #ccc !default;
+$primary-color-3: #eee !default;
+$primary-color-4: #fff !default;
+$secondary-color-1: #000 !default;
+$accent-color-1: #e32e43 !default;
+
+$-alpha-1: 0.56;
+$-alpha-2: 0.93;
+$-alpha-3: 0.98;
+
+$primary-a-color-1: rgba($primary-color-1, $-alpha-1);
+$secondary-a-color-1: rgba($secondary-color-1, $-alpha-3);
+$secondary-a-color-2: rgba($secondary-color-1, $-alpha-2);
+$secondary-a-color-3: rgba($secondary-color-1, $-alpha-1);
+
+@mixin theme {
+	body {
+		color: $secondary-color-1;
+
+		a {
+			color: $secondary-color-1;
+			text-decoration-line: underline;
+			text-decoration-thickness: 1px;
+		}
+	}
+}
+
+@mixin configure(
+	$--primary-color-1,
+	$--primary-color-2,
+	$--primary-color-3,
+	$--primary-color-4,
+	$--secondary-color-1,
+	$--accent-color-1
+) {
+	$primary-color-1: $--primary-color-1 !global;
+	$primary-color-2: $--primary-color-2 !global;
+	$primary-color-3: $--primary-color-3 !global;
+	$primary-color-4: $--primary-color-4 !global;
+	$secondary-color-1: $--secondary-color-1 !global;
+	$accent-color-1: $--accent-color-1 !global;
+
+	$primary-a-color-1: rgba($primary-color-1, 0.56) !global;
+	$secondary-a-color-1: rgba($secondary-color-1, $-alpha-3) !global;
+	$secondary-a-color-2: rgba($secondary-color-1, $-alpha-2) !global;
+	$secondary-a-color-3: rgba($secondary-color-1, $-alpha-1) !global;
+}

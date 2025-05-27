@@ -1,4 +1,4 @@
-import { NavbarModel } from "../navbar";
+import { NavbarModel } from "../navbar-model";
 import Navlink from "@/app-library/components/widget/navlink/ui/Navlink";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import { ComponentList, ModeledVoidComponent } from "@mvc-react/components";

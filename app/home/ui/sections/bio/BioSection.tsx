@@ -1,6 +1,6 @@
 import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
 
-import { BioSectionModel } from "./BioSectionModel";
+import { BioSectionModel } from "./bio-section-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@mvc-react/components";
 

@@ -1,16 +1,33 @@
-@use "../../../../styles/component-utilities/image-card-details";
+@use "../../../../styles/utilities/image-card-details";
 
 .portfolio-item {
 	.title {
-		@include image-card-details.title;
+		@include image-card-details.title(false);
 	}
 	.description {
-		@include image-card-details.body;
+		@include image-card-details.body(false);
 	}
 	.category-container {
 		@include image-card-details.footnote;
 		.category {
 			font-style: italic;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.portfolio-item {
+		max-width: 21em;
+		.title {
+			@include image-card-details.title(true);
+		}
+		.description {
+			@include image-card-details.body(true);
+		}
+		.image-card {
+			.image[data-customname="card-thumbnail"] {
+				max-height: 11em;
+			}
 		}
 	}
 }

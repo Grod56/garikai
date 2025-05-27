@@ -2,7 +2,7 @@ import SiteSection from "@/app-library/components/content/site-section/ui/SiteSe
 
 import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import ArtImagePreviewsPlaceholder from "./art-image-previews-placeholder/ArtImagePreviewsPlaceholder";
-import { ArtSectionModel } from "./ArtSectionModel";
+import { ArtSectionModel } from "./art-section-model";
 import { newReadonlyModel } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@mvc-react/components";
 import { newArtImagePreviewRepositoryVIInterface } from "@/app-library/default-implementations/content-repositories/art-image-preview";

@@ -1,5 +1,5 @@
 import Image from "@/app-library/components/widget/image/ui/Image";
-import { ImageCardModel } from "../image-card";
+import { ImageCardModel } from "../image-card-model";
 import "./image-card.scss";
 
 import { newReadonlyModel } from "@mvc-react/mvc";

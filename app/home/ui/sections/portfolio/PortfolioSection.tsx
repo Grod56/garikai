@@ -1,19 +1,19 @@
-import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
+import { PortfolioItemModel } from "@/app-library/components/content/portfolio-item/portfolio-item-model";
 import PortfolioItem from "@/app-library/components/content/portfolio-item/ui/PortfolioItem";
+import SiteSection from "@/app-library/components/content/site-section/ui/SiteSection";
+import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card-skeleton-model";
+import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
+import { newPortfolioItemRepositoryVIInterface } from "@/app-library/default-implementations/content-repositories/portfolio-item";
+import { newStatifiableModel } from "@/app-library/utilities/miscelleneous";
+import { useStatefulRepository } from "@/app-library/utilities/use-repository";
 import {
 	ComponentList,
 	ComponentPlaceholder,
 	ModeledVoidComponent,
 } from "@mvc-react/components";
 import { newReadonlyModel } from "@mvc-react/mvc";
-import "./portfolio.scss";
-import { PortfolioSectionModel } from "./PortfolioSectionModel";
-import { useStatefulRepository } from "@/app-library/utilities/use-repository";
-import { newStatifiableModel } from "@/app-library/utilities/miscelleneous";
-import { newPortfolioItemRepositoryVIInterface } from "@/app-library/default-implementations/content-repositories/portfolio-item";
-import { PortfolioItemModel } from "@/app-library/components/content/portfolio-item/portfolio-item";
-import ImageCardSkeleton from "@/app-library/components/widget/image-card-skeleton/ui/ImageCardSkeleton";
-import { ImageCardSkeletonModel } from "@/app-library/components/widget/image-card-skeleton/image-card";
+import { PortfolioSectionModel } from "./portfolio-section-model";
+import "./portfolio-section.scss";
 
 const PortfolioSection = function ({ model }) {
 	const { sectionTitle, portfolioItemAPI } = model.modelView;
@@ -50,9 +50,9 @@ const PortfolioSection = function ({ model }) {
 								model={newReadonlyModel({
 									Component: ImageCardSkeleton,
 									componentModels:
-										Array<ImageCardSkeletonModel>(3).fill(
+										Array<ImageCardSkeletonModel>(4).fill(
 											newReadonlyModel({
-												orientation: "flexible",
+												orientation: "vertical",
 											})
 										),
 								})}

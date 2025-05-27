@@ -1,4 +1,4 @@
-import { PostPreviewModel } from "@/app-library/components/content/post-preview/post-preview";
+import { PostPreviewModel } from "@/app-library/components/content/post-preview/post-preview-model";
 import { RepositoryInteractionType } from "@/app-library/content-repositories/repository";
 import { newFeaturedPostPreviewModel } from "@/app-library/default-implementations/component-models/featured-post-preview";
 import { newPostPreviewModel } from "@/app-library/default-implementations/component-models/post-preview";

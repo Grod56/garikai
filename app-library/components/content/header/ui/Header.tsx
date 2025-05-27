@@ -1,5 +1,5 @@
 import { ModeledVoidComponent } from "@mvc-react/components";
-import { HeaderModel } from "../header";
+import { HeaderModel } from "../header-model";
 import "./header.scss";
 
 export const ELEMENT_NAME = "header";

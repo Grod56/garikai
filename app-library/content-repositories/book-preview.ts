@@ -1,4 +1,4 @@
-import { BookPreviewModel } from "@/app-library/components/content/book-preview/book-preview";
+import { BookPreviewModel } from "@/app-library/components/content/book-preview/book-preview-model";
 import { RepositoryModel, RepositoryModelInteraction } from "./repository";
 
 export interface BookPreviewRepositoryModelView {

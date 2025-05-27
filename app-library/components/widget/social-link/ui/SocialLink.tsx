@@ -1,4 +1,4 @@
-import { SocialLinkModel } from "../social-link";
+import { SocialLinkModel } from "../social-link-model";
 import Link from "next/link";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import {

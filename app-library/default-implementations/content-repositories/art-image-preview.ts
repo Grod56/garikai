@@ -1,4 +1,4 @@
-import { ArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/art-image-preview";
+import { ArtImagePreviewModel } from "@/app-library/components/content/art-image-preview/art-image-preview-model";
 import { RepositoryInteractionType } from "@/app-library/content-repositories/repository";
 import { ImagePlaceholder } from "@/app-library/utility-types/image";
 import { newReadonlyModel } from "@mvc-react/mvc";
