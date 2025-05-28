@@ -1,3 +1,3 @@
 export const openExternalSiteTestInput: URL = new URL(
-	"https://localhost:31345"
+	"https://localhost:31345",
 );

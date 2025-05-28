@@ -11,41 +11,39 @@ describe("newArtImagePreviewRepositoryVIInterface", () => {
 		it("matches api retrieve output", async () => {
 			const viewInteractionInterface =
 				newArtImagePreviewRepositoryVIInterface(
-					testRepositoryInstantiatorAPI
+					testRepositoryInstantiatorAPI,
 				);
 			const newModelView = await waitFor(() =>
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			);
 			const testRecords = await waitFor(() =>
-				testRepositoryInstantiatorAPI.retrieveRecords()
+				testRepositoryInstantiatorAPI.retrieveRecords(),
 			);
-			newModelView.artImagePreviewModels.forEach(
-				(artImagePreviewModel) => {
-					const { id, title, image } = artImagePreviewModel.modelView;
+			newModelView.artImagePreviewModels.forEach(artImagePreviewModel => {
+				const { id, title, image } = artImagePreviewModel.modelView;
 
-					const record = testRecords.find(
-						(record) => id == `art-image-preview_${record.id}` //TODO: Address this
-					)!;
-					expect(record).toBeDefined();
-					expect(title).toEqual(record.title);
-					expect(image.source).toEqual(record.imageSource);
-					expect(image.alt).toEqual(record.imageAlt);
-					expect(image.placeholder).toEqual(record.imagePlaceholder);
-				}
-			);
+				const record = testRecords.find(
+					record => id == `art-image-preview_${record.id}`, //TODO: Address this
+				)!;
+				expect(record).toBeDefined();
+				expect(title).toEqual(record.title);
+				expect(image.source).toEqual(record.imageSource);
+				expect(image.alt).toEqual(record.imageAlt);
+				expect(image.placeholder).toEqual(record.imagePlaceholder);
+			});
 		});
 		it("reports error when api call returns an error", async () => {
 			const errorMessage = "What an error";
 			const viewInteractionInterface =
 				newArtImagePreviewRepositoryVIInterface(
-					faultyRepositoryInstantiatorAPI(errorMessage)
+					faultyRepositoryInstantiatorAPI(errorMessage),
 				);
 			await expect(
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			).rejects.toEqual(errorMessage);
 		});
 	});

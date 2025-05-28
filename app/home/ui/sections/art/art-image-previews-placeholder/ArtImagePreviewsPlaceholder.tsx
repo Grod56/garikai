@@ -33,7 +33,7 @@ const ArtImagePreviewsPlaceholder = function ({ model }) {
 				model={newReadonlyModel({
 					Component: ArtImageSkeleton,
 					componentModels: Array<ArtImageSkeletonModel>(6).fill(
-						newReadonlyModel({})
+						newReadonlyModel({}),
 					),
 				})}
 			/>

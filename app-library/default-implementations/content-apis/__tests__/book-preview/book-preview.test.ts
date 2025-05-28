@@ -25,7 +25,7 @@ describe("newSupabaseBookPreviewPreviewAPI", () => {
 		});
 		it("throws error when supabase communicates an error", async () => {
 			supabaseSpy.mockImplementation(
-				faultySupabaseSpySelectMockImplementation
+				faultySupabaseSpySelectMockImplementation,
 			);
 			const api = newSupabaseBookPreviewAPI();
 			await expect(api.retrieveRecords()).rejects.toThrow();

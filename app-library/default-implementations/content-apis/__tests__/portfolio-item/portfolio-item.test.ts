@@ -25,7 +25,7 @@ describe("newSupabasePortfolioItemAPI", () => {
 		});
 		it("throws error when supabase communicates an error", async () => {
 			supabaseSpy.mockImplementation(
-				faultySupabaseSpySelectMockImplementation
+				faultySupabaseSpySelectMockImplementation,
 			);
 			const api = newSupabasePortfolioItemAPI();
 			await expect(api.retrieveRecords()).rejects.toThrow();

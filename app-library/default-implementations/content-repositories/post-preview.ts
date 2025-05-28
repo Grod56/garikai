@@ -23,10 +23,10 @@ type PostPreviewRepositoryViewInteractionInterface = ViewInteractionInterface<
 >;
 
 export function newPostPreviewRepositoryVIInterface(
-	api: PostPreviewAPI
+	api: PostPreviewAPI,
 ): PostPreviewRepositoryViewInteractionInterface {
 	function produceModelView(
-		interaction: PostPreviewRepositoryModelInteraction
+		interaction: PostPreviewRepositoryModelInteraction,
 	): Promise<PostPreviewRepositoryModelView> {
 		switch (interaction.type) {
 			case RepositoryInteractionType.RETRIEVE:
@@ -37,7 +37,7 @@ export function newPostPreviewRepositoryVIInterface(
 	return { produceModelView };
 }
 async function _retrievePostPreviewRepositorySnapshot(
-	api: PostPreviewAPI
+	api: PostPreviewAPI,
 ): Promise<PostPreviewRepositoryModelView> {
 	const records = await api.retrieveRecords();
 	const featuredPostPreviewRecord = records[0];
@@ -55,7 +55,7 @@ async function _retrievePostPreviewRepositorySnapshot(
 					placeholder: imagePlaceholder,
 				},
 			});
-		}
+		},
 	);
 	const featuredPostPreviewModel = newFeaturedPostPreviewModel({
 		id: `featured-post-preview_${featuredPostPreviewRecord.id}`,

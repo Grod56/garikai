@@ -15,7 +15,7 @@ describe("openExternalSite", () => {
 		windowOpenSpy.mockImplementation(() => ({}));
 		openExternalSite(openExternalSiteTestInput);
 		expect(windowOpenSpy.mock.calls[0][0]).toEqual(
-			openExternalSiteTestInput
+			openExternalSiteTestInput,
 		);
 	});
 });

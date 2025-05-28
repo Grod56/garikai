@@ -12,20 +12,20 @@ describe("newPostPreviewRepositoryVIInterface", () => {
 		it("matches api retrieve output", async () => {
 			const viewInteractionInterface =
 				newPostPreviewRepositoryVIInterface(
-					testRepositoryInstantiatorAPI
+					testRepositoryInstantiatorAPI,
 				);
 			const newModelView = await waitFor(() =>
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			);
 			const testRecords = await waitFor(() =>
-				testRepositoryInstantiatorAPI.retrieveRecords()
+				testRepositoryInstantiatorAPI.retrieveRecords(),
 			);
 			const { id, title, byline, postLink, thumbnail } =
 				newModelView.featuredPostPreviewModel.modelView;
 			const record = testRecords.find(
-				(record) => id == `featured-post-preview_${record.id}` //TODO: Address this
+				record => id == `featured-post-preview_${record.id}`, //TODO: Address this
 			)!;
 			expect(record).toBeDefined();
 			expect(title).toEqual(record.title);
@@ -36,17 +36,17 @@ describe("newPostPreviewRepositoryVIInterface", () => {
 						year: "numeric",
 						month: "long",
 						day: "numeric",
-					})
-				)
+					}),
+				),
 			);
 			expect(postLink.href).toEqual(record.postLink);
 			expect(thumbnail.source).toEqual(record.thumbnailSource);
-			newModelView.recentPostPreviewModels.forEach((postPreviewModel) => {
+			newModelView.recentPostPreviewModels.forEach(postPreviewModel => {
 				const { id, title, byline, postLink, thumbnail } =
 					postPreviewModel.modelView;
 
 				const record = testRecords.find(
-					(record) => id == `post-preview_${record.id}`
+					record => id == `post-preview_${record.id}`,
 				)!;
 				expect(record).toBeDefined();
 				expect(title).toEqual(record.title);
@@ -55,9 +55,9 @@ describe("newPostPreviewRepositoryVIInterface", () => {
 					expect.stringContaining(
 						new Date(record.publishedDate).toLocaleDateString(
 							"en-US",
-							{ year: "numeric", month: "long", day: "numeric" }
-						)
-					)
+							{ year: "numeric", month: "long", day: "numeric" },
+						),
+					),
 				);
 				expect(postLink.href).toEqual(record.postLink);
 				expect(thumbnail.source).toEqual(record.thumbnailSource);
@@ -67,12 +67,12 @@ describe("newPostPreviewRepositoryVIInterface", () => {
 			const errorMessage = "What an error";
 			const viewInteractionInterface =
 				newPostPreviewRepositoryVIInterface(
-					faultyRepositoryInstantiatorAPI(errorMessage)
+					faultyRepositoryInstantiatorAPI(errorMessage),
 				);
 			await expect(
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			).rejects.toEqual(errorMessage);
 		});
 	});

@@ -7,14 +7,14 @@ function createBloggerClient(blogPostsEndpointURL: BlogPostsEndpointURL) {
 			const data = await fetch(blogPostsEndpointURL, {
 				headers: { "Content-Type": "application/json" },
 			})
-				.then((response) => {
+				.then(response => {
 					if (response.ok) {
 						return response.json();
 					} else {
 						return Promise.reject();
 					}
 				})
-				.then((responseJSON) => {
+				.then(responseJSON => {
 					return responseJSON.items;
 				})
 				.catch(() => {
@@ -26,5 +26,5 @@ function createBloggerClient(blogPostsEndpointURL: BlogPostsEndpointURL) {
 }
 
 export default createBloggerClient(
-	process.env.NEXT_PUBLIC_BLOGGER_POSTS_ENDPOINT_URL! as BlogPostsEndpointURL
+	process.env.NEXT_PUBLIC_BLOGGER_POSTS_ENDPOINT_URL! as BlogPostsEndpointURL,
 );

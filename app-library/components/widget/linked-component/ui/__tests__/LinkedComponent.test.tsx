@@ -14,7 +14,7 @@ describe("LinkedComponent", () => {
 		render(
 			<LinkedComponent model={testModel}>
 				<></>
-			</LinkedComponent>
+			</LinkedComponent>,
 		);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});

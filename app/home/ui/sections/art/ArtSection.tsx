@@ -12,8 +12,8 @@ const ArtSection = function ({ model }) {
 	const { sectionTitle, artImagePreviewAPI } = model.modelView;
 	const { modelView: repositoryModelView } = useStatefulRepository(
 		newStatifiableModel(
-			newArtImagePreviewRepositoryVIInterface(artImagePreviewAPI)
-		)
+			newArtImagePreviewRepositoryVIInterface(artImagePreviewAPI),
+		),
 	);
 
 	return (

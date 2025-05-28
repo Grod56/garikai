@@ -10,14 +10,14 @@ export function newSupabaseArtImagePreviewAPI(): ArtImagePreviewAPI {
 			const { data } = await supabase.from("ArtImagePreview").select("*");
 			if (data) {
 				const records = data.map(
-					(item) =>
+					item =>
 						({
 							id: item.id,
 							title: item.title,
 							imageSource: item.imageSource,
 							imageAlt: item.imageAlt,
 							imagePlaceholder: item.imagePlaceholder,
-						}) as ArtImagePreviewRecord
+						}) as ArtImagePreviewRecord,
 				);
 				return records;
 			}

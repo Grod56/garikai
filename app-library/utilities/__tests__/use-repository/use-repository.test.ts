@@ -6,7 +6,7 @@ import { testStatifiableRepositoryModel } from "./data";
 describe("useStatefulRepository", () => {
 	it("automatically initializes repository", async () => {
 		const renderedHook = renderHook(() =>
-			useStatefulRepository(testStatifiableRepositoryModel)
+			useStatefulRepository(testStatifiableRepositoryModel),
 		);
 		// Would've preferred interact toHaveBeenCalled, but not possible
 		await waitFor(() => {
@@ -15,7 +15,7 @@ describe("useStatefulRepository", () => {
 	});
 	it("only automatically updates repository initially", async () => {
 		const renderedHook = renderHook(() =>
-			useStatefulRepository(testStatifiableRepositoryModel)
+			useStatefulRepository(testStatifiableRepositoryModel),
 		);
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
@@ -28,18 +28,18 @@ describe("useStatefulRepository", () => {
 		expect(
 			waitFor(() => {
 				expect(interactSpy).toHaveBeenCalled();
-			})
+			}),
 		)
 			.rejects.toThrow()
 			.finally(interactSpy.mockRestore);
 	});
 	it("returns equivalent model to that provided by repository model instantiator", async () => {
 		const renderedHook = renderHook(() =>
-			useStatefulRepository(testStatifiableRepositoryModel)
+			useStatefulRepository(testStatifiableRepositoryModel),
 		);
 		const expectedModelView =
 			await testStatifiableRepositoryModel.viewInteractionInterface.produceModelView(
-				{ type: RepositoryInteractionType.RETRIEVE }
+				{ type: RepositoryInteractionType.RETRIEVE },
 			);
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();
@@ -52,7 +52,7 @@ describe("useStatefulRepository", () => {
 	});
 	it("returns stateful repository model", async () => {
 		const renderedHook = renderHook(() =>
-			useStatefulRepository(testStatifiableRepositoryModel)
+			useStatefulRepository(testStatifiableRepositoryModel),
 		);
 		await waitFor(() => {
 			expect(renderedHook.result.current.modelView).toBeTruthy();

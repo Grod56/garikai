@@ -18,10 +18,10 @@ type BookPreviewRepositoryViewInteractionInterface = ViewInteractionInterface<
 >;
 
 export function newBookPreviewRepositoryVIInterface(
-	api: BookPreviewAPI
+	api: BookPreviewAPI,
 ): BookPreviewRepositoryViewInteractionInterface {
 	function produceModelView(
-		interaction: BookPreviewRepositoryModelInteraction
+		interaction: BookPreviewRepositoryModelInteraction,
 	): Promise<BookPreviewRepositoryModelView> {
 		switch (interaction.type) {
 			case RepositoryInteractionType.RETRIEVE:
@@ -33,7 +33,7 @@ export function newBookPreviewRepositoryVIInterface(
 }
 
 async function _retrieveBookPreviewRepositorySnapshot(
-	api: BookPreviewAPI
+	api: BookPreviewAPI,
 ): Promise<BookPreviewRepositoryModelView> {
 	const records = await api.retrieveRecords();
 	const retrievedModels: BookPreviewModel[] = records.map(
@@ -49,7 +49,7 @@ async function _retrieveBookPreviewRepositorySnapshot(
 					placeholder: record.coverPlaceholder as ImagePlaceholder,
 				},
 			});
-		}
+		},
 	);
 	return { bookPreviewModels: retrievedModels };
 }

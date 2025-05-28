@@ -22,7 +22,7 @@ describe("blogger", () => {
 				Promise.resolve({
 					ok: true,
 					json: () => Promise.resolve(successfulRequestPayload),
-				})
+				}),
 			);
 			// Can't use waitFors due to testing environment
 			await expect(blogger.fetchBlogPosts()).resolves.toEqual({

@@ -11,7 +11,9 @@ import { newBookPreviewRepositoryVIInterface } from "@/app-library/default-imple
 const ReadingListSection = function ({ model }) {
 	const { sectionTitle, bookPreviewAPI } = model.modelView;
 	const { modelView: repositoryModelView } = useStatefulRepository(
-		newStatifiableModel(newBookPreviewRepositoryVIInterface(bookPreviewAPI))
+		newStatifiableModel(
+			newBookPreviewRepositoryVIInterface(bookPreviewAPI),
+		),
 	);
 
 	return (

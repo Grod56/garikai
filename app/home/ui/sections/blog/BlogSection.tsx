@@ -14,7 +14,9 @@ import { newStatifiableModel } from "@/app-library/utilities/miscelleneous";
 const BlogSection = function ({ model }) {
 	const { sectionTitle, postPreviewAPI, blogURL } = model.modelView;
 	const { modelView: repositoryModelView } = useStatefulRepository(
-		newStatifiableModel(newPostPreviewRepositoryVIInterface(postPreviewAPI))
+		newStatifiableModel(
+			newPostPreviewRepositoryVIInterface(postPreviewAPI),
+		),
 	);
 
 	return (

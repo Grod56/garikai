@@ -18,7 +18,7 @@ export function newStatifiableModel<
 	I extends ModelInteraction<U>,
 	U = unknown,
 >(
-	viewInteractionInterface: ViewInteractionInterface<V, I>
+	viewInteractionInterface: ViewInteractionInterface<V, I>,
 ): StatifiableModel<V, I> {
 	return { modelView: null, viewInteractionInterface };
 }

@@ -29,7 +29,7 @@ export const testRepositoryInstantiatorAPI: ArtImagePreviewAPI = {
 };
 
 export function faultyRepositoryInstantiatorAPI(
-	errorMessage: string
+	errorMessage: string,
 ): ArtImagePreviewAPI {
 	return {
 		retrieveRecords: jest.fn(() => {

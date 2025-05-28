@@ -21,10 +21,10 @@ type PortfolioItemRepositoryVIInterface = ViewInteractionInterface<
 >;
 
 export function newPortfolioItemRepositoryVIInterface(
-	api: PortfolioItemAPI
+	api: PortfolioItemAPI,
 ): PortfolioItemRepositoryVIInterface {
 	function produceModelView(
-		interaction: PortfolioItemRepositoryModelInteraction
+		interaction: PortfolioItemRepositoryModelInteraction,
 	): Promise<PortfolioItemRepositoryModelView> {
 		switch (interaction.type) {
 			case RepositoryInteractionType.RETRIEVE:
@@ -36,7 +36,7 @@ export function newPortfolioItemRepositoryVIInterface(
 }
 
 async function _retrievePortfolioItemRepositorySnapshot(
-	api: PortfolioItemAPI
+	api: PortfolioItemAPI,
 ): Promise<PortfolioItemRepositoryModelView> {
 	const records = await api.retrieveRecords();
 	const retrievedModels: PortfolioItemModel[] = records.map(
@@ -54,7 +54,7 @@ async function _retrievePortfolioItemRepositorySnapshot(
 						record.thumbnailPlaceholder as ImagePlaceholder,
 				},
 			});
-		}
+		},
 	);
 	return { portfolioItemModels: retrievedModels };
 }

@@ -10,7 +10,7 @@ describe("ImageCard", () => {
 		render(
 			<ImageCard model={testModel}>
 				<></>
-			</ImageCard>
+			</ImageCard>,
 		);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});
@@ -24,7 +24,7 @@ describe("ImageCard", () => {
 	it("maps orientation property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-orientation",
-			orientation
+			orientation,
 		);
 	});
 });

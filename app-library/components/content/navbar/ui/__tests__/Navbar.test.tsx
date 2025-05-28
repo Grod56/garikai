@@ -15,7 +15,7 @@ describe("Navbar", () => {
 		expect(componentElement).toHaveAttribute("id", id);
 	});
 	it("maps navlinkModels property to corresponding nodes", () => {
-		navlinkModels.forEach((navlinkModel) => {
+		navlinkModels.forEach(navlinkModel => {
 			const { link, linkText } = navlinkModel.modelView;
 			const linkElement = screen.getByText(linkText);
 			expect(linkElement).toContainHTML(link);

@@ -10,7 +10,7 @@ describe("newNavbarModel", () => {
 			expect(id).toEqual(modelInstantiatorTestInput.id);
 			navlinkModels.forEach((navlinkModel, index) => {
 				expect(navlinkModel.modelView).toEqual(
-					modelInstantiatorTestInput.navlinkModelViews[index]
+					modelInstantiatorTestInput.navlinkModelViews[index],
 				);
 			});
 		});

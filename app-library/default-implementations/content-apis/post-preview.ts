@@ -33,7 +33,7 @@ export function newBloggerPostPreviewAPI(): PostPreviewAPI {
 							snippet: item.content,
 							postLink: item.url,
 							thumbnailSource: item.images[0].url,
-						}) as PostPreviewRecord
+						}) as PostPreviewRecord,
 				);
 				return records;
 			}

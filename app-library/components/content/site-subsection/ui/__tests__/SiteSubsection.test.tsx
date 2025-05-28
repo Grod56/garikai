@@ -10,7 +10,7 @@ describe("SiteSubsection", () => {
 		render(
 			<SiteSubsection model={testModel}>
 				<></>
-			</SiteSubsection>
+			</SiteSubsection>,
 		);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});

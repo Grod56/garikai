@@ -69,7 +69,7 @@ const footerModel = newFooterModel({
 				type: "WhatsApp",
 				link: "https://wa.me/263733343216".concat(
 					"?text=Hello Garikai, I was referred to this " +
-						"number from your website."
+						"number from your website.",
 				) as `https://wa.me/${string}`,
 			},
 		},

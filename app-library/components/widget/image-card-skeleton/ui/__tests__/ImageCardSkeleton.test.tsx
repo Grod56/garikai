@@ -14,7 +14,7 @@ describe("ImageCardSkeleton", () => {
 	it("maps orientation property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-orientation",
-			orientation
+			orientation,
 		);
 	});
 });
