@@ -10,7 +10,7 @@ import {
 } from "../content-repositories/repository";
 
 export function useStatefulRepository<V extends ModelView>(
-	statifiableModel: StatifiableModel<V, RepositoryModelInteraction>
+	statifiableModel: StatifiableModel<V, RepositoryModelInteraction>,
 ) {
 	const model = useTransformedStatefulInteractiveModel(statifiableModel);
 	const { interact } = model;

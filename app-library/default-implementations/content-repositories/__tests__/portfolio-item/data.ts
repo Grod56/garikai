@@ -35,7 +35,7 @@ export const testRepositoryInstantiatorAPI: PortfolioItemAPI = {
 };
 
 export function faultyRepositoryInstantiatorAPI(
-	errorMessage: string
+	errorMessage: string,
 ): PortfolioItemAPI {
 	return {
 		retrieveRecords: jest.fn(() => {

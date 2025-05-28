@@ -5,11 +5,13 @@
 		"dev": "next dev --turbopack",
 		"start": "next start",
 		"test": "jest",
-		"test:watch": "jest --watch",
 		"lint:native": "tsc --noEmit",
 		"lint:eslint": "next lint",
-		"lint": "npm run lint:native && npm run lint:eslint",
-		"src-check": "npm run lint && npm run test"
+		"lint": "pnpm run lint:native && pnpm run lint:eslint",
+		"format": "prettier --write .",
+		"check:format": "prettier --check .",
+		"check:src": "pnpm run lint && pnpm run test",
+		"check:src-strict": "pnpm run check:src && pnpm run check:format"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.7.2",

@@ -39,7 +39,7 @@ describe("newStatifiableModel", () => {
 		const model = newStatifiableModel(viewInteractionInterface);
 		expect(model.modelView).toBeNull();
 		expect(model.viewInteractionInterface).toEqual(
-			viewInteractionInterface
+			viewInteractionInterface,
 		);
 	});
 });

@@ -6,7 +6,7 @@ describe("AppDesign", () => {
 		const rendered = render(
 			<AppDesign>
 				<></>
-			</AppDesign>
+			</AppDesign>,
 		);
 		const containerElement = rendered.container;
 		const headerElement = screen.getByRole("banner");

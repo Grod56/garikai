@@ -10,7 +10,7 @@ export interface NewFeaturedPostPreviewModelParameters
 }
 
 export function newFeaturedPostPreviewModel(
-	parameters: NewFeaturedPostPreviewModelParameters
+	parameters: NewFeaturedPostPreviewModelParameters,
 ): FeaturedPostPreviewModel {
 	const postPreviewModel = newPostPreviewModel({ ...parameters });
 	return {

@@ -34,7 +34,7 @@ const BookPreviewsPlaceholder = function ({ model }) {
 				componentModels: Array<ImageCardSkeletonModel>(6).fill(
 					newReadonlyModel({
 						orientation: "flexible",
-					})
+					}),
 				),
 			})}
 		/>

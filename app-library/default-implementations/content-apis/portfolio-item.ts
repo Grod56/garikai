@@ -11,7 +11,7 @@ export function newSupabasePortfolioItemAPI(): PortfolioItemAPI {
 			const { data } = await supabase.from("PortfolioItem").select("*");
 			if (data) {
 				const records = data.map(
-					(item) =>
+					item =>
 						({
 							id: item.id,
 							title: item.title,
@@ -21,7 +21,7 @@ export function newSupabasePortfolioItemAPI(): PortfolioItemAPI {
 							thumbnailSource: item.thumbnailSource,
 							thumbnailAlt: item.thumbnailAlt,
 							thumbnailPlaceholder: item.thumbnailPlaceholder,
-						}) as PortfolioItemRecord
+						}) as PortfolioItemRecord,
 				);
 				return records;
 			}

@@ -33,7 +33,7 @@ export const testRepositoryInstantiatorAPI: BookPreviewAPI = {
 };
 
 export function faultyRepositoryInstantiatorAPI(
-	errorMessage: string
+	errorMessage: string,
 ): BookPreviewAPI {
 	return {
 		retrieveRecords: jest.fn(() => {

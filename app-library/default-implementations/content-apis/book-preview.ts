@@ -13,7 +13,7 @@ export function newSupabaseBookPreviewAPI(): BookPreviewAPI {
 				.order("title");
 			if (data) {
 				const records = data.map(
-					(item) =>
+					item =>
 						({
 							id: item.id,
 							title: item.title,
@@ -22,7 +22,7 @@ export function newSupabaseBookPreviewAPI(): BookPreviewAPI {
 							coverSource: item.coverSource,
 							coverAlt: item.coverAlt,
 							coverPlaceholder: item.coverPlaceholder,
-						}) as BookPreviewRecord
+						}) as BookPreviewRecord,
 				);
 				return records;
 			}

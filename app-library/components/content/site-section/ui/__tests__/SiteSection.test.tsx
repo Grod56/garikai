@@ -10,7 +10,7 @@ describe("SiteSection", () => {
 		render(
 			<SiteSection model={testModel}>
 				<></>
-			</SiteSection>
+			</SiteSection>,
 		);
 		componentElement = screen.getByTestId("site-section");
 	});
@@ -21,7 +21,7 @@ describe("SiteSection", () => {
 	it("maps sectionName property to corresponding node", () => {
 		expect(componentElement).toHaveAttribute(
 			"data-sectionname",
-			sectionName
+			sectionName,
 		);
 	});
 	it("maps sectionTitle property to corresponding node", () => {

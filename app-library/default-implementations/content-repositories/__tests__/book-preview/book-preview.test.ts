@@ -11,22 +11,22 @@ describe("newBookPreviewRepositoryVIInterface", () => {
 		it("matches api retrieve output", async () => {
 			const viewInteractionInterface =
 				newBookPreviewRepositoryVIInterface(
-					testRepositoryInstantiatorAPI
+					testRepositoryInstantiatorAPI,
 				);
 			const newModelView = await waitFor(() =>
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			);
 			const testRecords = await waitFor(() =>
-				testRepositoryInstantiatorAPI.retrieveRecords()
+				testRepositoryInstantiatorAPI.retrieveRecords(),
 			);
-			newModelView.bookPreviewModels.forEach((bookPreviewModel) => {
+			newModelView.bookPreviewModels.forEach(bookPreviewModel => {
 				const { id, title, author, bookLink, cover } =
 					bookPreviewModel.modelView;
 
 				const record = testRecords.find(
-					(record) => id == `book-preview_${record.id}` //TODO: Address this
+					record => id == `book-preview_${record.id}`, //TODO: Address this
 				)!;
 				expect(record).toBeDefined();
 				expect(title).toEqual(record.title);
@@ -41,12 +41,12 @@ describe("newBookPreviewRepositoryVIInterface", () => {
 			const errorMessage = "What an error";
 			const viewInteractionInterface =
 				newBookPreviewRepositoryVIInterface(
-					faultyRepositoryInstantiatorAPI(errorMessage)
+					faultyRepositoryInstantiatorAPI(errorMessage),
 				);
 			await expect(
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			).rejects.toEqual(errorMessage);
 		});
 	});

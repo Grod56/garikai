@@ -24,7 +24,7 @@ describe("newBloggerPostPreviewPreviewAPI", () => {
 		});
 		it("throws error when blogger communicates an error", async () => {
 			bloggerSpy.mockImplementation(
-				faultyBloggerSpySelectMockImplementation
+				faultyBloggerSpySelectMockImplementation,
 			);
 			const api = newBloggerPostPreviewAPI();
 			await expect(api.retrieveRecords()).rejects.toThrow();

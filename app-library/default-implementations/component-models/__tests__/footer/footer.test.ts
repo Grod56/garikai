@@ -9,12 +9,12 @@ describe("newFooterModel", () => {
 		it("corresponds with input parameters", () => {
 			expect(id).toEqual(modelInstantiatorTestInput.id);
 			expect(copyright).toContain(
-				modelInstantiatorTestInput.copyrightText
+				modelInstantiatorTestInput.copyrightText,
 			);
-			socialLinkModels.forEach((socialLinkModel) =>
+			socialLinkModels.forEach(socialLinkModel =>
 				expect(
-					modelInstantiatorTestInput.socialLinkModelViews
-				).toContain(socialLinkModel.modelView)
+					modelInstantiatorTestInput.socialLinkModelViews,
+				).toContain(socialLinkModel.modelView),
 			);
 		});
 	});

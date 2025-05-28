@@ -19,10 +19,10 @@ type ArtImagePreviewRepositoryViewInteractionInterface =
 	>;
 
 export function newArtImagePreviewRepositoryVIInterface(
-	api: ArtImagePreviewAPI
+	api: ArtImagePreviewAPI,
 ): ArtImagePreviewRepositoryViewInteractionInterface {
 	function produceModelView(
-		interaction: ArtImagePreviewRepositoryModelInteraction
+		interaction: ArtImagePreviewRepositoryModelInteraction,
 	): Promise<ArtImagePreviewRepositoryModelView> {
 		switch (interaction.type) {
 			case RepositoryInteractionType.RETRIEVE:
@@ -34,7 +34,7 @@ export function newArtImagePreviewRepositoryVIInterface(
 }
 
 async function _retrieveArtImagePreviewRepositorySnapshot(
-	api: ArtImagePreviewAPI
+	api: ArtImagePreviewAPI,
 ): Promise<ArtImagePreviewRepositoryModelView> {
 	const records = await api.retrieveRecords();
 	const retrievedModels: ArtImagePreviewModel[] = records.map(
@@ -48,7 +48,7 @@ async function _retrieveArtImagePreviewRepositorySnapshot(
 				},
 				title: record.title,
 			});
-		}
+		},
 	);
 	return { artImagePreviewModels: retrievedModels };
 }

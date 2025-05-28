@@ -35,7 +35,7 @@ const RecentPostPreviewsPlaceholder = function ({ model }) {
 				componentModels: Array<ImageCardSkeletonModel>(3).fill(
 					newReadonlyModel({
 						orientation: "vertical",
-					})
+					}),
 				),
 			})}
 		/>

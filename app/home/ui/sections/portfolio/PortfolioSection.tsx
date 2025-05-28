@@ -19,8 +19,8 @@ const PortfolioSection = function ({ model }) {
 	const { sectionTitle, portfolioItemAPI } = model.modelView;
 	const { modelView: repositoryModelView } = useStatefulRepository(
 		newStatifiableModel(
-			newPortfolioItemRepositoryVIInterface(portfolioItemAPI)
-		)
+			newPortfolioItemRepositoryVIInterface(portfolioItemAPI),
+		),
 	);
 
 	return (
@@ -53,7 +53,7 @@ const PortfolioSection = function ({ model }) {
 										Array<ImageCardSkeletonModel>(4).fill(
 											newReadonlyModel({
 												orientation: "vertical",
-											})
+											}),
 										),
 								})}
 							/>

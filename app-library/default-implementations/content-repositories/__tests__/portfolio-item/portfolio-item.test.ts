@@ -11,22 +11,22 @@ describe("newPortfolioItemRepositoryVIInterface", () => {
 		it("matches api retrieve output", async () => {
 			const viewInteractionInterface =
 				newPortfolioItemRepositoryVIInterface(
-					testRepositoryInstantiatorAPI
+					testRepositoryInstantiatorAPI,
 				);
 			const newModelView = await waitFor(() =>
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			);
 			const testRecords = await waitFor(() =>
-				testRepositoryInstantiatorAPI.retrieveRecords()
+				testRepositoryInstantiatorAPI.retrieveRecords(),
 			);
-			newModelView.portfolioItemModels.forEach((portfolioItemModel) => {
+			newModelView.portfolioItemModels.forEach(portfolioItemModel => {
 				const { id, title, description, category, thumbnail, link } =
 					portfolioItemModel.modelView;
 
 				const record = testRecords.find(
-					(record) => id == `portfolio-item_${record.id}` //TODO: Address this
+					record => id == `portfolio-item_${record.id}`, //TODO: Address this
 				)!;
 				expect(record).toBeDefined();
 				expect(title).toEqual(record.title);
@@ -36,7 +36,7 @@ describe("newPortfolioItemRepositoryVIInterface", () => {
 				expect(thumbnail.source).toEqual(record.thumbnailSource);
 				expect(thumbnail.alt).toEqual(record.thumbnailAlt);
 				expect(thumbnail.placeholder).toEqual(
-					record.thumbnailPlaceholder
+					record.thumbnailPlaceholder,
 				);
 			});
 		});
@@ -44,12 +44,12 @@ describe("newPortfolioItemRepositoryVIInterface", () => {
 			const errorMessage = "What an error";
 			const viewInteractionInterface =
 				newPortfolioItemRepositoryVIInterface(
-					faultyRepositoryInstantiatorAPI(errorMessage)
+					faultyRepositoryInstantiatorAPI(errorMessage),
 				);
 			await expect(
 				viewInteractionInterface.produceModelView({
 					type: RepositoryInteractionType.RETRIEVE,
-				})
+				}),
 			).rejects.toEqual(errorMessage);
 		});
 	});

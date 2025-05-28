@@ -30,7 +30,7 @@ export function newPostPreviewModel({
 			get byline(): string {
 				return `${author} | ${publishedDate.toLocaleDateString(
 					"en-US",
-					{ year: "numeric", month: "long", day: "numeric" }
+					{ year: "numeric", month: "long", day: "numeric" },
 				)}`;
 			},
 		} as PostPreviewModelView,

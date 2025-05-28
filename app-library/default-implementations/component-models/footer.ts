@@ -20,8 +20,8 @@ export function newFooterModel({
 					${new Date(Date.now()).toLocaleDateString("en-US", { year: "numeric" })} ${copyrightText}
 				`;
 		},
-		socialLinkModels: socialLinkModelViews.map((modelView) =>
-			newReadonlyModel(modelView)
+		socialLinkModels: socialLinkModelViews.map(modelView =>
+			newReadonlyModel(modelView),
 		),
 	});
 }

@@ -10,7 +10,7 @@ describe("Main", () => {
 		render(
 			<Main model={testModel}>
 				<></>
-			</Main>
+			</Main>,
 		);
 		componentElement = screen.getByTestId(ELEMENT_NAME);
 	});

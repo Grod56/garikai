@@ -18,7 +18,7 @@ describe("Footer", () => {
 		expect(copyrightElement).toBeInTheDocument();
 	});
 	it("maps socialLinksModels to corresponding nodes", () => {
-		socialLinkModels.forEach((socialLinkModel) => {
+		socialLinkModels.forEach(socialLinkModel => {
 			const { socialLink } = socialLinkModel.modelView;
 			expect(componentElement).toContainHTML(socialLink.link);
 			expect(componentElement).toContainHTML(socialLink.type);

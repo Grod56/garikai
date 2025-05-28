@@ -10,7 +10,7 @@ export function newNavbarModel({
 	id,
 	navlinkModelViews,
 }: NewNavbarModelParameters): NavbarModel {
-	const navlinkModels = navlinkModelViews.map((navlinkModelView) => ({
+	const navlinkModels = navlinkModelViews.map(navlinkModelView => ({
 		modelView: navlinkModelView,
 	}));
 	return { modelView: { id, navlinkModels } };
