@@ -9,8 +9,7 @@
 	#00080a,
 	#e99767
 );
-
-@include animations.configure(theme.$secondary-color-1, theme.$primary-color-1);
+@include animations.configure(theme.$secondary-color-1);
 
 * {
 	--primary-color-1: #{theme.$primary-color-1};
@@ -23,6 +22,7 @@
 	--secondary-a-color-2: #{theme.$secondary-a-color-2};
 	--secondary-a-color-3: #{theme.$secondary-a-color-3};
 	--accent-color-1: #{theme.$accent-color-1};
+	--accent-font: "Explora";
 }
 
 @include theme.theme;
@@ -37,4 +37,8 @@ body {
 	a:hover {
 		color: var(--accent-color-1);
 	}
+}
+
+menu {
+	margin: 0;
 }

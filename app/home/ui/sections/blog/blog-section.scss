@@ -1,11 +1,24 @@
 @use "../../../../../app-library/styles/utilities/grid-container";
+@use "../../../../../app-library/styles/utilities/layout";
 
 .recent-posts-container {
 	@include grid-container.grid(3, horizontal, true, false);
+	.post-preview,
+	.image-card-skeleton {
+		width: 70vw;
+	}
+	.post-preview {
+		min-height: 100%;
+	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	.recent-posts-container {
 		@include grid-container.grid(3, horizontal, true, true);
+		.post-preview,
+		.image-card-skeleton {
+			// Unset
+			width: auto;
+		}
 	}
 }

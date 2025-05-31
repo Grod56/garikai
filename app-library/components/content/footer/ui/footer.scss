@@ -1,4 +1,7 @@
+@use "../../../../styles/utilities/container";
+
 .footer {
+	@include container.wrapper;
 	color: var(--secondary-color-1);
 
 	.footer-container {

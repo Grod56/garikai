@@ -27,6 +27,7 @@
 		"next-env.d.ts",
 		".next/types/**/*.ts",
 		"jest.setup.ts",
+		"jest.config.ts",
 		"app/**/*.ts",
 		"app/**/*.tsx",
 		"app/**/*.js",

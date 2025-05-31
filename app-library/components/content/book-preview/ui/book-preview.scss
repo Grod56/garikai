@@ -1,24 +1,31 @@
-@use "../../../../styles/utilities/image-card-details";
+@use "../../../../styles/utilities/image-card-details-text";
 @use "../../../../styles/utilities/text";
+@use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/layout";
+@use "../../../../styles/utilities/objects";
 
 .book-preview {
-	display: flex;
+	@include container.wrapper;
 
-	> * {
-		flex: 1;
+	.linked-component {
+		@include objects.expansive;
+		.image-card {
+			@include objects.expansive;
+		}
 	}
+
 	.title {
-		@include image-card-details.title(false);
+		@include image-card-details-text.title(false);
 	}
 	.author {
-		@include image-card-details.footnote;
+		@include image-card-details-text.footnote;
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	.book-preview {
 		.title {
-			@include image-card-details.title(true);
+			@include image-card-details-text.title(true);
 			@include text.text-clip(3);
 			font-size: 1.9rem;
 		}

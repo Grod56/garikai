@@ -1,27 +1,22 @@
 @use "../../../../styles/utilities/animations";
+@use "../../../../styles/utilities/layout";
+@use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/image-card";
 
 .image-card-skeleton {
-	display: flex;
-	min-width: 100%;
-	max-width: 100%;
-	background-color: transparent;
-	gap: 0.2em;
+	@include container.expansive-wrapper;
+	gap: 0.25em;
 
-	.card-thumbnail,
+	[data-customname="card-thumbnail"],
 	.card-details {
 		@include animations.skeleton;
 	}
 }
 
 .image-card-skeleton[data-orientation="horizontal"] {
-	flex-direction: row;
-	min-height: 5em;
-	max-height: 5em;
-
-	.card-thumbnail {
-		min-height: 100%;
-		max-height: inherit;
-		width: 30%;
+	@include image-card.horizontal;
+	.card-details {
+		min-width: 100%;
 	}
 }
 
@@ -29,39 +24,14 @@
 		[data-orientation="flexible"],
 		[data-orientation="vertical"]
 	) {
-	flex-direction: column;
-	min-width: 50vw;
-	min-height: 30vh;
-	max-height: 100%;
-	background-color: transparent;
-	gap: 0.2em;
-	.card-thumbnail {
-		min-height: 20vh;
-	}
-	.card-details {
-		flex: 1;
-	}
+	@include image-card.vertical(false);
 }
 
-@media (min-width: 768px) {
-	.image-card-skeleton:is(
-			[data-orientation="flexible"],
-			[data-orientation="vertical"]
-		) {
-		min-width: unset;
+@media (min-width: layout.get-widescreen-bp()) {
+	.image-card-skeleton[data-orientation="vertical"] {
+		@include image-card.vertical(true);
 	}
-	.image-card-skeleton:is(
-			[data-orientation="flexible"],
-			[data-orientation="horizontal"]
-		) {
-		flex-direction: row;
-		max-height: 11em;
-		min-height: 11em;
-
-		.card-thumbnail {
-			min-height: inherit;
-			max-height: inherit;
-			width: 30%;
-		}
+	.image-card-skeleton:is([data-orientation="flexible"]) {
+		@include image-card.horizontal;
 	}
 }

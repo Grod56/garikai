@@ -1,8 +1,6 @@
 import { Image } from "@/app-library/utility-types/image";
-import {
-	PostPreviewModel,
-	PostPreviewModelView,
-} from "../../components/content/post-preview/post-preview-model";
+import { newReadonlyModel } from "@mvc-react/mvc";
+import { PostPreviewModel } from "../../components/content/post-preview/post-preview-model";
 
 export interface NewPostPreviewModelParameters {
 	id: string;
@@ -21,18 +19,17 @@ export function newPostPreviewModel({
 	publishedDate,
 	thumbnail,
 }: NewPostPreviewModelParameters): PostPreviewModel {
-	return {
-		modelView: {
-			id,
-			title,
-			postLink,
-			thumbnail,
-			get byline(): string {
-				return `${author} | ${publishedDate.toLocaleDateString(
-					"en-US",
-					{ year: "numeric", month: "long", day: "numeric" },
-				)}`;
-			},
-		} as PostPreviewModelView,
-	};
+	return newReadonlyModel({
+		id,
+		title,
+		postLink,
+		thumbnail,
+		get byline(): string {
+			return `${author} | ${publishedDate.toLocaleDateString("en-US", {
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+			})}`;
+		},
+	});
 }

@@ -1,4 +1,5 @@
 @use "../../../../../../app-library/styles/utilities/grid-container";
+@use "../../../../../../app-library/styles/utilities/layout";
 
 .art-image-placeholders-container {
 	@include grid-container.grid(6, horizontal, true, false);
@@ -8,7 +9,7 @@
 	margin-left: -2em;
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	.art-image-placeholders-container {
 		@include grid-container.grid(6, horizontal, true, true);
 	}
