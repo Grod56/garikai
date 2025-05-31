@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Explora } from "next/font/google";
 import { Metadata } from "next/types";
 import AppDesign from "@/app-library/app-design/AppDesign";

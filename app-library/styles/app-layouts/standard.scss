@@ -1,6 +1,10 @@
 @use "../utilities/layout";
 @use "../utilities/text";
 
+* {
+	box-sizing: border-box;
+}
+
 html {
 	@include layout.page;
 	scroll-padding-top: 2em;
@@ -10,6 +14,10 @@ html {
 body {
 	@include layout.body;
 	font-size: 14px;
+}
+
+p {
+	@include text.paragraph;
 }
 
 h1,
