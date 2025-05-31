@@ -13,7 +13,7 @@ const ImageCardSkeleton = function ({ model }) {
 			data-orientation={orientation}
 			data-testid={ELEMENT_NAME}
 		>
-			<div className="card-thumbnail"></div>
+			<div data-customname="card-thumbnail"></div>
 			<div className="card-details"></div>
 		</div>
 	);

@@ -1,10 +1,12 @@
+@use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/objects";
+@use "../../../../styles/utilities/animations";
+
 .linked-component {
-	display: flex;
-	min-height: 100%;
-	min-width: 100%;
+	@include container.wrapper;
 	transition: 0.2s;
 }
 
 .linked-component:is(:hover, :focus) {
-	transform: scale(1.03);
+	@include animations.pop-out;
 }

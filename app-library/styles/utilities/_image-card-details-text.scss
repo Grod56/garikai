@@ -1,18 +1,27 @@
 @use "./text";
+@use "./flexible-container";
+
+@mixin card-details {
+	@include flexible-container.vertical(0.5em);
+	text-align: left;
+	padding: 1.3em;
+	overflow-wrap: anywhere;
+	overflow: hidden;
+}
 
 @mixin title($--is-widescreen: false) {
 	@include text.text-clip(2);
+	color: var(--secondary-color-4);
 	@if $--is-widescreen == true {
 		font-size: calc(2.1rem + 0.2vw);
 	} @else {
 		font-size: calc(2.3rem + 0.2vw);
 	}
-	color: var(--secondary-color-4);
 }
 
 @mixin body($--is-widescreen: false) {
 	@include text.text-clip(5);
-	line-height: 170%;
+	line-height: 180%;
 	@if $--is-widescreen == true {
 		font-size: calc(1.1rem + 0.2vw);
 	} @else {

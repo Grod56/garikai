@@ -1,106 +1,44 @@
-$max-horizontal-card-height: 11em;
-$max-horizontal-thumbnail-width: 32%;
-$max-widescreen-vertical-thumbnail-height: 7em;
-$max-mobile-vertical-thumbnail-height: 40vh;
-
-@mixin horizontal-image-card {
-	flex-direction: row;
-	max-height: $max-horizontal-card-height;
-	min-height: 100%;
-}
-
-@mixin vertical-image-card {
-	flex-direction: column;
-}
-
-@mixin horizontal-card-thumbnail($--max-width) {
-	max-width: $--max-width;
-	min-width: $--max-width;
-	min-height: 100%;
-	max-height: 100%;
-}
-
-@mixin vertical-card-thumbnail($--max-height) {
-	max-height: $--max-height;
-	min-height: $--max-height;
-	min-width: 100%;
-	max-width: 100%;
-}
-
-// Yeah, I have to document this madness
+@use "../../../../styles/utilities/layout";
+@use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/effects";
+@use "../../../../styles/utilities/image-card";
+@use "../../../../styles/utilities/image-card-details-text";
 
 // General/Mobile view -----------------------------------------------
 
 // General image-card
 .image-card {
-	display: flex;
-	background: linear-gradient(
-		to bottom,
-		var(--secondary-a-color-2),
-		var(--secondary-color-1)
-	);
-	color: var(--primary-color-4);
-	max-width: 100%;
-	min-width: 100%;
-}
+	@include container.wrapper;
+	@include effects.blur;
 
-// General card thumbnail
-.image-card {
-	.image[data-customname="card-thumbnail"] {
-		object-fit: cover;
-		height: auto;
-	}
-}
-
-// General card details
-.image-card {
 	.card-details {
-		flex-grow: 1;
-		display: flex;
-		flex-direction: column;
-		text-align: left;
-		gap: 0.5em;
-		padding: 1em;
-		overflow-wrap: anywhere;
-		overflow: hidden;
+		@include image-card-details-text.card-details;
 	}
+
+	background-color: var(--secondary-a-color-2);
+	color: var(--primary-color-4);
 }
 
 // Horizontal image card
 .image-card[data-orientation="horizontal"] {
-	@include horizontal-image-card;
-
-	.image[data-customname="card-thumbnail"] {
-		@include horizontal-card-thumbnail($max-horizontal-thumbnail-width);
-	}
+	@include image-card.horizontal;
 }
 
 // Vertical image card
 .image-card:is([data-orientation="vertical"], [data-orientation="flexible"]) {
-	@include vertical-image-card;
-
-	.image[data-customname="card-thumbnail"] {
-		@include vertical-card-thumbnail($max-mobile-vertical-thumbnail-height);
-	}
+	@include image-card.vertical(false);
 }
 
 // Wide-screen view ------------------------------------------------------------
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	// Flexible to horizontal
 	.image-card[data-orientation="flexible"] {
-		@include horizontal-image-card;
-		.image[data-customname="card-thumbnail"] {
-			@include horizontal-card-thumbnail($max-horizontal-thumbnail-width);
-		}
+		@include image-card.horizontal;
 	}
 
-	// Limiting of vertical card thumbnail height
+	// Widescreen specifier
 	.image-card[data-orientation="vertical"] {
-		.image[data-customname="card-thumbnail"] {
-			@include vertical-card-thumbnail(
-				$max-widescreen-vertical-thumbnail-height
-			);
-		}
+		@include image-card.vertical(true);
 	}
 }

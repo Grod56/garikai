@@ -1,14 +1,27 @@
 @use "../../../../../app-library/styles/utilities/grid-container";
+@use "../../../../../app-library/styles/utilities/layout";
 
 .portfolio-items-container {
 	@include grid-container.grid(2, "horizontal", false, false);
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
+	.site-section[data-sectionname="portfolio"] {
+		.content-layer {
+			max-width: 90%;
+		}
+	}
+
 	.portfolio-items-container {
-		@include grid-container.grid(2, "horizontal", true, true);
-		.portfolio-item {
+		@include grid-container.grid(5, "horizontal", true, true);
+		.portfolio-item,
+		.image-card-skeleton {
+			min-width: 21em;
+			max-width: 21em;
 			min-height: 100%;
+		}
+		.image-card-skeleton {
+			min-height: 21em;
 		}
 	}
 }

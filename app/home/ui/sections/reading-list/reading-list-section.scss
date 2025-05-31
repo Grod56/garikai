@@ -1,10 +1,15 @@
 @use "../../../../../app-library/styles/utilities/grid-container";
+@use "../../../../../app-library/styles/utilities/layout";
+@use "../../../../../app-library/styles/utilities/objects";
 
 .book-previews-container {
 	@include grid-container.grid(2, horizontal, false, false);
+	.book-preview {
+		@include objects.expansive;
+	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	.book-previews-container {
 		@include grid-container.grid(2, horizontal, false, true);
 	}

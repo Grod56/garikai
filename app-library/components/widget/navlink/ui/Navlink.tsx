@@ -8,9 +8,9 @@ const Navlink = function ({ model }) {
 	const { link, linkText } = model.modelView;
 
 	return (
-		<a className={ELEMENT_NAME} href={link} data-testid={ELEMENT_NAME}>
-			{linkText}
-		</a>
+		<li className={ELEMENT_NAME} data-testid={ELEMENT_NAME}>
+			<a href={link}>{linkText}</a>
+		</li>
 	);
 } as ModeledVoidComponent<NavlinkModel>;
 

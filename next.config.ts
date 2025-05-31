@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 const IS_DEV = process.env.NODE_ENV === "development";
 
@@ -14,8 +13,12 @@ const nextConfig: NextConfig = {
 	},
 	sassOptions: {
 		implementation: "sass-embedded",
-		loadPaths: [path.join(__dirname, "app-library/styles/")],
 	},
+	// webpack: config => {
+	// 	config.resolve.alias["@utilities"] = "/app-library/utilities";
+	// 	config.resolve.alias["@components"] = "/app-library/components";
+	// 	return config;
+	// },
 	images: {
 		remotePatterns: [
 			{

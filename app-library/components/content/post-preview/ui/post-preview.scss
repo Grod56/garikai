@@ -1,57 +1,57 @@
-@use "../../../../styles/utilities/image-card-details";
+@use "../../../../styles/utilities/image-card-details-text";
+@use "../../../../styles/utilities/layout";
+@use "../../../../styles/utilities/objects";
+@use "../../../../styles/utilities/container";
 
 .post-preview {
-	display: flex;
-	min-height: 100%;
-	max-height: inherit;
-	min-width: 70vw;
+	@include container.wrapper;
 
-	> * {
-		flex: 1;
+	.linked-component {
+		@include objects.expansive;
+		.image-card {
+			@include objects.expansive;
+		}
 	}
 
 	.title {
-		@include image-card-details.title(false);
+		@include image-card-details-text.title(false);
 		font-family: serif;
 		font-weight: 400;
 		font-size: 1.7rem;
 	}
 	.byline {
-		@include image-card-details.footnote;
+		@include image-card-details-text.footnote;
 	}
 
-	// Too lazy to separate out featured-post-preview atm
+	// TODO: Won't fill height for FeaturedPostPreview card details for some reason
+	// Too lazy to separate out .featured-post-preview atm
 	.image-card:is(
 			[data-orientation="flexible"],
 			[data-orientation="horizontal"]
 		) {
 		.title {
-			@include image-card-details.title(false);
+			@include image-card-details-text.title(false);
 		}
 		.snippet {
-			@include image-card-details.body(false);
+			@include image-card-details-text.body(false);
 		}
 		.byline {
-			@include image-card-details.footnote;
+			@include image-card-details-text.footnote;
 		}
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	.post-preview {
-		min-width: auto;
 		.image-card:is(
 				[data-orientation="flexible"],
 				[data-orientation="horizontal"]
 			) {
 			.title {
-				@include image-card-details.title(true);
+				@include image-card-details-text.title(true);
 			}
 			.snippet {
-				@include image-card-details.body(true);
-			}
-			.byline {
-				@include image-card-details.footnote;
+				@include image-card-details-text.body(true);
 			}
 		}
 	}

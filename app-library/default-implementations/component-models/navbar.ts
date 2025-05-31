@@ -1,5 +1,6 @@
 import { NavlinkModelView } from "@/app-library/components/widget/navlink/navlink-model";
 import { NavbarModel } from "../../components/content/navbar/navbar-model";
+import { newReadonlyModel } from "@mvc-react/mvc";
 
 export interface NewNavbarModelParameters {
 	id: string;
@@ -13,5 +14,5 @@ export function newNavbarModel({
 	const navlinkModels = navlinkModelViews.map(navlinkModelView => ({
 		modelView: navlinkModelView,
 	}));
-	return { modelView: { id, navlinkModels } };
+	return newReadonlyModel({ id, navlinkModels });
 }

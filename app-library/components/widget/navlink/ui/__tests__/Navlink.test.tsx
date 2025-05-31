@@ -1,25 +1,25 @@
 import { render, screen } from "@testing-library/react";
-import Navlink, { ELEMENT_NAME } from "../Navlink";
+import Navlink from "../Navlink";
 import { testModel } from "./data";
 
 describe("Navlink", () => {
 	const { link, linkText } = testModel.modelView;
-	let componentElement: HTMLElement;
+	let linkElement: HTMLElement;
 
 	beforeEach(() => {
 		render(<Navlink model={testModel} />);
-		componentElement = screen.getByTestId(ELEMENT_NAME);
+		linkElement = screen.getByText(linkText);
 	});
 
 	it("maps link property to corresponding node", () => {
-		expect(componentElement).toHaveAttribute("href", link);
+		expect(linkElement).toHaveAttribute("href", link);
 	});
 
 	it("maps linkText property to corresponding node", () => {
-		expect(componentElement).toHaveTextContent(linkText);
+		expect(linkElement).toHaveTextContent(linkText);
 	});
 
 	it("renders link for component element", () => {
-		expect(componentElement).toHaveRole("link");
+		expect(linkElement).toHaveRole("link");
 	});
 });

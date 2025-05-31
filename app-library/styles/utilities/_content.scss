@@ -1,0 +1,14 @@
+@mixin x-rule($--is-widescreen: false) {
+	@if $--is-widescreen == true {
+		width: 75%;
+		margin-inline: 0;
+		margin-left: 3em;
+	} @else {
+		display: block;
+		width: 75%;
+		height: 1px;
+		background: var(--secondary-a-color-3);
+		content: "";
+		margin-inline: auto;
+	}
+}

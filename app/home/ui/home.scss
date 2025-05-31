@@ -1,3 +1,5 @@
+@use "../../../app-library/styles/utilities/layout";
+
 .main[data-name="home"] {
 	background: linear-gradient(
 		120deg,
@@ -74,7 +76,7 @@
 	align-self: self-end;
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	.site-section[data-sectionname="bio"] {
 		.background-layer {
 			background-size: 21vw;

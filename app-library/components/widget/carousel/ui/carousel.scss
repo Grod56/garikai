@@ -1,5 +1,7 @@
+@use "../../../../styles/utilities/container";
+
 .carousel {
-	display: flex;
+	@include container.wrapper;
 
 	.embla {
 		margin-inline: auto;

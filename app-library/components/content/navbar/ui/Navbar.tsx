@@ -11,14 +11,14 @@ const Navbar = function ({ model }) {
 
 	return (
 		<nav className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
-			<li className="navlinks">
+			<menu className="navlinks">
 				<ComponentList
 					model={newReadonlyModel({
 						componentModels: navlinkModels,
 						Component: Navlink,
 					})}
 				/>
-			</li>
+			</menu>
 		</nav>
 	);
 } as ModeledVoidComponent<NavbarModel>;

@@ -1,4 +1,7 @@
+@use "../../../../styles/utilities/container";
+
 .art-image-preview {
+	@include container.wrapper;
 	min-width: 100%;
 
 	.image {

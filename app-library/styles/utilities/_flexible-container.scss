@@ -1,15 +1,15 @@
-@mixin flexible-container($--is-widescreen: false) {
+@mixin -flex($--gap, $direction: column) {
 	display: flex;
-	gap: 1em;
-	flex-wrap: wrap;
-
-	@if $--is-widescreen == true {
-		> * {
-			flex: 1;
-		}
-	} @else {
-		> * {
-			flex: unset;
-		}
+	flex-direction: $direction;
+	@if $--gap != null {
+		gap: $--gap;
 	}
+}
+
+@mixin vertical($--gap: null) {
+	@include -flex($--gap, column);
+}
+
+@mixin horizontal($--gap: null) {
+	@include -flex($--gap, row);
 }

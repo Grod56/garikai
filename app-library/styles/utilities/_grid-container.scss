@@ -8,9 +8,9 @@
 	gap: 1em;
 
 	@if $--overflow == true {
-		@include _grid-overflow-style($--orientation);
+		@include -grid-overflow-style($--orientation);
 	}
-	@include _grid-reactive-style(
+	@include -grid-reactive-style(
 		$--orientation,
 		$--max-X-or-Y,
 		$--overflow,
@@ -18,18 +18,18 @@
 	);
 }
 
-@mixin _grid-reactive-style(
+@mixin -grid-reactive-style(
 	$--orientation,
 	$--max-X-or-Y: 2,
 	$--overflow: false,
 	$--is-widescreen: false
 ) {
 	@if $--overflow == true or $--is-widescreen == true {
-		@include _grid-layout($--orientation, $--max-X-or-Y);
+		@include -grid-layout($--orientation, $--max-X-or-Y);
 	}
 }
 
-@mixin _grid-overflow-style($--orientation) {
+@mixin -grid-overflow-style($--orientation) {
 	@if $--orientation == horizontal {
 		overflow-x: scroll;
 		overflow-y: hidden;
@@ -42,7 +42,7 @@
 	}
 }
 
-@mixin _grid-layout($--orientation, $--max-X-or-Y) {
+@mixin -grid-layout($--orientation, $--max-X-or-Y) {
 	@if $--orientation == horizontal {
 		grid-template-columns: repeat($--max-X-or-Y, 1fr);
 	} @else if $--orientation == vertical {

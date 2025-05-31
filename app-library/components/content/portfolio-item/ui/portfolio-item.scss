@@ -1,33 +1,38 @@
-@use "../../../../styles/utilities/image-card-details";
+@use "../../../../styles/utilities/layout";
+@use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/image-card-details-text";
+@use "../../../../styles/utilities/objects";
 
 .portfolio-item {
+	@include container.wrapper;
+	.linked-component {
+		@include objects.expansive;
+		.image-card {
+			@include objects.expansive;
+		}
+	}
 	.title {
-		@include image-card-details.title(false);
+		@include image-card-details-text.title(false);
 	}
 	.description {
-		@include image-card-details.body(false);
+		@include image-card-details-text.body(false);
 	}
 	.category-container {
-		@include image-card-details.footnote;
+		@include image-card-details-text.footnote;
 		.category {
 			font-style: italic;
 		}
+		margin-top: auto;
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: layout.get-widescreen-bp()) {
 	.portfolio-item {
-		max-width: 21em;
 		.title {
-			@include image-card-details.title(true);
+			@include image-card-details-text.title(true);
 		}
 		.description {
-			@include image-card-details.body(true);
-		}
-		.image-card {
-			.image[data-customname="card-thumbnail"] {
-				max-height: 11em;
-			}
+			@include image-card-details-text.body(true);
 		}
 	}
 }

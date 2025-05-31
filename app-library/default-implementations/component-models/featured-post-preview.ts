@@ -1,3 +1,4 @@
+import { newReadonlyModel } from "@mvc-react/mvc";
 import { FeaturedPostPreviewModel } from "../../components/content/post-preview/featured-post-preview-model";
 import {
 	newPostPreviewModel,
@@ -13,10 +14,8 @@ export function newFeaturedPostPreviewModel(
 	parameters: NewFeaturedPostPreviewModelParameters,
 ): FeaturedPostPreviewModel {
 	const postPreviewModel = newPostPreviewModel({ ...parameters });
-	return {
-		modelView: {
-			...postPreviewModel.modelView!,
-			snippet: parameters.snippet,
-		},
-	};
+	return newReadonlyModel({
+		...postPreviewModel.modelView!,
+		snippet: parameters.snippet,
+	});
 }
