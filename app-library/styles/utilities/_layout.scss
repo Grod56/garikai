@@ -20,6 +20,8 @@ $-widescreen-bp: 768px;
 	min-height: 100%;
 	min-width: 100%;
 	max-width: 100%;
+	margin: 0;
+	line-height: 1.5;
 	height: fit-content;
 	-webkit-text-size-adjust: 100%;
 }

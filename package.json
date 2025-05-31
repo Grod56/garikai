@@ -24,7 +24,6 @@
 		"@next/env": "^15.3.3",
 		"@supabase/supabase-js": "^2.49.8",
 		"autoprefixer": "10.4.20",
-		"bootstrap": "5.3.3",
 		"embla-carousel-autoplay": "^8.6.0",
 		"embla-carousel-react": "^8.6.0",
 		"next": "latest",

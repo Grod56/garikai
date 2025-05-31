@@ -4,12 +4,12 @@
 @use "./objects";
 
 $max-horizontal-card-height: 11em !default;
-$min-widescreen-vertical-card-height: 14em !default;
 $horizontal-thumbnail-width: 33% !default;
 $widescreen-vertical-thumbnail-height: 11em !default;
 $mobile-vertical-thumbnail-height: 40vh !default;
 
 @mixin -general {
+	display: flex;
 	[data-customname="card-thumbnail"] {
 		object-fit: cover;
 		height: auto;

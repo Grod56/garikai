@@ -10,4 +10,11 @@
 
 @mixin heading {
 	margin: 0;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+@mixin paragraph {
+	margin-top: 0;
+	margin-bottom: 1rem;
 }
