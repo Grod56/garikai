@@ -13,23 +13,23 @@
 	@include text.text-clip(2);
 	color: var(--secondary-color-4);
 	@if $--is-widescreen == true {
-		font-size: calc(2.1rem + 0.2vw);
+		font-size: calc(1.312rem + 0.2vw);
 	} @else {
-		font-size: calc(2.3rem + 0.2vw);
+		font-size: calc(1.44rem + 0.2vw);
 	}
 }
 
 @mixin body($--is-widescreen: false) {
 	@include text.text-clip(5);
-	line-height: 180%;
+	line-height: 1.8;
 	@if $--is-widescreen == true {
-		font-size: calc(1.1rem + 0.2vw);
+		font-size: calc(0.8rem + 0.1vw);
 	} @else {
-		font-size: calc(1.5rem + 0.2vw);
+		font-size: calc(0.938rem + 0.2vw);
 	}
 }
 
 @mixin footnote {
-	font-size: 1.3rem;
+	font-size: 0.813rem;
 	color: var(--primary-color-1);
 }

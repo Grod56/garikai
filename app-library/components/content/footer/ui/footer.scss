@@ -1,8 +1,10 @@
 @use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/flexible-container";
 
 .footer {
 	@include container.wrapper;
 	color: var(--secondary-color-1);
+	font-size: 0.88rem;
 
 	.footer-container {
 		display: flex;
@@ -23,8 +25,7 @@
 		border-top: 1px solid var(--secondary-color-1);
 	}
 	.socials {
-		display: flex;
-		gap: 1.5rem;
-		font-size: 2rem;
+		@include flexible-container.horizontal(0.94rem);
+		font-size: 1.25rem;
 	}
 }

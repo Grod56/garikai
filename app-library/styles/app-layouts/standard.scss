@@ -8,12 +8,11 @@
 html {
 	@include layout.page;
 	scroll-padding-top: 2em;
-	font-size: 10px;
 }
 
 body {
 	@include layout.body;
-	font-size: 14px;
+	font-size: 1.25rem;
 }
 
 p {

@@ -27,7 +27,7 @@
 		.title {
 			@include image-card-details-text.title(true);
 			@include text.text-clip(3);
-			font-size: 1.9rem;
+			font-size: 1.19rem;
 		}
 	}
 }

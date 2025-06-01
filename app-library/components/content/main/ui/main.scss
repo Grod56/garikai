@@ -1,8 +1,7 @@
 @use "../../../../styles/utilities/container";
 @use "../../../../styles/utilities/flexible-container";
 .main {
-	@include flexible-container.vertical(0);
+	@include flexible-container.vertical;
 	max-width: 100%;
-	font-size: 2rem;
 	overflow-x: hidden;
 }
