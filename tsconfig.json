@@ -27,7 +27,6 @@
 		"next-env.d.ts",
 		".next/types/**/*.ts",
 		"jest.setup.ts",
-		"jest.config.ts",
 		"app/**/*.ts",
 		"app/**/*.tsx",
 		"app/**/*.js",
@@ -35,5 +34,5 @@
 		"app-library/**/*.tsx",
 		"app-library/**/*.js"
 	],
-	"exclude": ["node_modules", "**/__tests__/**"]
+	"exclude": ["node_modules"]
 }
