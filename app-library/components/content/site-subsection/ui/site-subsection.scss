@@ -1,7 +1,7 @@
+@use "../../../../styles/utilities/flexible-container";
+
 .site-subsection {
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
+	@include flexible-container.vertical(1em);
 
 	> .title {
 		font-family: sans-serif;

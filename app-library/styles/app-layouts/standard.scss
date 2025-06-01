@@ -1,19 +1,7 @@
 @use "../utilities/layout";
 @use "../utilities/text";
 
-* {
-	box-sizing: border-box;
-}
-
-html {
-	@include layout.page;
-	scroll-padding-top: 2em;
-}
-
-body {
-	@include layout.body;
-	font-size: 1.25rem;
-}
+@include layout.layout;
 
 p {
 	@include text.paragraph;

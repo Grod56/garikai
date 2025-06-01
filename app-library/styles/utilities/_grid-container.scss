@@ -2,10 +2,11 @@
 	$--max-X-or-Y: 2,
 	$--orientation: horizontal,
 	$--overflow: false,
-	$--is-widescreen: false
+	$--is-widescreen: false,
+	$--gap: 1em
 ) {
 	display: grid;
-	gap: 1em;
+	gap: $--gap;
 
 	@if $--overflow == true {
 		@include -grid-overflow-style($--orientation);

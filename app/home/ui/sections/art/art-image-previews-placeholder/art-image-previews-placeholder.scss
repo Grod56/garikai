@@ -2,15 +2,13 @@
 @use "../../../../../../app-library/styles/utilities/layout";
 
 .art-image-placeholders-container {
-	@include grid-container.grid(6, horizontal, true, false);
-	overflow: visible;
-	margin-inline: auto;
-	max-width: 100%;
-	margin-left: -2em;
+	@include grid-container.grid(6, horizontal, true, false, 0.5em);
 }
 
 @media (min-width: layout.get-widescreen-bp()) {
 	.art-image-placeholders-container {
-		@include grid-container.grid(6, horizontal, true, true);
+		@include grid-container.grid(6, horizontal, true, true, 0.5em);
+		margin-left: -2em;
+		max-width: 100%;
 	}
 }

@@ -10,7 +10,6 @@
 
 .site-section[data-sectionname="bio"] {
 	.background-layer {
-		// background: url("https://www.pngkey.com/png/full/15-150952_transparent-pattern-sacred-geometry-svg-pattern.png");
 		background: url("/resources/images/home/bio.svg");
 		background-size: 30%;
 		background-repeat: no-repeat;
@@ -50,11 +49,6 @@
 		background-image: url("/resources/images/home/blog.svg");
 		background-position: top left;
 		background-repeat: no-repeat;
-	}
-	.content-layer {
-		display: flex;
-		flex-direction: column;
-		gap: 2em;
 	}
 }
 

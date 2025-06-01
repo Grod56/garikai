@@ -3,10 +3,11 @@
 @use "../../../../styles/utilities/animations";
 
 .linked-component {
+	// Think it's a good idea to wrap all composite components
 	@include container.wrapper;
 	transition: 0.2s;
-}
 
-.linked-component:is(:hover, :focus) {
-	@include animations.pop-out;
+	&:is(:hover, :focus) {
+		@include animations.pop-out;
+	}
 }

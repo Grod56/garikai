@@ -1,9 +1,8 @@
-@use "../../../../styles/utilities/theme";
+@use "../../../../styles/utilities/flexible-container";
 
 .banner {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include flexible-container.horizontal;
+	@include flexible-container.center;
 	text-align: center;
 	height: 50vh;
 	padding: 2em;
@@ -17,6 +16,6 @@
 
 	.text {
 		font-family: var(--accent-font);
-		font-size: 10rem;
+		font-size: 6.25rem;
 	}
 }

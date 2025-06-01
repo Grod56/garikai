@@ -19,6 +19,7 @@
 	}
 	.author {
 		@include image-card-details-text.footnote;
+		color: var(--primary-color-1);
 	}
 }
 
@@ -26,7 +27,7 @@
 	.book-preview {
 		.title {
 			@include image-card-details-text.title(true);
-			@include text.text-clip(3);
+			@include text.limit(3);
 			font-size: 1.19rem;
 		}
 	}

@@ -13,3 +13,8 @@
 @mixin horizontal($--gap: null) {
 	@include -flex($--gap, row);
 }
+
+@mixin center {
+	justify-content: center;
+	align-items: center;
+}

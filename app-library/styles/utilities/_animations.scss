@@ -4,6 +4,7 @@
 $-skeleton-0: #888;
 $-skeleton-100: #000 !default;
 
+// Leaving skeleton-0 as is until I can find a good color mixture
 @mixin configure($--skeleton-100) {
 	$-skeleton-100: $--skeleton-100 !global;
 }

@@ -3,8 +3,8 @@
 .carousel {
 	@include container.wrapper;
 
+	// Most of this came from Embla Carousel's examples so ...
 	.embla {
-		margin-inline: auto;
 		overflow: visible;
 		max-width: 100%;
 		margin-left: -2em;

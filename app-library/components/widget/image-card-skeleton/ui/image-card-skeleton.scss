@@ -15,9 +15,6 @@
 
 .image-card-skeleton[data-orientation="horizontal"] {
 	@include image-card.horizontal;
-	.card-details {
-		min-width: 100%;
-	}
 }
 
 .image-card-skeleton:is(

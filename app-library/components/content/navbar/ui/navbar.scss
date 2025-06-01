@@ -1,27 +1,35 @@
 @use "../../../../styles/utilities/flexible-container";
 @use "../../../../styles/utilities/effects";
+@use "../../../../styles/utilities/objects";
+@use "../../../../styles/utilities/layout";
+
+$-navbar-padding: 0.7em;
 
 .navbar {
 	@include effects.blur;
-	justify-content: center;
-	position: sticky;
-	top: -1px;
-	z-index: 10;
-	margin: 0;
-	padding-block: 1em;
-	padding-inline: 1em;
-	font-size: 0.88rem;
+	@include effects.sticky(10);
+	padding: $-navbar-padding;
 	background: var(--secondary-a-color-1);
 
 	.navlinks {
+		@include objects.remove-insets;
 		@include flexible-container.horizontal;
-		list-style-type: none;
-		justify-content: center;
-		align-items: center;
+		@include flexible-container.center;
 		flex-wrap: wrap;
-		margin: 0;
-		padding: 0;
+		list-style-type: none;
+		font-size: 0.88rem;
 		column-gap: 1.5em;
 		row-gap: 0.5em;
+	}
+}
+
+// Factoring in sticky navbar
+:root {
+	scroll-padding-top: calc($-navbar-padding * 2 + 0.6em);
+}
+
+@media (min-width: layout.get-widescreen-bp()) {
+	:root {
+		scroll-padding-top: calc($-navbar-padding * 2);
 	}
 }

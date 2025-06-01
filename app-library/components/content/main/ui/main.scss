@@ -1,5 +1,6 @@
 @use "../../../../styles/utilities/container";
 @use "../../../../styles/utilities/flexible-container";
+
 .main {
 	@include flexible-container.vertical;
 	max-width: 100%;

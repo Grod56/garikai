@@ -1,8 +1,3 @@
-@use "./layout";
-@use "./container";
-@use "./flexible-container";
-@use "./objects";
-
 $max-horizontal-card-height: 11em !default;
 $horizontal-thumbnail-width: 33% !default;
 $widescreen-vertical-thumbnail-height: 11em !default;
@@ -34,6 +29,7 @@ $mobile-vertical-thumbnail-height: 40vh !default;
 	[data-customname="card-thumbnail"] {
 		@include -vertical-card-thumbnail($--is-widescreen);
 	}
+	// Squashed to 0 when it doesn't have details otherwise
 	.card-details {
 		min-height: 3.5em;
 	}

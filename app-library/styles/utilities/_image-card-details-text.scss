@@ -10,8 +10,7 @@
 }
 
 @mixin title($--is-widescreen: false) {
-	@include text.text-clip(2);
-	color: var(--secondary-color-4);
+	@include text.limit(2);
 	@if $--is-widescreen == true {
 		font-size: calc(1.312rem + 0.2vw);
 	} @else {
@@ -20,7 +19,7 @@
 }
 
 @mixin body($--is-widescreen: false) {
-	@include text.text-clip(5);
+	@include text.limit(5);
 	line-height: 1.8;
 	@if $--is-widescreen == true {
 		font-size: calc(0.8rem + 0.1vw);
@@ -31,5 +30,4 @@
 
 @mixin footnote {
 	font-size: 0.813rem;
-	color: var(--primary-color-1);
 }

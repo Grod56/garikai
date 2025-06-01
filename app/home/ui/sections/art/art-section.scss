@@ -1,0 +1,10 @@
+@use "../../../../../app-library/styles/utilities/objects";
+
+.site-section[data-sectionname="art"] {
+	// Injection from the top rope
+	.art-image-preview,
+	.art-image-skeleton {
+		width: 510px;
+		height: 420px;
+	}
+}

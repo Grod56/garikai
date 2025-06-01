@@ -1,8 +1,9 @@
 @use "../../../../styles/utilities/animations";
 
 .art-image-skeleton {
-	max-height: 100%;
+	display: block;
+	// Something to display
 	min-width: 15em;
-	height: 410px;
+	min-height: 15em;
 	@include animations.skeleton;
 }

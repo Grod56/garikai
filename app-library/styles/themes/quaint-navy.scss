@@ -7,23 +7,10 @@
 	whitesmoke,
 	#fff,
 	#00080a,
-	#e99767
+	#e99767,
+	"Explora"
 );
 @include animations.configure(theme.$secondary-color-1);
-
-* {
-	--primary-color-1: #{theme.$primary-color-1};
-	--primary-a-color-1: #{theme.$primary-a-color-1};
-	--primary-color-2: #{theme.$primary-color-2};
-	--primary-color-3: #{theme.$primary-color-3};
-	--primary-color-4: #{theme.$primary-color-4};
-	--secondary-color-1: #{theme.$secondary-color-1};
-	--secondary-a-color-1: #{theme.$secondary-a-color-1};
-	--secondary-a-color-2: #{theme.$secondary-a-color-2};
-	--secondary-a-color-3: #{theme.$secondary-a-color-3};
-	--accent-color-1: #{theme.$accent-color-1};
-	--accent-font: "Explora";
-}
 
 @include theme.theme;
 
@@ -32,13 +19,18 @@ body {
 
 	a {
 		@include animations.text-color;
+		color: var(--secondary-color-1);
+		text-decoration-line: underline;
+		text-decoration-thickness: 1px;
+
+		&:hover {
+			color: var(--accent-color-1);
+		}
 	}
 
-	a:hover {
-		color: var(--accent-color-1);
+	hr {
+		border: 0;
+		margin-block: 1rem;
+		opacity: 0.25;
 	}
-}
-
-menu {
-	margin: 0;
 }

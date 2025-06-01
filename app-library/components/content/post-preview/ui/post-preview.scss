@@ -21,9 +21,9 @@
 	}
 	.byline {
 		@include image-card-details-text.footnote;
+		color: var(--primary-color-1);
 	}
 
-	// TODO: Won't fill height for FeaturedPostPreview card details for some reason
 	// Too lazy to separate out .featured-post-preview atm
 	.image-card:is(
 			[data-orientation="flexible"],

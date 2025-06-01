@@ -6,7 +6,7 @@
 	@include flexible-container.vertical;
 	height: fit-content;
 	width: fit-content;
-	// More convenient to do it here than in the parent
+	// More convenient to do it here than in the parent, for now
 	max-height: 100%;
 	max-width: 100%;
 }

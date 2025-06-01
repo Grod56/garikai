@@ -7,6 +7,7 @@ import { newReadonlyModel } from "@mvc-react/mvc";
 import { ModeledVoidComponent } from "@mvc-react/components";
 import { newArtImagePreviewRepositoryVIInterface } from "@/app-library/default-implementations/content-repositories/art-image-preview";
 import { newStatifiableModel } from "@/app-library/utilities/miscelleneous";
+import "./art-section.scss";
 
 const ArtSection = function ({ model }) {
 	const { sectionTitle, artImagePreviewAPI } = model.modelView;

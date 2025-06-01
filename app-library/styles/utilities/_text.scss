@@ -1,4 +1,6 @@
-@mixin text-clip($--line-number: 2) {
+@use "./objects";
+
+@mixin limit($--line-number: 2) {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: $--line-number;
@@ -9,7 +11,7 @@
 }
 
 @mixin heading {
-	margin: 0;
+	@include objects.remove-insets;
 	font-weight: 500;
 	line-height: 1.2;
 }
