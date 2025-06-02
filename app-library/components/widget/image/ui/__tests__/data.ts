@@ -1,4 +1,4 @@
-import { ImageModel } from "../../image";
+import { ImageModel } from "../../image-model";
 
 export const testModel: ImageModel = {
 	modelView: {

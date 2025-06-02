@@ -1,4 +1,4 @@
-import { NavlinkModel } from "../../navlink";
+import { NavlinkModel } from "../../navlink-model";
 
 export const testModel: NavlinkModel = {
 	modelView: {

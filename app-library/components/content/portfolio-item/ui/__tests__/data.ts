@@ -1,4 +1,4 @@
-import { PortfolioItemModel } from "../../portfolio-item";
+import { PortfolioItemModel } from "../../portfolio-item-model";
 
 export const testModel: PortfolioItemModel = {
 	modelView: {

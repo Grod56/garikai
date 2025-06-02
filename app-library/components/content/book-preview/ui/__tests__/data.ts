@@ -1,4 +1,4 @@
-import { BookPreviewModel } from "../../book-preview";
+import { BookPreviewModel } from "../../book-preview-model";
 
 export const testModel: BookPreviewModel = {
 	modelView: {

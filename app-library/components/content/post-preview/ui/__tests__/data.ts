@@ -1,5 +1,5 @@
-import { FeaturedPostPreviewModel } from "../../featured-post-preview";
-import { PostPreviewModel } from "../../post-preview";
+import { FeaturedPostPreviewModel } from "../../featured-post-preview-model";
+import { PostPreviewModel } from "../../post-preview-model";
 
 export const postPreviewTestModel: PostPreviewModel = {
 	modelView: {

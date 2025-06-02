@@ -1,4 +1,4 @@
-import { LinkedComponentModel } from "../../linked-component";
+import { LinkedComponentModel } from "../../linked-component-model";
 
 export const testModel: LinkedComponentModel = {
 	modelView: {

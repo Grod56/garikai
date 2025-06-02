@@ -1,4 +1,4 @@
-import { NavbarModel } from "../../navbar";
+import { NavbarModel } from "../../navbar-model";
 
 export const testModel: NavbarModel = {
 	modelView: {

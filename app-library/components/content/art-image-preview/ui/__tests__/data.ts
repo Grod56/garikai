@@ -1,4 +1,4 @@
-import { ArtImagePreviewModel } from "../../art-image-preview";
+import { ArtImagePreviewModel } from "../../art-image-preview-model";
 
 export const testModel: ArtImagePreviewModel = {
 	modelView: {

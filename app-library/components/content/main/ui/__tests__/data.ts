@@ -1,4 +1,4 @@
-import { MainModel } from "../../main";
+import { MainModel } from "../../main-model";
 
 export const testModel: MainModel = {
 	modelView: {
