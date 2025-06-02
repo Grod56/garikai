@@ -1,3 +1,8 @@
+$-accent-font-fallback: sans-serif;
+$-alpha-1: 0.56;
+$-alpha-2: 0.93;
+$-alpha-3: 0.98;
+
 $primary-color-1: #aaa;
 $primary-color-2: #ccc;
 $primary-color-3: #eee;
@@ -5,11 +10,6 @@ $primary-color-4: #fff;
 $secondary-color-1: #000;
 $accent-color-1: #e32e43;
 $accent-font: "Brush Script MT", $-accent-font-fallback;
-$-accent-font-fallback: sans-serif;
-
-$-alpha-1: 0.56;
-$-alpha-2: 0.93;
-$-alpha-3: 0.98;
 
 $primary-a-color-1: rgba($primary-color-1, $-alpha-1);
 $secondary-a-color-1: rgba($secondary-color-1, $-alpha-3);
