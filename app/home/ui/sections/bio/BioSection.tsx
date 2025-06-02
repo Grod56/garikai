@@ -16,20 +16,19 @@ const BioSection = function ({ model }) {
 		>
 			<p>
 				Welcome! This place is the nexus of all of my interests,
-				hobbies, projects, and professional undertakings. Feel free to
-				check out what interests you. You can get in touch with me
-				through my <a href="#contact-details">email and socials</a> for
-				any inquiries. I guess I&apos;ll just go ahead and
-				&quot;summarize&quot; myself.
+				hobbies, and projects. Feel free to check out what interests
+				you. You can get in touch with me through my{" "}
+				<a href="#contact-details">email and socials</a> for any
+				inquiries. I guess I&apos;ll just go ahead and give a brief
+				&quot;summary&quot; of myself.
 			</p>
 			<p>
-				My name is Garikai Gumbo, I&apos;m an Electrical Engineer by
-				training, and a software coder by night—to put it most
-				appropriately. Outside these areas of
-				&quot;specialization&quot;, I am also interested in pencil
-				drawing, cursive calligraphy, classical literature, Biblical
-				symbolism, Orthodox iconography, patristics... among other
-				things. Will be sharing more on these here in the near future.
+				My name is Garikai Gumbo. I&apos;m an engineer by training, and
+				a software programmer by night—to put it most appropriately. My
+				interests include pencil drawing, cursive calligraphy, classical
+				literature, Biblical symbolism, Orthodox iconography,
+				patristics, and a whole host of other things which I will be
+				documenting here as time progresses.
 			</p>
 			<p>
 				You may check out what I&apos;m thinking about or currently

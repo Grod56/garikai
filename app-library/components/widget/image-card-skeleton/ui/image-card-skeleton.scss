@@ -5,6 +5,7 @@
 
 .image-card-skeleton {
 	@include container.expansive-wrapper;
+
 	gap: 0.25em;
 
 	[data-customname="card-thumbnail"],

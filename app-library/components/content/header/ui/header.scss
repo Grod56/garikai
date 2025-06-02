@@ -4,12 +4,14 @@
 
 .header {
 	@include container.wrapper;
+
 	justify-content: center;
 	min-width: 100%;
 	background-color: var(--secondary-color-1);
 
 	.header-container {
 		@include flexible-container.vertical(1em);
+
 		justify-content: flex-end;
 		align-items: center;
 		min-height: 85vh;

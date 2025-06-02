@@ -1,7 +1,8 @@
 @mixin -flex($--gap, $direction: column) {
 	display: flex;
 	flex-direction: $direction;
-	@if $--gap != null {
+
+	@if $--gap {
 		gap: $--gap;
 	}
 }

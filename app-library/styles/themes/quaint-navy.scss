@@ -11,7 +11,6 @@
 	"Explora"
 );
 @include animations.configure(theme.$secondary-color-1);
-
 @include theme.theme;
 
 body {
@@ -19,6 +18,7 @@ body {
 
 	a {
 		@include animations.text-color;
+
 		color: var(--secondary-color-1);
 		text-decoration-line: underline;
 		text-decoration-thickness: 1px;
@@ -32,5 +32,24 @@ body {
 		border: 0;
 		margin-block: 1rem;
 		opacity: 0.25;
+	}
+
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: rgba(theme.$secondary-a-color-3, 0.35);
+		border-radius: 5px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: rgba(theme.$secondary-a-color-3, 0.45);
+		border-radius: 5px;
 	}
 }

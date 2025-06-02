@@ -31,13 +31,15 @@
 }
 
 @mixin -grid-overflow-style($--orientation) {
+	$-scrollbar-inset: 1em;
 	@if $--orientation == horizontal {
 		overflow-x: scroll;
 		overflow-y: hidden;
-		scrollbar-width: none;
+		padding-bottom: $-scrollbar-inset;
 	} @else if $--orientation == vertical {
 		overflow-x: hidden;
 		overflow-y: scroll;
+		padding-right: $-scrollbar-inset;
 	} @else {
 		@error "Invalid orientation '#{$--orientation}'";
 	}

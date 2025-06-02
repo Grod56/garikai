@@ -5,8 +5,10 @@
 .site-section {
 	.content-layer {
 		@include flexible-container.vertical(1em);
+
 		padding-block: 3em;
 		padding-inline: 1.5em;
+
 		/* Yeah, have to be extra delicate with some of 
 		these class selectors for containers
 		*/
@@ -34,10 +36,16 @@
 			@include content.x-rule(true);
 		}
 		.content-layer {
+			padding-inline: 3em;
+		}
+	}
+}
+
+@media (min-width: layout.get-large-screen-bp()) {
+	.site-section {
+		.content-layer {
 			text-align: justify;
-			padding-left: 3em;
-			padding-right: 0;
-			max-width: 70vw;
+			max-width: 76%;
 		}
 	}
 }

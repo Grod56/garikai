@@ -3,6 +3,7 @@
 
 .main {
 	@include flexible-container.vertical;
+
 	max-width: 100%;
 	overflow-x: hidden;
 }

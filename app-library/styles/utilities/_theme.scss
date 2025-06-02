@@ -30,6 +30,7 @@ $secondary-a-color-3: rgba($secondary-color-1, $-alpha-1);
 		--accent-color-1: #{$accent-color-1};
 		--accent-font: #{$accent-font};
 	}
+
 	body {
 		background-color: var(--primary-color-1);
 		color: var(--secondary-color-1);

@@ -12,9 +12,7 @@
 	@include grid-container.grid(3, horizontal, true, false);
 	.post-preview,
 	.image-card-skeleton {
-		width: 70vw;
-	}
-	.post-preview {
+		width: 14em;
 		min-height: 100%;
 	}
 }
@@ -22,10 +20,5 @@
 @media (min-width: layout.get-widescreen-bp()) {
 	.recent-posts-container {
 		@include grid-container.grid(3, horizontal, true, true);
-		.post-preview,
-		.image-card-skeleton {
-			// Unset
-			width: auto;
-		}
 	}
 }

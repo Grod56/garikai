@@ -3,6 +3,7 @@
 .banner {
 	@include flexible-container.horizontal;
 	@include flexible-container.center;
+
 	text-align: center;
 	height: 50vh;
 	padding: 2em;

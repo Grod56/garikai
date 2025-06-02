@@ -3,11 +3,13 @@
 
 .footer {
 	@include container.wrapper;
+
 	font-size: 0.88rem;
 
 	.footer-container {
 		@include flexible-container.horizontal(2em);
 		@include flexible-container.center;
+
 		flex-wrap: wrap;
 		padding: 3em;
 		min-height: 10em;
@@ -23,6 +25,7 @@
 	}
 	.socials {
 		@include flexible-container.horizontal(0.94rem);
+
 		font-size: 1.25rem;
 	}
 }

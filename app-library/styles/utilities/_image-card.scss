@@ -19,6 +19,7 @@ $mobile-vertical-thumbnail-height: 40vh !default;
 	[data-customname="card-thumbnail"] {
 		@include -horizontal-card-thumbnail;
 	}
+
 	flex-direction: row;
 	max-height: $max-horizontal-card-height;
 	min-height: $max-horizontal-card-height;
@@ -29,10 +30,12 @@ $mobile-vertical-thumbnail-height: 40vh !default;
 	[data-customname="card-thumbnail"] {
 		@include -vertical-card-thumbnail($--is-widescreen);
 	}
+
 	// Squashed to 0 when it doesn't have details otherwise
 	.card-details {
 		min-height: 3.5em;
 	}
+
 	flex-direction: column;
 }
 
@@ -48,6 +51,7 @@ $mobile-vertical-thumbnail-height: 40vh !default;
 	@if $--is-widescreen == true {
 		$--height: $widescreen-vertical-thumbnail-height;
 	}
+
 	max-height: $--height;
 	min-height: $--height;
 	min-width: 100%;

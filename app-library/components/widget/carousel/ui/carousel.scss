@@ -9,6 +9,7 @@
 		max-width: 100%;
 		margin-left: -2em;
 
+		/* stylelint-disable-next-line selector-class-pattern */
 		.embla__container {
 			$-slide-spacing: 1rem;
 			$-slide-size: 40%;
@@ -17,6 +18,7 @@
 			touch-action: pan-y pinch-zoom;
 			margin-left: calc($-slide-spacing * -1);
 
+			/* stylelint-disable-next-line selector-class-pattern */
 			.embla__slide {
 				transform: translate3d(0, 0, 0);
 				flex: 0 0 $-slide-size;

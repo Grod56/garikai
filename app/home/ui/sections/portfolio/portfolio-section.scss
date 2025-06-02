@@ -8,12 +8,15 @@
 @media (min-width: layout.get-widescreen-bp()) {
 	.site-section[data-sectionname="portfolio"] {
 		.content-layer {
-			max-width: 90%;
+			max-width: 100%;
 		}
 	}
 
 	.portfolio-items-container {
 		@include grid-container.grid(5, "horizontal", true, true);
+
+		margin-left: -1em;
+
 		.portfolio-item,
 		.image-card-skeleton {
 			min-width: 21em;

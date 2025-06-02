@@ -6,6 +6,7 @@
 
 	.image {
 		@include objects.fit-container;
+
 		object-fit: cover;
 		filter: brightness(1.2);
 	}

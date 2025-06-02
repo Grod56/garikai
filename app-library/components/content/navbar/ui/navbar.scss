@@ -8,6 +8,7 @@ $-navbar-padding: 0.7em;
 .navbar {
 	@include effects.blur;
 	@include effects.sticky(10);
+
 	padding: $-navbar-padding;
 	background: var(--secondary-a-color-1);
 
@@ -15,6 +16,7 @@ $-navbar-padding: 0.7em;
 		@include objects.remove-insets;
 		@include flexible-container.horizontal;
 		@include flexible-container.center;
+
 		flex-wrap: wrap;
 		list-style-type: none;
 		font-size: 0.88rem;

@@ -15,12 +15,14 @@
 
 	.title {
 		@include image-card-details-text.title(false);
+
 		font-family: serif;
 		font-weight: 400;
 		font-size: 1.06rem;
 	}
 	.byline {
 		@include image-card-details-text.footnote;
+
 		color: var(--primary-color-1);
 	}
 
