@@ -2,12 +2,11 @@
 @use "../../../../styles/utilities/objects";
 
 .art-image-preview {
-	@include container.wrapper;
-
 	.image {
 		@include objects.fit-container;
 
 		object-fit: cover;
 		filter: brightness(1.2);
 	}
+	@include container.wrapper;
 }

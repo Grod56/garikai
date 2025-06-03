@@ -4,15 +4,6 @@
 @use "../../../../styles/utilities/container";
 
 .post-preview {
-	@include container.wrapper;
-
-	.linked-component {
-		@include objects.expansive;
-		.image-card {
-			@include objects.expansive;
-		}
-	}
-
 	.title {
 		@include image-card-details-text.title(false);
 
@@ -41,6 +32,7 @@
 			@include image-card-details-text.footnote;
 		}
 	}
+	@include container.wrapper;
 }
 
 @media (min-width: layout.get-widescreen-bp()) {

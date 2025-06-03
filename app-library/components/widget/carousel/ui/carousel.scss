@@ -1,8 +1,6 @@
 @use "../../../../styles/utilities/container";
 
 .carousel {
-	@include container.wrapper;
-
 	// Most of this came from Embla Carousel's examples so ...
 	.embla {
 		overflow: visible;
@@ -27,4 +25,5 @@
 			}
 		}
 	}
+	@include container.wrapper;
 }

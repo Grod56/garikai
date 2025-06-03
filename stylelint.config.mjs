@@ -7,5 +7,6 @@ export default {
 		"rule-empty-line-before": null,
 		"scss/dollar-variable-pattern": null,
 		"declaration-block-no-redundant-longhand-properties": null,
+		"no-duplicate-selectors": null,
 	},
 };

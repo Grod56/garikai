@@ -1,44 +1,33 @@
 @use "../../../../styles/utilities/layout";
-@use "../../../../styles/utilities/container";
 @use "../../../../styles/utilities/effects";
 @use "../../../../styles/utilities/image-card";
 @use "../../../../styles/utilities/image-card-details-text";
 
-// General/Mobile view -----------------------------------------------
-
-// General image-card
 .image-card {
-	@include container.wrapper;
 	@include effects.blur;
 
 	.card-details {
-		@include image-card-details-text.card-details;
+		display: contents; // Magic!
+		.card-details-container {
+			// Mystery how it's filling out the parent height automatically
+			@include image-card-details-text.card-details;
+		}
 	}
 
 	background-color: var(--secondary-a-color-2);
 	color: var(--primary-color-4);
 }
 
-// Horizontal image card
 .image-card[data-orientation="horizontal"] {
 	@include image-card.horizontal;
 }
 
-// Vertical image card
 .image-card:is([data-orientation="vertical"], [data-orientation="flexible"]) {
-	@include image-card.vertical(false);
+	@include image-card.vertical;
 }
 
-// Wide-screen view ------------------------------------------------------------
-
 @media (min-width: layout.get-widescreen-bp()) {
-	// Flexible to horizontal
 	.image-card[data-orientation="flexible"] {
 		@include image-card.horizontal;
-	}
-
-	// Widescreen specifier
-	.image-card[data-orientation="vertical"] {
-		@include image-card.vertical(true);
 	}
 }

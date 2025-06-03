@@ -4,13 +4,6 @@
 @use "../../../../styles/utilities/objects";
 
 .portfolio-item {
-	@include container.wrapper;
-	.linked-component {
-		@include objects.expansive;
-		.image-card {
-			@include objects.expansive;
-		}
-	}
 	.title {
 		@include image-card-details-text.title(false);
 	}
@@ -26,6 +19,7 @@
 		margin-top: auto;
 		color: var(--primary-color-1);
 	}
+	@include container.wrapper;
 }
 
 @media (min-width: layout.get-widescreen-bp()) {

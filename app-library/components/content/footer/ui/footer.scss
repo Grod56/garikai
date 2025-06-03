@@ -2,8 +2,6 @@
 @use "../../../../styles/utilities/flexible-container";
 
 .footer {
-	@include container.wrapper;
-
 	font-size: 0.88rem;
 
 	.footer-container {
@@ -28,4 +26,5 @@
 
 		font-size: 1.25rem;
 	}
+	@include container.wrapper;
 }

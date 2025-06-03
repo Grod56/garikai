@@ -4,7 +4,7 @@
 	// CSS IoC? Might just be the wave
 	.art-image-preview,
 	.art-image-skeleton {
-		width: 510px;
-		height: 420px;
+		@include objects.definitive-dimension(width, 510px);
+		@include objects.definitive-dimension(height, 420px);
 	}
 }

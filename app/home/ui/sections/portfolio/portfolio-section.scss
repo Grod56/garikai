@@ -1,8 +1,18 @@
 @use "../../../../../app-library/styles/utilities/grid-container";
 @use "../../../../../app-library/styles/utilities/layout";
+@use "../../../../../app-library/styles/utilities/objects";
 
 .portfolio-items-container {
-	@include grid-container.grid(2, "horizontal", false, false);
+	@include grid-container.grid(3, "horizontal", false, false);
+
+	.portfolio-item,
+	.image-card-skeleton {
+		@include objects.fit-container;
+
+		[data-customname="card-thumbnail"] {
+			@include objects.definitive-dimension(height, 11em);
+		}
+	}
 }
 
 @media (min-width: layout.get-widescreen-bp()) {
@@ -11,17 +21,15 @@
 			max-width: 100%;
 		}
 	}
-
 	.portfolio-items-container {
-		@include grid-container.grid(5, "horizontal", true, true);
+		@include grid-container.grid(3, "horizontal", true, true);
 
 		margin-left: -1em;
 
 		.portfolio-item,
 		.image-card-skeleton {
-			min-width: 21em;
-			max-width: 21em;
-			min-height: 100%;
+			@include objects.definitive-dimension(width, 21em);
+			@include objects.definitive-dimension(height, 100%);
 		}
 	}
 }

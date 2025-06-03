@@ -1,7 +1,6 @@
 @mixin expansive {
-	width: 100%;
-	height: 100%;
-	flex-grow: 1; // If parent is flex of course
+	min-height: 100%;
+	min-width: 100%;
 }
 
 @mixin remove-insets {
@@ -10,8 +9,22 @@
 }
 
 @mixin fit-container {
-	@include expansive;
-
+	height: 100%;
+	width: 100%;
 	max-height: 100%;
 	max-width: 100%;
+}
+
+@mixin definitive-dimension($--dimension, $--magnitude) {
+	@if $--dimension == width {
+		min-width: $--magnitude;
+		max-width: $--magnitude;
+		width: $--magnitude;
+	} @else if $--dimension == height {
+		min-height: $--magnitude;
+		max-height: $--magnitude;
+		height: $--magnitude;
+	} @else {
+		@error "Invalid dimension '#{$--dimension}'";
+	}
 }

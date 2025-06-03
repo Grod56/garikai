@@ -33,12 +33,14 @@ const BlogSection = function ({ model }) {
 					subsectionTitle: "Featured Post",
 				})}
 			>
-				<FeaturedPostPreviewPlaceholder
-					model={newReadonlyModel({
-						featuredPostPreviewModel:
-							repositoryModelView?.featuredPostPreviewModel,
-					})}
-				/>
+				<div className="featured-post-preview-container">
+					<FeaturedPostPreviewPlaceholder
+						model={newReadonlyModel({
+							featuredPostPreviewModel:
+								repositoryModelView?.featuredPostPreviewModel,
+						})}
+					/>
+				</div>
 			</SiteSubsection>
 			<SiteSubsection
 				model={newReadonlyModel({

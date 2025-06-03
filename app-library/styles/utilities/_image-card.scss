@@ -1,59 +1,53 @@
-$max-horizontal-card-height: 11em !default;
-$horizontal-thumbnail-width: 33% !default;
-$widescreen-vertical-thumbnail-height: 11em !default;
-$mobile-vertical-thumbnail-height: 40vh !default;
+@use "./container";
 
 @mixin -general {
-	display: flex;
-	[data-customname="card-thumbnail"] {
-		object-fit: cover;
-		height: auto;
-	}
-	.card-details {
-		flex-grow: 1;
+	@include container.wrapper;
+	& {
+		display: flex;
+		[data-customname="card-thumbnail"] {
+			object-fit: cover;
+		}
+		.card-details {
+			flex-grow: 1;
+			min-height: fit-content;
+		}
 	}
 }
 
 @mixin horizontal {
 	@include -general;
-	[data-customname="card-thumbnail"] {
-		@include -horizontal-card-thumbnail;
-	}
+	& {
+		[data-customname="card-thumbnail"] {
+			@include -horizontal-card-thumbnail;
+		}
 
-	flex-direction: row;
-	max-height: $max-horizontal-card-height;
-	min-height: $max-horizontal-card-height;
+		flex-direction: row;
+		max-height: 100%;
+	}
 }
 
-@mixin vertical($--is-widescreen) {
+@mixin vertical {
 	@include -general;
-	[data-customname="card-thumbnail"] {
-		@include -vertical-card-thumbnail($--is-widescreen);
-	}
+	& {
+		[data-customname="card-thumbnail"] {
+			@include -vertical-card-thumbnail;
+		}
 
-	// Squashed to 0 when it doesn't have details otherwise
-	.card-details {
-		min-height: 3.5em;
+		flex-direction: column;
+		max-width: 100%;
 	}
-
-	flex-direction: column;
 }
 
 @mixin -horizontal-card-thumbnail {
-	max-width: $horizontal-thumbnail-width;
-	min-width: $horizontal-thumbnail-width;
 	min-height: 100%;
 	max-height: 100%;
+	min-width: unset;
+	max-width: unset;
 }
 
-@mixin -vertical-card-thumbnail($--is-widescreen) {
-	$--height: $mobile-vertical-thumbnail-height;
-	@if $--is-widescreen == true {
-		$--height: $widescreen-vertical-thumbnail-height;
-	}
-
-	max-height: $--height;
-	min-height: $--height;
+@mixin -vertical-card-thumbnail {
+	min-height: unset;
+	max-height: unset;
 	min-width: 100%;
 	max-width: 100%;
 }

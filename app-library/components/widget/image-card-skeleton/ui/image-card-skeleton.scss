@@ -4,32 +4,40 @@
 @use "../../../../styles/utilities/image-card";
 
 .image-card-skeleton {
-	@include container.expansive-wrapper;
-
 	gap: 0.25em;
 
 	[data-customname="card-thumbnail"],
 	.card-details {
 		@include animations.skeleton;
 	}
+	@include container.wrapper;
 }
 
 .image-card-skeleton[data-orientation="horizontal"] {
 	@include image-card.horizontal;
+	[data-customname="card-thumbnail"] {
+		width: 33%;
+	}
 }
 
 .image-card-skeleton:is(
 		[data-orientation="flexible"],
 		[data-orientation="vertical"]
 	) {
-	@include image-card.vertical(false);
+	@include image-card.vertical;
+	[data-customname="card-thumbnail"] {
+		height: 66%;
+	}
+	.card-details {
+		min-height: 3.5em;
+	}
 }
 
 @media (min-width: layout.get-widescreen-bp()) {
-	.image-card-skeleton[data-orientation="vertical"] {
-		@include image-card.vertical(true);
-	}
 	.image-card-skeleton:is([data-orientation="flexible"]) {
 		@include image-card.horizontal;
+		[data-customname="card-thumbnail"] {
+			width: 33%;
+		}
 	}
 }

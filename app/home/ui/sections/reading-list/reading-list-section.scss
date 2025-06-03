@@ -4,13 +4,25 @@
 
 .book-previews-container {
 	@include grid-container.grid(2, horizontal, false, false);
-	.book-preview {
-		@include objects.expansive;
+	.book-preview,
+	.image-card-skeleton {
+		@include objects.fit-container;
+		[data-customname="card-thumbnail"] {
+			@include objects.definitive-dimension(height, 40vh);
+		}
 	}
 }
 
 @media (min-width: layout.get-widescreen-bp()) {
 	.book-previews-container {
 		@include grid-container.grid(2, horizontal, false, true);
+		.book-preview,
+		.image-card-skeleton {
+			@include objects.definitive-dimension(height, 11em);
+			[data-customname="card-thumbnail"] {
+				@include objects.definitive-dimension(height, 100%);
+				@include objects.definitive-dimension(width, 33%);
+			}
+		}
 	}
 }

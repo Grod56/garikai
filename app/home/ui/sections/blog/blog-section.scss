@@ -1,24 +1,57 @@
 @use "../../../../../app-library/styles/utilities/grid-container";
 @use "../../../../../app-library/styles/utilities/layout";
 @use "../../../../../app-library/styles/utilities/flexible-container";
+@use "../../../../../app-library/styles/utilities/objects";
 
 .site-section[data-sectionname="blog"] {
 	.content-layer {
 		@include flexible-container.vertical(2em);
-	}
-}
 
-.recent-posts-container {
-	@include grid-container.grid(3, horizontal, true, false);
-	.post-preview,
-	.image-card-skeleton {
-		width: 14em;
-		min-height: 100%;
+		.post-preview,
+		.image-card-skeleton {
+			@include objects.fit-container;
+		}
+
+		.featured-post-preview-container {
+			.post-preview,
+			.image-card-skeleton {
+				[data-customname="card-thumbnail"] {
+					height: 13em;
+				}
+			}
+		}
+
+		.recent-posts-container {
+			@include grid-container.grid(3, horizontal, true, false);
+
+			.post-preview,
+			.image-card-skeleton {
+				@include objects.definitive-dimension(width, 14em);
+
+				[data-customname="card-thumbnail"] {
+					@include objects.definitive-dimension(height, 7em);
+				}
+			}
+		}
 	}
 }
 
 @media (min-width: layout.get-widescreen-bp()) {
-	.recent-posts-container {
-		@include grid-container.grid(3, horizontal, true, true);
+	.site-section[data-sectionname="blog"] {
+		.content-layer {
+			.featured-post-preview-container {
+				.post-preview,
+				.image-card-skeleton {
+					@include objects.definitive-dimension(height, 12em);
+
+					[data-customname="card-thumbnail"] {
+						@include objects.definitive-dimension(width, 33%);
+					}
+				}
+			}
+			.recent-posts-container {
+				@include grid-container.grid(3, horizontal, true, true);
+			}
+		}
 	}
 }

@@ -1,19 +1,12 @@
-@use "./flexible-container";
 @use "./objects";
 
 @mixin wrapper {
-	// To 'intuitivize' (or at least I think) alignment for downstream selectors
-	@include flexible-container.vertical;
-
-	height: fit-content;
-	width: fit-content;
-
-	// More convenient to do it here than in the parent, for now
-	max-height: 100%;
-	max-width: 100%;
+	display: flex;
+	@include fill;
 }
 
-@mixin expansive-wrapper {
-	@include wrapper;
-	@include objects.expansive;
+@mixin fill {
+	& > * {
+		@include objects.fit-container;
+	}
 }

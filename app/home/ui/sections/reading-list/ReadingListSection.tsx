@@ -25,10 +25,9 @@ const ReadingListSection = function ({ model }) {
 			})}
 		>
 			<p>
-				Collection of material that has greatly influenced the way I
-				think—together with stuff I&apos;m currently working on. Will
-				probably split these into their appropriate categories for
-				clarity in the near future.
+				Collection of material that has had a great influence on me and
+				stuff I&apos;m currently working on and studying. Will probably
+				disambiguate these sometime in the future.
 			</p>
 			<div className="book-previews-container">
 				<BookPreviewsPlaceholder

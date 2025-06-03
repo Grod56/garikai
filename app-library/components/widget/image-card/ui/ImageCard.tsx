@@ -24,7 +24,9 @@ const ImageCard = function ({ model, children }) {
 					customName: "card-thumbnail",
 				})}
 			/>
-			<div className="card-details">{children}</div>
+			<div className="card-details">
+				<div className="card-details-container">{children}</div>
+			</div>
 		</div>
 	);
 } as ModeledContainerComponent<ImageCardModel>;
