@@ -28,8 +28,13 @@
 
 		.portfolio-item,
 		.image-card-skeleton {
-			@include objects.definitive-dimension(width, 21em);
 			@include objects.definitive-dimension(height, 100%);
+		}
+		.portfolio-item {
+			@include objects.definitive-dimension(width, 21em);
+		}
+		.image-card-skeleton {
+			@include objects.definitive-dimension(width, 100%);
 		}
 	}
 }

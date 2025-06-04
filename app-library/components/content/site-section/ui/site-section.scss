@@ -6,6 +6,11 @@
 .site-section {
 	@include container.wrapper;
 	& {
+		&:last-child {
+			.background-layer::after {
+				content: none;
+			}
+		}
 		.content-layer {
 			@include flexible-container.vertical(1em);
 
@@ -21,16 +26,9 @@
 				font-size: 3.15rem;
 			}
 		}
-
 		.background-layer::after {
 			@include content.x-rule(false);
 		}
-	}
-}
-
-.site-section:last-child {
-	.background-layer::after {
-		content: none;
 	}
 }
 
