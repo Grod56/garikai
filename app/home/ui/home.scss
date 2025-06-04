@@ -105,8 +105,10 @@
 	.site-section,
 	.site-section[data-sectionname="bio"] {
 		.content-layer {
-			text-align: justify;
 			max-width: 76%;
+			> p {
+				text-align: justify;
+			}
 		}
 	}
 }
