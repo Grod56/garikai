@@ -4,18 +4,17 @@
 @use "../../../../styles/utilities/image-card-details-text";
 
 .image-card {
+	background-color: var(--secondary-a-color-2);
+	color: var(--primary-color-4);
 	@include effects.blur;
 
 	.card-details {
 		display: contents; // Magic!
-		.card-details-container {
+		.card-details-content {
 			// Mystery how it's filling out the parent height automatically
-			@include image-card-details-text.card-details;
+			@include image-card-details-text.content;
 		}
 	}
-
-	background-color: var(--secondary-a-color-2);
-	color: var(--primary-color-4);
 }
 
 .image-card[data-orientation="horizontal"] {

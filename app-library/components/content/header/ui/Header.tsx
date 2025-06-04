@@ -9,10 +9,12 @@ const Header = function ({ model }) {
 
 	return (
 		<header className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
-			<div className="header-container">
-				<div className="hero">
-					<h1 className="title">{headerTitle}</h1>
-					<h2 className="subtitle">{headerSubtitle}</h2>
+			<div className="header-background">
+				<div className="header-content">
+					<div className="hero">
+						<h1 className="title">{headerTitle}</h1>
+						<h2 className="subtitle">{headerSubtitle}</h2>
+					</div>
 				</div>
 			</div>
 		</header>

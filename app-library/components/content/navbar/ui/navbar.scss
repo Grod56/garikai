@@ -9,6 +9,7 @@ $-navbar-padding: 0.7em;
 	@include effects.blur;
 	@include effects.sticky(10);
 
+	height: 100%;
 	padding: $-navbar-padding;
 	background: var(--secondary-a-color-1);
 
@@ -22,6 +23,14 @@ $-navbar-padding: 0.7em;
 		font-size: 0.88rem;
 		column-gap: 1.5em;
 		row-gap: 0.5em;
+
+		.navlink {
+			a {
+				text-transform: uppercase;
+				text-decoration: none;
+				color: var(--primary-color-1);
+			}
+		}
 	}
 }
 

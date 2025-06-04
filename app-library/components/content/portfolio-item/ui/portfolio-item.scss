@@ -4,22 +4,24 @@
 @use "../../../../styles/utilities/objects";
 
 .portfolio-item {
-	.title {
-		@include image-card-details-text.title(false);
-	}
-	.description {
-		@include image-card-details-text.body(false);
-	}
-	.category-container {
-		@include image-card-details-text.footnote;
-		.category {
-			font-style: italic;
-		}
-
-		margin-top: auto;
-		color: var(--primary-color-1);
-	}
 	@include container.wrapper;
+	& {
+		.title {
+			@include image-card-details-text.title(false);
+		}
+		.description {
+			@include image-card-details-text.body(false);
+		}
+		.category-container {
+			@include image-card-details-text.footnote;
+			.category {
+				font-style: italic;
+			}
+
+			margin-top: auto;
+			color: var(--primary-color-1);
+		}
+	}
 }
 
 @media (min-width: layout.get-widescreen-bp()) {

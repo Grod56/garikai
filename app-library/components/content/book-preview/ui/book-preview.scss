@@ -4,15 +4,17 @@
 @use "../../../../styles/utilities/layout";
 
 .book-preview {
-	.title {
-		@include image-card-details-text.title(false);
-	}
-	.author {
-		@include image-card-details-text.footnote;
-
-		color: var(--primary-color-1);
-	}
 	@include container.wrapper;
+	& {
+		.title {
+			@include image-card-details-text.title(false);
+		}
+		.author {
+			@include image-card-details-text.footnote;
+
+			color: var(--primary-color-1);
+		}
+	}
 }
 
 @media (min-width: layout.get-widescreen-bp()) {

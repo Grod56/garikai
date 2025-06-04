@@ -2,8 +2,11 @@
 @use "../../../../styles/utilities/flexible-container";
 
 .main {
-	@include flexible-container.vertical;
+	@include container.wrapper;
+	& {
+		@include flexible-container.vertical;
 
-	max-width: 100%;
-	overflow-x: hidden;
+		max-width: 100%;
+		overflow-x: hidden;
+	}
 }

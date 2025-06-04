@@ -13,7 +13,7 @@ const Footer = function ({ model }) {
 
 	return (
 		<footer className={ELEMENT_NAME} id={id} data-testid={ELEMENT_NAME}>
-			<div className="footer-container">
+			<div className="footer-content">
 				<hr />
 				<span className="copyright">{copyright}</span>
 				<div className="socials">

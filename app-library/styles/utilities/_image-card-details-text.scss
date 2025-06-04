@@ -1,7 +1,7 @@
 @use "./text";
 @use "./flexible-container";
 
-@mixin card-details {
+@mixin content {
 	@include flexible-container.vertical(0.5em);
 
 	width: 100%;

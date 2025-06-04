@@ -25,7 +25,7 @@ const ImageCard = function ({ model, children }) {
 				})}
 			/>
 			<div className="card-details">
-				<div className="card-details-container">{children}</div>
+				<div className="card-details-content">{children}</div>
 			</div>
 		</div>
 	);

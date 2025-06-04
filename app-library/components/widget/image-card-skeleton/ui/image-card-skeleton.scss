@@ -4,13 +4,15 @@
 @use "../../../../styles/utilities/image-card";
 
 .image-card-skeleton {
-	gap: 0.25em;
-
-	[data-customname="card-thumbnail"],
-	.card-details {
-		@include animations.skeleton;
-	}
 	@include container.wrapper;
+	& {
+		gap: 0.25em;
+
+		[data-customname="card-thumbnail"],
+		.card-details {
+			@include animations.skeleton;
+		}
+	}
 }
 
 .image-card-skeleton[data-orientation="horizontal"] {

@@ -18,7 +18,6 @@ import {
 	ConditionalComponent,
 	ModeledVoidComponent,
 } from "@mvc-react/components";
-import "./social-link.scss";
 
 export const ELEMENT_NAME = "social-link";
 

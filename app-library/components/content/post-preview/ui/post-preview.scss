@@ -4,35 +4,37 @@
 @use "../../../../styles/utilities/container";
 
 .post-preview {
-	.title {
-		@include image-card-details-text.title(false);
-
-		font-family: serif;
-		font-weight: 400;
-		font-size: 1.06rem;
-	}
-	.byline {
-		@include image-card-details-text.footnote;
-
-		color: var(--primary-color-1);
-	}
-
-	// Too lazy to separate out .featured-post-preview atm
-	.image-card:is(
-			[data-orientation="flexible"],
-			[data-orientation="horizontal"]
-		) {
+	@include container.wrapper;
+	& {
 		.title {
 			@include image-card-details-text.title(false);
-		}
-		.snippet {
-			@include image-card-details-text.body(false);
+
+			font-family: serif;
+			font-weight: 400;
+			font-size: 1.06rem;
 		}
 		.byline {
 			@include image-card-details-text.footnote;
+
+			color: var(--primary-color-1);
+		}
+
+		// Will do to select Featured Post for now
+		.image-card:is(
+				[data-orientation="flexible"],
+				[data-orientation="horizontal"]
+			) {
+			.title {
+				@include image-card-details-text.title(false);
+			}
+			.snippet {
+				@include image-card-details-text.body(false);
+			}
+			.byline {
+				@include image-card-details-text.footnote;
+			}
 		}
 	}
-	@include container.wrapper;
 }
 
 @media (min-width: layout.get-widescreen-bp()) {

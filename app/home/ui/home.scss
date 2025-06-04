@@ -72,6 +72,9 @@
 		.background-layer {
 			background-size: 21vw;
 		}
+		.content-layer {
+			max-width: 86%;
+		}
 	}
 	.site-section[data-sectionname="portfolio"] {
 		.background-layer {
@@ -94,6 +97,16 @@
 	.site-section[data-sectionname="reading-list"] {
 		.background-layer {
 			background-size: 55%;
+		}
+	}
+}
+
+@media (min-width: layout.get-large-screen-bp()) {
+	.site-section,
+	.site-section[data-sectionname="bio"] {
+		.content-layer {
+			text-align: justify;
+			max-width: 76%;
 		}
 	}
 }

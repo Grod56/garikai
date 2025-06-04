@@ -3,11 +3,13 @@
 @use "../../../../styles/utilities/animations";
 
 .linked-component {
-	transition: 0.2s;
-	cursor: pointer;
-
-	&:is(:hover, :focus) {
-		@include animations.pop-out;
-	}
 	@include container.wrapper;
+	& {
+		transition: 0.2s;
+		cursor: pointer;
+
+		&:is(:hover, :focus) {
+			@include animations.pop-out;
+		}
+	}
 }

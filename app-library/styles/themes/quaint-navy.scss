@@ -13,6 +13,10 @@
 @include animations.configure(theme.$secondary-color-1);
 @include theme.theme;
 
+* {
+	--link-highlight-color: var(--accent-color-1);
+}
+
 body {
 	font-family: sans-serif;
 
@@ -24,7 +28,7 @@ body {
 		text-decoration-thickness: 1px;
 
 		&:hover {
-			color: var(--accent-color-1);
+			color: var(--link-highlight-color) !important;
 		}
 	}
 

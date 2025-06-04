@@ -1,29 +1,31 @@
 @use "../../../../styles/utilities/container";
 
 .carousel {
-	// Most of this came from Embla Carousel's examples so ...
-	.embla {
-		overflow: visible;
-		max-width: 100%;
-		margin-left: -2em;
-
-		/* stylelint-disable-next-line selector-class-pattern */
-		.embla__container {
-			$-slide-spacing: 1rem;
-			$-slide-size: 40%;
-
-			display: flex;
-			touch-action: pan-y pinch-zoom;
-			margin-left: calc($-slide-spacing * -1);
+	@include container.wrapper;
+	& {
+		// Most of this came from Embla Carousel's examples so ...
+		.embla {
+			overflow: visible;
+			max-width: 100%;
+			margin-left: -2em;
 
 			/* stylelint-disable-next-line selector-class-pattern */
-			.embla__slide {
-				transform: translate3d(0, 0, 0);
-				flex: 0 0 $-slide-size;
-				min-width: max(100%, max-content);
-				padding-left: $-slide-spacing;
+			.embla__container {
+				$-slide-spacing: 1rem;
+				$-slide-size: 40%;
+
+				display: flex;
+				touch-action: pan-y pinch-zoom;
+				margin-left: calc($-slide-spacing * -1);
+
+				/* stylelint-disable-next-line selector-class-pattern */
+				.embla__slide {
+					transform: translate3d(0, 0, 0);
+					flex: 0 0 $-slide-size;
+					min-width: max(100%, max-content);
+					padding-left: $-slide-spacing;
+				}
 			}
 		}
 	}
-	@include container.wrapper;
 }

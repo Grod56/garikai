@@ -1,26 +1,30 @@
 @use "../../../../styles/utilities/layout";
 @use "../../../../styles/utilities/flexible-container";
 @use "../../../../styles/utilities/content";
+@use "../../../../styles/utilities/container";
 
 .site-section {
-	.content-layer {
-		@include flexible-container.vertical(1em);
+	@include container.wrapper;
+	& {
+		.content-layer {
+			@include flexible-container.vertical(1em);
 
-		padding-block: 3em;
-		padding-inline: 1.5em;
+			padding-block: 3em;
+			padding-inline: 1.5em;
 
-		/* Yeah, have to be extra delicate with some of 
+			/* Yeah, have to be extra delicate with some of 
 		these class selectors for containers
 		*/
-		> .title {
-			font-family: sans-serif;
-			font-weight: 600;
-			font-size: 3.15rem;
+			> .title {
+				font-family: sans-serif;
+				font-weight: 600;
+				font-size: 3.15rem;
+			}
 		}
-	}
 
-	.background-layer::after {
-		@include content.x-rule(false);
+		.background-layer::after {
+			@include content.x-rule(false);
+		}
 	}
 }
 
@@ -37,15 +41,6 @@
 		}
 		.content-layer {
 			padding-inline: 3em;
-		}
-	}
-}
-
-@media (min-width: layout.get-large-screen-bp()) {
-	.site-section {
-		.content-layer {
-			text-align: justify;
-			max-width: 76%;
 		}
 	}
 }
