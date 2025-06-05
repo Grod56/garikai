@@ -8,6 +8,7 @@
 	& {
 		.title {
 			@include image-card-details-text.title(false);
+			@include text.limit-lines(2);
 
 			font-family: serif;
 			font-weight: 400;
@@ -26,9 +27,11 @@
 			) {
 			.title {
 				@include image-card-details-text.title(false);
+				@include text.limit-lines(2);
 			}
 			.snippet {
 				@include image-card-details-text.body(false);
+				@include text.limit-lines(7);
 			}
 			.byline {
 				@include image-card-details-text.footnote;
@@ -48,6 +51,7 @@
 			}
 			.snippet {
 				@include image-card-details-text.body(true);
+				@include text.limit-lines(5);
 			}
 		}
 	}

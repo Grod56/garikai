@@ -1,9 +1,9 @@
 @use "./objects";
 
-@mixin limit($--line-number: 2) {
+@mixin limit-lines($--value: 2) {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	-webkit-line-clamp: $--line-number;
+	-webkit-line-clamp: $--value;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: normal;

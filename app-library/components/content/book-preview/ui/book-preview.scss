@@ -8,6 +8,7 @@
 	& {
 		.title {
 			@include image-card-details-text.title(false);
+			@include text.limit-lines(none);
 		}
 		.author {
 			@include image-card-details-text.footnote;
@@ -21,7 +22,7 @@
 	.book-preview {
 		.title {
 			@include image-card-details-text.title(true);
-			@include text.limit(3);
+			@include text.limit-lines(4);
 
 			font-size: 1.19rem;
 		}

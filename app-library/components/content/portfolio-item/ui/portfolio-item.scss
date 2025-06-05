@@ -2,6 +2,7 @@
 @use "../../../../styles/utilities/container";
 @use "../../../../styles/utilities/image-card-details-text";
 @use "../../../../styles/utilities/objects";
+@use "../../../../styles/utilities/text";
 
 .portfolio-item {
 	@include container.wrapper;
@@ -11,6 +12,7 @@
 		}
 		.description {
 			@include image-card-details-text.body(false);
+			@include text.limit-lines(7);
 		}
 		.category-container {
 			@include image-card-details-text.footnote;
@@ -31,6 +33,7 @@
 		}
 		.description {
 			@include image-card-details-text.body(true);
+			@include text.limit-lines(5);
 		}
 	}
 }
