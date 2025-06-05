@@ -3,7 +3,7 @@
 @mixin limit($--line-number: 2) {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	line-clamp: $--line-number;
+	-webkit-line-clamp: $--line-number;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: normal;
