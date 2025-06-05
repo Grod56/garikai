@@ -2,6 +2,7 @@
 @use "../../../../styles/utilities/layout";
 @use "../../../../styles/utilities/objects";
 @use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/text";
 
 .post-preview {
 	@include container.wrapper;

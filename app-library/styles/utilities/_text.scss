@@ -1,6 +1,6 @@
 @use "./objects";
 
-@mixin limit-lines($--value: 2) {
+@mixin limit-lines($--value) {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: $--value;
