@@ -3,8 +3,14 @@ import {
 	PortfolioItemRecord,
 } from "@/app-library/content-apis/portfolio-item";
 import supabase from "@/app-library/third-party/apis/supabase";
+import { retrieveNeonRecords } from "./server-actions";
 
 // TODO: Un-DRY in the future
+export function newNeonPortfolioItemAPI(): PortfolioItemAPI {
+	return {
+		retrieveRecords: retrieveNeonRecords,
+	};
+}
 export function newSupabasePortfolioItemAPI(): PortfolioItemAPI {
 	return {
 		retrieveRecords: async () => {

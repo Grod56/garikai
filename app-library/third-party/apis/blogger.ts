@@ -26,5 +26,5 @@ function createBloggerClient(blogPostsEndpointURL: BlogPostsEndpointURL) {
 }
 
 export default createBloggerClient(
-	process.env.NEXT_PUBLIC_BLOGGER_POSTS_ENDPOINT_URL! as BlogPostsEndpointURL,
+	process.env.BLOGGER_POSTS_ENDPOINT_URL! as BlogPostsEndpointURL,
 );

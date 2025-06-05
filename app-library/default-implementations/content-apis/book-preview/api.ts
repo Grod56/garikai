@@ -2,7 +2,14 @@ import supabase from "@/app-library/third-party/apis/supabase";
 import {
 	BookPreviewAPI,
 	BookPreviewRecord,
-} from "../../content-apis/book-preview";
+} from "../../../content-apis/book-preview";
+import { retrieveNeonRecords } from "./server-actions";
+
+export function newNeonBookPreviewAPI(): BookPreviewAPI {
+	return {
+		retrieveRecords: retrieveNeonRecords,
+	};
+}
 
 export function newSupabaseBookPreviewAPI(): BookPreviewAPI {
 	return {

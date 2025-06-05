@@ -1,8 +1,15 @@
 import {
 	ArtImagePreviewAPI,
 	ArtImagePreviewRecord,
-} from "../../content-apis/art-image-preview";
+} from "../../../content-apis/art-image-preview";
 import supabase from "@/app-library/third-party/apis/supabase";
+import { retrieveNeonRecords } from "./server-actions";
+
+export function newNeonArtImagePreviewAPI(): ArtImagePreviewAPI {
+	return {
+		retrieveRecords: retrieveNeonRecords,
+	};
+}
 
 export function newSupabaseArtImagePreviewAPI(): ArtImagePreviewAPI {
 	return {

@@ -1,6 +1,6 @@
 import { waitFor } from "@testing-library/react";
 import supabase from "@/app-library/third-party/apis/supabase";
-import { newSupabaseArtImagePreviewAPI } from "../../art-image-preview";
+import { newSupabaseArtImagePreviewAPI } from "../../art-image-preview/api";
 import {
 	faultySupabaseSpySelectMockImplementation,
 	supabaseSpySelectMockImplementation,

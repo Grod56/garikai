@@ -4,7 +4,7 @@ import {
 	faultySupabaseSpySelectMockImplementation,
 	supabaseSpySelectMockImplementation,
 } from "./data";
-import { newSupabaseBookPreviewAPI } from "../../book-preview";
+import { newSupabaseBookPreviewAPI } from "../../book-preview/api";
 
 describe("newSupabaseBookPreviewPreviewAPI", () => {
 	describe("retrieveRecords", () => {

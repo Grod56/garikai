@@ -4,7 +4,7 @@ import {
 	faultyBloggerSpySelectMockImplementation,
 	bloggerSpySelectMockImplementation,
 } from "./data";
-import { newBloggerPostPreviewAPI } from "../../post-preview";
+import { newBloggerPostPreviewAPI } from "../../post-preview/api";
 describe("newBloggerPostPreviewPreviewAPI", () => {
 	describe("retrieveRecords", () => {
 		let bloggerSpy: jest.SpyInstance;

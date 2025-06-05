@@ -1,6 +1,6 @@
 import supabase from "@/app-library/third-party/apis/supabase";
 import { waitFor } from "@testing-library/react";
-import { newSupabasePortfolioItemAPI } from "../../portfolio-item";
+import { newSupabasePortfolioItemAPI } from "../../portfolio-item/api";
 import {
 	supabaseSpySelectMockImplementation,
 	faultySupabaseSpySelectMockImplementation,

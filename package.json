@@ -26,6 +26,7 @@
 		"@fortawesome/react-fontawesome": "^0.2.2",
 		"@mvc-react/components": "^1.0.3",
 		"@mvc-react/stateful": "^3.0.0",
+		"@neondatabase/serverless": "^1.0.0",
 		"@next/env": "^15.3.3",
 		"@supabase/supabase-js": "^2.49.8",
 		"autoprefixer": "10.4.20",
