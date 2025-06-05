@@ -1,5 +1,7 @@
 @use "../../../app-library/styles/utilities/layout";
 
+$-sun-background-size: 16%;
+
 .main[data-name="home"] {
 	background: linear-gradient(
 		120deg,
@@ -63,7 +65,6 @@
 
 .view-more {
 	font-size: 1.25rem;
-	margin-top: 1em;
 	align-self: self-end;
 }
 
@@ -91,13 +92,31 @@
 	}
 	.site-section[data-sectionname="blog"] {
 		.background-layer {
-			background-size: 50%;
+			background:
+				url("/resources/images/home/blog.svg"),
+				url("/resources/images/home/sun-top.svg");
+			background-position:
+				top left,
+				bottom right;
+			background-repeat: no-repeat, no-repeat;
+			background-size: 50%, $-sun-background-size;
 		}
 	}
 	.site-section[data-sectionname="reading-list"] {
 		.background-layer {
-			background-size: 55%;
+			background:
+				url("/resources/images/home/reading-list.svg"),
+				url("/resources/images/home/sun-bottom.svg");
+			background-position:
+				bottom right,
+				top right;
+			background-repeat: no-repeat, no-repeat;
+			background-size: 55%, $-sun-background-size;
 		}
+	}
+	.view-more {
+		margin-top: 1em;
+		align-self: self-start;
 	}
 }
 
@@ -110,5 +129,8 @@
 				text-align: justify;
 			}
 		}
+	}
+	.view-more {
+		align-self: self-end;
 	}
 }

@@ -26,7 +26,7 @@
 
 			.post-preview,
 			.image-card-skeleton {
-				@include objects.definitive-dimension(width, 14em);
+				min-width: max(13em, 100%);
 
 				[data-customname="card-thumbnail"] {
 					@include objects.definitive-dimension(height, 7em);
