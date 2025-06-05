@@ -3,6 +3,6 @@ import { ArtImagePreviewRecord } from "@/app-library/content-apis/art-image-prev
 import neon from "@/app-library/third-party/apis/neon";
 
 export const retrieveNeonRecords = async function () {
-	const records = await neon`SELECT * FROM "ArtImagePreview"`;
+	const records = await neon()`SELECT * FROM "ArtImagePreview"`;
 	return records as ArtImagePreviewRecord[];
 };
