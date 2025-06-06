@@ -1,8 +1,10 @@
+@use "./theme";
+
 @mixin x-rule($--is-widescreen: false) {
 	display: block;
 	width: 75%;
 	height: 1px;
-	background: var(--secondary-a-color-3);
+	background: rgba(theme.$secondary-color-1, 0.3);
 	content: "";
 	@if $--is-widescreen == true {
 		margin-inline: 0;

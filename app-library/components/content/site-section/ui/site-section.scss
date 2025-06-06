@@ -18,8 +18,7 @@
 			padding-inline: 1.5em;
 
 			/* Yeah, have to be extra delicate with some of 
-		these class selectors for containers
-		*/
+			these class selectors for containers */
 			> .title {
 				font-family: sans-serif;
 				font-weight: 600;
@@ -38,7 +37,7 @@
 			@include content.x-rule(true);
 		}
 		.content-layer {
-			padding-inline: 3.5em;
+			padding-inline: 3em;
 		}
 	}
 }

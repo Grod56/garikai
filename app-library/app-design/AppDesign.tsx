@@ -23,7 +23,7 @@ const navbarModel = newNavbarModel({
 	navlinkModelViews: [
 		{ link: "/home#top", linkText: "Home" },
 		{ link: "/home#bio", linkText: "Bio" },
-		{ link: "/home#portfolio", linkText: "Portfolio" },
+		{ link: "/home#portfolio", linkText: "Projects" },
 		{ link: "/home#art", linkText: "Art" },
 		{ link: "/home#blog", linkText: "Blog" },
 		{ link: "/home#reading-list", linkText: "Reading List" },

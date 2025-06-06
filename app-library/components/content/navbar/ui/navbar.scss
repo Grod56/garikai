@@ -2,33 +2,36 @@
 @use "../../../../styles/utilities/effects";
 @use "../../../../styles/utilities/objects";
 @use "../../../../styles/utilities/layout";
+@use "../../../../styles/utilities/container";
 
 $-navbar-padding: 0.7em;
 
 .navbar {
-	@include effects.blur;
-	@include effects.sticky(10);
+	@include container.wrapper;
+	& {
+		@include effects.blur;
+		@include effects.sticky(10);
 
-	height: 100%;
-	padding: $-navbar-padding;
-	background: var(--secondary-a-color-1);
+		padding: $-navbar-padding;
+		background: var(--secondary-a-color-1);
 
-	.navlinks {
-		@include objects.remove-insets;
-		@include flexible-container.horizontal;
-		@include flexible-container.center;
+		.navlinks {
+			@include objects.remove-insets;
+			@include flexible-container.horizontal;
+			@include flexible-container.center;
 
-		flex-wrap: wrap;
-		list-style-type: none;
-		font-size: 0.88rem;
-		column-gap: 1.5em;
-		row-gap: 0.5em;
+			flex-wrap: wrap;
+			list-style-type: none;
+			font-size: 0.88rem;
+			column-gap: 1.5em;
+			row-gap: 0.5em;
 
-		.navlink {
-			a {
-				text-transform: uppercase;
-				text-decoration: none;
-				color: var(--primary-color-1);
+			.navlink {
+				a {
+					text-transform: uppercase;
+					text-decoration: none;
+					color: var(--primary-color-1);
+				}
 			}
 		}
 	}

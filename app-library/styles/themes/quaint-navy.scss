@@ -19,6 +19,7 @@
 
 body {
 	font-family: sans-serif;
+	background-color: --primary-color-2; // TODO: Sticky artifact cover-up
 
 	a {
 		@include animations.text-color;

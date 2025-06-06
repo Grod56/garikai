@@ -27,12 +27,12 @@ export default function Home() {
 		<Main model={mainModel}>
 			<BioSection
 				model={newReadonlyModel({
-					sectionTitle: "Bio",
+					sectionTitle: "About Me",
 				})}
 			/>
 			<PortfolioSection
 				model={newReadonlyModel({
-					sectionTitle: "Portfolio",
+					sectionTitle: "Projects",
 					portfolioItemAPI,
 				})}
 			/>

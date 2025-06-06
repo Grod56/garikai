@@ -1,10 +1,11 @@
 @use "../../../app-library/styles/utilities/layout";
+@use "../../../app-library/styles/utilities/theme";
 
 $-sun-background-size: 16%;
 
 .main[data-name="home"] {
 	background: linear-gradient(
-		120deg,
+		to bottom,
 		var(--primary-color-2),
 		var(--primary-color-3)
 	);
@@ -12,8 +13,10 @@ $-sun-background-size: 16%;
 
 .site-section[data-sectionname="bio"] {
 	.background-layer {
-		background: url("/resources/images/home/bio.svg");
-		background-size: 30%;
+		background:
+			url("/resources/images/home/bio.svg"),
+			linear-gradient(to bottom, var(--primary-color-2), transparent);
+		background-size: 30%, cover;
 		background-repeat: no-repeat;
 		background-position: top right;
 	}
@@ -71,10 +74,11 @@ $-sun-background-size: 16%;
 @media (min-width: layout.get-widescreen-bp()) {
 	.site-section[data-sectionname="bio"] {
 		.background-layer {
-			background-size: 21vw;
+			background-size: 21vw, cover;
 		}
 		.content-layer {
-			max-width: 86%;
+			max-width: 65%;
+			margin-bottom: 3em;
 		}
 	}
 	.site-section[data-sectionname="portfolio"] {
@@ -115,19 +119,22 @@ $-sun-background-size: 16%;
 		}
 	}
 	.view-more {
-		margin-top: 1em;
 		align-self: self-start;
 	}
 }
 
 @media (min-width: layout.get-large-screen-bp()) {
-	.site-section,
-	.site-section[data-sectionname="bio"] {
+	.site-section {
 		.content-layer {
 			max-width: 76%;
-			> p {
+			p {
 				text-align: justify;
 			}
+		}
+	}
+	.site-section[data-sectionname="bio"] {
+		.content-layer {
+			max-width: 65%;
 		}
 	}
 	.view-more {

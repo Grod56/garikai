@@ -24,6 +24,8 @@
 	.portfolio-items-container {
 		@include grid-container.grid(3, "horizontal", true, true);
 
+		margin-left: -0.5em;
+
 		.portfolio-item,
 		.image-card-skeleton {
 			@include objects.definitive-dimension(height, 100%);
