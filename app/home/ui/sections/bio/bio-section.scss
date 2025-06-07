@@ -12,9 +12,8 @@
 	.site-section[data-sectionname="bio"] {
 		.content-layer {
 			background-color: rgba(#e99767, 0.2); // TODO: To be fixed
-			border: 1px solid var(--accent-color-1);
-			border-left-style: none;
-			border-top-style: none;
+			border: 1px none var(--accent-color-1);
+			border-right-style: solid;
 		}
 	}
 }

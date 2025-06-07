@@ -2,12 +2,13 @@ import { Explora } from "next/font/google";
 import { Metadata } from "next/types";
 import AppDesign from "@/app-library/app-design/AppDesign";
 
-// Initial configuration ---------------------------------------------------
+// Configuration ---------------------------------------------------
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://garikai.org"),
 	title: {
-		template: process.env.TITLE_TEMPLATE!,
-		default: process.env.DEFAULT_TITLE!,
+		template: "%s | Garikai Gumbo",
+		default: "Garikai Gumbo",
 	},
 };
 const exploraFont = Explora({ weight: "400", subsets: ["latin"] });
