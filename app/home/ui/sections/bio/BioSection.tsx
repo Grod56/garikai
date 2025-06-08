@@ -26,15 +26,15 @@ const BioSection = function ({ model }) {
 					&quot;summary&quot; of myself.
 				</p>
 				<p>
-					My name is Garikai Gumbo. I&apos;m an engineer by training,
-					and a software programmer by night—to put it most
-					appropriately. My interests include pencil drawing, cursive
-					calligraphy, classical literature, symbolism, Orthodox
-					iconography, patristics, and a whole bunch of other things
-					which I will be documenting here. You may check out what
-					I&apos;m thinking about or currently studying in detail from
-					my <a href="#reading-list">reading list</a>. If I stumble
-					upon something particularly interesting, insightful, or
+					My name is Garikai. I&apos;m an engineer by training, and a
+					software programmer by night—to put it most appropriately.
+					My interests include pencil drawing, cursive calligraphy,
+					classical literature, symbolism, Orthodox iconography,
+					patristics, and a whole bunch of other things which I will
+					be documenting here. You may check out what I&apos;m
+					thinking about or currently studying in detail from my{" "}
+					<a href="#reading-list">reading list</a>. If I stumble upon
+					something particularly interesting, insightful, or
 					compelling, I&apos;ll probably jot something down on it on
 					my <a href="#blog">blog</a> (a work in progress currently).
 					<br />

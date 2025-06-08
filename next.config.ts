@@ -14,11 +14,6 @@ const nextConfig: NextConfig = {
 	sassOptions: {
 		implementation: "sass-embedded",
 	},
-	// webpack: config => {
-	// 	config.resolve.alias["@utilities"] = "/app-library/utilities";
-	// 	config.resolve.alias["@components"] = "/app-library/components";
-	// 	return config;
-	// },
 	images: {
 		remotePatterns: [
 			{
