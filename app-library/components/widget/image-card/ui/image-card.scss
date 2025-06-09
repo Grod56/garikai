@@ -1,12 +1,10 @@
 @use "../../../../styles/utilities/layout";
-@use "../../../../styles/utilities/effects";
 @use "../../../../styles/utilities/image-card";
 @use "../../../../styles/utilities/image-card-details-text";
 
 .image-card {
 	background-color: var(--secondary-a-color-2);
 	color: var(--primary-color-4);
-	@include effects.blur;
 
 	.card-details {
 		display: contents; // Magic!

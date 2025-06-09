@@ -1,15 +1,14 @@
 @use "../../../../styles/utilities/flexible-container";
-@use "../../../../styles/utilities/effects";
 @use "../../../../styles/utilities/objects";
 @use "../../../../styles/utilities/layout";
 @use "../../../../styles/utilities/container";
+@use "../../../../styles/utilities/effects";
 
 $-navbar-padding: 0.7em;
 
 .navbar {
 	@include container.wrapper;
 	& {
-		@include effects.blur;
 		@include effects.sticky(10);
 
 		padding: $-navbar-padding;
