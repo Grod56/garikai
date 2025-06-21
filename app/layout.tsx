@@ -10,6 +10,9 @@ export const metadata: Metadata = {
 		template: "%s | Garikai Gumbo",
 		default: "Garikai Gumbo",
 	},
+	openGraph: {
+		title: "Garikai Gumbo",
+	},
 };
 const exploraFont = Explora({ weight: "400", subsets: ["latin"] });
 
