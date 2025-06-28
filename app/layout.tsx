@@ -12,7 +12,14 @@ export const metadata: Metadata = {
 	},
 	openGraph: {
 		title: "Garikai Gumbo",
+		siteName: "Garikai Gumbo",
 	},
+};
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "Garikai Gumbo",
+	url: "https://garikai.org/",
 };
 const exploraFont = Explora({ weight: "400", subsets: ["latin"] });
 
@@ -29,6 +36,12 @@ export default function RootLayout({
 				<meta
 					name="google-site-verification"
 					content="UY7Ym8IOpWKyjiL3REW9YXXS-T6g637HgcAx2tYYyDQ"
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(jsonLd),
+					}}
 				/>
 			</head>
 			<body suppressHydrationWarning>
